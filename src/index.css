@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 36 30% 92%;
+    --foreground: 24 18% 18%;
+
+    --card: 36 30% 92%;
+    --card-foreground: 24 18% 18%;
+
+    --popover: 36 30% 92%;
+    --popover-foreground: 24 18% 18%;
+
+    --primary: 30 25% 33%;
+    --primary-foreground: 36 30% 95%;
+
+    --secondary: 34 25% 85%;
+    --secondary-foreground: 22 30% 22%;
+
+    --muted: 34 20% 85%;
+    --muted-foreground: 30 15% 45%;
+
+    --accent: 43 52% 54%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 4 66% 46%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 34 18% 80%;
+    --input: 34 18% 80%;
+    --ring: 30 25% 33%;
+
+    --radius: 0.875rem;
+
+    /* Custom tokens */
+    --marrom-dark: 22 30% 22%;
+    --verde: 134 36% 36%;
+    --verde-hover: 134 36% 28%;
+    --dourado: 43 52% 54%;
+    --dourado-hover: 43 52% 46%;
+    --bege: 36 30% 92%;
+    --bege2: 34 25% 85%;
+    --vermelho: 4 66% 46%;
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'DM Sans', system-ui, sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'DM Sans', system-ui, sans-serif;
+  }
+}
