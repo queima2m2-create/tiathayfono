@@ -17,11 +17,13 @@ const VturbPlayer = () => {
   return (
     <section className="bg-background py-8 md:py-12 px-4">
       <div className="max-w-[800px] mx-auto">
-        {/* @ts-ignore – custom Vturb web component */}
-        <vturb-smartplayer
-          id="vid-6898af1550270c783e275378"
-          style={{ display: "block", margin: "0 auto", width: "100%" }}
-        />
+        <div className="rounded-2xl overflow-hidden">
+          {/* @ts-ignore – custom Vturb web component */}
+          <vturb-smartplayer
+            id="vid-6898af1550270c783e275378"
+            style={{ display: "block", margin: "0 auto", width: "100%" }}
+          />
+        </div>
 
         <div className="mt-6 text-center">
           <Button
