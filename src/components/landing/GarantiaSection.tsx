@@ -33,7 +33,7 @@ const GarantiaSection = () => (
       </div>
     </section>
 
-    <section className="bg-marrom-dark py-20 md:py-24 px-6">
+    <section className="bg-rosa py-20 md:py-24 px-6">
       <PricingBlock />
     </section>
   </>

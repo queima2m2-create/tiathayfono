@@ -12,7 +12,7 @@ const desires = [
 ];
 
 const ParaQuemSection = () => (
-  <section className="bg-marrom-dark py-20 md:py-28 px-6 text-center">
+  <section className="bg-rosa py-20 md:py-28 px-6 text-center">
     <div className="max-w-[750px] mx-auto">
       <h2 className="text-[1.6rem] md:text-[2.2rem] font-extrabold text-background mb-14 leading-[1.25]">
         O Guia Meu Filho Vai Falar é para quem…

@@ -35,7 +35,7 @@ const FinalCTA = () => (
       </div>
     </section>
 
-    <section className="bg-marrom-dark py-14 md:py-20 px-6">
+    <section className="bg-rosa py-14 md:py-20 px-6">
       <PricingBlock showUrgency={false} />
     </section>
   </>
