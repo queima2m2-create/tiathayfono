@@ -47,9 +47,10 @@ export default {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
-        verde: {
-          DEFAULT: "hsl(var(--verde))",
-          hover: "hsl(var(--verde-hover))",
+        rosa: {
+          DEFAULT: "hsl(var(--rosa))",
+          hover: "hsl(var(--rosa-hover))",
+          light: "hsl(var(--rosa-light))",
         },
         dourado: {
           DEFAULT: "hsl(var(--dourado))",
