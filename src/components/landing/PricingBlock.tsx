@@ -2,18 +2,20 @@ import { Button } from "@/components/ui/button";
 
 const CTA_LINK = "#";
 
+const getToday = () => {
+  const now = new Date();
+  const day = String(now.getDate()).padStart(2, "0");
+  const month = String(now.getMonth() + 1).padStart(2, "0");
+  return `${day}/${month}`;
+};
+
 const PricingBlock = ({ className = "", showUrgency = true }: { className?: string; showUrgency?: boolean }) => (
   <div className={`text-center max-w-[520px] mx-auto ${className}`}>
     <div className="bg-background text-marrom-dark rounded-2xl p-8 md:p-10">
       {showUrgency && (
-        <div className="space-y-2 mb-5">
-          <p className="text-[0.9rem] text-primary/70">
-            Material 100% digital e prático
-          </p>
-          <p className="text-[0.9rem] text-primary/70">
-            Acesso vitalício ao material
-          </p>
-        </div>
+        <span className="inline-block bg-vermelho text-background text-[0.85rem] font-bold px-6 py-2.5 rounded-lg mb-5">
+          ⏰ Condição válida somente até {getToday()}
+        </span>
       )}
 
       <p className="text-[1rem] mb-1 font-semibold">
