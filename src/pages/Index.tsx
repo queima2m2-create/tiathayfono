@@ -25,6 +25,7 @@ const Index = () => {
   return (
     <main>
       <HeroSection />
+      <VturbPlayer />
       <ProvaRapida />
       <DorSection />
       <ComoFunciona />
