@@ -52,6 +52,10 @@ export default {
           hover: "hsl(var(--rosa-hover))",
           light: "hsl(var(--rosa-light))",
         },
+        verde: {
+          DEFAULT: "hsl(var(--verde))",
+          hover: "hsl(var(--verde-hover))",
+        },
         dourado: {
           DEFAULT: "hsl(var(--dourado))",
           hover: "hsl(var(--dourado-hover))",
