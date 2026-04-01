@@ -27,7 +27,7 @@ const ComoFunciona = () => (
   <section className="bg-background pt-10 pb-10 md:pt-14 md:pb-14 px-4">
     <div className="max-w-[720px] mx-auto">
       <h2 className="text-[1.5rem] md:text-[2rem] font-extrabold text-marrom-dark mb-8 text-center leading-[1.25]">
-        Siga 3 passos para destravar a fala do seu filho brincando
+        3 passos para destravar a fala do seu filho de forma natural
       </h2>
 
       <div className="space-y-6">
