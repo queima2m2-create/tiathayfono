@@ -1,7 +1,7 @@
 import heroImg from "@/assets/hero-before-after.jpg";
 
 const HeroSection = () => (
-  <section className="bg-background pt-6 pb-4 md:pt-16 md:pb-12 px-6">
+  <section className="bg-gradient-to-b from-rosa-light to-background pt-6 pb-4 md:pt-16 md:pb-12 px-6">
     <div className="max-w-[1000px] mx-auto">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8 items-center">
         <div>
