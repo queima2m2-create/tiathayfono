@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 
-const CTA_LINK = "#";
+const CTA_LINK = "https://pay.kiwify.com.br/uXb5s35";
 
 const getToday = () => {
   const now = new Date();
