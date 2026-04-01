@@ -44,6 +44,7 @@ const RecapSection = () => (
           <div key={i} className="bg-background rounded-lg px-4 py-3 shadow-sm border border-border flex items-center gap-2.5">
             <span className="text-[1.1rem] shrink-0">{item.emoji}</span>
             <p className="text-[0.9rem] font-bold text-marrom-dark leading-[1.3] flex-1 text-left">{item.title}</p>
+            <span className="text-vermelho font-bold text-[0.85rem] line-through whitespace-nowrap shrink-0">{item.price}</span>
           </div>
         ))}
       </div>
