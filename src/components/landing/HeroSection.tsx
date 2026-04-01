@@ -6,7 +6,7 @@ const HeroSection = () => (
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8 items-center">
         <div>
           <h1 className="text-[1.45rem] md:text-[2.6rem] font-black leading-[1.1] text-marrom-dark mb-2 md:mb-3 uppercase tracking-tight">
-            SE O DIA A DIA DO SEU FILHO PARA DESTRAVAR A FALA DELE E VER ELE FORMAR AS PRIMEIRAS FRASES{" "}
+            USE O DIA A DIA DO SEU FILHO PARA DESTRAVAR A FALA DELE E VER ELE FORMAR AS PRIMEIRAS FRASES{" "}
             <span className="text-dourado">EM ATÉ 30 DIAS</span>.
           </h1>
 
