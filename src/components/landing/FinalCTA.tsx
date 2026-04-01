@@ -9,7 +9,7 @@ const FinalCTA = () => (
         <h2 className="text-[1.4rem] md:text-[1.9rem] font-extrabold text-vermelho mb-2 leading-[1.3]">
           Vai continuar vendo seu filho atrasado, sem saber o que fazer?
         </h2>
-        <h2 className="text-[1.4rem] md:text-[1.9rem] font-extrabold text-verde mb-6 leading-[1.3]">
+        <h2 className="text-[1.4rem] md:text-[1.9rem] font-extrabold text-rosa mb-6 leading-[1.3]">
           Ou vai ver ele formar as primeiras frases em 30 dias?
         </h2>
 
