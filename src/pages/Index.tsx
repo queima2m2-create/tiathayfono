@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import HeroSection from "@/components/landing/HeroSection";
 import ProvaRapida from "@/components/landing/ProvaRapida";
 import DorSection from "@/components/landing/DorSection";
@@ -13,25 +14,32 @@ import GarantiaSection from "@/components/landing/GarantiaSection";
 import FinalCTA from "@/components/landing/FinalCTA";
 import FAQSection from "@/components/landing/FAQSection";
 import Footer from "@/components/landing/Footer";
+import { fbEvents } from "@/lib/fbConversions";
 
-const Index = () => (
-  <main>
-    <HeroSection />
-    <ProvaRapida />
-    <DorSection />
-    <ComoFunciona />
-    <OQueRecebe />
-    <BonusSection />
-    <DepoimentosSection />
-    <ParaQuemSection />
-    <RecapSection />
-    <PrecoSection />
-    <FinalCTA />
-    <SobreSection />
-    <GarantiaSection />
-    <FAQSection />
-    <Footer />
-  </main>
-);
+const Index = () => {
+  useEffect(() => {
+    fbEvents.pageView();
+  }, []);
+
+  return (
+    <main>
+      <HeroSection />
+      <ProvaRapida />
+      <DorSection />
+      <ComoFunciona />
+      <OQueRecebe />
+      <BonusSection />
+      <DepoimentosSection />
+      <ParaQuemSection />
+      <RecapSection />
+      <PrecoSection />
+      <FinalCTA />
+      <SobreSection />
+      <GarantiaSection />
+      <FAQSection />
+      <Footer />
+    </main>
+  );
+};
 
 export default Index;
