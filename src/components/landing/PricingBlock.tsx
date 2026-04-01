@@ -19,7 +19,7 @@ const PricingBlock = ({ className = "", showUrgency = true }: { className?: stri
         12x de <strong className="text-[2.8rem] md:text-[3.2rem] font-black text-marrom-dark leading-none">R$ 6,86</strong>
       </p>
 
-      <div className="inline-block bg-marrom-dark text-background text-[1.3rem] font-black px-8 py-3 rounded-xl my-4">
+      <div className="inline-block bg-rosa text-background text-[1.3rem] font-black px-8 py-3 rounded-xl my-4">
         OU R$ 67 NO PIX
       </div>
 

@@ -47,7 +47,7 @@ const ComoFunciona = () => (
               />
             </div>
             <div className="p-5">
-              <span className="inline-block bg-marrom-dark text-background text-[0.7rem] font-bold px-3 py-1 rounded mb-2 tracking-wider">
+              <span className="inline-block bg-rosa text-background text-[0.7rem] font-bold px-3 py-1 rounded mb-2 tracking-wider">
                 {s.num}
               </span>
               <h3 className="text-[1.05rem] md:text-[1.2rem] font-extrabold text-marrom-dark leading-[1.35] mb-1.5">
