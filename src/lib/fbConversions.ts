@@ -8,6 +8,8 @@ interface FBEventData {
   custom_data?: Record<string, unknown>;
 }
 
+const MATCH_KEYS = ["fbp", "fbc", "em", "ph", "external_id", "client_ip_address"] as const;
+
 const getCookie = (name: string) => {
   if (typeof document === "undefined") return undefined;
 
@@ -17,6 +19,21 @@ const getCookie = (name: string) => {
     ?.split("=")
     .slice(1)
     .join("=");
+};
+
+const delay = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
+
+const waitForTrackingCookies = async (timeoutMs = 2500) => {
+  const start = Date.now();
+
+  while (Date.now() - start < timeoutMs) {
+    const fbp = getCookie("_fbp");
+    const fbc = getCookie("_fbc");
+
+    if (fbp || fbc) return;
+
+    await delay(250);
+  }
 };
 
 const getBrowserUserData = () => {
@@ -35,8 +52,27 @@ const getBrowserUserData = () => {
   return userData;
 };
 
+const hasSufficientUserData = (userData: Record<string, string>) => {
+  const hasMatchKey = MATCH_KEYS.some((key) => Boolean(userData[key]));
+  return Boolean(userData.client_user_agent) && hasMatchKey;
+};
+
 export async function sendFBConversionEvent(eventData: FBEventData) {
   try {
+    if (typeof window !== "undefined") {
+      await waitForTrackingCookies(eventData.event_name === "PageView" ? 2500 : 1000);
+    }
+
+    const mergedUserData = {
+      ...getBrowserUserData(),
+      ...(eventData.user_data ?? {}),
+    };
+
+    if (!hasSufficientUserData(mergedUserData)) {
+      console.info(`Skipping FB Conversion event \"${eventData.event_name}\": insufficient user data`);
+      return null;
+    }
+
     const { data, error } = await supabase.functions.invoke("fb-conversions", {
       body: {
         ...eventData,
@@ -44,10 +80,7 @@ export async function sendFBConversionEvent(eventData: FBEventData) {
           eventData.event_source_url ||
           (typeof window !== "undefined" ? window.location.href : undefined),
         event_time: Math.floor(Date.now() / 1000),
-        user_data: {
-          ...getBrowserUserData(),
-          ...(eventData.user_data ?? {}),
-        },
+        user_data: mergedUserData,
       },
     });
 
