@@ -17,20 +17,20 @@ const PricingBlock = ({ className = "", showUrgency = true }: { className?: stri
       )}
 
       <p className="text-[1rem] mb-1 font-semibold">
-        De: <span className="text-[1.3rem] font-bold text-vermelho line-through">R$ 125,90</span>
+        De: <span className="text-[1.3rem] font-bold text-vermelho line-through">R$ 699,90</span>
       </p>
 
       <p className="text-[1.1rem] mb-1">
-        12x de <strong className="text-[2.8rem] md:text-[3.2rem] font-black text-marrom-dark leading-none">R$ 4,52</strong>
+        12x de <strong className="text-[2.8rem] md:text-[3.2rem] font-black text-marrom-dark leading-none">R$ 6,86</strong>
       </p>
 
       <div className="inline-block bg-rosa text-background text-[1.3rem] font-black px-8 py-3 rounded-xl my-4">
-        OU R$ 47 À VISTA
+        OU R$ 67 NO PIX
       </div>
 
       <div className="mt-5">
         <Button variant="cta" size="lg" className="text-[0.8rem] md:text-[0.9rem] px-6 py-5 md:py-6 w-full leading-tight whitespace-normal h-auto" asChild>
-          <a href={CTA_LINK}>QUERO MINHA VAGA AGORA!</a>
+          <a href={CTA_LINK}>QUERO DESTRAVAR A FALA DO MEU FILHO EM 30 DIAS</a>
         </Button>
       </div>
 

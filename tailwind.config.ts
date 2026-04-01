@@ -52,6 +52,10 @@ export default {
           hover: "hsl(var(--rosa-hover))",
           light: "hsl(var(--rosa-light))",
         },
+        verde: {
+          DEFAULT: "hsl(var(--verde))",
+          hover: "hsl(var(--verde-hover))",
+        },
         dourado: {
           DEFAULT: "hsl(var(--dourado))",
           hover: "hsl(var(--dourado-hover))",
@@ -91,8 +95,8 @@ export default {
           to: { height: "0" },
         },
         "pulse-glow": {
-          "0%, 100%": { boxShadow: "0 0 0 0 hsl(var(--rosa) / 0.4)" },
-          "50%": { boxShadow: "0 0 0 12px hsl(var(--rosa) / 0)" },
+          "0%, 100%": { boxShadow: "0 0 0 0 hsl(var(--verde) / 0.4)" },
+          "50%": { boxShadow: "0 0 0 12px hsl(var(--verde) / 0)" },
         },
       },
       animation: {
