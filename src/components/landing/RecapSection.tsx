@@ -1,14 +1,14 @@
 import produtoMockup from "@/assets/produto-mockup.jpg";
 
 const guideItems = [
-  { emoji: "🧠", title: "Entenda como a fala funciona" },
-  { emoji: "📊", title: "Marcos do desenvolvimento comunicativo" },
-  { emoji: "⚠️", title: "Identificar sinais de alerta" },
-  { emoji: "💬", title: "Palavras funcionais para estimular a fala" },
-  { emoji: "🎮", title: "Atividades pra usar na rotina diária" },
-  { emoji: "📱", title: "Uso de telas e fala" },
-  { emoji: "📋", title: "Roteiro de estímulo prático" },
-  { emoji: "📲", title: "Suporte com a Fono no WhatsApp" },
+  { emoji: "🧠", price: "R$ 47,00", title: "Entenda como a fala funciona" },
+  { emoji: "📊", price: "R$ 47,00", title: "Marcos do desenvolvimento comunicativo" },
+  { emoji: "⚠️", price: "R$ 47,00", title: "Identificar sinais de alerta" },
+  { emoji: "💬", price: "R$ 47,00", title: "Palavras funcionais para estimular a fala" },
+  { emoji: "🎮", price: "R$ 47,00", title: "Atividades pra usar na rotina diária" },
+  { emoji: "📱", price: "R$ 47,00", title: "Uso de telas e fala" },
+  { emoji: "📋", price: "R$ 47,00", title: "Roteiro de estímulo prático" },
+  { emoji: "📲", price: "R$ 97,00", title: "Suporte com a Fono no WhatsApp" },
 ];
 
 const bonusItems = [
