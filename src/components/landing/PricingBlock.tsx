@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import { fbEvents } from "@/lib/fbConversions";
 
 const CTA_LINK = "https://pay.kiwify.com.br/uXb5s35";
 
