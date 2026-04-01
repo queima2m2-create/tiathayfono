@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import HeroSection from "@/components/landing/HeroSection";
+import VturbPlayer from "@/components/landing/VturbPlayer";
 import ProvaRapida from "@/components/landing/ProvaRapida";
 import DorSection from "@/components/landing/DorSection";
 import ComoFunciona from "@/components/landing/ComoFunciona";
