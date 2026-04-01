@@ -21,6 +21,7 @@ const VturbPlayer = () => {
           {/* @ts-ignore – custom Vturb web component */}
           <vturb-smartplayer
             id="vid-6898af1550270c783e275378"
+            data-autoplay="true"
             style={{ display: "block", margin: "0 auto", width: "100%" }}
           />
         </div>
