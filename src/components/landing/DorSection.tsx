@@ -1,44 +1,30 @@
 import maeFilho from "@/assets/mae-filho-preocupada.jpg";
 
-const bubbles = [
-  { text: "Eu já tentei de tudo", className: "top-[3%] left-[2%]" },
-  { text: "Será que meu filho é autista?", className: "top-[1%] right-[2%]" },
-  { text: "Todos os coleguinhas já falam", className: "top-[38%] left-[-4%]" },
-  { text: "Ele nunca vai falar?", className: "bottom-[18%] right-[-2%]" },
-  { text: "Estou atrasando o desenvolvimento dele?", className: "bottom-[2%] left-1/2 -translate-x-1/2" },
+const painPoints = [
+  { emoji: "😟", text: "Seu filho está demorando para falar ou falando menos que outras crianças da idade" },
+  { emoji: "😭", text: "Ele aponta, grita ou chora, mas não consegue se expressar com palavras?" },
+  { emoji: "😓", text: "Você não tem tempo ou habilidade para brincadeiras específicas de fala" },
+  { emoji: "🤯", text: "Já procurou dicas na internet, mas ficou ainda mais confusa?" },
 ];
 
 const DorSection = () => (
   <section className="bg-rosa pt-12 pb-12 md:pt-16 md:pb-16 px-6 text-center">
     <div className="max-w-[900px] mx-auto">
       <h2 className="text-[1.5rem] md:text-[1.9rem] font-extrabold text-background mb-3 leading-[1.3]">
-        Você pergunta o que ele quer… o que sente… mas tudo que vem é mais choro?
+        Você já sentiu que:
       </h2>
-      <p className="text-[1.05rem] text-background/70 max-w-[650px] mx-auto mb-8 leading-[1.8]">
-        Você tem medo de esperar demais e lá na frente perceber que era sério, e fica pensando:
-      </p>
 
-      <div className="relative max-w-[500px] mx-auto mb-8 px-4">
-        <img
-          src={maeFilho}
-          alt="Mãe preocupada segurando filho no colo"
-          className="rounded-2xl w-full shadow-lg"
-          loading="lazy"
-          width={1024}
-          height={1024}
-        />
-        {bubbles.map((b, i) => (
-          <span
-            key={i}
-            className={`absolute bg-white/95 text-marrom-dark text-[0.65rem] md:text-[0.8rem] font-bold px-3 py-2 rounded-2xl shadow-lg leading-snug max-w-[130px] md:max-w-[155px] text-center backdrop-blur-sm ${b.className}`}
-          >
-            {b.text}
-          </span>
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-[700px] mx-auto mb-10">
+        {painPoints.map((p, i) => (
+          <div key={i} className="bg-background/15 backdrop-blur-sm rounded-2xl px-5 py-5 text-left text-background flex items-start gap-3">
+            <span className="text-[1.4rem] shrink-0">{p.emoji}</span>
+            <p className="text-[0.95rem] font-semibold leading-[1.5]">{p.text}</p>
+          </div>
         ))}
       </div>
 
       <p className="text-[1.1rem] font-bold text-background max-w-[640px] mx-auto leading-[1.5]">
-        Seu filho não está falando porque você não seguiu os três passos abaixo:
+        Você não está sozinha. E a boa notícia é: dá pra começar a estimular a fala agora mesmo — com leveza e segurança.
       </p>
     </div>
   </section>
