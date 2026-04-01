@@ -7,11 +7,17 @@ const corsHeaders = {
 
 const FB_PIXEL_ID = "763712916051534";
 const FB_API_VERSION = "v18.0";
+const MATCH_KEYS = ["fbp", "fbc", "em", "ph", "external_id", "client_ip_address"] as const;
 
 const cleanObject = (value: Record<string, unknown>) =>
   Object.fromEntries(
     Object.entries(value).filter(([, item]) => item !== undefined && item !== null && item !== "")
   );
+
+const hasSufficientUserData = (userData: Record<string, unknown>) => {
+  const hasMatchKey = MATCH_KEYS.some((key) => Boolean(userData[key]));
+  return Boolean(userData.client_user_agent) && hasMatchKey;
+};
 
 serve(async (req) => {
   if (req.method === "OPTIONS") {
@@ -44,6 +50,21 @@ serve(async (req) => {
         req.headers.get("cf-connecting-ip"),
     });
 
+    if (!hasSufficientUserData(normalizedUserData)) {
+      return new Response(
+        JSON.stringify({
+          success: true,
+          skipped: true,
+          reason: "insufficient_user_data",
+          message: "Meta requires client_user_agent plus at least one strong matching identifier such as fbp, fbc, email, phone, external_id, or client_ip_address.",
+        }),
+        {
+          status: 200,
+          headers: { ...corsHeaders, "Content-Type": "application/json" },
+        }
+      );
+    }
+
     const payload = {
       data: [
         cleanObject({
@@ -70,6 +91,26 @@ serve(async (req) => {
     const data = await response.json();
 
     if (!response.ok) {
+      const isInsufficientUserData =
+        response.status === 400 &&
+        data?.error?.code === 100 &&
+        data?.error?.error_subcode === 2804050;
+
+      if (isInsufficientUserData) {
+        return new Response(
+          JSON.stringify({
+            success: true,
+            skipped: true,
+            reason: "insufficient_user_data",
+            meta: data,
+          }),
+          {
+            status: 200,
+            headers: { ...corsHeaders, "Content-Type": "application/json" },
+          }
+        );
+      }
+
       throw new Error(`Facebook API error [${response.status}]: ${JSON.stringify(data)}`);
     }
 
