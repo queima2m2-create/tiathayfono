@@ -1,53 +1,60 @@
-import raioX from "@/assets/raio-x-fala.jpg";
-import brincadeiras from "@/assets/brincadeiras-fala.jpg";
-import conversas from "@/assets/conversas-fala.jpg";
-import falaRotina from "@/assets/fala-rotina.jpg";
-import suporteWpp from "@/assets/suporte-whatsapp.jpg";
-import checklist from "@/assets/checklist-palavras.jpg";
-import cards from "@/assets/cards-interativos.jpg";
+import entregaFala from "@/assets/entrega-fala-funciona.jpg";
+import entregaMarcos from "@/assets/entrega-marcos.jpg";
+import entregaSinais from "@/assets/entrega-sinais-alerta.jpg";
+import entregaPalavras from "@/assets/entrega-palavras.jpg";
+import entregaAtividades from "@/assets/entrega-atividades.jpg";
+import entregaTelas from "@/assets/entrega-telas.jpg";
+import entregaRoteiro from "@/assets/entrega-roteiro.jpg";
+import entregaSuporteWpp from "@/assets/entrega-suporte-wpp.jpg";
 
 const mainItems = [
   {
     num: "01", title: "Entenda como a fala funciona",
     desc: "Saiba o que acontece por trás do desenvolvimento da comunicação do seu filho — de forma simples e acessível.",
     checks: ["Explicação clara e sem termos técnicos", "Base para entender todo o guia"],
-    img: raioX,
+    img: entregaFala,
   },
   {
     num: "02", title: "Marcos do desenvolvimento comunicativo",
     desc: "Conheça cada fase da fala e saiba exatamente o que esperar em cada idade.",
     checks: ["Saiba o que é esperado para a idade do seu filho", "Identifique avanços com clareza"],
-    img: brincadeiras,
+    img: entregaMarcos,
   },
   {
     num: "03", title: "Sinais de alerta de forma leve",
     desc: "Aprenda a identificar quando algo precisa de mais atenção — sem pânico e sem ansiedade.",
     checks: ["Orientação profissional acessível", "Saiba quando procurar ajuda"],
-    img: conversas,
+    img: entregaSinais,
   },
   {
     num: "04", title: "Palavras funcionais para estimular a fala",
     desc: "Descubra quais palavras usar no dia a dia para incentivar seu filho a se comunicar.",
     checks: ["Palavras que geram resultado real", "Fácil de aplicar na rotina"],
-    img: falaRotina,
+    img: entregaPalavras,
   },
   {
     num: "05", title: "Atividades pra usar na rotina diária",
     desc: "Tenha acesso a atividades práticas que estimulam a fala enquanto seu filho se diverte.",
     checks: ["Brincadeiras validadas por fonoaudióloga", "Encaixam em qualquer rotina"],
-    img: suporteWpp,
+    img: entregaAtividades,
   },
   {
     num: "06", title: "Uso de telas e fala",
     desc: "Entenda como o tempo de tela impacta o desenvolvimento da fala e o que fazer a respeito.",
     checks: ["Orientação baseada em evidências", "Dicas práticas para o dia a dia"],
-    img: checklist,
+    img: entregaTelas,
   },
   {
     num: "07", title: "Roteiro de estímulo prático",
     desc: "Ganhe um roteiro completo para aplicar no dia a dia e ver resultados reais.",
     checks: ["Passo a passo direto ao ponto", "Ideal para mães com rotina corrida"],
-    img: cards,
+    img: entregaRoteiro,
+  },
+  {
+    num: "08", title: "Suporte com a Fono no WhatsApp",
+    desc: "Sinta que não está sozinha — tire dúvidas direto com a Thaynara no WhatsApp.",
+    checks: ["Tire dúvidas direto com a Fonoaudióloga", "Você não precisa enfrentar isso sozinha"],
+    img: entregaSuporteWpp,
   },
 ];
 
