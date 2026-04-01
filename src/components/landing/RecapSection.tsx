@@ -8,6 +8,7 @@ const guideItems = [
   { emoji: "🎮", title: "Atividades pra usar na rotina diária" },
   { emoji: "📱", title: "Uso de telas e fala" },
   { emoji: "📋", title: "Roteiro de estímulo prático" },
+  { emoji: "📲", title: "Suporte com a Fono no WhatsApp" },
 ];
 
 const bonusItems = [
