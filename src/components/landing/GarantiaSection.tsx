@@ -2,7 +2,7 @@ import PricingBlock from "./PricingBlock";
 
 const GarantiaSection = () => (
   <>
-    <section className="bg-primary py-20 md:py-28 px-6">
+    <section className="bg-rosa py-20 md:py-28 px-6">
       <div className="max-w-[750px] mx-auto grid grid-cols-1 sm:grid-cols-[auto_1fr] gap-12 items-center text-background">
         <div className="w-[140px] h-[140px] rounded-full border-4 border-dourado flex flex-col items-center justify-center text-center mx-auto sm:mx-0 shrink-0">
           <span className="text-[2.6rem] font-black text-dourado leading-none">7</span>
@@ -33,7 +33,7 @@ const GarantiaSection = () => (
       </div>
     </section>
 
-    <section className="bg-marrom-dark py-20 md:py-24 px-6">
+    <section className="bg-rosa py-20 md:py-24 px-6">
       <PricingBlock />
     </section>
   </>

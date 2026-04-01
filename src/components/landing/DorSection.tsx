@@ -9,7 +9,7 @@ const bubbles = [
 ];
 
 const DorSection = () => (
-  <section className="bg-marrom-dark pt-12 pb-12 md:pt-16 md:pb-16 px-6 text-center">
+  <section className="bg-rosa pt-12 pb-12 md:pt-16 md:pb-16 px-6 text-center">
     <div className="max-w-[900px] mx-auto">
       <h2 className="text-[1.5rem] md:text-[1.9rem] font-extrabold text-background mb-3 leading-[1.3]">
         Você pergunta o que ele quer… o que sente… mas tudo que vem é mais choro?

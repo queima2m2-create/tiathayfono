@@ -47,9 +47,10 @@ export default {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
-        verde: {
-          DEFAULT: "hsl(var(--verde))",
-          hover: "hsl(var(--verde-hover))",
+        rosa: {
+          DEFAULT: "hsl(var(--rosa))",
+          hover: "hsl(var(--rosa-hover))",
+          light: "hsl(var(--rosa-light))",
         },
         dourado: {
           DEFAULT: "hsl(var(--dourado))",
@@ -90,8 +91,8 @@ export default {
           to: { height: "0" },
         },
         "pulse-glow": {
-          "0%, 100%": { boxShadow: "0 0 0 0 hsl(var(--verde) / 0.4)" },
-          "50%": { boxShadow: "0 0 0 12px hsl(var(--verde) / 0)" },
+          "0%, 100%": { boxShadow: "0 0 0 0 hsl(var(--rosa) / 0.4)" },
+          "50%": { boxShadow: "0 0 0 12px hsl(var(--rosa) / 0)" },
         },
       },
       animation: {

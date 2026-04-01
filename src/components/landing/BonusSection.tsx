@@ -38,7 +38,7 @@ const bonuses = [
 ];
 
 const BonusSection = () => (
-  <section className="bg-primary pb-20 md:pb-28 px-6">
+  <section className="bg-rosa pb-20 md:pb-28 px-6">
     <div className="max-w-[900px] mx-auto">
       <h2 className="text-[1.4rem] md:text-[1.8rem] font-extrabold text-center text-background mb-14 pt-6 leading-[1.3]">
         E para garantir que seu filho comece a falar de verdade, como{" "}

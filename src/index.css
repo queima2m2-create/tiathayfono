@@ -6,45 +6,48 @@
 
 @layer base {
   :root {
-    --background: 36 30% 92%;
-    --foreground: 24 18% 18%;
+    --background: 0 0% 100%;
+    --foreground: 340 10% 20%;
 
-    --card: 36 30% 92%;
-    --card-foreground: 24 18% 18%;
+    --card: 0 0% 100%;
+    --card-foreground: 340 10% 20%;
 
-    --popover: 36 30% 92%;
-    --popover-foreground: 24 18% 18%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 340 10% 20%;
 
-    --primary: 30 25% 33%;
-    --primary-foreground: 36 30% 95%;
+    --primary: 340 10% 25%;
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 34 25% 85%;
-    --secondary-foreground: 22 30% 22%;
+    --secondary: 340 60% 95%;
+    --secondary-foreground: 340 10% 20%;
 
-    --muted: 34 20% 85%;
-    --muted-foreground: 30 15% 45%;
+    --muted: 340 30% 94%;
+    --muted-foreground: 340 10% 45%;
 
-    --accent: 43 52% 54%;
+    --accent: 40 45% 55%;
     --accent-foreground: 0 0% 100%;
 
-    --destructive: 4 66% 46%;
+    --destructive: 0 72% 51%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 34 18% 80%;
-    --input: 34 18% 80%;
-    --ring: 30 25% 33%;
+    --border: 340 20% 88%;
+    --input: 340 20% 88%;
+    --ring: 340 60% 60%;
 
     --radius: 0.875rem;
 
     /* Custom tokens */
-    --marrom-dark: 22 30% 22%;
-    --verde: 134 36% 36%;
-    --verde-hover: 134 36% 28%;
-    --dourado: 43 52% 54%;
-    --dourado-hover: 43 52% 46%;
-    --bege: 36 30% 92%;
-    --bege2: 34 25% 85%;
-    --vermelho: 4 66% 46%;
+    --marrom-dark: 340 10% 20%;
+    --rosa: 340 75% 60%;
+    --rosa-hover: 340 75% 50%;
+    --rosa-light: 340 80% 88%;
+    --rosa-gradient-start: 340 80% 65%;
+    --rosa-gradient-end: 340 60% 82%;
+    --dourado: 40 45% 55%;
+    --dourado-hover: 40 45% 47%;
+    --bege: 0 0% 100%;
+    --bege2: 340 60% 95%;
+    --vermelho: 0 72% 51%;
 
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 240 5.3% 26.1%;
