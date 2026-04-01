@@ -5,19 +5,19 @@ import passo3 from "@/assets/passo3-falar-balao.jpg";
 const steps = [
   {
     num: "PASSO 01",
-    title: "Use o Raio-X da Fala para entender o que está atrasando a comunicação do seu filho.",
-    subtitle: "Você vai enxergar qual habilidade ele não tem e que precisa ser estimulada. Mesmo que você não entenda nada.",
+    title: "Descubra em que fase da fala seu filho está e o que ele precisa agora.",
+    subtitle: "Você vai entender exatamente qual habilidade estimular primeiro — mesmo sem ter nenhum conhecimento técnico.",
     img: passo1,
   },
   {
     num: "PASSO 02",
-    title: "Use a Lista das Brincadeiras que Destravam a Fala e escolha a brincadeira certa para a dificuldade do seu filho.",
-    subtitle: "Você não vai mais precisar adivinhar o que fazer, é só escolher e aplicar com confiança.",
+    title: "Escolha a brincadeira certa para a necessidade do seu filho e aplique com confiança.",
+    subtitle: "Sem precisar adivinhar ou pesquisar por horas — é só seguir o passo a passo e brincar.",
     img: passo2,
   },
   {
     num: "PASSO 03",
-    title: "Brinque com seu filho por 15 minutos ao dia e veja ele formar as primeiras palavras em 30 dias.",
+    title: "Brinque 15 minutos por dia e veja ele formar as primeiras palavras em até 30 dias.",
     subtitle: "Mesmo com rotina corrida, dá para encaixar de forma leve, sem cobrança nem estresse.",
     img: passo3,
   },
