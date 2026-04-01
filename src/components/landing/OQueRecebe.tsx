@@ -1,30 +1,90 @@
-const guideItems = [
-  { emoji: "🧠", title: "Entenda como a fala funciona" },
-  { emoji: "📊", title: "Conheça os principais marcos do desenvolvimento comunicativo" },
-  { emoji: "⚠️", title: "Aprenda a identificar sinais de alerta de forma leve" },
-  { emoji: "💬", title: "Descubra palavras funcionais para estimular a fala" },
-  { emoji: "🎮", title: "Tenha acesso a atividades pra usar na rotina diária" },
-  { emoji: "📱", title: "Entenda sobre uso de telas e fala" },
-  { emoji: "📋", title: "Ganhe um roteiro de estímulo prático para aplicar no dia a dia" },
+import raioX from "@/assets/raio-x-fala.jpg";
+import brincadeiras from "@/assets/brincadeiras-fala.jpg";
+import conversas from "@/assets/conversas-fala.jpg";
+import falaRotina from "@/assets/fala-rotina.jpg";
+import suporteWpp from "@/assets/suporte-whatsapp.jpg";
+import checklist from "@/assets/checklist-palavras.jpg";
+import cards from "@/assets/cards-interativos.jpg";
+
+const mainItems = [
+  {
+    num: "01", title: "Entenda como a fala funciona",
+    desc: "Saiba o que acontece por trás do desenvolvimento da comunicação do seu filho — de forma simples e acessível.",
+    checks: ["Explicação clara e sem termos técnicos", "Base para entender todo o guia"],
+    img: raioX,
+  },
+  {
+    num: "02", title: "Marcos do desenvolvimento comunicativo",
+    desc: "Conheça cada fase da fala e saiba exatamente o que esperar em cada idade.",
+    checks: ["Saiba o que é esperado para a idade do seu filho", "Identifique avanços com clareza"],
+    img: brincadeiras,
+  },
+  {
+    num: "03", title: "Sinais de alerta de forma leve",
+    desc: "Aprenda a identificar quando algo precisa de mais atenção — sem pânico e sem ansiedade.",
+    checks: ["Orientação profissional acessível", "Saiba quando procurar ajuda"],
+    img: conversas,
+  },
+  {
+    num: "04", title: "Palavras funcionais para estimular a fala",
+    desc: "Descubra quais palavras usar no dia a dia para incentivar seu filho a se comunicar.",
+    checks: ["Palavras que geram resultado real", "Fácil de aplicar na rotina"],
+    img: falaRotina,
+  },
+  {
+    num: "05", title: "Atividades pra usar na rotina diária",
+    desc: "Tenha acesso a atividades práticas que estimulam a fala enquanto seu filho se diverte.",
+    checks: ["Brincadeiras validadas por fonoaudióloga", "Encaixam em qualquer rotina"],
+    img: suporteWpp,
+  },
+  {
+    num: "06", title: "Uso de telas e fala",
+    desc: "Entenda como o tempo de tela impacta o desenvolvimento da fala e o que fazer a respeito.",
+    checks: ["Orientação baseada em evidências", "Dicas práticas para o dia a dia"],
+    img: checklist,
+  },
+  {
+    num: "07", title: "Roteiro de estímulo prático",
+    desc: "Ganhe um roteiro completo para aplicar no dia a dia e ver resultados reais.",
+    checks: ["Passo a passo direto ao ponto", "Ideal para mães com rotina corrida"],
+    img: cards,
+  },
 ];
 
 const OQueRecebe = () => (
   <section className="bg-rosa py-20 md:py-28 px-6">
-    <div className="max-w-[750px] mx-auto">
-      <h2 className="text-[1.6rem] md:text-[2.2rem] font-extrabold text-center text-background mb-14 leading-[1.25]">
-        O que você vai encontrar no guia?
+    <div className="max-w-[900px] mx-auto">
+      <h2 className="text-[1.6rem] md:text-[2.2rem] font-extrabold text-center text-background mb-16 leading-[1.25]">
+        Veja tudo que você vai receber para ver seu filho começar a falar em 30 dias.
       </h2>
 
-      <div className="space-y-4">
-        {guideItems.map((item, i) => (
-          <div
-            key={i}
-            className="bg-background/15 backdrop-blur-sm rounded-2xl px-6 py-5 flex items-center gap-4"
-          >
-            <span className="text-[1.6rem] shrink-0">{item.emoji}</span>
-            <h3 className="text-[1rem] md:text-[1.1rem] font-bold text-background leading-[1.4]">
-              {item.title}
-            </h3>
+      <div className="space-y-10">
+        {mainItems.map((item, i) => (
+          <div key={i} className={`flex flex-col ${i % 2 === 1 ? 'md:flex-row-reverse' : 'md:flex-row'} gap-8 items-center bg-background/10 rounded-2xl p-7`}>
+            <div className="md:w-2/5">
+              <img
+                src={item.img}
+                alt={item.title}
+                className="rounded-xl w-full object-cover aspect-[4/3]"
+                loading="lazy"
+                width={1024}
+                height={768}
+              />
+            </div>
+            <div className="md:w-3/5 text-background">
+              <span className="inline-block bg-background/15 rounded px-3 py-0.5 text-[0.8rem] tracking-widest mb-4 font-semibold">
+                {item.num}
+              </span>
+              <h3 className="text-[1.15rem] md:text-[1.3rem] font-extrabold mb-3 leading-[1.3]">{item.title}</h3>
+              <p className="text-[0.95rem] opacity-80 leading-[1.7] mb-4">{item.desc}</p>
+              <ul className="space-y-2">
+                {item.checks.map((c, j) => (
+                  <li key={j} className="text-[0.9rem] opacity-90 flex items-start gap-2">
+                    <span className="shrink-0">✅</span> {c}
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
         ))}
       </div>
