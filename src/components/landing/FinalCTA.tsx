@@ -28,7 +28,7 @@ const FinalCTA = () => (
           <p className="text-[1.05rem] text-marrom-dark font-bold leading-[1.6]">
             ❌ Se você não tomar uma decisão agora, vai continuar vivendo no escuro, cheia de culpa, sem ver progresso nenhum.
           </p>
-          <p className="text-[1.05rem] text-verde font-bold leading-[1.6]">
+          <p className="text-[1.05rem] text-rosa font-bold leading-[1.6]">
             ✅ Se você agir agora, vai finalmente ver seu filho falando, mesmo com apenas 15 minutos por dia.
           </p>
         </div>
