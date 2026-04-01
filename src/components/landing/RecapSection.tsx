@@ -1,19 +1,19 @@
 import produtoMockup from "@/assets/produto-mockup.jpg";
 
-const recapItems = [
-  { emoji: "📋", price: "R$ 97", title: "Raio-X da Fala" },
-  { emoji: "🎮", price: "R$ 97", title: "Lista das Brincadeiras que Destravam a Fala" },
-  { emoji: "💬", price: "R$ 97", title: "Conversas que Estimulam a Fala" },
-  { emoji: "🏠", price: "R$ 97", title: "Técnica: Estimulando a Fala na Rotina" },
-  { emoji: "📱", price: "R$ 97", title: "Suporte com a Fono no WhatsApp" },
+const guideItems = [
+  { emoji: "🧠", title: "Entenda como a fala funciona" },
+  { emoji: "📊", title: "Marcos do desenvolvimento comunicativo" },
+  { emoji: "⚠️", title: "Identificar sinais de alerta" },
+  { emoji: "💬", title: "Palavras funcionais para estimular a fala" },
+  { emoji: "🎮", title: "Atividades pra usar na rotina diária" },
+  { emoji: "📱", title: "Uso de telas e fala" },
+  { emoji: "📋", title: "Roteiro de estímulo prático" },
 ];
 
 const bonusItems = [
-  { emoji: "🌙", price: "R$ 47", title: "Historinhas de Dormir que Destravam a Fala" },
-  { emoji: "😤", price: "R$ 47", title: "Transformando Choros em Frases" },
-  { emoji: "✅", price: "R$ 29", title: "Checklist de Palavras Iniciais" },
-  { emoji: "🃏", price: "R$ 97", title: "Cards Interativos de Estímulo" },
-  { emoji: "📅", price: "R$ 97", title: "A Rotina que Induz seu Filho a Falar" },
+  { emoji: "✅", price: "R$ 29,90", title: "Checklist de Palavras Iniciais" },
+  { emoji: "🃏", price: "R$ 97,00", title: "Cards Interativos de Estímulo" },
+  { emoji: "🎥", price: "R$ 147,00", title: "Aula Bônus com a Fono" },
 ];
 
 const RecapSection = () => (
@@ -23,7 +23,7 @@ const RecapSection = () => (
         RECAPITULANDO
       </span>
       <h2 className="text-[1.6rem] md:text-[2.2rem] font-extrabold text-marrom-dark mb-8 leading-[1.25]">
-        Aqui está tudo que você vai receber para ver seu filho destravar a fala em até 30 dias.
+        Aqui está tudo que você vai receber:
       </h2>
 
       <img
@@ -35,12 +35,14 @@ const RecapSection = () => (
         height={1024}
       />
 
+      <h3 className="text-[1.05rem] font-extrabold text-marrom-dark mb-3">
+        📖 Conteúdo do Guia
+      </h3>
       <div className="max-w-[600px] mx-auto mb-5 space-y-2">
-        {recapItems.map((item, i) => (
+        {guideItems.map((item, i) => (
           <div key={i} className="bg-background rounded-lg px-4 py-3 shadow-sm border border-border flex items-center gap-2.5">
             <span className="text-[1.1rem] shrink-0">{item.emoji}</span>
             <p className="text-[0.9rem] font-bold text-marrom-dark leading-[1.3] flex-1 text-left">{item.title}</p>
-            <span className="text-vermelho font-bold text-[0.85rem] line-through whitespace-nowrap shrink-0">{item.price}</span>
           </div>
         ))}
       </div>
@@ -63,7 +65,7 @@ const RecapSection = () => (
         <h3 className="text-[1.2rem] font-extrabold text-marrom-dark mb-1">
           Tudo isso poderia custar facilmente
         </h3>
-        <p className="text-[2rem] font-black text-vermelho line-through mb-1">R$ 497</p>
+        <p className="text-[2rem] font-black text-vermelho line-through mb-1">R$ 273,90</p>
         <p className="text-[1.1rem] text-marrom-dark font-extrabold">
           Mas você não pagará NEM METADE DISSO…
         </p>
