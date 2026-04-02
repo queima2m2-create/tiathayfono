@@ -34,7 +34,7 @@ const VturbPlayer = () => {
             asChild
           >
             <a
-              href="#preco"
+              href="#depoimentos"
               onClick={() => fbEvents.initiateCheckout()}
             >
               QUERO DESTRAVAR A FALA DO MEU FILHO EM 30 DIAS →

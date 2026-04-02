@@ -5,7 +5,7 @@ import depoimento3 from "@/assets/depoimento-3.jpeg";
 const depoimentos = [depoimento1, depoimento2, depoimento3];
 
 const DepoimentosSection = () => (
-  <section className="bg-background py-20 md:py-28 px-6">
+  <section id="depoimentos" className="bg-background py-20 md:py-28 px-6">
     <div className="max-w-[900px] mx-auto">
       <h2 className="text-[1.6rem] md:text-[2.2rem] font-extrabold text-marrom-dark mb-3 leading-[1.25]">
         Veja o resultado de quem usou o Guia Meu Filho Vai Falar.
