@@ -1,6 +1,4 @@
 import { useEffect } from "react";
-import { Button } from "@/components/ui/button";
-import { fbEvents } from "@/lib/fbConversions";
 
 const VturbPlayer = () => {
   useEffect(() => {
@@ -24,22 +22,6 @@ const VturbPlayer = () => {
             data-autoplay="true"
             style={{ display: "block", margin: "0 auto", width: "100%" }}
           />
-        </div>
-
-        <div className="mt-6 text-center">
-          <Button
-            variant="cta"
-            size="lg"
-            className="text-[0.85rem] md:text-[1rem] px-8 py-5 md:py-6 w-full md:w-auto leading-tight whitespace-normal h-auto"
-            asChild
-          >
-            <a
-              href="#depoimentos"
-              onClick={() => fbEvents.initiateCheckout()}
-            >
-              QUERO DESTRAVAR A FALA DO MEU FILHO EM 30 DIAS →
-            </a>
-          </Button>
         </div>
       </div>
     </section>
