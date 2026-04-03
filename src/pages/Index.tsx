@@ -1,22 +1,23 @@
-import { useEffect } from "react";
+import { useEffect, lazy, Suspense } from "react";
 import HeroSection from "@/components/landing/HeroSection";
 import VturbPlayer from "@/components/landing/VturbPlayer";
-import ProvaRapida from "@/components/landing/ProvaRapida";
-import DorSection from "@/components/landing/DorSection";
-import ComoFunciona from "@/components/landing/ComoFunciona";
-import OQueRecebe from "@/components/landing/OQueRecebe";
-import BonusSection from "@/components/landing/BonusSection";
-import DepoimentosSection from "@/components/landing/DepoimentosSection";
-import ParaQuemSection from "@/components/landing/ParaQuemSection";
-import SobreSection from "@/components/landing/SobreSection";
-import RecapSection from "@/components/landing/RecapSection";
-import PrecoSection from "@/components/landing/PrecoSection";
-import GarantiaSection from "@/components/landing/GarantiaSection";
-import FinalCTA from "@/components/landing/FinalCTA";
-import FAQSection from "@/components/landing/FAQSection";
-import Footer from "@/components/landing/Footer";
 import { fbEvents } from "@/lib/fbConversions";
 import { Button } from "@/components/ui/button";
+
+const ProvaRapida = lazy(() => import("@/components/landing/ProvaRapida"));
+const DorSection = lazy(() => import("@/components/landing/DorSection"));
+const ComoFunciona = lazy(() => import("@/components/landing/ComoFunciona"));
+const OQueRecebe = lazy(() => import("@/components/landing/OQueRecebe"));
+const BonusSection = lazy(() => import("@/components/landing/BonusSection"));
+const DepoimentosSection = lazy(() => import("@/components/landing/DepoimentosSection"));
+const ParaQuemSection = lazy(() => import("@/components/landing/ParaQuemSection"));
+const SobreSection = lazy(() => import("@/components/landing/SobreSection"));
+const RecapSection = lazy(() => import("@/components/landing/RecapSection"));
+const PrecoSection = lazy(() => import("@/components/landing/PrecoSection"));
+const GarantiaSection = lazy(() => import("@/components/landing/GarantiaSection"));
+const FinalCTA = lazy(() => import("@/components/landing/FinalCTA"));
+const FAQSection = lazy(() => import("@/components/landing/FAQSection"));
+const Footer = lazy(() => import("@/components/landing/Footer"));
 
 const Index = () => {
   useEffect(() => {
