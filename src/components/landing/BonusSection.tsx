@@ -42,14 +42,6 @@ const BonusSection = () => (
         ))}
       </div>
 
-      <div className="mt-10">
-        <a
-          href="#preco"
-          className="inline-block bg-dourado hover:bg-dourado-hover text-background text-[0.9rem] font-bold px-10 py-4 rounded-full uppercase tracking-wide transition-colors"
-        >
-          QUERO MEUS BÔNUS AGORA!
-        </a>
-      </div>
     </div>
   </section>
 );
