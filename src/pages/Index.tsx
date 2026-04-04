@@ -44,7 +44,7 @@ const Index = () => {
             asChild
           >
             <a
-              href="#preco"
+              href="#recapitulando"
               onClick={() => fbEvents.initiateCheckout()}
             >
               QUERO DESTRAVAR A FALA DO MEU FILHO EM 30 DIAS →
