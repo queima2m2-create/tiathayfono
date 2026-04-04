@@ -1,4 +1,3 @@
-import produtoMockup from "@/assets/produto-mockup-wide.png";
 import PricingBlock from "./PricingBlock";
 
 const PrecoSection = () => (
