@@ -2,17 +2,17 @@ import produtoMockup from "@/assets/produto-mockup.jpg";
 
 const guideItems = [
   { emoji: "⚠️", price: "R$ 47,00", title: "Sinais de Alerta" },
-  { emoji: "🎥", price: "R$ 97,00", title: "Aprenda com a Fono" },
+  { emoji: "🎥", price: "R$ 67,00", title: "Aprenda com a Fono" },
   { emoji: "💬", price: "R$ 47,00", title: "Palavras de Poder que Destravam a Comunicação" },
   { emoji: "🎮", price: "R$ 47,00", title: "Rotina da Criança Tagarela" },
   { emoji: "📱", price: "R$ 47,00", title: "Telas — Aliado ou Inimigo da Fala?" },
-  { emoji: "📲", price: "R$ 97,00", title: "Suporte com a Fono no WhatsApp" },
+  { emoji: "📲", price: "R$ 47,00", title: "Suporte com a Fono no WhatsApp" },
 ];
 const bonusItems = [
-  { emoji: "🎵", price: "R$ 97,00", title: "Músicas para Falar em Até 7 Dias" },
-  { emoji: "🎥", price: "R$ 197,00", title: "Aula ao Vivo Gratuita com a Fono" },
-  { emoji: "🃏", price: "R$ 97,00", title: "Cards Interativos de Estímulo" },
-  { emoji: "🏅", price: "R$ 47,00", title: "Certificado Tagarela" },
+  { emoji: "🎵", price: "R$ 67,00", title: "Músicas para Falar em Até 7 Dias" },
+  { emoji: "🎥", price: "R$ 47,00", title: "Aula ao Vivo Gratuita com a Fono" },
+  { emoji: "🃏", price: "R$ 47,00", title: "Cards Interativos de Estímulo" },
+  { emoji: "🏅", price: "R$ 34,00", title: "Certificado Tagarela" },
 ];
 
 const RecapSection = () => (
@@ -65,7 +65,7 @@ const RecapSection = () => (
         <h3 className="text-[1.2rem] font-extrabold text-marrom-dark mb-1">
           Tudo isso poderia custar facilmente
         </h3>
-        <p className="text-[2rem] font-black text-vermelho line-through mb-1">R$ 699,90</p>
+        <p className="text-[2rem] font-black text-vermelho line-through mb-1">R$ 497,00</p>
         <p className="text-[1.1rem] text-marrom-dark font-extrabold">
           Mas você não pagará NEM METADE DISSO…
         </p>
