@@ -1,47 +1,68 @@
-const bonuses = [
+import bonusMusicas from "@/assets/bonus-musicas.jpg";
+import bonusAulaVivo from "@/assets/bonus-aula-vivo.jpg";
+import bonusCards from "@/assets/bonus-cards.jpg";
+
+const bonusItems = [
   {
-    emoji: "✅",
-    title: "Checklist de palavras iniciais",
-    desc: "Pra acompanhar os primeiros avanços!",
-    oldPrice: "R$29,90",
+    num: "07",
+    title: "Músicas para Falar em Até 7 Dias",
+    desc: "Músicas em áudios criadas pela fono de forma estratégica pra estimular no dia a dia — na rua, no parque, no banho… que farão seu filho aprender sem querer.",
+    checks: ["Áudios prontos para usar a qualquer momento", "Estímulo natural através da música"],
+    img: bonusMusicas,
   },
   {
-    emoji: "🃏",
-    title: "Cards interativos de estímulo",
-    desc: "Pra usar nas brincadeiras!",
-    oldPrice: "R$97,00",
+    num: "08",
+    title: "Aula ao Vivo Gratuita com a Fono",
+    desc: "Ganhe um ingresso de acesso a um encontro com Thaynara Andrade, fonoaudióloga infantil, e tenha a oportunidade de tirar suas dúvidas e alavancar a fala do seu filho.",
+    checks: ["Encontro ao vivo com a fonoaudióloga", "Tire todas as suas dúvidas em tempo real"],
+    img: bonusAulaVivo,
   },
   {
-    emoji: "🎥",
-    title: "Aula bônus com explicações diretas da fono",
-    desc: "Pra se sentir segura e confiante!",
-    oldPrice: "R$147,00",
+    num: "09",
+    title: "Cards Interativos de Estímulo",
+    desc: "Cards ilustrados e divertidos para usar nas brincadeiras do dia a dia, transformando cada momento em uma oportunidade de estimular a fala.",
+    checks: ["Perfeitos para brincar e aprender ao mesmo tempo", "Desenvolvidos por fonoaudióloga infantil"],
+    img: bonusCards,
   },
 ];
 
 const BonusSection = () => (
-  <section className="bg-rosa-light py-20 md:py-28 px-6">
-    <div className="max-w-[750px] mx-auto text-center">
-      <h2 className="text-[1.5rem] md:text-[2rem] font-extrabold text-marrom-dark mb-14 leading-[1.25]">
+  <section className="bg-rosa py-20 md:py-28 px-6">
+    <div className="max-w-[900px] mx-auto">
+      <h2 className="text-[1.6rem] md:text-[2.2rem] font-extrabold text-center text-background mb-16 leading-[1.25]">
         E para garantir que seu filho comece a falar de verdade, como <span className="text-dourado">BÔNUS</span> você receberá também:
       </h2>
 
-      <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
-        {bonuses.map((b, i) => (
-          <div
-            key={i}
-            className="bg-background rounded-2xl p-6 shadow-md flex flex-col items-center text-center"
-          >
-            <span className="text-[2.4rem] mb-4">{b.emoji}</span>
-            <h3 className="text-[1.05rem] font-extrabold text-marrom-dark mb-2 leading-[1.3]">
-              {b.title}
-            </h3>
-            <p className="text-[0.9rem] text-primary/70 mb-3 leading-[1.5]">{b.desc}</p>
-            <span className="text-vermelho font-bold text-[1rem] line-through">{b.oldPrice}</span>
+      <div className="space-y-10">
+        {bonusItems.map((item, i) => (
+          <div key={i} className={`flex flex-col ${i % 2 === 1 ? 'md:flex-row-reverse' : 'md:flex-row'} gap-8 items-center bg-background/10 rounded-2xl p-7`}>
+            <div className="md:w-2/5">
+              <img
+                src={item.img}
+                alt={item.title}
+                className="rounded-xl w-full object-cover aspect-[4/3]"
+                loading="lazy"
+                width={1024}
+                height={768}
+              />
+            </div>
+            <div className="md:w-3/5 text-background">
+              <span className="inline-block bg-background/15 rounded px-3 py-0.5 text-[0.8rem] tracking-widest mb-4 font-semibold">
+                BÔNUS {item.num}
+              </span>
+              <h3 className="text-[1.15rem] md:text-[1.3rem] font-extrabold mb-3 leading-[1.3]">{item.title}</h3>
+              <p className="text-[0.95rem] opacity-80 leading-[1.7] mb-4">{item.desc}</p>
+              <ul className="space-y-2">
+                {item.checks.map((c, j) => (
+                  <li key={j} className="text-[0.9rem] opacity-90 flex items-start gap-2">
+                    <span className="shrink-0">✅</span> {c}
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
         ))}
       </div>
-
     </div>
   </section>
 );
