@@ -95,8 +95,8 @@ export default {
           to: { height: "0" },
         },
         "pulse-glow": {
-          "0%, 100%": { boxShadow: "0 0 0 0 hsl(var(--verde) / 0.4)" },
-          "50%": { boxShadow: "0 0 0 12px hsl(var(--verde) / 0)" },
+          "0%, 100%": { boxShadow: "0 0 0 0 hsl(var(--verde) / 0.5)", transform: "scale(1)" },
+          "50%": { boxShadow: "0 0 0 16px hsl(var(--verde) / 0)", transform: "scale(1.03)" },
         },
       },
       animation: {
