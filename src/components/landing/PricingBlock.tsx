@@ -31,7 +31,7 @@ const PricingBlock = ({ className = "", showUrgency = true }: { className?: stri
 
       <p className="text-[1rem] mb-2 font-semibold">
         <span className="bg-vermelho text-background px-3 py-1 rounded-md text-[1.1rem] font-bold">
-          De: <span className="line-through">R$ 549,00</span>
+          De: <span className="line-through">R$ 497,00</span>
         </span>
       </p>
 
