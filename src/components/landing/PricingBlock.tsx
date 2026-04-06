@@ -44,7 +44,7 @@ const PricingBlock = ({ className = "", showUrgency = true }: { className?: stri
       </div>
 
       <div className="mt-5">
-        <Button variant="cta" size="lg" className="text-[0.8rem] md:text-[0.9rem] px-6 py-5 md:py-6 w-full leading-tight whitespace-normal h-auto" asChild>
+        <Button variant="cta" size="lg" className="text-[0.9rem] md:text-[1rem] px-8 py-6 md:py-7 w-full leading-tight whitespace-normal h-auto text-background font-extrabold" asChild>
           <a href={CTA_LINK} onClick={() => fbEvents.initiateCheckout()}>QUERO DESTRAVAR A FALA DO MEU FILHO EM 30 DIAS</a>
         </Button>
       </div>
