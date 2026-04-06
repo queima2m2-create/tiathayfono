@@ -7,37 +7,37 @@ import entregaSuporteWpp from "@/assets/entrega-suporte-wpp.jpg";
 
 const mainItems = [
   {
-    num: "01", title: "Sinais de Alerta",
+    num: "01", title: "SINAIS DE ALERTA",
     desc: "Descubra se seu filho tem algum sinal de atraso e aplique o guia de forma estratégica.",
     checks: ["Identifique sinais precocemente", "Saiba quando procurar ajuda profissional"],
     img: entregaSinais,
   },
   {
-    num: "02", title: "Aprenda com a Fono",
+    num: "02", title: "APRENDA COM A FONO",
     desc: "Aula explicativa e dinâmica onde eu vou te mostrar exatamente o que fazer para seu filho falar.",
     checks: ["Aula prática e direto ao ponto", "Orientação profissional de verdade"],
     img: entregaFala,
   },
   {
-    num: "03", title: "Palavras de Poder que Destravam a Comunicação",
+    num: "03", title: "PALAVRAS DE PODER QUE DESTRAVAM A COMUNICAÇÃO",
     desc: "Use as palavras certas que farão seu filho se sentir seguro para começar a falar.",
     checks: ["Palavras que geram resultado real", "Fácil de aplicar no dia a dia"],
     img: entregaPalavras,
   },
   {
-    num: "04", title: "Rotina da Criança Tagarela",
+    num: "04", title: "ROTINA DA CRIANÇA TAGARELA",
     desc: "Use seu dia a dia comum para fazer seu filho falar — sem sofrimento.",
     checks: ["Encaixa em qualquer rotina", "Brincadeiras validadas por fonoaudióloga"],
     img: entregaAtividades,
   },
   {
-    num: "05", title: "Telas — Aliado ou Inimigo da Fala?",
+    num: "05", title: "TELAS — ALIADO OU INIMIGO DA FALA?",
     desc: "Entenda como o tempo de tela impacta o desenvolvimento da fala e o que fazer a respeito.",
     checks: ["Orientação baseada em evidências", "Dicas práticas para equilibrar o uso"],
     img: entregaTelas,
   },
   {
-    num: "06", title: "Suporte com a Fono no WhatsApp",
+    num: "06", title: "SUPORTE COM A FONO NO WHATSAPP",
     desc: "Sinta que não está sozinha — tire dúvidas direto com a Thaynara no WhatsApp.",
     checks: ["Tire dúvidas direto com a Fonoaudióloga", "Você não precisa enfrentar isso sozinha"],
     img: entregaSuporteWpp,
