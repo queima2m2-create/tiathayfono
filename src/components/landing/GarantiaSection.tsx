@@ -4,11 +4,21 @@ const GarantiaSection = () => (
   <>
     <section className="bg-rosa py-20 md:py-28 px-6">
       <div className="max-w-[750px] mx-auto grid grid-cols-1 sm:grid-cols-[auto_1fr] gap-12 items-center text-background">
-        <div className="w-[140px] h-[140px] rounded-full border-4 border-dourado flex flex-col items-center justify-center text-center mx-auto sm:mx-0 shrink-0">
-          <span className="text-[2.6rem] font-black text-dourado leading-none">7</span>
-          <span className="text-[0.6rem] uppercase tracking-widest leading-tight">
-            DIAS DE<br/>GARANTIA<br/>100% DO<br/>DINHEIRO<br/>DE VOLTA
-          </span>
+        <div className="relative w-[180px] h-[180px] mx-auto sm:mx-0 shrink-0">
+          {/* Outer glow ring */}
+          <div className="absolute inset-0 rounded-full bg-dourado/20 animate-ping" style={{ animationDuration: '3s' }} />
+          {/* Seal */}
+          <div className="relative w-full h-full rounded-full bg-gradient-to-br from-dourado to-[hsl(35,50%,42%)] border-[5px] border-background/30 flex flex-col items-center justify-center text-center shadow-[0_0_30px_rgba(0,0,0,0.3),0_0_60px_hsl(40,45%,55%,0.3)]">
+            <span className="text-[0.6rem] uppercase tracking-[3px] text-background/80 font-bold">GARANTIA</span>
+            <span className="text-[3.2rem] font-black text-background leading-none drop-shadow-md">7</span>
+            <span className="text-[0.7rem] uppercase tracking-[2px] text-background font-extrabold leading-tight">
+              DIAS
+            </span>
+            <div className="w-12 h-[2px] bg-background/40 my-1 rounded-full" />
+            <span className="text-[0.55rem] uppercase tracking-widest text-background/90 font-bold leading-tight">
+              100% DO SEU<br/>DINHEIRO DE VOLTA
+            </span>
+          </div>
         </div>
 
         <div className="text-center sm:text-left">
