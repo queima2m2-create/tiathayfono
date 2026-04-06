@@ -57,9 +57,9 @@ const OQueRecebe = () => (
         Veja tudo que você vai receber para ver seu filho começar a falar em 30 dias.
       </h2>
 
-      <div className="space-y-8">
+      <div className="space-y-10">
         {mainItems.map((item, i) => (
-          <div key={i} className={`flex flex-col ${i % 2 === 1 ? 'md:flex-row-reverse' : 'md:flex-row'} gap-8 items-center bg-background rounded-2xl p-7 shadow-lg border border-rosa/20`}>
+          <div key={i} className={`flex flex-col ${i % 2 === 1 ? 'md:flex-row-reverse' : 'md:flex-row'} gap-8 items-center bg-background/10 rounded-2xl p-7`}>
             <div className="md:w-2/5">
               <img
                 src={item.img}
@@ -70,15 +70,15 @@ const OQueRecebe = () => (
                 height={768}
               />
             </div>
-            <div className="md:w-3/5 text-foreground">
-              <span className="inline-block bg-rosa text-background rounded px-3 py-0.5 text-[0.8rem] tracking-widest mb-4 font-semibold">
+            <div className="md:w-3/5 text-background">
+              <span className="inline-block bg-background/15 rounded px-3 py-0.5 text-[0.8rem] tracking-widest mb-4 font-semibold">
                 {item.num}
               </span>
               <h3 className="text-[1.15rem] md:text-[1.3rem] font-extrabold mb-3 leading-[1.3]">{item.title}</h3>
-              <p className="text-[0.95rem] text-muted-foreground leading-[1.7] mb-4">{item.desc}</p>
+              <p className="text-[0.95rem] opacity-80 leading-[1.7] mb-4">{item.desc}</p>
               <ul className="space-y-2">
                 {item.checks.map((c, j) => (
-                  <li key={j} className="text-[0.9rem] text-foreground flex items-start gap-2">
+                  <li key={j} className="text-[0.9rem] opacity-90 flex items-start gap-2">
                     <span className="shrink-0">✅</span> {c}
                   </li>
                 ))}
