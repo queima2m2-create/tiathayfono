@@ -27,7 +27,7 @@ const bonusItems = [
 ];
 
 const BonusSection = () => (
-  <section className="bg-rosa py-20 md:py-28 px-6">
+  <section className="bg-rosa pt-6 md:pt-8 pb-20 md:pb-28 px-6">
     <div className="max-w-[900px] mx-auto">
       <h2 className="text-[1.6rem] md:text-[2.2rem] font-extrabold text-center text-background mb-16 leading-[1.25]">
         E para garantir que seu filho comece a falar de verdade, como <span className="text-dourado">BÔNUS</span> você receberá também:
