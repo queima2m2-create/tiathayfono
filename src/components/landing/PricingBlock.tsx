@@ -23,7 +23,7 @@ const PricingBlock = ({ className = "", showUrgency = true }: { className?: stri
       <img
         src={produtoMockup}
         alt="Guia completo - Método Tagarela"
-        className="w-full max-w-[380px] mx-auto mb-6 drop-shadow-lg"
+        className="w-full max-w-[200px] mx-auto mb-4 drop-shadow-lg"
         loading="lazy"
         width={1024}
         height={1024}
