@@ -1,6 +1,7 @@
 import bonusMusicas from "@/assets/bonus-musicas.jpg";
 import bonusAulaVivo from "@/assets/bonus-aula-vivo.jpg";
 import bonusCards from "@/assets/bonus-cards.jpg";
+import bonusCertificado from "@/assets/bonus-certificado.jpg";
 
 const bonusItems = [
   {
@@ -23,6 +24,13 @@ const bonusItems = [
     desc: "Cards ilustrados e divertidos para usar nas brincadeiras do dia a dia, transformando cada momento em uma oportunidade de estimular a fala.",
     checks: ["Perfeitos para brincar e aprender ao mesmo tempo", "Desenvolvidos por fonoaudióloga infantil"],
     img: bonusCards,
+  },
+  {
+    num: "10",
+    title: "CERTIFICADO TAGARELA",
+    desc: "Imprima e guarde na memória o quanto seu pequeno evoluiu com a sua ajuda!",
+    checks: ["Um registro especial da evolução do seu filho", "Para celebrar cada conquista juntos"],
+    img: bonusCertificado,
   },
 ];
 

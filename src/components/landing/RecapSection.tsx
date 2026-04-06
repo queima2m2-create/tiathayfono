@@ -12,6 +12,7 @@ const bonusItems = [
   { emoji: "🎵", price: "R$ 97,00", title: "Músicas para Falar em Até 7 Dias" },
   { emoji: "🎥", price: "R$ 197,00", title: "Aula ao Vivo Gratuita com a Fono" },
   { emoji: "🃏", price: "R$ 97,00", title: "Cards Interativos de Estímulo" },
+  { emoji: "🏅", price: "R$ 47,00", title: "Certificado Tagarela" },
 ];
 
 const RecapSection = () => (
