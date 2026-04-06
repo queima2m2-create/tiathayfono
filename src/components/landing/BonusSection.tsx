@@ -5,28 +5,28 @@ import bonusCertificado from "@/assets/bonus-certificado.jpg";
 
 const bonusItems = [
   {
-    num: "07",
+    num: "08",
     title: "MÚSICAS PARA FALAR EM ATÉ 7 DIAS",
     desc: "Músicas em áudios criadas pela fono de forma estratégica pra estimular no dia a dia — na rua, no parque, no banho… que farão seu filho aprender sem querer.",
     checks: ["Áudios prontos para usar a qualquer momento", "Estímulo natural através da música"],
     img: bonusMusicas,
   },
   {
-    num: "08",
+    num: "09",
     title: "CONSULTA GRATUITA COM A FONO",
     desc: "Ganhe um ingresso de acesso a um encontro com Thaynara Andrade, fonoaudióloga infantil, e tenha a oportunidade de tirar suas dúvidas e alavancar a fala do seu filho.",
     checks: ["Encontro ao vivo com a fonoaudióloga", "Tire todas as suas dúvidas em tempo real"],
     img: bonusAulaVivo,
   },
   {
-    num: "09",
+    num: "10",
     title: "CARDS INTERATIVOS DE ESTÍMULO",
     desc: "Cards ilustrados e divertidos para usar nas brincadeiras do dia a dia, transformando cada momento em uma oportunidade de estimular a fala.",
     checks: ["Perfeitos para brincar e aprender ao mesmo tempo", "Desenvolvidos por fonoaudióloga infantil"],
     img: bonusCards,
   },
   {
-    num: "10",
+    num: "11",
     title: "CERTIFICADO TAGARELA",
     desc: "Imprima e guarde na memória o quanto seu pequeno evoluiu com a sua ajuda!",
     checks: ["Um registro especial da evolução do seu filho", "Para celebrar cada conquista juntos"],
