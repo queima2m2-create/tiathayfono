@@ -1,63 +1,48 @@
-import entregaFala from "@/assets/entrega-fala-funciona.jpg";
-import entregaMarcos from "@/assets/entrega-marcos.jpg";
 import entregaSinais from "@/assets/entrega-sinais-alerta.jpg";
+import entregaFala from "@/assets/entrega-fala-funciona.jpg";
 import entregaPalavras from "@/assets/entrega-palavras.jpg";
 import entregaAtividades from "@/assets/entrega-atividades.jpg";
 import entregaTelas from "@/assets/entrega-telas.jpg";
-import entregaRoteiro from "@/assets/entrega-roteiro.jpg";
 import entregaSuporteWpp from "@/assets/entrega-suporte-wpp.jpg";
 
 const mainItems = [
   {
-    num: "01", title: "Entenda como a fala funciona",
-    desc: "Saiba o que acontece por trás do desenvolvimento da comunicação do seu filho — de forma simples e acessível.",
-    checks: ["Explicação clara e sem termos técnicos", "Base para entender todo o guia"],
-    img: entregaFala,
-  },
-  {
-    num: "02", title: "Marcos do desenvolvimento comunicativo",
-    desc: "Conheça cada fase da fala e saiba exatamente o que esperar em cada idade.",
-    checks: ["Saiba o que é esperado para a idade do seu filho", "Identifique avanços com clareza"],
-    img: entregaMarcos,
-  },
-  {
-    num: "03", title: "Sinais de alerta de forma leve",
-    desc: "Aprenda a identificar quando algo precisa de mais atenção — sem pânico e sem ansiedade.",
-    checks: ["Orientação profissional acessível", "Saiba quando procurar ajuda"],
+    num: "01", title: "Sinais de Alerta",
+    desc: "Descubra se seu filho tem algum sinal de atraso e aplique o guia de forma estratégica.",
+    checks: ["Identifique sinais precocemente", "Saiba quando procurar ajuda profissional"],
     img: entregaSinais,
   },
   {
-    num: "04", title: "Palavras funcionais para estimular a fala",
-    desc: "Descubra quais palavras usar no dia a dia para incentivar seu filho a se comunicar.",
-    checks: ["Palavras que geram resultado real", "Fácil de aplicar na rotina"],
+    num: "02", title: "Aprenda com a Fono",
+    desc: "Aula explicativa e dinâmica onde eu vou te mostrar exatamente o que fazer para seu filho falar.",
+    checks: ["Aula prática e direto ao ponto", "Orientação profissional de verdade"],
+    img: entregaFala,
+  },
+  {
+    num: "03", title: "Palavras de Poder que Destravam a Comunicação",
+    desc: "Use as palavras certas que farão seu filho se sentir seguro para começar a falar.",
+    checks: ["Palavras que geram resultado real", "Fácil de aplicar no dia a dia"],
     img: entregaPalavras,
   },
   {
-    num: "05", title: "Atividades pra usar na rotina diária",
-    desc: "Tenha acesso a atividades práticas que estimulam a fala enquanto seu filho se diverte.",
-    checks: ["Brincadeiras validadas por fonoaudióloga", "Encaixam em qualquer rotina"],
+    num: "04", title: "Rotina da Criança Tagarela",
+    desc: "Use seu dia a dia comum para fazer seu filho falar — sem sofrimento.",
+    checks: ["Encaixa em qualquer rotina", "Brincadeiras validadas por fonoaudióloga"],
     img: entregaAtividades,
   },
   {
-    num: "06", title: "Uso de telas e fala",
+    num: "05", title: "Telas — Aliado ou Inimigo da Fala?",
     desc: "Entenda como o tempo de tela impacta o desenvolvimento da fala e o que fazer a respeito.",
-    checks: ["Orientação baseada em evidências", "Dicas práticas para o dia a dia"],
+    checks: ["Orientação baseada em evidências", "Dicas práticas para equilibrar o uso"],
     img: entregaTelas,
   },
   {
-    num: "07", title: "Roteiro de estímulo prático",
-    desc: "Ganhe um roteiro completo para aplicar no dia a dia e ver resultados reais.",
-    checks: ["Passo a passo direto ao ponto", "Ideal para mães com rotina corrida"],
-    img: entregaRoteiro,
-  },
-  {
-    num: "08", title: "Suporte com a Fono no WhatsApp",
+    num: "06", title: "Suporte com a Fono no WhatsApp",
     desc: "Sinta que não está sozinha — tire dúvidas direto com a Thaynara no WhatsApp.",
     checks: ["Tire dúvidas direto com a Fonoaudióloga", "Você não precisa enfrentar isso sozinha"],
     img: entregaSuporteWpp,
   },
 ];
-
 const OQueRecebe = () => (
   <section className="bg-rosa py-20 md:py-28 px-6">
     <div className="max-w-[900px] mx-auto">

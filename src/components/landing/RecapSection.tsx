@@ -1,16 +1,13 @@
 import produtoMockup from "@/assets/produto-mockup.jpg";
 
 const guideItems = [
-  { emoji: "🧠", price: "R$ 47,00", title: "Entenda como a fala funciona" },
-  { emoji: "📊", price: "R$ 47,00", title: "Marcos do desenvolvimento comunicativo" },
-  { emoji: "⚠️", price: "R$ 47,00", title: "Identificar sinais de alerta" },
-  { emoji: "💬", price: "R$ 47,00", title: "Palavras funcionais para estimular a fala" },
-  { emoji: "🎮", price: "R$ 47,00", title: "Atividades pra usar na rotina diária" },
-  { emoji: "📱", price: "R$ 47,00", title: "Uso de telas e fala" },
-  { emoji: "📋", price: "R$ 47,00", title: "Roteiro de estímulo prático" },
+  { emoji: "⚠️", price: "R$ 47,00", title: "Sinais de Alerta" },
+  { emoji: "🎥", price: "R$ 97,00", title: "Aprenda com a Fono" },
+  { emoji: "💬", price: "R$ 47,00", title: "Palavras de Poder que Destravam a Comunicação" },
+  { emoji: "🎮", price: "R$ 47,00", title: "Rotina da Criança Tagarela" },
+  { emoji: "📱", price: "R$ 47,00", title: "Telas — Aliado ou Inimigo da Fala?" },
   { emoji: "📲", price: "R$ 97,00", title: "Suporte com a Fono no WhatsApp" },
 ];
-
 const bonusItems = [
   { emoji: "✅", price: "R$ 29,90", title: "Checklist de Palavras Iniciais" },
   { emoji: "🃏", price: "R$ 97,00", title: "Cards Interativos de Estímulo" },
