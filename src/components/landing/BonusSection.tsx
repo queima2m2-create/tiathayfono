@@ -5,21 +5,21 @@ import bonusCards from "@/assets/bonus-cards.jpg";
 const bonusItems = [
   {
     num: "07",
-    title: "Músicas para Falar em Até 7 Dias",
+    title: "MÚSICAS PARA FALAR EM ATÉ 7 DIAS",
     desc: "Músicas em áudios criadas pela fono de forma estratégica pra estimular no dia a dia — na rua, no parque, no banho… que farão seu filho aprender sem querer.",
     checks: ["Áudios prontos para usar a qualquer momento", "Estímulo natural através da música"],
     img: bonusMusicas,
   },
   {
     num: "08",
-    title: "Consulta Gratuita com a Fono",
+    title: "CONSULTA GRATUITA COM A FONO",
     desc: "Ganhe um ingresso de acesso a um encontro com Thaynara Andrade, fonoaudióloga infantil, e tenha a oportunidade de tirar suas dúvidas e alavancar a fala do seu filho.",
     checks: ["Encontro ao vivo com a fonoaudióloga", "Tire todas as suas dúvidas em tempo real"],
     img: bonusAulaVivo,
   },
   {
     num: "09",
-    title: "Cards Interativos de Estímulo",
+    title: "CARDS INTERATIVOS DE ESTÍMULO",
     desc: "Cards ilustrados e divertidos para usar nas brincadeiras do dia a dia, transformando cada momento em uma oportunidade de estimular a fala.",
     checks: ["Perfeitos para brincar e aprender ao mesmo tempo", "Desenvolvidos por fonoaudióloga infantil"],
     img: bonusCards,
