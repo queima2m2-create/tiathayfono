@@ -50,20 +50,38 @@ const SobreSection = () => {
             Quem sou eu
           </span>
           <h2 className="text-[1.5rem] md:text-[1.8rem] font-extrabold text-marrom-dark mb-5 leading-[1.3]">
-            Olá! Eu sou a Thaynara Andrade.
+            Oi! Eu sou a Thaynara Andrade
           </h2>
           <div className="space-y-4 text-[1rem] text-primary/80 leading-[1.8]">
             <p>
-              Sou <strong className="text-marrom-dark">fonoaudióloga especializada em linguagem infantil</strong> e também mãe.
+              <strong className="text-marrom-dark">Fonoaudióloga infantil especializada no desenvolvimento da comunicação e linguagem nos primeiros anos de vida.</strong>
             </p>
             <p>
-              Criei este guia com base em tudo que aplico no consultório e aqui em casa, com a minha filha.
+              Atuo ajudando mães que estão inseguras, cheias de dúvidas e, muitas vezes, com aquele medo silencioso de que o filho "não vá falar".
             </p>
             <p>
-              Quero te mostrar que <strong className="text-marrom-dark">estimular a fala não precisa ser complicado ou técnico</strong>.
+              Se você já se pegou comparando seu filho com outras crianças, pesquisando tudo na internet ou sem saber por onde começar… <strong className="text-marrom-dark">eu entendo exatamente como você se sente.</strong>
             </p>
             <p>
-              Com estratégias simples e carinho, você pode fazer uma <strong className="text-marrom-dark">enorme diferença na vida do seu filho</strong>.
+              Ao longo da minha prática clínica, acompanhei de perto a evolução de muitas crianças que hoje se comunicam melhor, interagem mais e dão passos importantes no desenvolvimento da fala — tudo isso com estímulos feitos de forma leve, respeitosa e dentro da rotina da família.
+            </p>
+            <p>
+              E foi justamente observando essas famílias que eu percebi algo importante:
+            </p>
+            <p className="text-marrom-dark font-bold text-[1.1rem]">
+              Não é sobre fazer mais. É sobre fazer do jeito certo.
+            </p>
+            <p>
+              Criei esse método para te mostrar exatamente como estimular a fala do seu filho no dia a dia, usando situações simples que você já vive — sem precisar de materiais complexos, sem sobrecarga e sem transformar sua rotina em algo impossível.
+            </p>
+            <p>
+              Porque eu sei que nem toda mãe consegue estar em terapia toda semana. <strong className="text-marrom-dark">Mas toda mãe pode aprender a estimular melhor.</strong>
+            </p>
+            <p>
+              Aqui, você não vai encontrar fórmulas mágicas ou promessas irreais. Você vai encontrar um <strong className="text-marrom-dark">caminho claro, possível e baseado no que realmente funciona na prática clínica.</strong>
+            </p>
+            <p>
+              Meu objetivo é que você se sinta segura, orientada e confiante — e que consiga enxergar, com seus próprios olhos, <strong className="text-marrom-dark">a evolução do seu filho na comunicação.</strong>
             </p>
           </div>
         </div>
