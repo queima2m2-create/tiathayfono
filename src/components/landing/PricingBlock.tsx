@@ -20,14 +20,16 @@ const PricingBlock = ({ className = "", showUrgency = true }: { className?: stri
         </span>
       )}
 
-      <img
-        src={produtoMockup}
-        alt="Guia completo - Método Tagarela"
-        className="w-full max-w-[200px] mx-auto mb-4 drop-shadow-lg rounded-2xl"
-        loading="lazy"
-        width={1024}
-        height={1024}
-      />
+      <div className="w-full max-w-[320px] mx-auto mb-4 aspect-video rounded-2xl overflow-hidden drop-shadow-lg">
+        <img
+          src={produtoMockup}
+          alt="Guia completo - Método Tagarela"
+          className="w-full h-full object-cover"
+          loading="lazy"
+          width={1024}
+          height={1024}
+        />
+      </div>
 
       <p className="text-[1rem] mb-2 font-semibold">
         <span className="bg-vermelho text-background px-3 py-1 rounded-md text-[1.1rem] font-bold">
