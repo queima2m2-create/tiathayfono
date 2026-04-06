@@ -23,7 +23,7 @@ const BonusSection = () => (
   <section className="bg-rosa-light py-20 md:py-28 px-6">
     <div className="max-w-[750px] mx-auto text-center">
       <h2 className="text-[1.5rem] md:text-[2rem] font-extrabold text-marrom-dark mb-14 leading-[1.25]">
-        Ao adquirir o guia, você ainda leva:
+        E para garantir que seu filho comece a falar de verdade, como <span className="text-dourado">BÔNUS</span> você receberá também:
       </h2>
 
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
