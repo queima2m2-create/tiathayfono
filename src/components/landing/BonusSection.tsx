@@ -12,7 +12,7 @@ const bonusItems = [
   },
   {
     num: "08",
-    title: "Aula ao Vivo Gratuita com a Fono",
+    title: "Consulta Gratuita com a Fono",
     desc: "Ganhe um ingresso de acesso a um encontro com Thaynara Andrade, fonoaudióloga infantil, e tenha a oportunidade de tirar suas dúvidas e alavancar a fala do seu filho.",
     checks: ["Encontro ao vivo com a fonoaudióloga", "Tire todas as suas dúvidas em tempo real"],
     img: bonusAulaVivo,
