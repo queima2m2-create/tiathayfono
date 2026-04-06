@@ -1,5 +1,6 @@
 import entregaSinais from "@/assets/entrega-sinais-alerta.jpg";
 import entregaFala from "@/assets/entrega-fala-funciona.jpg";
+import entregaBrincadeiras from "@/assets/entrega-brincadeiras-fala.jpg";
 import entregaPalavras from "@/assets/entrega-palavras.jpg";
 import entregaAtividades from "@/assets/entrega-atividades.jpg";
 import entregaTelas from "@/assets/entrega-telas.jpg";
@@ -19,25 +20,31 @@ const mainItems = [
     img: entregaFala,
   },
   {
-    num: "03", title: "PALAVRAS DE PODER QUE DESTRAVAM A COMUNICAÇÃO",
+    num: "03", title: "AS 10 MELHORES BRINCADEIRAS QUE DESBLOQUEIAM A FALA",
+    desc: "Brincadeiras simples, divertidas e validadas por fonoaudióloga que estimulam seu filho a falar naturalmente enquanto se diverte.",
+    checks: ["Brincadeiras que estimulam sons e palavras novas", "Fáceis de fazer em casa com o que você já tem"],
+    img: entregaBrincadeiras,
+  },
+  {
+    num: "04", title: "PALAVRAS DE PODER QUE DESTRAVAM A COMUNICAÇÃO",
     desc: "Use as palavras certas que farão seu filho se sentir seguro para começar a falar.",
     checks: ["Palavras que geram resultado real", "Fácil de aplicar no dia a dia"],
     img: entregaPalavras,
   },
   {
-    num: "04", title: "ROTINA DA CRIANÇA TAGARELA",
+    num: "05", title: "ROTINA DA CRIANÇA TAGARELA",
     desc: "Use seu dia a dia comum para fazer seu filho falar — sem sofrimento.",
     checks: ["Encaixa em qualquer rotina", "Brincadeiras validadas por fonoaudióloga"],
     img: entregaAtividades,
   },
   {
-    num: "05", title: "TELAS — ALIADO OU INIMIGO DA FALA?",
+    num: "06", title: "TELAS — ALIADO OU INIMIGO DA FALA?",
     desc: "Entenda como o tempo de tela impacta o desenvolvimento da fala e o que fazer a respeito.",
     checks: ["Orientação baseada em evidências", "Dicas práticas para equilibrar o uso"],
     img: entregaTelas,
   },
   {
-    num: "06", title: "SUPORTE COM A FONO NO WHATSAPP",
+    num: "07", title: "SUPORTE COM A FONO NO WHATSAPP",
     desc: "Sinta que não está sozinha — tire dúvidas direto com a Thaynara no WhatsApp.",
     checks: ["Tire dúvidas direto com a Fonoaudióloga", "Você não precisa enfrentar isso sozinha"],
     img: entregaSuporteWpp,
