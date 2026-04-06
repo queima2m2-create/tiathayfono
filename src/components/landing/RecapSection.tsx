@@ -9,9 +9,9 @@ const guideItems = [
   { emoji: "📲", price: "R$ 97,00", title: "Suporte com a Fono no WhatsApp" },
 ];
 const bonusItems = [
-  { emoji: "✅", price: "R$ 29,90", title: "Checklist de Palavras Iniciais" },
+  { emoji: "🎵", price: "R$ 97,00", title: "Músicas para Falar em Até 7 Dias" },
+  { emoji: "🎥", price: "R$ 197,00", title: "Aula ao Vivo Gratuita com a Fono" },
   { emoji: "🃏", price: "R$ 97,00", title: "Cards Interativos de Estímulo" },
-  { emoji: "🎥", price: "R$ 147,00", title: "Aula Bônus com a Fono" },
 ];
 
 const RecapSection = () => (
