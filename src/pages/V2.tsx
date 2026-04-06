@@ -37,6 +37,12 @@ const V2 = () => {
       <HeroSection />
       <VturbPlayer />
 
+      <div className="bg-background px-4 -mt-4 pb-6 text-center">
+        <p className="text-accent-foreground/80 text-base md:text-lg font-medium animate-pulse">
+          👆 Aperte o play e assista agora — é importante!
+        </p>
+      </div>
+
       {/* CTA button + rest of page hidden until 5:50 of playback */}
       <div className="v2-hidden" style={{ display: "none" }}>
         <section className="bg-background pb-10 px-4 text-center">
