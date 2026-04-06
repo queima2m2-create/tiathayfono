@@ -21,7 +21,7 @@ const RecapSection = () => (
         RECAPITULANDO
       </span>
       <h2 className="text-[1.6rem] md:text-[2.2rem] font-extrabold text-marrom-dark mb-8 leading-[1.25]">
-        Aqui está tudo que você vai receber:
+        Aqui está tudo que você vai receber para ver seu filho destravar a fala em até 30 dias
       </h2>
 
       <img
