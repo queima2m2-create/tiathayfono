@@ -57,7 +57,7 @@ const OQueRecebe = () => (
         Veja tudo que você vai receber para ver seu filho começar a falar em 30 dias.
       </h2>
 
-      <div className="space-y-10">
+      <div className="space-y-8">
         {mainItems.map((item, i) => (
           <div key={i} className={`flex flex-col ${i % 2 === 1 ? 'md:flex-row-reverse' : 'md:flex-row'} gap-8 items-center bg-background rounded-2xl p-7 shadow-lg border border-rosa/20`}>
             <div className="md:w-2/5">
