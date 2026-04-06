@@ -38,7 +38,7 @@ const V2 = () => {
       <VturbPlayer />
 
       <div className="bg-background px-4 -mt-4 pb-6 text-center">
-        <p className="text-accent-foreground/80 text-base md:text-lg font-medium animate-pulse">
+        <p className="text-purple-400 text-base md:text-lg font-medium animate-pulse">
           👆 Aperte o play e assista agora — é importante!
         </p>
       </div>
