@@ -43,7 +43,7 @@ const BonusSection = () => (
 
       <div className="space-y-10">
         {bonusItems.map((item, i) => (
-          <div key={i} className={`flex flex-col ${i % 2 === 1 ? 'md:flex-row-reverse' : 'md:flex-row'} gap-8 items-center bg-background/10 rounded-2xl p-7`}>
+          <div key={i} className={`flex flex-col ${i % 2 === 1 ? 'md:flex-row-reverse' : 'md:flex-row'} gap-8 items-center bg-background/10 rounded-2xl p-7 border border-background/30`}>
             <div className="md:w-2/5">
               <img
                 src={item.img}
