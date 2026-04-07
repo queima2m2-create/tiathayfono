@@ -14,7 +14,7 @@ const mainItems = [
     img: entregaSinais,
   },
   {
-    num: "02", title: "APRENDA COM A FONO",
+    num: "02", title: "AULA COMPLETA: O QUE FAZER PARA SEU FILHO FALAR",
     desc: "Aula explicativa e dinâmica onde eu vou te mostrar exatamente o que fazer para seu filho falar.",
     checks: ["Aula prática e direto ao ponto", "Orientação profissional de verdade"],
     img: entregaFala,

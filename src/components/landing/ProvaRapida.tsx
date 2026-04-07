@@ -4,11 +4,10 @@ const ProvaRapida = () => (
   <section className="bg-background pt-8 pb-8 md:pt-12 md:pb-12 px-6 text-center">
     <div className="max-w-[800px] mx-auto">
       <h2 className="text-[1.6rem] md:text-[2.2rem] font-extrabold text-marrom-dark mb-3 leading-[1.25]">
-        Mães comuns, com rotina corrida, aplicaram o Guia e viram seus filhos falar em até 30 dias.
+        Mais de 1.800 famílias já aplicaram o método da Dra. Thaynara e viram seus filhos começar a falar.
       </h2>
       <p className="text-[1.05rem] text-primary/70 leading-[1.8] max-w-[700px] mx-auto mb-8">
-        E você também pode destravar a fala do seu filho brincando em casa —
-        sem terapia, sem rotina pesada e sem medo de errar.
+        E você também pode fazer isso — usando a rotina que você já tem, sem terapia cara, sem brinquedos especiais e sem medo de errar.
       </p>
       <img
         src={maeFilho}
