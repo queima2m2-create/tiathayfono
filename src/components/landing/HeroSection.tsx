@@ -7,8 +7,7 @@ const HeroSection = () => (
       </h1>
 
       <p className="text-[0.95rem] md:text-[1.05rem] text-primary/80 leading-[1.5] md:leading-[1.8] max-w-[480px] mx-auto">
-        Aplique em casa com leveza, sem precisar gastar com consulta,
-        brinquedos ou seguir métodos complicados.
+        O método criado por uma fonoaudióloga que usa a rotina que você já tem — sem consulta, sem brinquedos especiais e sem complicação.
       </p>
     </div>
   </section>

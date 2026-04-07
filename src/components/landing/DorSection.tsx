@@ -12,10 +12,14 @@ const DorSection = () => (
   <section className="bg-rosa pt-12 pb-12 md:pt-16 md:pb-16 px-6 text-center">
     <div className="max-w-[900px] mx-auto">
       <h2 className="text-[1.5rem] md:text-[1.9rem] font-extrabold text-background mb-3 leading-[1.3]">
-        Você pergunta o que ele quer… o que sente… mas tudo que vem é mais choro?
+        Você olha pro seu filho e sente aquela angústia de não conseguir entender o que ele quer.
       </h2>
       <p className="text-[1.05rem] text-background/70 max-w-[650px] mx-auto mb-8 leading-[1.8]">
-        Você tem medo de esperar demais e lá na frente perceber que era sério, e fica pensando:
+        Você chama, ele não responde. Você pergunta, ele aponta ou chora. E cada dia que passa sem falar, bate aquele medo: será que deixei passar tempo demais?
+        <br /><br />
+        A verdade é que ninguém te ensinou o que estimular, quando estimular e como encaixar isso no seu dia — sem virar mais uma tarefa impossível na sua rotina já lotada.
+        <br /><br />
+        Você provavelmente já se pegou pensando:
       </p>
 
       <div className="relative max-w-[500px] mx-auto mb-8 px-4">
