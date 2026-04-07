@@ -41,6 +41,10 @@ const DorSection = () => (
         ))}
       </div>
 
+      <p className="text-[1.1rem] md:text-[1.25rem] font-bold text-background mt-8 leading-[1.5] max-w-[650px] mx-auto">
+        Se você se identificou com algum desses pensamentos, saiba que não é culpa sua. Ninguém te ensinou o método certo. <span className="underline decoration-2">Até agora:</span>
+      </p>
+
     </div>
   </section>
 );
