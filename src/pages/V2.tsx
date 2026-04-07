@@ -37,7 +37,7 @@ const V2 = () => {
       <HeroSection />
       <VturbPlayer />
 
-      <div className="bg-background px-4 -mt-4 pb-6 text-center">
+      <div className="v2-play-hint bg-background px-4 -mt-4 pb-6 text-center">
         <p className="text-purple-400 text-base md:text-lg font-medium animate-pulse">
           👆 Aperte o play e assista agora — é importante!
         </p>
