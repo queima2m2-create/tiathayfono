@@ -1,25 +1,28 @@
-import passo1 from "@/assets/passo1-raio-x.jpg";
-import passo2 from "@/assets/passo2-brincadeira-balao.jpg";
-import passo3 from "@/assets/passo3-falar-balao.jpg";
+import etapa1 from "@/assets/etapa1-cerebro-fala.jpg";
+import etapa2 from "@/assets/etapa2-protocolo.jpg";
+import etapa3 from "@/assets/etapa3-tagarelas.jpg";
 
 const steps = [
   {
-    num: "PASSO 01",
-    title: "Descubra em que fase da fala seu filho está e o que ele precisa agora.",
-    subtitle: "Você vai entender exatamente qual habilidade estimular primeiro — mesmo sem ter nenhum conhecimento técnico.",
-    img: passo1,
+    num: "ETAPA 1",
+    title: "ENTENDA O CÉREBRO QUE FALA",
+    subtitle:
+      "Descubra como o cérebro da criança aprende a falar — e por que a maioria das mães estimula do jeito errado sem saber. Quando você entende esse mecanismo, cada coisa que você faz com seu filho passa a ter propósito real.",
+    img: etapa1,
   },
   {
-    num: "PASSO 02",
-    title: "Escolha a brincadeira certa para a necessidade do seu filho e aplique com confiança.",
-    subtitle: "Sem precisar adivinhar ou pesquisar por horas — é só seguir o passo a passo e brincar.",
-    img: passo2,
+    num: "ETAPA 2",
+    title: "APLIQUE A ESTRUTURA ÚNICA DA DRA. THAYNARA",
+    subtitle:
+      "Coloque em prática o protocolo exclusivo desenvolvido a partir de 1.800 atendimentos. Uma sequência específica de estímulos que respeita exatamente a fase do seu filho e destrava a fala de dentro pra fora — de forma natural, sem pressão, sem sair de casa.",
+    img: etapa2,
   },
   {
-    num: "PASSO 03",
-    title: "Brinque 15 minutos por dia e veja ele formar as primeiras palavras em até 30 dias.",
-    subtitle: "Mesmo com rotina corrida, dá para encaixar de forma leve, sem cobrança nem estresse.",
-    img: passo3,
+    num: "ETAPA 3",
+    title: "O SEGREDO DAS CRIANÇAS TAGARELAS",
+    subtitle:
+      "Descubra o que toda criança que fala pelos cotovelos tem em comum — e como transformar a rotina do seu filho para que ele chegue lá. Não é sorte. Não é genética. É método.",
+    img: etapa3,
   },
 ];
 
@@ -27,7 +30,7 @@ const ComoFunciona = () => (
   <section className="bg-background pt-10 pb-10 md:pt-14 md:pb-14 px-4">
     <div className="max-w-[720px] mx-auto">
       <h2 className="text-[1.5rem] md:text-[2rem] font-extrabold text-marrom-dark mb-8 text-center leading-[1.25]">
-        3 passos para destravar a fala do seu filho de forma natural
+        A maioria das mães estimula o filho do jeito errado sem saber. Quando você entende o método certo, tudo muda:
       </h2>
 
       <div className="space-y-6">
@@ -39,7 +42,7 @@ const ComoFunciona = () => (
             <div className="aspect-video w-full overflow-hidden">
               <img
                 src={s.img}
-                alt={s.num}
+                alt={s.title}
                 className="w-full h-full object-cover"
                 loading="lazy"
                 width={1280}
