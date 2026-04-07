@@ -2,7 +2,7 @@ import produtoMockup from "@/assets/produto-mockup.jpg";
 
 const guideItems = [
   { emoji: "⚠️", price: "R$ 47,00", title: "Sinais de Alerta" },
-  { emoji: "🎥", price: "R$ 67,00", title: "Aprenda com a Fono" },
+  { emoji: "🎥", price: "R$ 67,00", title: "Aula Completa: O Que Fazer Para Seu Filho Falar" },
   { emoji: "🎲", price: "R$ 47,00", title: "As 10 Melhores Brincadeiras que Desbloqueiam a Fala" },
   { emoji: "💬", price: "R$ 47,00", title: "Palavras de Poder que Destravam a Comunicação" },
   { emoji: "🎮", price: "R$ 47,00", title: "Rotina da Criança Tagarela" },
