@@ -28,6 +28,10 @@ const V2 = () => {
     if (player) {
       (player as any).addEventListener("player:ready", function () {
         (player as any).displayHiddenElements(350, [".v2-hidden"], { persist: true });
+        setTimeout(() => {
+          const hint = document.querySelector(".v2-play-hint");
+          if (hint) (hint as HTMLElement).style.display = "none";
+        }, 350 * 1000);
       });
     }
   }, []);
@@ -37,7 +41,7 @@ const V2 = () => {
       <HeroSection />
       <VturbPlayer />
 
-      <div className="bg-background px-4 -mt-4 pb-6 text-center">
+      <div className="v2-play-hint bg-background px-4 -mt-4 pb-6 text-center">
         <p className="text-purple-400 text-base md:text-lg font-medium animate-pulse">
           👆 Aperte o play e assista agora — é importante!
         </p>
