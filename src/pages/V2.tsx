@@ -46,22 +46,41 @@ const V2 = () => {
       {/* CTA button + rest of page hidden until 5:50 of playback */}
       <div className="v2-hidden" style={{ display: "none" }}>
         <section className="bg-background pb-10 px-4 text-center">
-          <Button
-            variant="cta"
-            size="lg"
-            className="text-[0.85rem] md:text-[1rem] px-8 py-5 md:py-6 w-full md:w-auto max-w-[600px] leading-tight whitespace-normal h-auto"
-            asChild
-          >
-            <a
-              href="https://pay.kiwify.com.br/uXb5s35"
-              onClick={() => fbEvents.initiateCheckout()}
-            >
-              QUERO DESTRAVAR A FALA DO MEU FILHO EM 30 DIAS →
-            </a>
-          </Button>
-          <p className="text-[0.85rem] text-primary/70 mt-3 font-semibold">
-            De R$497 por apenas R$67 no PIX ou 12x de R$6,93 🔒 Acesso imediato no email
-          </p>
+          <div className="max-w-[520px] mx-auto">
+            <p className="text-[1rem] mb-2 font-semibold">
+              <span className="bg-vermelho text-background px-3 py-1 rounded-md text-[1.1rem] font-bold">
+                De: <span className="line-through">R$ 497,00</span>
+              </span>
+            </p>
+
+            <p className="text-[1.1rem] mb-1 mt-3">
+              12x de <strong className="text-[2.8rem] md:text-[3.2rem] font-black text-marrom-dark leading-none">R$ 6,93</strong>
+            </p>
+
+            <div className="inline-block bg-marrom-dark/80 text-background text-[1.3rem] font-black px-8 py-3 rounded-xl my-4">
+              OU R$ 67 NO PIX
+            </div>
+
+            <div className="mt-4">
+              <Button
+                variant="cta"
+                size="lg"
+                className="text-[0.85rem] md:text-[1rem] px-8 py-5 md:py-6 w-full leading-tight whitespace-normal h-auto text-background font-extrabold"
+                asChild
+              >
+                <a
+                  href="https://pay.kiwify.com.br/uXb5s35"
+                  onClick={() => fbEvents.initiateCheckout()}
+                >
+                  QUERO DESTRAVAR A FALA DO MEU FILHO EM 30 DIAS →
+                </a>
+              </Button>
+            </div>
+
+            <p className="text-[0.85rem] text-primary/60 mt-4 font-semibold">
+              📲 RECEBA ACESSO IMEDIATO NO EMAIL
+            </p>
+          </div>
         </section>
 
         <Suspense fallback={null}>
