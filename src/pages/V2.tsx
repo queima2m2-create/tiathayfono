@@ -28,6 +28,10 @@ const V2 = () => {
     if (player) {
       (player as any).addEventListener("player:ready", function () {
         (player as any).displayHiddenElements(350, [".v2-hidden"], { persist: true });
+        setTimeout(() => {
+          const hint = document.querySelector(".v2-play-hint");
+          if (hint) (hint as HTMLElement).style.display = "none";
+        }, 350 * 1000);
       });
     }
   }, []);
