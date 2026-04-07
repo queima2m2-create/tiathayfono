@@ -27,17 +27,18 @@ const steps = [
 ];
 
 const ComoFunciona = () => (
-  <section className="bg-background pt-10 pb-10 md:pt-14 md:pb-14 px-4">
+  <section className="bg-rosa-light pt-12 pb-12 md:pt-16 md:pb-16 px-4">
     <div className="max-w-[720px] mx-auto">
-      <h2 className="text-[1.5rem] md:text-[2rem] font-extrabold text-marrom-dark mb-8 text-center leading-[1.25]">
+      <h2 className="text-[1.6rem] md:text-[2.2rem] font-extrabold text-marrom-dark mb-3 text-center leading-[1.2]">
         A maioria das mães estimula o filho do jeito errado sem saber. Quando você entende o método certo, tudo muda:
       </h2>
+      <div className="w-16 h-1 bg-rosa mx-auto rounded-full mb-10" />
 
-      <div className="space-y-6">
+      <div className="space-y-8">
         {steps.map((s, i) => (
           <div
             key={i}
-            className="bg-card border border-border rounded-2xl overflow-hidden shadow-sm"
+            className="bg-card border-2 border-rosa/20 rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300"
           >
             <div className="aspect-video w-full overflow-hidden">
               <img
@@ -49,14 +50,14 @@ const ComoFunciona = () => (
                 height={720}
               />
             </div>
-            <div className="p-5">
-              <span className="inline-block bg-rosa text-background text-[0.7rem] font-bold px-3 py-1 rounded mb-2 tracking-wider">
+            <div className="p-6">
+              <span className="inline-block bg-rosa text-background text-[0.75rem] font-bold px-4 py-1.5 rounded-full mb-3 tracking-wider">
                 {s.num}
               </span>
-              <h3 className="text-[1.05rem] md:text-[1.2rem] font-extrabold text-marrom-dark leading-[1.35] mb-1.5">
+              <h3 className="text-[1.15rem] md:text-[1.35rem] font-extrabold text-marrom-dark leading-[1.3] mb-2">
                 {s.title}
               </h3>
-              <p className="text-[0.9rem] text-primary/80 leading-[1.6]">
+              <p className="text-[0.95rem] text-primary/80 leading-[1.7]">
                 {s.subtitle}
               </p>
             </div>
