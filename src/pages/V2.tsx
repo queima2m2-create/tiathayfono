@@ -53,12 +53,15 @@ const V2 = () => {
             asChild
           >
             <a
-              href="#recapitulando"
+              href="https://pay.kiwify.com.br/uXb5s35"
               onClick={() => fbEvents.initiateCheckout()}
             >
               QUERO DESTRAVAR A FALA DO MEU FILHO EM 30 DIAS →
             </a>
           </Button>
+          <p className="text-[0.85rem] text-primary/70 mt-3 font-semibold">
+            De R$497 por apenas R$67 no PIX ou 12x de R$6,93 🔒 Acesso imediato no email
+          </p>
         </section>
 
         <Suspense fallback={null}>
