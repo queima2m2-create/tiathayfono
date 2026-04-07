@@ -41,9 +41,6 @@ const DorSection = () => (
         ))}
       </div>
 
-      <p className="text-[1.1rem] font-bold text-background max-w-[640px] mx-auto leading-[1.5]">
-        Seu filho não está falando porque você não seguiu os três passos abaixo:
-      </p>
     </div>
   </section>
 );

@@ -8,10 +8,10 @@ const GarantiaSection = () => (
           Destrave a fala com 15 min por dia ou seu dinheiro de volta
         </h2>
 
-        {/* Big 7 seal */}
+        {/* Big 30 seal */}
         <div className="relative flex flex-col items-center mb-10">
-          <span className="text-[12rem] md:text-[16rem] font-black text-background/15 leading-none select-none">
-            7
+          <span className="text-[10rem] md:text-[14rem] font-black text-background/15 leading-none select-none">
+            30
           </span>
           <div className="absolute bottom-4 md:bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-start">
             <span className="text-[2rem] md:text-[2.6rem] font-black text-background leading-none tracking-tight">
@@ -32,7 +32,7 @@ const GarantiaSection = () => (
           <p>
             <strong>Eu confio tanto no que preparei dentro do Guia que você pode entrar, testar,
             aplicar com calma e ver os efeitos com seus próprios olhos —
-            porque se não fizer sentido, em até 7 dias, é só pedir o reembolso e pronto.
+            porque se não fizer sentido, em até 30 dias, é só pedir o reembolso e pronto.
             Sem perguntas, sem estresse, sem culpa.</strong>
           </p>
           <p>

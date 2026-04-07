@@ -47,7 +47,7 @@ const SobreSection = () => {
 
         <div>
           <span className="inline-block px-4 py-1.5 border border-primary rounded-full text-[0.85rem] text-primary mb-5">
-            Quem sou eu
+            Conheça a criadora da Estrutura Única da Fala
           </span>
           <h2 className="text-[1.5rem] md:text-[1.8rem] font-extrabold text-marrom-dark mb-5 leading-[1.3]">
             Oi! Eu sou a Thaynara Andrade
