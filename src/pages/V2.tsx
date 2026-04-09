@@ -122,7 +122,7 @@ const V2 = () => {
           <Footer />
         </Suspense>
       </div>
-      <SocialProofToast />
+      
     </main>
   );
 };
