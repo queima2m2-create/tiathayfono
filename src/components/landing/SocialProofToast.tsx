@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect } from "react";
 import kiwifyLogo from "@/assets/kiwify-logo.webp";
 
 type ToastMessage = {
@@ -34,24 +34,29 @@ const SocialProofToast = () => {
   const [visible, setVisible] = useState(false);
   const [index, setIndex] = useState(0);
 
-  const show = useCallback(() => {
-    setIndex((prev) => prev % MESSAGES.length);
-    setVisible(true);
-    setTimeout(() => setVisible(false), 4000);
-    setIndex((prev) => (prev + 1) % MESSAGES.length);
+  useEffect(() => {
+    let timeout: ReturnType<typeof setTimeout>;
+    let currentIndex = 0;
+
+    const showNext = () => {
+      setIndex(currentIndex);
+      setVisible(true);
+      currentIndex = (currentIndex + 1) % MESSAGES.length;
+
+      timeout = setTimeout(() => {
+        setVisible(false);
+        // Wait 5s after hiding, then show next
+        timeout = setTimeout(showNext, 5000);
+      }, 4000);
+    };
+
+    // First toast after 10s
+    timeout = setTimeout(showNext, 10000);
+
+    return () => clearTimeout(timeout);
   }, []);
 
-  useEffect(() => {
-    const initial = setTimeout(show, 10000);
-    const interval = setInterval(show, 5000);
-
-    return () => {
-      clearTimeout(initial);
-      clearInterval(interval);
-    };
-  }, [show]);
-
-  const msg = MESSAGES[index === 0 ? MESSAGES.length - 1 : index - 1];
+  const msg = MESSAGES[index];
 
   return (
     <div
