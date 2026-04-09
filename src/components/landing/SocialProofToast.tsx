@@ -46,7 +46,7 @@ const SocialProofToast = () => {
       timeout = setTimeout(() => {
         setVisible(false);
         // Wait 5s after hiding, then show next
-        timeout = setTimeout(showNext, 5000);
+        timeout = setTimeout(showNext, 7000);
       }, 4000);
     };
 
