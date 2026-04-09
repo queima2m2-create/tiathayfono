@@ -1,6 +1,7 @@
 import { useEffect, lazy, Suspense } from "react";
 import HeroSection from "@/components/landing/HeroSection";
 import VturbPlayer from "@/components/landing/VturbPlayer";
+import SocialProofToast from "@/components/landing/SocialProofToast";
 import { fbEvents } from "@/lib/fbConversions";
 import { Button } from "@/components/ui/button";
 
@@ -61,6 +62,7 @@ const Index = () => {
         <FAQSection />
         <Footer />
       </Suspense>
+      <SocialProofToast />
     </main>
   );
 };
