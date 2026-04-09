@@ -59,6 +59,11 @@ const SocialProofToast = () => {
           <p className="text-xs text-gray-700 leading-snug">
             Realizou a compra do <strong>Guia Meu Filho Vai Falar</strong> — Acesso por 1 ano
           </p>
+          <p className="text-xs text-gray-500 mt-0.5">
+            <span className="line-through text-red-400">R$ 497</span>{" "}
+            <span className="font-bold text-green-600">R$ 67</span>{" "}
+            <span className="bg-green-100 text-green-700 text-[0.6rem] font-bold px-1.5 py-0.5 rounded">-85% OFF</span>
+          </p>
           <p className="text-[0.65rem] text-gray-400 mt-1">{time}</p>
         </div>
 
