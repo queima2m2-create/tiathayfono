@@ -1,45 +1,57 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import kiwifyLogo from "@/assets/kiwify-logo.webp";
 
-const NAMES = [
-  "Jéssica", "Amanda", "Camila", "Fernanda", "Juliana", "Patrícia",
-  "Mariana", "Aline", "Bruna", "Carolina", "Débora", "Elaine",
-  "Gabriela", "Helena", "Isabela", "Larissa", "Natália", "Priscila",
-  "Rafaela", "Tatiane", "Vanessa", "Bianca", "Daniela", "Letícia",
-  "Renata", "Simone", "Viviane", "Cristina", "Fabiana", "Luciana",
-];
+type ToastMessage = {
+  name: string;
+  text: string;
+  time: string;
+};
 
-const TIMES = [
-  "há 2 minutos", "há 5 minutos", "há 8 minutos", "há 12 minutos",
-  "há 15 minutos", "há 20 minutos", "há 28 minutos", "há 35 minutos",
-  "há 1 hora", "há 2 horas",
+const MESSAGES: ToastMessage[] = [
+  { name: "Fernanda", text: "comprou o Guia Meu Filho Vai Falar", time: "há 3 minutos" },
+  { name: "Camila", text: "comprou o Guia Meu Filho Vai Falar", time: "há 7 minutos" },
+  { name: "Patrícia", text: "deixou 5 estrelas ⭐⭐⭐⭐⭐", time: "há 11 minutos" },
+  { name: "Juliana", text: "acabou de acessar o material", time: "há 2 minutos" },
+  { name: "Renata", text: "comprou o Guia Meu Filho Vai Falar", time: "há 15 minutos" },
+  { name: "Mariana", text: "deixou 5 estrelas ⭐⭐⭐⭐⭐", time: "há 5 minutos" },
+  { name: "Aline", text: "comprou o Guia Meu Filho Vai Falar", time: "há 1 minuto" },
+  { name: "Beatriz", text: "deixou 5 estrelas ⭐⭐⭐⭐⭐", time: "há 9 minutos" },
+  { name: "Cristina", text: "acabou de acessar o material", time: "há 4 minutos" },
+  { name: "Larissa", text: "comprou o Guia Meu Filho Vai Falar", time: "há 8 minutos" },
+  { name: "Gabriela", text: "comprou o Guia Meu Filho Vai Falar", time: "há 6 minutos" },
+  { name: "Helena", text: "deixou 5 estrelas ⭐⭐⭐⭐⭐", time: "há 12 minutos" },
+  { name: "Isabela", text: "acabou de acessar o material", time: "há 3 minutos" },
+  { name: "Priscila", text: "comprou o Guia Meu Filho Vai Falar", time: "há 10 minutos" },
+  { name: "Natália", text: "deixou 5 estrelas ⭐⭐⭐⭐⭐", time: "há 14 minutos" },
+  { name: "Débora", text: "comprou o Guia Meu Filho Vai Falar", time: "há 2 minutos" },
+  { name: "Tatiane", text: "acabou de acessar o material", time: "há 7 minutos" },
+  { name: "Viviane", text: "comprou o Guia Meu Filho Vai Falar", time: "há 5 minutos" },
+  { name: "Bianca", text: "deixou 5 estrelas ⭐⭐⭐⭐⭐", time: "há 8 minutos" },
+  { name: "Daniela", text: "comprou o Guia Meu Filho Vai Falar", time: "há 1 minuto" },
 ];
-
-const pick = <T,>(arr: T[]) => arr[Math.floor(Math.random() * arr.length)];
 
 const SocialProofToast = () => {
   const [visible, setVisible] = useState(false);
-  const [name, setName] = useState("");
-  const [time, setTime] = useState("");
+  const [index, setIndex] = useState(0);
+
+  const show = useCallback(() => {
+    setIndex((prev) => prev % MESSAGES.length);
+    setVisible(true);
+    setTimeout(() => setVisible(false), 4000);
+    setIndex((prev) => (prev + 1) % MESSAGES.length);
+  }, []);
 
   useEffect(() => {
-    const show = () => {
-      setName(pick(NAMES));
-      setTime(pick(TIMES));
-      setVisible(true);
-      setTimeout(() => setVisible(false), 4000);
-    };
-
-    // First appearance after 10s
     const initial = setTimeout(show, 10000);
-    // Then every 8s after the first
-    const interval = setInterval(show, 8000);
+    const interval = setInterval(show, 5000);
 
     return () => {
       clearTimeout(initial);
       clearInterval(interval);
     };
-  }, []);
+  }, [show]);
+
+  const msg = MESSAGES[index === 0 ? MESSAGES.length - 1 : index - 1];
 
   return (
     <div
@@ -53,14 +65,16 @@ const SocialProofToast = () => {
         <img src={kiwifyLogo} alt="Kiwify" className="flex-shrink-0 w-10 h-10 rounded-full object-contain" />
 
         <div className="flex-1 min-w-0">
-          <p className="font-bold text-sm text-green-700">{name}</p>
+          <p className="font-bold text-sm text-green-700">{msg.name}</p>
           <p className="text-xs text-gray-700 leading-snug">
-            Realizou a compra do <strong>Guia Meu Filho Vai Falar</strong> — Acesso por 1 ano
+            {msg.text}
           </p>
-          <p className="text-xs mt-0.5">
-            <span className="bg-green-100 text-green-700 text-[0.65rem] font-bold px-1.5 py-0.5 rounded">com 85% de desconto</span>
-          </p>
-          <p className="text-[0.65rem] text-gray-400 mt-1">{time}</p>
+          {msg.text.includes("comprou") && (
+            <p className="text-xs mt-0.5">
+              <span className="bg-green-100 text-green-700 text-[0.65rem] font-bold px-1.5 py-0.5 rounded">com 85% de desconto</span>
+            </p>
+          )}
+          <p className="text-[0.65rem] text-gray-400 mt-1">{msg.time}</p>
         </div>
 
         <button
