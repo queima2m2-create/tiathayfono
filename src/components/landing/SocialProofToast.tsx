@@ -30,9 +30,9 @@ const SocialProofToast = () => {
       setTimeout(() => setVisible(false), 4000);
     };
 
-    // First appearance after 6s
-    const initial = setTimeout(show, 6000);
-    // Then every 8s
+    // First appearance after 10s
+    const initial = setTimeout(show, 10000);
+    // Then every 8s after the first
     const interval = setInterval(show, 8000);
 
     return () => {
