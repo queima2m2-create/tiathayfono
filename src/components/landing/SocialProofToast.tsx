@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import kiwifyLogo from "@/assets/kiwify-logo.webp";
 
 const NAMES = [
   "Jéssica", "Amanda", "Camila", "Fernanda", "Juliana", "Patrícia",
@@ -49,10 +50,7 @@ const SocialProofToast = () => {
       }`}
     >
       <div className="bg-white text-gray-900 rounded-lg shadow-2xl p-3 flex items-start gap-3 border border-gray-200">
-        {/* Kiwify-style icon */}
-        <div className="flex-shrink-0 w-10 h-10 bg-green-500 rounded-full flex items-center justify-center">
-          <span className="text-white text-lg font-bold">K</span>
-        </div>
+        <img src={kiwifyLogo} alt="Kiwify" className="flex-shrink-0 w-10 h-10 rounded-full object-contain" />
 
         <div className="flex-1 min-w-0">
           <p className="font-bold text-sm text-green-700">{name}</p>
