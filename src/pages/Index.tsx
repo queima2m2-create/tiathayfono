@@ -64,6 +64,7 @@ const Index = () => {
         <Footer />
       </Suspense>
       <SocialProofToast />
+      <UnmuteOverlay />
     </main>
   );
 };
