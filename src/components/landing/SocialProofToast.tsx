@@ -56,7 +56,7 @@ const SocialProofToast = () => {
     return () => clearTimeout(timeout);
   }, []);
 
-  const msg = MESSAGES[index === 0 ? MESSAGES.length - 1 : index - 1];
+  const msg = MESSAGES[index];
 
   return (
     <div
