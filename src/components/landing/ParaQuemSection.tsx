@@ -28,7 +28,7 @@ const ParaQuemSection = () => (
 
       <div className="mt-10">
         <p className="text-[0.85rem] font-bold text-background/60 uppercase tracking-[2px] mb-6">
-          E para você que quer 👇
+          Mas no fundo, o que você realmente quer é 👇
         </p>
         <div className="space-y-4">
           {desires.map((d, i) => (
