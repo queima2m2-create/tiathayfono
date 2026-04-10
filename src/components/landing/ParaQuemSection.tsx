@@ -1,14 +1,14 @@
 const problems = [
-  "😭 Não quer mais sentir que o filho está ficando para trás",
-  "😟 Vive tentando adivinhar o que o filho quer",
-  "😓 Não tem tempo para pesquisar e fica mais confusa que antes",
-  "🥺 Quer ajudar mas não sabe como e não tem habilidade para brincadeiras específicas",
+  "😭 Está vendo outras crianças falando e sentindo aquela dor no peito que só mãe conhece",
+  "😟 Chora escondida porque não consegue entender o que o filho está tentando te dizer",
+  "😓 Já pesquisou tudo na internet e cada coisa que lê aumenta mais o seu medo",
+  "🥺 Quer fazer tudo certo pelo seu filho mas ninguém te ensinou o que fazer de verdade",
 ];
 
 const desires = [
-  '🥰 Ouvir um "mamãe" com intenção — e não só por acidente',
-  "😌 Sentir alívio quando o filho falar o que sente",
-  "🤩 Ver seu filho falando e sendo compreendido pelas pessoas",
+  "🥰 Ouvir seu filho te chamar de mamãe com vontade — e sentir que ele escolheu você",
+  "😌 Deitar à noite sabendo que fez tudo que estava ao seu alcance pelo seu filho",
+  "🤩 Ver seu filho se comunicar, fazer amigos e ocupar o espaço que sempre foi dele",
 ];
 
 const ParaQuemSection = () => (
