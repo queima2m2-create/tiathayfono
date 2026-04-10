@@ -57,7 +57,7 @@ const SobreSection = () => {
               <strong className="text-marrom-dark">Fonoaudióloga infantil especializada no desenvolvimento da comunicação e linguagem nos primeiros anos de vida.</strong>
             </p>
             <p>
-              Já acompanhei mais de <strong className="text-marrom-dark">1.800 famílias</strong> — e o que eu percebi em todas elas foi o mesmo: as mães não precisavam de mais uma consulta cara. Elas precisavam saber exatamente o que fazer em casa, no banho, na hora da comida, na brincadeira do dia a dia.
+              Já acompanhei mais de <strong className="text-marrom-dark">1.800 famílias</strong> — e o que eu percebi em todas elas foi o mesmo: as mães precisavam de algo além da consulta — saber exatamente o que fazer em casa, no banho, na hora da comida, na brincadeira do dia a dia.
             </p>
             <p>
               Mães que estavam perdidas, achando que o filho nunca ia falar — <strong className="text-marrom-dark">hoje me mandam vídeos emocionadas com cada palavrinha nova.</strong>
