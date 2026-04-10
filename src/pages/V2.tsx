@@ -48,7 +48,7 @@ const V2 = () => {
               href="#recapitulando"
               onClick={() => fbEvents.initiateCheckout()}
             >
-              QUERO DESTRAVAR A FALA DO MEU FILHO EM 30 DIAS →
+              QUERO COMEÇAR AGORA PELO MEU FILHO →
             </a>
           </Button>
         </section>
