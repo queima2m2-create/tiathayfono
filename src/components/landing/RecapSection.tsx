@@ -64,11 +64,11 @@ const RecapSection = () => (
 
       <div className="mt-4">
         <h3 className="text-[1.2rem] font-extrabold text-marrom-dark mb-1">
-          Tudo isso poderia custar facilmente
+          O valor real de tudo que você recebe
         </h3>
         <p className="text-[2rem] font-black text-vermelho line-through mb-1">R$ 497,00</p>
         <p className="text-[1.1rem] text-marrom-dark font-extrabold">
-          Mas você não pagará NEM METADE DISSO…
+          Mas a Dra. Thaynara decidiu que nenhuma mãe deveria pagar esse valor
         </p>
       </div>
     </div>
