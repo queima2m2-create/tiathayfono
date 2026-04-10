@@ -8,10 +8,10 @@ const DepoimentosSection = () => (
   <section id="depoimentos" className="bg-background py-20 md:py-28 px-6">
     <div className="max-w-[900px] mx-auto">
       <h2 className="text-[1.6rem] md:text-[2.2rem] font-extrabold text-marrom-dark mb-3 leading-[1.25]">
-        Veja o resultado de quem usou o Guia Meu Filho Vai Falar.
+        Mães reais. Filhos que começaram a falar. Veja o que está acontecendo.
       </h2>
       <p className="text-[1.05rem] text-primary/70 mb-14 leading-[1.7]">
-        E você terá os mesmos resultados com brincadeiras simples e validadas.
+        Cada depoimento aqui é de uma mãe que duvidou — e hoje não consegue mais imaginar sem o método da Dra. Thaynara.
       </p>
 
       <div className="flex flex-col gap-6 max-w-[500px] mx-auto">
