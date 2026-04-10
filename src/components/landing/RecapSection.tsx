@@ -20,10 +20,10 @@ const RecapSection = () => (
   <section id="recapitulando" className="bg-bege-dark pt-12 pb-6 md:pt-16 md:pb-8 px-6 text-center">
     <div className="max-w-[750px] mx-auto">
       <span className="inline-block bg-border text-primary text-[0.78rem] font-bold tracking-[2px] uppercase px-4 py-1.5 rounded-full mb-5">
-        RECAPITULANDO
+        RESUMINDO
       </span>
       <h2 className="text-[1.6rem] md:text-[2.2rem] font-extrabold text-marrom-dark mb-8 leading-[1.25]">
-        Aqui está tudo que você vai receber para ver seu filho destravar a fala em até 30 dias
+        Tudo que você vai ter nas mãos para ver seu filho falar em até 30 dias
       </h2>
 
       <img
