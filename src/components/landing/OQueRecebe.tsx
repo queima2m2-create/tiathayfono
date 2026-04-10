@@ -44,9 +44,9 @@ const mainItems = [
     img: entregaTelas,
   },
   {
-    num: "07", title: "SUPORTE COM A FONO NO WHATSAPP",
-    desc: "Sinta que não está sozinha — tire dúvidas direto com a Thaynara no WhatsApp.",
-    checks: ["Tire dúvidas direto com a Fonoaudióloga", "Você não precisa enfrentar isso sozinha"],
+    num: "07", title: "FALE DIRETO COM A DRA. THAYNARA",
+    desc: "Tem dúvida no meio do caminho? Manda mensagem. A Thaynara responde e te orienta pessoalmente.",
+    checks: ["Orientação personalizada para o seu filho", "Alguém de verdade do seu lado em cada etapa"],
     img: entregaSuporteWpp,
   },
 ];
