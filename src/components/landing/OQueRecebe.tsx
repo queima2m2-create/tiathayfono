@@ -54,7 +54,7 @@ const OQueRecebe = () => (
   <section className="bg-rosa pt-20 md:pt-28 pb-6 md:pb-8 px-6">
     <div className="max-w-[900px] mx-auto">
       <h2 className="text-[1.6rem] md:text-[2.2rem] font-extrabold text-center text-background mb-16 leading-[1.25]">
-        Veja tudo que você vai receber para ver seu filho começar a falar em 30 dias.
+        O que está dentro do Guia que já destravou a fala de 1.800 crianças
       </h2>
 
       <div className="space-y-10">
