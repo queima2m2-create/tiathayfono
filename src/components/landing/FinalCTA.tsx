@@ -7,10 +7,10 @@ const FinalCTA = () => (
     <section className="bg-background py-12 md:py-16 px-6 text-center">
       <div className="max-w-[750px] mx-auto">
         <h2 className="text-[1.4rem] md:text-[1.9rem] font-extrabold text-vermelho mb-2 leading-[1.3]">
-          Vai continuar vendo seu filho atrasado, sem saber o que fazer?
+          Vai continuar sem saber como ajudar seu filho a falar mais?
         </h2>
         <h2 className="text-[1.4rem] md:text-[1.9rem] font-extrabold text-rosa mb-6 leading-[1.3]">
-          Ou vai ver ele formar as primeiras frases em 30 dias?
+          Ou vai ver ele destravar a fala em até 30 dias?
         </h2>
 
         <div className="aspect-video w-full max-w-[600px] mx-auto mb-6 overflow-hidden rounded-2xl shadow-md">
@@ -26,10 +26,10 @@ const FinalCTA = () => (
 
         <div className="max-w-[600px] mx-auto space-y-3 text-left mb-6">
           <p className="text-[1.05rem] text-marrom-dark font-bold leading-[1.6]">
-            ❌ Se você não tomar uma decisão agora, vai continuar vivendo no escuro, cheia de culpa, sem ver progresso nenhum.
+            ❌ Se você não agir, vai continuar tentando adivinhar o que fazer — enquanto o tempo passa.
           </p>
           <p className="text-[1.05rem] text-rosa font-bold leading-[1.6]">
-            ✅ Se você agir agora, vai finalmente ver seu filho falando, mesmo com apenas 15 minutos por dia.
+            ✅ Se você agir agora, vai finalmente ter um caminho claro para ajudar seu filho a falar — em 15 minutos por dia.
           </p>
         </div>
       </div>
