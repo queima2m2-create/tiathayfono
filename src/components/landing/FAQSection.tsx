@@ -2,32 +2,32 @@ import { useState } from "react";
 
 const faqs = [
   {
-    q: "Quando e como terei acesso ao curso?",
-    a: "Após a aprovação do pagamento, você receberá um e-mail com os dados de acesso à plataforma, permitindo que você comece imediatamente.",
+    q: "Comprei agora — quando consigo acessar?",
+    a: "Na hora. Assim que o pagamento for aprovado, você recebe o acesso direto na plataforma. Não precisa esperar, não precisa instalar nada. Em menos de 2 minutos você já está dentro.",
   },
   {
-    q: "Em quanto tempo verei meu filho falando?",
-    a: "A maioria das mães começa a ver mudanças já nos primeiros dias. Mas a proposta do Guia é que você veja palavras e frases surgindo em até 30 dias.",
+    q: "Quanto tempo leva pra meu filho começar a falar mais?",
+    a: "A maioria das mães já percebe algo diferente na primeira semana — uma tentativa nova, uma palavra que não existia antes. O programa é de 30 dias, mas os primeiros sinais aparecem bem antes disso. Cada criança tem seu tempo, e o Guia foi feito para respeitar isso sem deixar você parada.",
   },
   {
-    q: "Preciso de novos brinquedos ou alguma experiência?",
-    a: "Não! Tudo foi pensado para você aplicar com o que já tem em casa, mesmo sem entender nada de fono ou desenvolvimento.",
+    q: "Preciso ter algum conhecimento ou comprar material especial?",
+    a: "Não precisa de nada disso. Tudo foi criado para funcionar com o que você já tem em casa e com a rotina que você já vive. Não é necessário entender de fono, não é necessário comprar brinquedo novo. É só você, seu filho e 15 minutos por dia.",
   },
   {
-    q: "Já tentei outras coisas e não funcionou. E se com isso for igual?",
-    a: "O que você tentou antes provavelmente era genérico. Aqui você recebe um passo a passo claro, com estratégias de consultório, validadas com centenas de famílias.",
+    q: "Já tentei várias coisas antes e não vi resultado. Isso é diferente?",
+    a: "Sim — e muito. A diferença está na origem: o que você tentou antes provavelmente era conteúdo genérico, sem estrutura clínica. Aqui você recebe o mesmo protocolo que a Dra. Thaynara aplica em consultório, adaptado para mães, com passo a passo claro e validado com centenas de crianças reais.",
   },
   {
-    q: "Se meu filho já faz acompanhamento com uma fono, o Guia ainda é útil?",
-    a: "Sim, o Guia complementa o acompanhamento fonoaudiológico, oferecendo práticas que podem ser realizadas em casa. Ele potencializa os resultados, já que o maior tempo de estímulo ocorre no ambiente familiar, com você.",
+    q: "Meu filho já faz terapia com uma fono. Ainda vale a pena?",
+    a: "Vale — e muito. A fonoaudióloga atende seu filho por 1 hora por semana. O Guia coloca você em ação nas outras horas do dia, dentro de casa. Ele não compete com a terapia, ele amplifica o resultado dela. Muitas fonoaudiólogas inclusive recomendam.",
   },
   {
-    q: "Para quem é recomendado esse curso?",
-    a: "O Guia é recomendado para todas as crianças em processo de desenvolvimento da fala, principalmente aquelas que apresentam atraso na fala ou têm um vocabulário reduzido.",
+    q: "Como sei se o Guia é certo para o meu filho?",
+    a: "Se seu filho tem entre 1 e 5 anos e você sente que ele poderia estar se comunicando melhor — fala pouco, não fala nada, entende mas não verbaliza, ou regrediu — então o Guia foi feito para ele. E para você.",
   },
   {
-    q: "Qual a faixa etária indicada?",
-    a: "O programa é recomendado para crianças desde os primeiros meses de vida até os 5 anos, abrangendo as principais fases de desenvolvimento da fala e linguagem.",
+    q: "A partir de que idade posso usar o Guia?",
+    a: "O Guia é indicado para crianças de 1 a 5 anos, que é a fase onde o cérebro está mais receptivo para aprender a falar. Quanto mais cedo você começa, mais forte é o resultado — mas dentro dessa faixa, nunca é tarde demais para agir.",
   },
   {
     q: "A plataforma de pagamentos é segura?",
