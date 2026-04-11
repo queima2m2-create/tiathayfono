@@ -7,10 +7,10 @@ const FinalCTA = () => (
     <section className="bg-background py-12 md:py-16 px-6 text-center">
       <div className="max-w-[750px] mx-auto">
         <h2 className="text-[1.4rem] md:text-[1.9rem] font-extrabold text-vermelho mb-2 leading-[1.3]">
-          Vai continuar sem saber como ajudar seu filho a falar mais?
+          Seu filho está na janela mais importante do desenvolvimento. Ela não espera.
         </h2>
         <h2 className="text-[1.4rem] md:text-[1.9rem] font-extrabold text-rosa mb-6 leading-[1.3]">
-          Ou vai ver ele destravar a fala em até 30 dias?
+          Você vai aproveitar essa janela ou vai deixar ela fechar?
         </h2>
 
         <div className="aspect-video w-full max-w-[600px] mx-auto mb-6 overflow-hidden rounded-2xl shadow-md">
@@ -26,10 +26,10 @@ const FinalCTA = () => (
 
         <div className="max-w-[600px] mx-auto space-y-3 text-left mb-6">
           <p className="text-[1.05rem] text-marrom-dark font-bold leading-[1.6]">
-            ❌ Se você não agir, vai continuar tentando adivinhar o que fazer — enquanto o tempo passa.
+            ❌ Cada semana sem o método certo é uma semana do desenvolvimento do seu filho que não volta mais.
           </p>
           <p className="text-[1.05rem] text-rosa font-bold leading-[1.6]">
-            ✅ Se você agir agora, vai finalmente ter um caminho claro para ajudar seu filho a falar — em 15 minutos por dia.
+            ✅ Uma decisão de R$67 hoje pode mudar o quanto seu filho vai falar — pelo resto da vida.
           </p>
         </div>
       </div>
