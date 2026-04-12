@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import { Mail, MessageCircle, CheckCircle2, Heart } from "lucide-react";
+import { Mail, MessageCircle, CheckCircle2, Heart, Download } from "lucide-react";
 import { fbEvents } from "@/lib/fbConversions";
 import thaynaraImg from "@/assets/thaynara.png";
 
