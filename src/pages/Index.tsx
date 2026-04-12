@@ -49,7 +49,7 @@ const Index = () => {
               href="#recapitulando"
               onClick={() => fbEvents.initiateCheckout()}
             >
-              QUERO COMEÇAR AGORA PELO MEU FILHO →
+              QUERO DESTRAVAR A FALA DO MEU FILHO EM 30 DIAS →
             </a>
           </Button>
         </section>
