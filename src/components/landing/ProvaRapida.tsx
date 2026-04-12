@@ -9,7 +9,7 @@ const ProvaRapida = () => (
       <p className="text-[1.05rem] text-primary/70 leading-[1.8] max-w-[700px] mx-auto mb-8">
         E você também pode fazer isso — usando a rotina que você já tem, sem terapia cara, sem brinquedos especiais e sem medo de errar.
       </p>
-      <img loading="lazy"
+      <img
         src={maeFilho}
         alt="Mãe brincando com filho"
         className="rounded-2xl w-full max-w-[500px] mx-auto shadow-md"

@@ -41,7 +41,7 @@ const ComoFunciona = () => (
             className="bg-card border-2 border-rosa/20 rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300"
           >
             <div className="aspect-video w-full overflow-hidden">
-              <img loading="lazy"
+              <img
                 src={s.img}
                 alt={s.title}
                 className="w-full h-full object-cover"

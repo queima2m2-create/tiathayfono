@@ -23,7 +23,7 @@ const DorSection = () => (
       </p>
 
       <div className="relative max-w-[500px] mx-auto mb-8 px-4">
-        <img loading="lazy"
+        <img
           src={maeFilho}
           alt="Mãe preocupada segurando filho no colo"
           className="rounded-2xl w-full shadow-lg"
