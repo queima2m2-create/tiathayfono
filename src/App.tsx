@@ -4,6 +4,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Index from "./pages/Index.tsx";
 
 const V2 = lazy(() => import("./pages/V2.tsx"));
+const V3 = lazy(() => import("./pages/V3.tsx"));
 const NotFound = lazy(() => import("./pages/NotFound.tsx"));
 
 const queryClient = new QueryClient();
@@ -15,6 +16,7 @@ const App = () => {
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/v2" element={<Suspense fallback={null}><V2 /></Suspense>} />
+          <Route path="/v3" element={<Suspense fallback={null}><V3 /></Suspense>} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<Suspense fallback={null}><NotFound /></Suspense>} />
         </Routes>
