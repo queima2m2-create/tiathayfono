@@ -1,4 +1,5 @@
 import etapa1 from "@/assets/etapa1-cerebro-fala.jpg";
+import { getSocialProofCount } from "@/lib/socialProofCount";
 import etapa2 from "@/assets/etapa2-protocolo.jpg";
 import etapa3 from "@/assets/etapa3-tagarelas.jpg";
 
@@ -14,7 +15,7 @@ const steps = [
     num: "ETAPA 2",
     title: "APLIQUE A ESTRUTURA ÚNICA DA DRA. THAYNARA",
     subtitle:
-      "Coloque em prática o protocolo exclusivo desenvolvido a partir de 1.800 atendimentos. Uma sequência específica de estímulos que respeita exatamente a fase do seu filho e destrava a fala de dentro pra fora — de forma natural, sem pressão, sem sair de casa.",
+      `Coloque em prática o protocolo exclusivo desenvolvido a partir de ${getSocialProofCount()} atendimentos. Uma sequência específica de estímulos que respeita exatamente a fase do seu filho e destrava a fala de dentro pra fora — de forma natural, sem pressão, sem sair de casa.`,
     img: etapa2,
   },
   {

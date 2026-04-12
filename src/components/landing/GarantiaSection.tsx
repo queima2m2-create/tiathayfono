@@ -1,4 +1,5 @@
 import PricingBlock from "./PricingBlock";
+import { getSocialProofCount } from "@/lib/socialProofCount";
 import seloGarantia from "@/assets/selo-garantia.png";
 
 const GarantiaSection = () => (
@@ -23,7 +24,7 @@ const GarantiaSection = () => (
 
         <div className="space-y-5 text-[1rem] opacity-90 leading-[1.8] max-w-[650px] mx-auto">
           <p>
-            <strong>Eu sei o que esse método faz pela vida de uma família. Eu vivi isso em mais de 1.800 atendimentos. Por isso tenho total confiança de oferecer essa garantia: entra, aplica com seu filho e vive a experiência completa. Se em 30 dias você não sentir que valeu cada centavo — é só me falar e eu devolvo tudo. Sem burocracia, sem perguntas, sem julgamento.</strong>
+            <strong>Eu sei o que esse método faz pela vida de uma família. Eu vivi isso em mais de {getSocialProofCount()} atendimentos. Por isso tenho total confiança de oferecer essa garantia: entra, aplica com seu filho e vive a experiência completa. Se em 30 dias você não sentir que valeu cada centavo — é só me falar e eu devolvo tudo. Sem burocracia, sem perguntas, sem julgamento.</strong>
           </p>
           <p>
             <strong>O risco é zero. O que você pode ganhar é ver seu filho falar. Essa é a troca que a Dra. Thaynara está propondo para você hoje.</strong>

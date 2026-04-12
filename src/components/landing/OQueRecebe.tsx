@@ -1,4 +1,5 @@
 import entregaSinais from "@/assets/entrega-sinais-alerta.jpg";
+import { getSocialProofCount } from "@/lib/socialProofCount";
 import entregaFala from "@/assets/entrega-fala-funciona.jpg";
 import entregaBrincadeiras from "@/assets/entrega-brincadeiras-fala.jpg";
 import entregaPalavras from "@/assets/entrega-palavras.jpg";
@@ -54,7 +55,7 @@ const OQueRecebe = () => (
   <section className="bg-rosa pt-20 md:pt-28 pb-6 md:pb-8 px-6">
     <div className="max-w-[900px] mx-auto">
       <h2 className="text-[1.6rem] md:text-[2.2rem] font-extrabold text-center text-background mb-16 leading-[1.25]">
-        O que está dentro do Guia que já destravou a fala de 1.800 crianças
+        O que está dentro do Guia que já destravou a fala de {getSocialProofCount()} crianças
       </h2>
 
       <div className="space-y-10">

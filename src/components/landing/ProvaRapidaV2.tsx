@@ -1,10 +1,11 @@
 import maeFilho from "@/assets/mae-filho-brincando.jpg";
+import { getSocialProofCount } from "@/lib/socialProofCount";
 
 const ProvaRapidaV2 = () => (
   <section className="bg-background pt-8 pb-8 md:pt-12 md:pb-12 px-6 text-center">
     <div className="max-w-[800px] mx-auto">
       <h2 className="text-[1.6rem] md:text-[2.2rem] font-extrabold text-marrom-dark mb-3 leading-[1.25]">
-        Mais de 1.800 famílias já aplicaram o método da Dra. Thaynara.
+        Mais de {getSocialProofCount()} famílias já aplicaram o método da Dra. Thaynara.
       </h2>
       <p className="text-[1.15rem] md:text-[1.3rem] font-bold text-primary/90 leading-[1.6] max-w-[700px] mx-auto mb-4">
         Não é milagre. É ciência aplicada na rotina.
