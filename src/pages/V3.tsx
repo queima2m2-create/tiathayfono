@@ -45,15 +45,15 @@ const V3 = () => {
             <div className="w-14 h-14 rounded-2xl bg-rosa/10 flex items-center justify-center mx-auto">
               <Mail className="w-7 h-7 text-rosa" />
             </div>
-            <h2 className="text-lg font-semibold text-foreground">
+            <h2 className="text-xl md:text-2xl font-semibold text-foreground">
               Seu material já chegou!
             </h2>
-            <p className="text-muted-foreground leading-relaxed text-sm md:text-base">
+            <p className="text-muted-foreground leading-relaxed text-base md:text-lg">
               Enviamos tudo para o <strong className="text-foreground">e-mail que você cadastrou</strong>. Confira sua caixa de entrada e também a pasta de spam, tá? 😉
             </p>
-            <div className="bg-rosa/5 rounded-2xl p-4 space-y-2 text-sm text-muted-foreground">
-              <p className="font-medium text-foreground flex items-center justify-center gap-1">
-                <Download className="w-4 h-4 text-rosa" /> Dica: baixe o app da Kiwify!
+            <div className="bg-rosa/5 rounded-2xl p-4 space-y-2 text-base md:text-lg text-muted-foreground">
+              <p className="font-medium text-foreground flex items-center justify-center gap-1 text-base md:text-lg">
+                <Download className="w-5 h-5 text-rosa" /> Dica: baixe o app da Kiwify!
               </p>
               <p className="leading-relaxed">
                 Para acessar seu material de forma mais fácil e rápida, baixe o <strong className="text-foreground">aplicativo da Kiwify</strong> no seu celular. Assim você tem tudo na palma da mão! 📱
@@ -63,7 +63,7 @@ const V3 = () => {
 
           {/* WhatsApp section */}
           <div className="p-6 md:p-8 text-center space-y-5 bg-verde/[0.03]">
-            <p className="text-foreground font-medium text-sm md:text-base">
+            <p className="text-foreground font-medium text-base md:text-lg">
               Não recebeu o acesso ou ficou com alguma dúvida? Fale comigo! 💬
             </p>
             <Button
@@ -81,7 +81,7 @@ const V3 = () => {
                 FALAR COM TIA THAY
               </a>
             </Button>
-            <p className="text-muted-foreground text-xs">
+            <p className="text-muted-foreground text-sm">
               Respondo o mais rápido possível ❤️
             </p>
           </div>
