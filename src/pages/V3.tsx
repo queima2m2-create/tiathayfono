@@ -70,7 +70,7 @@ const V3 = () => {
                 rel="noopener noreferrer"
               >
                 <MessageCircle className="w-5 h-5 mr-1" />
-                FALAR COM O SUPORTE
+                FALAR COM THAYNARA
               </a>
             </Button>
             <p className="text-muted-foreground text-xs">
