@@ -14,7 +14,7 @@ const ProvaRapidaV2 = () => (
         nada, sem brinquedos especiais e sem medo de errar. Funciona sozinho
         ou junto com o acompanhamento que seu filho já faz.
       </p>
-      <img
+      <img loading="lazy"
         src={maeFilho}
         alt="Mãe brincando com filho"
         className="rounded-2xl w-full max-w-[500px] mx-auto shadow-md"

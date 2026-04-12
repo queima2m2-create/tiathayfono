@@ -20,7 +20,7 @@ const SobreSection = () => {
         <div className="flex flex-col items-center gap-3">
           <div className="relative w-full max-w-[320px] aspect-[3/4] rounded-2xl overflow-hidden shadow-lg">
             {images.map((src, i) => (
-              <img
+              <img loading="lazy"
                 key={i}
                 src={src}
                 alt={`Thaynara Andrade - Foto ${i + 1}`}

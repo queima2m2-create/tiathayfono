@@ -16,7 +16,7 @@ const DepoimentosSection = () => (
 
       <div className="flex flex-col gap-6 max-w-[500px] mx-auto">
         {depoimentos.map((src, i) => (
-          <img
+          <img loading="lazy"
             key={i}
             src={src}
             alt={`Depoimento ${i + 1}`}
