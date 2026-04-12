@@ -51,6 +51,14 @@ const V3 = () => {
             <p className="text-muted-foreground leading-relaxed text-sm md:text-base">
               Enviamos tudo para o <strong className="text-foreground">e-mail que você cadastrou</strong>. Confira sua caixa de entrada e também a pasta de spam, tá? 😉
             </p>
+            <div className="bg-rosa/5 rounded-2xl p-4 space-y-2 text-sm text-muted-foreground">
+              <p className="font-medium text-foreground flex items-center justify-center gap-1">
+                <Download className="w-4 h-4 text-rosa" /> Dica: baixe o app da Kiwify!
+              </p>
+              <p className="leading-relaxed">
+                Para acessar seu material de forma mais fácil e rápida, baixe o <strong className="text-foreground">aplicativo da Kiwify</strong> no seu celular. Assim você tem tudo na palma da mão! 📱
+              </p>
+            </div>
           </div>
 
           {/* WhatsApp section */}
