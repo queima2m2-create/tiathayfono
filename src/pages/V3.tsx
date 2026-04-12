@@ -10,7 +10,7 @@ const V3 = () => {
   }, []);
 
   return (
-    <main className="min-h-screen bg-bege2">
+    <main className="min-h-screen bg-gradient-to-b from-rosa-light/60 via-bege2 to-rosa-light/40">
       {/* Top pink accent bar */}
       <div className="h-2 bg-gradient-to-r from-rosa to-rosa-light" />
 
@@ -21,7 +21,7 @@ const V3 = () => {
             <img
               src={thaynaraImg}
               alt="Thaynara Andrade - Fonoaudióloga"
-              className="w-full h-full object-cover object-top"
+              className="w-full h-full object-cover object-top scale-125"
               loading="eager"
             />
           </div>
