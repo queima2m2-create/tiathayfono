@@ -64,7 +64,7 @@ const V3 = () => {
           {/* WhatsApp section */}
           <div className="p-6 md:p-8 text-center space-y-5 bg-verde/[0.03]">
             <p className="text-foreground font-medium text-sm md:text-base">
-              Ficou com alguma dúvida? Fale comigo! 💬
+              Não recebeu o acesso ou ficou com alguma dúvida? Fale comigo! 💬
             </p>
             <Button
               variant="cta"
