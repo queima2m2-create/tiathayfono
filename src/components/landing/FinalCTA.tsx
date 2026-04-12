@@ -14,7 +14,7 @@ const FinalCTA = () => (
         </h2>
 
         <div className="aspect-video w-full max-w-[600px] mx-auto mb-6 overflow-hidden rounded-2xl shadow-md">
-          <img
+          <img loading="lazy"
             src={doisCaminhos}
             alt="Dois caminhos: com ou sem o guia"
             className="w-full h-full object-cover"

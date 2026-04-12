@@ -11,7 +11,7 @@ const GarantiaSection = () => (
 
         {/* Selo de garantia */}
         <div className="flex justify-center mb-10">
-          <img
+          <img loading="lazy"
             src={seloGarantia}
             alt="Selo de 30 dias de garantia — 100% do seu dinheiro de volta"
             loading="lazy"

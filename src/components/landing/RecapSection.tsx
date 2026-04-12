@@ -26,7 +26,7 @@ const RecapSection = () => (
         Tudo que você vai ter nas mãos para ver seu filho falar em até 30 dias
       </h2>
 
-      <img
+      <img loading="lazy"
         src={produtoMockup}
         alt="Guia completo"
         className="rounded-2xl w-full max-w-[520px] mx-auto mb-8 shadow-lg"

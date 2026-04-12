@@ -46,7 +46,7 @@ const PricingBlock = ({ className = "", showUrgency = true }: { className?: stri
         )}
 
         <div className="w-full max-w-[320px] mx-auto mb-4 aspect-video rounded-2xl overflow-hidden drop-shadow-lg">
-          <img
+          <img loading="lazy"
             src={produtoMockup}
             alt="Guia completo - Método Tagarela"
             className="w-full h-full object-cover"
