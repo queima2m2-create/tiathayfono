@@ -1,3 +1,5 @@
+import { getSocialProofCount } from "@/lib/socialProofCount";
+
 const HeroSectionV2 = () => (
   <section className="bg-gradient-to-b from-rosa-light to-background pt-6 pb-4 md:pt-16 md:pb-12 px-6">
     <div className="max-w-[1000px] mx-auto text-center">
@@ -10,7 +12,7 @@ const HeroSectionV2 = () => (
       <p className="text-[0.95rem] md:text-[1.05rem] text-primary/80 leading-[1.5] md:leading-[1.8] max-w-[480px] mx-auto">
         <em>Eu sei que parece bom demais pra ser verdade.</em>
         <br />
-        <strong>1.800 mães pensaram o mesmo — antes de aplicar.</strong>
+        <strong>{getSocialProofCount()} mães pensaram o mesmo — antes de aplicar.</strong>
       </p>
     </div>
   </section>

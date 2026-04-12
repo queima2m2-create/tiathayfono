@@ -1,15 +1,16 @@
 import maeFilho from "@/assets/mae-filho-brincando.jpg";
+import { getSocialProofCount } from "@/lib/socialProofCount";
 
 const ProvaRapida = () => (
   <section className="bg-background pt-8 pb-8 md:pt-12 md:pb-12 px-6 text-center">
     <div className="max-w-[800px] mx-auto">
       <h2 className="text-[1.6rem] md:text-[2.2rem] font-extrabold text-marrom-dark mb-3 leading-[1.25]">
-        Mais de 1.800 famílias já aplicaram o método da Dra. Thaynara e viram seus filhos começar a falar.
+        Mais de {getSocialProofCount()} famílias já aplicaram o método da Dra. Thaynara e viram seus filhos começar a falar.
       </h2>
       <p className="text-[1.05rem] text-primary/70 leading-[1.8] max-w-[700px] mx-auto mb-8">
         E você também pode fazer isso — usando a rotina que você já tem, sem terapia cara, sem brinquedos especiais e sem medo de errar.
       </p>
-      <img loading="lazy"
+      <img
         src={maeFilho}
         alt="Mãe brincando com filho"
         className="rounded-2xl w-full max-w-[500px] mx-auto shadow-md"

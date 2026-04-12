@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { getSocialProofCount } from "@/lib/socialProofCount";
 import thaynaraFoto from "@/assets/thaynara-foto.jpg";
 import sobreFilha from "@/assets/sobre-filha.jpeg";
 
@@ -20,7 +21,7 @@ const SobreSection = () => {
         <div className="flex flex-col items-center gap-3">
           <div className="relative w-full max-w-[320px] aspect-[3/4] rounded-2xl overflow-hidden shadow-lg">
             {images.map((src, i) => (
-              <img loading="lazy"
+              <img
                 key={i}
                 src={src}
                 alt={`Thaynara Andrade - Foto ${i + 1}`}
@@ -57,7 +58,7 @@ const SobreSection = () => {
               <strong className="text-marrom-dark">Fonoaudióloga infantil especializada no desenvolvimento da comunicação e linguagem nos primeiros anos de vida.</strong>
             </p>
             <p>
-              Já acompanhei mais de <strong className="text-marrom-dark">1.800 famílias</strong> — e o que eu percebi em todas elas foi o mesmo: as mães precisavam de algo além da consulta — saber exatamente o que fazer em casa, no banho, na hora da comida, na brincadeira do dia a dia.
+              Já acompanhei mais de <strong className="text-marrom-dark">{getSocialProofCount()} famílias</strong> — e o que eu percebi em todas elas foi o mesmo: as mães precisavam de algo além da consulta — saber exatamente o que fazer em casa, no banho, na hora da comida, na brincadeira do dia a dia.
             </p>
             <p>
               Mães que estavam perdidas, achando que o filho nunca ia falar — <strong className="text-marrom-dark">hoje me mandam vídeos emocionadas com cada palavrinha nova.</strong>
