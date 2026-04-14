@@ -53,7 +53,7 @@ const Index = () => {
           >
             <a
               href="#recapitulando"
-              onClick={() => fbEvents.initiateCheckout()}
+              onClick={() => import("@/lib/fbConversions").then((m) => m.fbEvents.initiateCheckout())}
             >
               QUERO DESTRAVAR A FALA DO MEU FILHO EM 30 DIAS →
             </a>
