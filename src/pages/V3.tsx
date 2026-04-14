@@ -1,12 +1,16 @@
 import { useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Mail, MessageCircle, CheckCircle2, Heart, Download } from "lucide-react";
-import { fbEvents } from "@/lib/fbConversions";
 import thaynaraImg from "@/assets/thaynara.png";
 
 const V3 = () => {
   useEffect(() => {
-    fbEvents.pageView();
+    const fire = () => import("@/lib/fbConversions").then((m) => m.fbEvents.pageView());
+    if ("requestIdleCallback" in window) {
+      (window as any).requestIdleCallback(fire, { timeout: 3000 });
+    } else {
+      setTimeout(fire, 1000);
+    }
   }, []);
 
   return (
