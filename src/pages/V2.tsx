@@ -1,9 +1,9 @@
 import { useEffect, lazy, Suspense } from "react";
 import HeroSectionV2 from "@/components/landing/HeroSectionV2";
 import VturbPlayer from "@/components/landing/VturbPlayer";
-import UnmuteOverlay from "@/components/landing/UnmuteOverlay";
-import { fbEvents } from "@/lib/fbConversions";
 import { Button } from "@/components/ui/button";
+
+const UnmuteOverlay = lazy(() => import("@/components/landing/UnmuteOverlay"));
 
 const ProvaRapidaV2 = lazy(() => import("@/components/landing/ProvaRapidaV2"));
 const DorSection = lazy(() => import("@/components/landing/DorSection"));
@@ -22,7 +22,12 @@ const Footer = lazy(() => import("@/components/landing/Footer"));
 
 const V2 = () => {
   useEffect(() => {
-    fbEvents.pageView();
+    const fire = () => import("@/lib/fbConversions").then((m) => m.fbEvents.pageView());
+    if ("requestIdleCallback" in window) {
+      (window as any).requestIdleCallback(fire, { timeout: 3000 });
+    } else {
+      setTimeout(fire, 1000);
+    }
   }, []);
 
   return (
@@ -62,7 +67,9 @@ const V2 = () => {
         <FAQSection />
         <Footer />
       </Suspense>
-      <UnmuteOverlay />
+      <Suspense fallback={null}>
+        <UnmuteOverlay />
+      </Suspense>
     </main>
   );
 };

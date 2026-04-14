@@ -1,10 +1,10 @@
 import { useEffect, lazy, Suspense } from "react";
 import HeroSection from "@/components/landing/HeroSection";
 import VturbPlayer from "@/components/landing/VturbPlayer";
-import SocialProofToast from "@/components/landing/SocialProofToast";
-import UnmuteOverlay from "@/components/landing/UnmuteOverlay";
-import { fbEvents } from "@/lib/fbConversions";
 import { Button } from "@/components/ui/button";
+
+const SocialProofToast = lazy(() => import("@/components/landing/SocialProofToast"));
+const UnmuteOverlay = lazy(() => import("@/components/landing/UnmuteOverlay"));
 
 const ProvaRapida = lazy(() => import("@/components/landing/ProvaRapida"));
 const DorSection = lazy(() => import("@/components/landing/DorSection"));
@@ -23,7 +23,13 @@ const Footer = lazy(() => import("@/components/landing/Footer"));
 
 const Index = () => {
   useEffect(() => {
-    fbEvents.pageView();
+    // Defer analytics to avoid blocking initial render
+    const fire = () => import("@/lib/fbConversions").then((m) => m.fbEvents.pageView());
+    if ("requestIdleCallback" in window) {
+      (window as any).requestIdleCallback(fire, { timeout: 3000 });
+    } else {
+      setTimeout(fire, 1000);
+    }
   }, []);
 
   return (
@@ -63,8 +69,10 @@ const Index = () => {
         <FAQSection />
         <Footer />
       </Suspense>
-      <SocialProofToast />
-      <UnmuteOverlay />
+      <Suspense fallback={null}>
+        <SocialProofToast />
+        <UnmuteOverlay />
+      </Suspense>
     </main>
   );
 };

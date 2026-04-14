@@ -25,9 +25,9 @@
     <meta name="twitter:title" content="Guia: Meu Filho Vai Falar – Thaynara Andrade">
     <meta property="og:description" content="Brinque com seu filho 15 minutos por dia e veja ele formar as primeiras palavras em até 30 dias.">
     <meta name="twitter:description" content="Brinque com seu filho 15 minutos por dia e veja ele formar as primeiras palavras em até 30 dias.">
-    <!-- Facebook Pixel Code (deferred) -->
+    <!-- Facebook Pixel Code (deferred via idle callback) -->
     <script>
-      window.addEventListener('load', function() {
+      function _loadFBPixel(){
         !function(f,b,e,v,n,t,s)
         {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
         n.callMethod.apply(n,arguments):n.queue.push(arguments)};
@@ -38,7 +38,9 @@
         'https://connect.facebook.net/en_US/fbevents.js');
         fbq('init', '763712916051534');
         fbq('track', 'PageView');
-      });
+      }
+      if('requestIdleCallback' in window){requestIdleCallback(_loadFBPixel,{timeout:3500})}
+      else{window.addEventListener('load',_loadFBPixel)}
     </script>
     <!-- End Facebook Pixel Code -->
   </head>
