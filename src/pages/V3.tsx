@@ -73,7 +73,7 @@ const V3 = () => {
               asChild
             >
               <a
-                href="https://wa.me/message/PLACEHOLDER"
+                href="https://wa.me/5579991410369?text=Oi%20Tia%20Thay%2C%20acabei%20de%20fazer%20minha%20inscri%C3%A7%C3%A3o%20no%20guia%2C%20vou%20seguir%20tudo%20certinho%20%E2%9D%A4%EF%B8%8F"
                 target="_blank"
                 rel="noopener noreferrer"
               >
