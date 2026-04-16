@@ -107,14 +107,7 @@ const V4 = () => {
     return () => window.removeEventListener("message", onMessage);
   }, []);
 
-  // Smooth scroll para o bloco quando ele aparecer
-  useEffect(() => {
-    if (showButton && ctaBlockRef.current) {
-      setTimeout(() => {
-        ctaBlockRef.current?.scrollIntoView({ behavior: "smooth", block: "center" });
-      }, 200);
-    }
-  }, [showButton]);
+
 
   return (
     <div className="min-h-screen bg-white text-neutral-800" style={{ fontFamily: "'DM Sans', system-ui, sans-serif" }}>
