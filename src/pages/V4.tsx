@@ -164,14 +164,31 @@ const V4 = () => {
             </p>
 
             <div className="flex justify-center">
-              {/* EMBED KIWIFY BOTÃO 1 — SUBSTITUIR AQUI */}
-              <a
-                href="#"
-                className="inline-flex items-center justify-center w-full max-w-[520px] min-h-[64px] px-8 rounded-full text-white font-extrabold text-lg md:text-xl shadow-[0_10px_30px_-10px_rgba(26,122,58,0.55)] transition-transform hover:scale-[1.02] active:scale-[0.99]"
-                style={{ background: VERDE }}
+              <div
+                style={{ textAlign: "center", width: "100%" }}
+                id="kiwify-upsell-cXCgv1m"
+                data-upsell-url=""
+                data-downsell-url=""
               >
-                ✅ SIM — QUERO O PLANO 30 DIAS
-              </a>
+                <button
+                  id="kiwify-upsell-trigger-cXCgv1m"
+                  style={{
+                    backgroundColor: "#27AF60",
+                    color: "#FFFFFF",
+                    fontWeight: 600,
+                    border: "1px solid #27AF60",
+                    cursor: "pointer",
+                    width: "100%",
+                    maxWidth: "480px",
+                    padding: "18px 24px",
+                    fontSize: "22px",
+                    borderRadius: "50px",
+                    boxShadow: "0 4px 20px rgba(39,175,96,0.4)",
+                  }}
+                >
+                  Sim, QUERO O PLANO DA TIA THAY
+                </button>
+              </div>
             </div>
 
             <p className="font-extrabold mt-5 text-lg" style={{ color: ROXO }}>
@@ -298,21 +315,46 @@ const V4 = () => {
             Essa condição existe só aqui, só agora. Quando você sair essa página ela some.
           </p>
           <div className="min-h-[60px] flex justify-center items-center">
-            {/* EMBED KIWIFY BOTÃO 2 — SUBSTITUIR AQUI */}
+            <div style={{ textAlign: "center", width: "100%" }}>
+              <button
+                id="kiwify-upsell-trigger-cXCgv1m"
+                style={{
+                  backgroundColor: "#FFFFFF",
+                  color: "#27AF60",
+                  fontWeight: 600,
+                  border: "1px solid #FFFFFF",
+                  cursor: "pointer",
+                  width: "100%",
+                  maxWidth: "480px",
+                  padding: "18px 24px",
+                  fontSize: "22px",
+                  borderRadius: "50px",
+                  boxShadow: "0 4px 20px rgba(39,175,96,0.4)",
+                }}
+              >
+                Sim, QUERO O PLANO DA TIA THAY
+              </button>
+            </div>
           </div>
           <p className="mt-5 font-extrabold text-lg">12x de R$20,47 ou R$197,90 à vista</p>
         </div>
       </section>
 
-      {/* SEÇÃO 8 — RECUSA */}
+      {/* SEÇÃO 8 — RECUSA (Kiwify cancel trigger) */}
       <section className="bg-white px-4 py-10 text-center">
-        {/* COLE O LINK DE RECUSA DA KIWIFY AQUI */}
-        <a
-          href="#"
-          style={{ color: "#AAAAAA", fontSize: "13px", textDecoration: "none" }}
+        <div
+          id="kiwify-upsell-cancel-trigger-cXCgv1m"
+          style={{
+            color: "#AAAAAA",
+            fontSize: "13px",
+            textDecoration: "none",
+            cursor: "pointer",
+            fontFamily: "sans-serif",
+            textAlign: "center",
+          }}
         >
-          Não, prefiro continuar sem o passo a passo diário
-        </a>
+          agora não
+        </div>
       </section>
     </div>
   );
