@@ -315,7 +315,26 @@ const V4 = () => {
             Essa condição existe só aqui, só agora. Quando você sair essa página ela some.
           </p>
           <div className="min-h-[60px] flex justify-center items-center">
-            {/* EMBED KIWIFY BOTÃO 2 — SUBSTITUIR AQUI */}
+            <div style={{ textAlign: "center", width: "100%" }}>
+              <button
+                id="kiwify-upsell-trigger-cXCgv1m"
+                style={{
+                  backgroundColor: "#FFFFFF",
+                  color: "#27AF60",
+                  fontWeight: 600,
+                  border: "1px solid #FFFFFF",
+                  cursor: "pointer",
+                  width: "100%",
+                  maxWidth: "480px",
+                  padding: "18px 24px",
+                  fontSize: "22px",
+                  borderRadius: "50px",
+                  boxShadow: "0 4px 20px rgba(39,175,96,0.4)",
+                }}
+              >
+                Sim, QUERO O PLANO DA TIA THAY
+              </button>
+            </div>
           </div>
           <p className="mt-5 font-extrabold text-lg">12x de R$20,47 ou R$197,90 à vista</p>
         </div>
