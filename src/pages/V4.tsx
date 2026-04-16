@@ -54,20 +54,16 @@ const V4 = () => {
     }
   }, []);
 
-  // Load Vturb player script
+  // Load Vturb player script — IMEDIATAMENTE (é o conteúdo principal)
   useEffect(() => {
-    const load = () => {
-      const s = document.createElement("script");
-      s.src =
-        "https://scripts.converteai.net/8cb68814-a0fc-45e0-ace9-4a6b005a0cc8/players/69e151b6eeef2dbf7e2a56c1/v4/player.js";
-      s.async = true;
-      document.head.appendChild(s);
-    };
-    if ("requestIdleCallback" in window) {
-      (window as any).requestIdleCallback(load, { timeout: 1500 });
-    } else {
-      setTimeout(load, 300);
-    }
+    const SRC =
+      "https://scripts.converteai.net/8cb68814-a0fc-45e0-ace9-4a6b005a0cc8/players/69e151b6eeef2dbf7e2a56c1/v4/player.js";
+    if (document.querySelector(`script[src="${SRC}"]`)) return;
+    const s = document.createElement("script");
+    s.src = SRC;
+    s.async = true;
+    (s as any).fetchPriority = "high";
+    document.head.appendChild(s);
   }, []);
 
   // Reveal de TODO o conteúdo abaixo do vídeo aos 5:55 (355s).
