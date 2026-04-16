@@ -8,12 +8,12 @@ import imgChecklist from "@/assets/v4-checklist.jpeg";
 import imgTagarelar from "@/assets/v4-tagarelar.jpeg";
 
 const produtos = [
-  { nome: "Plano 30 Dias com a Tia Thay", desc: "Roteiro diário passo a passo para destravar a fala do seu filho.", valor: "R$197,90", dataProduct: "plano30dias", img: imgPlano },
-  { nome: "Caderno de Acompanhamento", desc: "Registre cada palavra nova e veja a evolução em tempo real.", valor: "R$27,00", dataProduct: "caderno", img: imgCaderno },
-  { nome: "50 Cards para Imprimir", desc: "Estímulos visuais prontos para usar todos os dias.", valor: "R$19,90", dataProduct: "cards", img: imgCards },
-  { nome: "Guia de Situações Difíceis", desc: "O que fazer quando ele se recusa, chora ou ignora.", valor: "R$17,00", dataProduct: "guia-situacoes", img: imgGuia },
-  { nome: "Checklist de Marcos", desc: "Saiba exatamente o que esperar em cada idade.", valor: "R$17,00", dataProduct: "checklist", img: imgChecklist },
-  { nome: "App Tagarelar", desc: "Acesso ao app com jogos de estímulo de linguagem.", valor: "R$27,00", dataProduct: "tagarelar", img: imgTagarelar },
+  { nome: "Plano 30 Dias com a Tia Thay", desc: "Roteiro diário passo a passo para destravar a fala do seu filho.", valor: "R$297,00", dataProduct: "plano30dias", img: imgPlano },
+  { nome: "Caderno de Acompanhamento", desc: "Registre cada palavra nova e veja a evolução em tempo real.", valor: "R$47,00", dataProduct: "caderno", img: imgCaderno },
+  { nome: "50 Cards para Imprimir", desc: "Estímulos visuais prontos para usar todos os dias.", valor: "R$47,00", dataProduct: "cards", img: imgCards },
+  { nome: "Guia de Respostas para Situações Difíceis", desc: "O que fazer quando ele se recusa, chora ou ignora.", valor: "R$57,00", dataProduct: "guia-situacoes", img: imgGuia },
+  { nome: "Checklist de Marcos por Faixa Etária", desc: "Saiba exatamente o que esperar em cada idade.", valor: "R$52,00", dataProduct: "checklist", img: imgChecklist },
+  { nome: "App Tagarelar", desc: "Acesso ao app com jogos de estímulo de linguagem.", valor: "R$97,00", dataProduct: "tagarelar", img: imgTagarelar },
 ];
 
 const depoimentos = [
