@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import { Shield, Lock, ShieldCheck } from "lucide-react";
 import imgPlano from "@/assets/v4-plano30dias.jpeg";
 import imgCaderno from "@/assets/v4-caderno.jpeg";
@@ -41,8 +41,6 @@ const VERDE_CLARO = "#E8F5ED";
 const CINZA_CLARO = "#F8F8F8";
 
 const V4 = () => {
-  const [showButton, setShowButton] = useState(false);
-  const startedAt = useRef<number>(Date.now());
   const ctaBlockRef = useRef<HTMLDivElement | null>(null);
 
   // Defer pageView tracking
@@ -75,63 +73,41 @@ const V4 = () => {
   // Reveal de TODO o conteúdo abaixo do vídeo aos 5:55 (355s).
   // ============================================================
   // CONEXÃO COM O PLAYER VTURB:
-  // Escutamos o evento timeupdate do <video> renderizado dentro do
-  // web component <vturb-smartplayer>. Se o player ainda não estiver
-  // pronto, fazemos polling até encontrá-lo. Fallback: setTimeout.
+  // O player Vturb emite mensagens via window.postMessage contendo
+  // { currentTime: <segundos> }. Escutamos esse evento e revelamos o
+  // bloco #conteudo-oculto quando currentTime >= 355.
   //
-  // Para players com API JS própria, substituir por:
-  //   player.on('timeupdate', (t) => { if (t >= 355) reveal(); });
+  // Não usamos timer baseado no carregamento da página.
   // ============================================================
   useEffect(() => {
     const REVEAL_SEC = 355;
     let revealed = false;
-    const reveal = () => {
-      if (revealed) return;
+
+    const revealContent = () => {
+      const hiddenContent = document.getElementById("conteudo-oculto");
+      if (!hiddenContent || hiddenContent.classList.contains("revealed")) return;
       revealed = true;
-      setShowButton(true);
+      hiddenContent.classList.add("revealed");
+      hiddenContent.style.display = "block";
+      window.setTimeout(() => {
+        hiddenContent.style.opacity = "1";
+        ctaBlockRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+      }, 100);
     };
 
-    const REVEAL_MS = REVEAL_SEC * 1000;
-    const elapsed = Date.now() - startedAt.current;
-    const remaining = Math.max(0, REVEAL_MS - elapsed);
-    const fallbackId = window.setTimeout(reveal, remaining);
-
-    let videoEl: HTMLVideoElement | null = null;
-    const onTimeUpdate = () => {
-      if (videoEl && videoEl.currentTime >= REVEAL_SEC) reveal();
-    };
-    const attach = () => {
-      const host = document.getElementById("vid-69e151b6eeef2dbf7e2a56c1");
-      const v = host?.querySelector("video") as HTMLVideoElement | null;
-      if (v) {
-        videoEl = v;
-        v.addEventListener("timeupdate", onTimeUpdate);
-        return true;
+    const onMessage = (e: MessageEvent) => {
+      if (revealed) return;
+      const data: any = e.data;
+      if (data && typeof data.currentTime === "number" && data.currentTime >= REVEAL_SEC) {
+        revealContent();
       }
-      return false;
     };
-    let pollId: number | undefined;
-    if (!attach()) {
-      pollId = window.setInterval(() => {
-        if (attach() && pollId) window.clearInterval(pollId);
-      }, 500);
-    }
 
-    return () => {
-      window.clearTimeout(fallbackId);
-      if (pollId) window.clearInterval(pollId);
-      if (videoEl) videoEl.removeEventListener("timeupdate", onTimeUpdate);
-    };
+    window.addEventListener("message", onMessage);
+    return () => window.removeEventListener("message", onMessage);
   }, []);
 
-  // Smooth scroll para o bloco quando ele aparecer
-  useEffect(() => {
-    if (showButton && ctaBlockRef.current) {
-      setTimeout(() => {
-        ctaBlockRef.current?.scrollIntoView({ behavior: "smooth", block: "center" });
-      }, 200);
-    }
-  }, [showButton]);
+
 
   return (
     <div className="min-h-screen bg-white text-neutral-800" style={{ fontFamily: "'DM Sans', system-ui, sans-serif" }}>
@@ -173,18 +149,21 @@ const V4 = () => {
             />
           </div>
 
-          {/* HEADLINE + BLOCO CTA — ocultos até 5:55, fade-in suave de 1s */}
-          <div
-            ref={ctaBlockRef}
-            className={`transition-opacity duration-1000 ease-out ${
-              showButton
-                ? "opacity-100 max-h-[3000px] mt-8"
-                : "opacity-0 max-h-0 overflow-hidden mt-0"
-            }`}
-            style={{ display: showButton ? "block" : "none" }}
-            aria-hidden={!showButton}
-          >
-            {/* 4. Headline ABAIXO do vídeo */}
+        </div>
+      </section>
+
+      {/* CONTEÚDO OCULTO — revelado quando o vídeo atinge 5:55 (355s) */}
+      <div
+        id="conteudo-oculto"
+        style={{
+          display: "none",
+          opacity: 0,
+          transition: "opacity 1s ease",
+        }}
+      >
+        {/* HEADLINE + BLOCO CTA (logo abaixo do vídeo, dentro do reveal) */}
+        <section className="px-4 pb-10 md:pb-16" style={{ background: CINZA_CLARO }}>
+          <div ref={ctaBlockRef} className="max-w-[800px] mx-auto text-center">
             <h1
               className="text-3xl md:text-5xl font-extrabold leading-[1.15]"
               style={{ color: ROXO }}
@@ -242,17 +221,8 @@ const V4 = () => {
               </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* WRAPPER — Tudo abaixo do vídeo: oculto até 5:55, fade-in 1s */}
-      <div
-        className={`transition-opacity duration-1000 ease-out ${
-          showButton ? "opacity-100" : "opacity-0"
-        }`}
-        style={{ display: showButton ? "block" : "none" }}
-        aria-hidden={!showButton}
-      >
       {/* ESPAÇAMENTO 60px */}
       <div style={{ height: "60px" }} />
 
