@@ -72,24 +72,56 @@ const V4 = () => {
     }
   }, []);
 
-  // Reveal CTA at 4:50 (290s) of video.
+  // Reveal de TODO o conteúdo abaixo do vídeo aos 5:55 (355s).
   // ============================================================
-  // COMO CONECTAR AO PLAYER REAL DO VÍDEO:
-  // Substitua o setTimeout abaixo pelo evento timeupdate do player.
-  // Exemplo (HTML5 video):
-  //   const video = document.querySelector('video');
-  //   video.addEventListener('timeupdate', () => {
-  //     if (video.currentTime >= 290) setShowButton(true);
-  //   });
-  // Exemplo (VTurb / players customizados):
-  //   player.on('timeupdate', (t) => { if (t >= 290) setShowButton(true); });
+  // CONEXÃO COM O PLAYER VTURB:
+  // Escutamos o evento timeupdate do <video> renderizado dentro do
+  // web component <vturb-smartplayer>. Se o player ainda não estiver
+  // pronto, fazemos polling até encontrá-lo. Fallback: setTimeout.
+  //
+  // Para players com API JS própria, substituir por:
+  //   player.on('timeupdate', (t) => { if (t >= 355) reveal(); });
   // ============================================================
   useEffect(() => {
-    const REVEAL_MS = 290 * 1000;
+    const REVEAL_SEC = 355;
+    let revealed = false;
+    const reveal = () => {
+      if (revealed) return;
+      revealed = true;
+      setShowButton(true);
+    };
+
+    const REVEAL_MS = REVEAL_SEC * 1000;
     const elapsed = Date.now() - startedAt.current;
     const remaining = Math.max(0, REVEAL_MS - elapsed);
-    const id = window.setTimeout(() => setShowButton(true), remaining);
-    return () => window.clearTimeout(id);
+    const fallbackId = window.setTimeout(reveal, remaining);
+
+    let videoEl: HTMLVideoElement | null = null;
+    const onTimeUpdate = () => {
+      if (videoEl && videoEl.currentTime >= REVEAL_SEC) reveal();
+    };
+    const attach = () => {
+      const host = document.getElementById("vid-69e151b6eeef2dbf7e2a56c1");
+      const v = host?.querySelector("video") as HTMLVideoElement | null;
+      if (v) {
+        videoEl = v;
+        v.addEventListener("timeupdate", onTimeUpdate);
+        return true;
+      }
+      return false;
+    };
+    let pollId: number | undefined;
+    if (!attach()) {
+      pollId = window.setInterval(() => {
+        if (attach() && pollId) window.clearInterval(pollId);
+      }, 500);
+    }
+
+    return () => {
+      window.clearTimeout(fallbackId);
+      if (pollId) window.clearInterval(pollId);
+      if (videoEl) videoEl.removeEventListener("timeupdate", onTimeUpdate);
+    };
   }, []);
 
   // Smooth scroll para o bloco quando ele aparecer
@@ -141,75 +173,86 @@ const V4 = () => {
             />
           </div>
 
-          {/* 4. Headline ABAIXO do vídeo */}
-          <h1
-            className="text-3xl md:text-5xl font-extrabold leading-[1.15] mt-8"
-            style={{ color: ROXO }}
-          >
-            Você tem o conhecimento. Agora precisa do roteiro.
-          </h1>
-
-          {/* BLOCO CTA — oculto até 4:50, fade-in suave */}
+          {/* HEADLINE + BLOCO CTA — ocultos até 5:55, fade-in suave de 1s */}
           <div
             ref={ctaBlockRef}
-            className={`transition-all duration-[800ms] ease-out ${
+            className={`transition-opacity duration-1000 ease-out ${
               showButton
-                ? "opacity-100 max-h-[2000px] mt-10"
+                ? "opacity-100 max-h-[3000px] mt-8"
                 : "opacity-0 max-h-0 overflow-hidden mt-0"
             }`}
+            style={{ display: showButton ? "block" : "none" }}
             aria-hidden={!showButton}
           >
-            <p className="text-neutral-700 mb-5 text-sm md:text-base">
-              Adicione ao seu pedido com 1 clique — sem precisar digitar nada
-            </p>
+            {/* 4. Headline ABAIXO do vídeo */}
+            <h1
+              className="text-3xl md:text-5xl font-extrabold leading-[1.15]"
+              style={{ color: ROXO }}
+            >
+              Você tem o conhecimento. Agora precisa do roteiro.
+            </h1>
 
-            <div className="flex justify-center">
-              <div
-                style={{ textAlign: "center", width: "100%" }}
-                id="kiwify-upsell-cXCgv1m"
-                data-upsell-url=""
-                data-downsell-url=""
-              >
-                <button
-                  id="kiwify-upsell-trigger-cXCgv1m"
-                  style={{
-                    backgroundColor: "#27AF60",
-                    color: "#FFFFFF",
-                    fontWeight: 600,
-                    border: "1px solid #27AF60",
-                    cursor: "pointer",
-                    width: "100%",
-                    maxWidth: "480px",
-                    padding: "18px 24px",
-                    fontSize: "22px",
-                    borderRadius: "50px",
-                    boxShadow: "0 4px 20px rgba(39,175,96,0.4)",
-                  }}
+            <div className="mt-10">
+              <p className="text-neutral-700 mb-5 text-sm md:text-base">
+                Adicione ao seu pedido com 1 clique — sem precisar digitar nada
+              </p>
+
+              <div className="flex justify-center">
+                <div
+                  style={{ textAlign: "center", width: "100%" }}
+                  id="kiwify-upsell-cXCgv1m"
+                  data-upsell-url=""
+                  data-downsell-url=""
                 >
-                  Sim, QUERO O PLANO DA TIA THAY
-                </button>
+                  <button
+                    id="kiwify-upsell-trigger-cXCgv1m"
+                    style={{
+                      backgroundColor: "#27AF60",
+                      color: "#FFFFFF",
+                      fontWeight: 600,
+                      border: "1px solid #27AF60",
+                      cursor: "pointer",
+                      width: "100%",
+                      maxWidth: "480px",
+                      padding: "18px 24px",
+                      fontSize: "22px",
+                      borderRadius: "50px",
+                      boxShadow: "0 4px 20px rgba(39,175,96,0.4)",
+                    }}
+                  >
+                    Sim, QUERO O PLANO DA TIA THAY
+                  </button>
+                </div>
               </div>
-            </div>
 
-            <p className="font-extrabold mt-5 text-lg" style={{ color: ROXO }}>
-              12x de R$20,47
-            </p>
-            <p className="text-neutral-500 text-sm mt-1">
-              ou R$197,90 à vista — acesso imediato e vitalício
-            </p>
+              <p className="font-extrabold mt-5 text-lg" style={{ color: ROXO }}>
+                12x de R$20,47
+              </p>
+              <p className="text-neutral-500 text-sm mt-1">
+                ou R$197,90 à vista — acesso imediato e vitalício
+              </p>
 
-            <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 mt-6 text-neutral-500 text-xs md:text-sm">
-              <span className="inline-flex items-center gap-1.5">
-                <Lock className="w-4 h-4" /> Compra 100% segura
-              </span>
-              <span className="inline-flex items-center gap-1.5">
-                <ShieldCheck className="w-4 h-4" /> 7 dias de garantia
-              </span>
+              <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 mt-6 text-neutral-500 text-xs md:text-sm">
+                <span className="inline-flex items-center gap-1.5">
+                  <Lock className="w-4 h-4" /> Compra 100% segura
+                </span>
+                <span className="inline-flex items-center gap-1.5">
+                  <ShieldCheck className="w-4 h-4" /> 7 dias de garantia
+                </span>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
+      {/* WRAPPER — Tudo abaixo do vídeo: oculto até 5:55, fade-in 1s */}
+      <div
+        className={`transition-opacity duration-1000 ease-out ${
+          showButton ? "opacity-100" : "opacity-0"
+        }`}
+        style={{ display: showButton ? "block" : "none" }}
+        aria-hidden={!showButton}
+      >
       {/* ESPAÇAMENTO 60px */}
       <div style={{ height: "60px" }} />
 
@@ -356,6 +399,7 @@ const V4 = () => {
           agora não
         </div>
       </section>
+      </div>
     </div>
   );
 };
