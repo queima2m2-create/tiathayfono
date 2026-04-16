@@ -2,12 +2,12 @@ import { useEffect, useRef, useState } from "react";
 import { Shield, Lock, ShieldCheck } from "lucide-react";
 
 const produtos = [
-  { nome: "Plano 30 Dias com a Tia Thay", desc: "Roteiro diário passo a passo para destravar a fala do seu filho.", valor: "R$197,90" },
-  { nome: "Caderno de Acompanhamento", desc: "Registre cada palavra nova e veja a evolução em tempo real.", valor: "R$27,00" },
-  { nome: "50 Cards para Imprimir", desc: "Estímulos visuais prontos para usar todos os dias.", valor: "R$19,90" },
-  { nome: "Guia de Situações Difíceis", desc: "O que fazer quando ele se recusa, chora ou ignora.", valor: "R$17,00" },
-  { nome: "Checklist de Marcos", desc: "Saiba exatamente o que esperar em cada idade.", valor: "R$17,00" },
-  { nome: "App Tagarelar", desc: "Acesso ao app com jogos de estímulo de linguagem.", valor: "R$27,00" },
+  { nome: "Plano 30 Dias com a Tia Thay", desc: "Roteiro diário passo a passo para destravar a fala do seu filho.", valor: "R$197,90", dataProduct: "plano30dias" },
+  { nome: "Caderno de Acompanhamento", desc: "Registre cada palavra nova e veja a evolução em tempo real.", valor: "R$27,00", dataProduct: "caderno" },
+  { nome: "50 Cards para Imprimir", desc: "Estímulos visuais prontos para usar todos os dias.", valor: "R$19,90", dataProduct: "cards" },
+  { nome: "Guia de Situações Difíceis", desc: "O que fazer quando ele se recusa, chora ou ignora.", valor: "R$17,00", dataProduct: "guia-situacoes" },
+  { nome: "Checklist de Marcos", desc: "Saiba exatamente o que esperar em cada idade.", valor: "R$17,00", dataProduct: "checklist" },
+  { nome: "App Tagarelar", desc: "Acesso ao app com jogos de estímulo de linguagem.", valor: "R$27,00", dataProduct: "tagarelar" },
 ];
 
 const depoimentos = [
@@ -37,6 +37,7 @@ const CINZA_CLARO = "#F8F8F8";
 const V4 = () => {
   const [showButton, setShowButton] = useState(false);
   const startedAt = useRef<number>(Date.now());
+  const ctaBlockRef = useRef<HTMLDivElement | null>(null);
 
   // Defer pageView tracking
   useEffect(() => {
@@ -50,8 +51,17 @@ const V4 = () => {
   }, []);
 
   // Reveal CTA at 4:50 (290s) of video.
-  // NOTE: substitua este timer pelo evento real do player quando o embed estiver conectado.
-  // Exemplo: player.on('timeupdate', (t) => { if (t >= 290) setShowButton(true); });
+  // ============================================================
+  // COMO CONECTAR AO PLAYER REAL DO VÍDEO:
+  // Substitua o setTimeout abaixo pelo evento timeupdate do player.
+  // Exemplo (HTML5 video):
+  //   const video = document.querySelector('video');
+  //   video.addEventListener('timeupdate', () => {
+  //     if (video.currentTime >= 290) setShowButton(true);
+  //   });
+  // Exemplo (VTurb / players customizados):
+  //   player.on('timeupdate', (t) => { if (t >= 290) setShowButton(true); });
+  // ============================================================
   useEffect(() => {
     const REVEAL_MS = 290 * 1000;
     const elapsed = Date.now() - startedAt.current;
@@ -60,15 +70,14 @@ const V4 = () => {
     return () => window.clearTimeout(id);
   }, []);
 
-  const PrimaryCTA = () => (
-    <a
-      href="#kiwify-embed"
-      className="inline-flex items-center justify-center w-full max-w-[520px] min-h-[64px] px-8 rounded-full text-white font-extrabold text-lg md:text-xl shadow-[0_10px_30px_-10px_rgba(26,122,58,0.55)] transition-transform hover:scale-[1.02] active:scale-[0.99]"
-      style={{ background: VERDE }}
-    >
-      ✅ SIM — QUERO O PLANO 30 DIAS
-    </a>
-  );
+  // Smooth scroll para o bloco quando ele aparecer
+  useEffect(() => {
+    if (showButton && ctaBlockRef.current) {
+      setTimeout(() => {
+        ctaBlockRef.current?.scrollIntoView({ behavior: "smooth", block: "center" });
+      }, 200);
+    }
+  }, [showButton]);
 
   return (
     <div className="min-h-screen bg-white text-neutral-800" style={{ fontFamily: "'DM Sans', system-ui, sans-serif" }}>
@@ -83,67 +92,81 @@ const V4 = () => {
       {/* SEÇÃO 2 — VÍDEO */}
       <section className="px-4 py-10 md:py-16" style={{ background: CINZA_CLARO }}>
         <div className="max-w-[800px] mx-auto text-center">
+          {/* 1. Badge */}
           <span
-            className="inline-block px-4 py-1.5 rounded-full text-white text-xs md:text-sm font-semibold mb-5"
+            className="inline-block px-4 py-1.5 rounded-full text-white text-xs md:text-sm font-semibold mb-4"
             style={{ background: ROXO }}
           >
             🎓 Aula 1 — Liberada exclusivamente para você
           </span>
-          <h1
-            className="text-3xl md:text-5xl font-extrabold leading-[1.15] mb-3"
-            style={{ color: ROXO }}
-          >
-            Você tem o conhecimento. Agora precisa do roteiro.
-          </h1>
-          <p className="text-neutral-500 text-sm md:text-base mb-8">
+
+          {/* 2. Subheadline */}
+          <p className="text-neutral-500 text-sm md:text-base mb-6">
             Assista até o fim — essa aula aparece só uma vez
           </p>
 
+          {/* 3. Vídeo */}
           <div
             className="rounded-2xl overflow-hidden shadow-lg bg-black mx-auto"
             style={{ aspectRatio: "16/9" }}
           >
             {/* COLE O EMBED DO VÍDEO AQUI */}
           </div>
-          {/* BOTÃO REVELADO AOS 4:50 DO VÍDEO VIA JS */}
+
+          {/* 4. Headline ABAIXO do vídeo */}
+          <h1
+            className="text-3xl md:text-5xl font-extrabold leading-[1.15] mt-8"
+            style={{ color: ROXO }}
+          >
+            Você tem o conhecimento. Agora precisa do roteiro.
+          </h1>
+
+          {/* BLOCO CTA — oculto até 4:50, fade-in suave */}
+          <div
+            ref={ctaBlockRef}
+            className={`transition-all duration-[800ms] ease-out ${
+              showButton
+                ? "opacity-100 max-h-[2000px] mt-10"
+                : "opacity-0 max-h-0 overflow-hidden mt-0"
+            }`}
+            aria-hidden={!showButton}
+          >
+            <p className="text-neutral-700 mb-5 text-sm md:text-base">
+              Adicione ao seu pedido com 1 clique — sem precisar digitar nada
+            </p>
+
+            <div className="flex justify-center">
+              {/* EMBED KIWIFY BOTÃO 1 — SUBSTITUIR AQUI */}
+              <a
+                href="#"
+                className="inline-flex items-center justify-center w-full max-w-[520px] min-h-[64px] px-8 rounded-full text-white font-extrabold text-lg md:text-xl shadow-[0_10px_30px_-10px_rgba(26,122,58,0.55)] transition-transform hover:scale-[1.02] active:scale-[0.99]"
+                style={{ background: VERDE }}
+              >
+                ✅ SIM — QUERO O PLANO 30 DIAS
+              </a>
+            </div>
+
+            <p className="font-extrabold mt-5 text-lg" style={{ color: ROXO }}>
+              12x de R$20,47
+            </p>
+            <p className="text-neutral-500 text-sm mt-1">
+              ou R$197,90 à vista — acesso imediato e vitalício
+            </p>
+
+            <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 mt-6 text-neutral-500 text-xs md:text-sm">
+              <span className="inline-flex items-center gap-1.5">
+                <Lock className="w-4 h-4" /> Compra 100% segura
+              </span>
+              <span className="inline-flex items-center gap-1.5">
+                <ShieldCheck className="w-4 h-4" /> 7 dias de garantia
+              </span>
+            </div>
+          </div>
         </div>
       </section>
 
-      {/* SEÇÃO 3 — BOTÃO PRINCIPAL (oculto até 4:50) */}
-      <section
-        className={`bg-white px-4 py-12 md:py-16 transition-opacity duration-700 ${
-          showButton ? "opacity-100" : "opacity-0 pointer-events-none h-0 py-0 overflow-hidden"
-        }`}
-        aria-hidden={!showButton}
-      >
-        <div className="max-w-[720px] mx-auto text-center">
-          <p className="text-neutral-700 mb-5 text-sm md:text-base">
-            Adicione ao seu pedido com 1 clique — sem precisar digitar nada
-          </p>
-          <div className="flex justify-center">
-            <PrimaryCTA />
-          </div>
-          <p className="font-extrabold mt-5 text-lg" style={{ color: ROXO }}>
-            12x de R$20,47
-          </p>
-          <p className="text-neutral-500 text-sm mt-1">
-            ou R$197,90 à vista — acesso imediato e vitalício
-          </p>
-
-          <div id="kiwify-embed" className="mt-8 min-h-[60px]">
-            {/* COLE O EMBED DA KIWIFY AQUI */}
-          </div>
-
-          <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 mt-6 text-neutral-500 text-xs md:text-sm">
-            <span className="inline-flex items-center gap-1.5">
-              <Lock className="w-4 h-4" /> Compra 100% segura
-            </span>
-            <span className="inline-flex items-center gap-1.5">
-              <ShieldCheck className="w-4 h-4" /> 7 dias de garantia
-            </span>
-          </div>
-        </div>
-      </section>
+      {/* ESPAÇAMENTO 60px */}
+      <div style={{ height: "60px" }} />
 
       {/* SEÇÃO 4 — O QUE ESTÁ INCLUÍDO */}
       <section className="px-4 py-14 md:py-20" style={{ background: ROXO_CLARO }}>
@@ -159,18 +182,23 @@ const V4 = () => {
             {produtos.map((p) => (
               <div
                 key={p.nome}
-                className="bg-white rounded-2xl p-4 md:p-5 shadow-[0_8px_20px_-12px_rgba(107,45,139,0.25)] flex flex-col"
+                className="bg-white rounded-2xl shadow-[0_8px_20px_-12px_rgba(107,45,139,0.25)] flex flex-col overflow-hidden"
               >
-                <div
-                  className="w-full rounded-xl mb-4 bg-neutral-100"
-                  style={{ aspectRatio: "200/260" }}
-                  aria-label={`Capa ${p.nome}`}
+                {/* SUBSTITUIR src PELA URL DA IMAGEM DO PRODUTO */}
+                <img
+                  src=""
+                  alt={p.nome}
+                  data-product={p.dataProduct}
+                  className="w-full bg-neutral-100"
+                  style={{ height: "200px", objectFit: "cover" }}
                 />
-                <h3 className="font-bold text-sm md:text-base mb-1" style={{ color: ROXO }}>
-                  {p.nome}
-                </h3>
-                <p className="text-neutral-500 text-xs md:text-sm mb-3 flex-1">{p.desc}</p>
-                <p className="text-red-600 line-through text-sm font-semibold">{p.valor}</p>
+                <div className="p-4 md:p-5 flex flex-col flex-1">
+                  <h3 className="font-bold text-sm md:text-base mb-1" style={{ color: ROXO }}>
+                    {p.nome}
+                  </h3>
+                  <p className="text-neutral-500 text-xs md:text-sm mb-3 flex-1">{p.desc}</p>
+                  <p className="text-red-600 line-through text-sm font-semibold">{p.valor}</p>
+                </div>
               </div>
             ))}
           </div>
@@ -240,22 +268,19 @@ const V4 = () => {
           <p className="text-white/85 text-base md:text-lg mb-8">
             Essa condição existe só aqui, só agora. Quando você sair essa página ela some.
           </p>
-          <div className="flex justify-center">
-            <PrimaryCTA />
+          <div className="min-h-[60px] flex justify-center items-center">
+            {/* EMBED KIWIFY BOTÃO 2 — SUBSTITUIR AQUI */}
           </div>
           <p className="mt-5 font-extrabold text-lg">12x de R$20,47 ou R$197,90 à vista</p>
-          <div className="mt-8 min-h-[60px]">
-            {/* COLE O EMBED DA KIWIFY AQUI */}
-          </div>
         </div>
       </section>
 
       {/* SEÇÃO 8 — RECUSA */}
       <section className="bg-white px-4 py-10 text-center">
+        {/* COLE O LINK DE RECUSA DA KIWIFY AQUI */}
         <a
           href="#"
-          /* COLE O LINK DE RECUSA DA KIWIFY AQUI */
-          className="text-neutral-400 text-sm underline underline-offset-4 hover:text-neutral-600 transition-colors"
+          style={{ color: "#AAAAAA", fontSize: "13px", textDecoration: "none" }}
         >
           Não, prefiro continuar sem o passo a passo diário
         </a>
