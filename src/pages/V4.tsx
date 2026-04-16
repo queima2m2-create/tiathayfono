@@ -1,13 +1,19 @@
 import { useEffect, useRef, useState } from "react";
 import { Shield, Lock, ShieldCheck } from "lucide-react";
+import imgPlano from "@/assets/v4-plano30dias.jpeg";
+import imgCaderno from "@/assets/v4-caderno.jpeg";
+import imgCards from "@/assets/v4-cards.jpeg";
+import imgGuia from "@/assets/v4-guia-situacoes.jpeg";
+import imgChecklist from "@/assets/v4-checklist.jpeg";
+import imgTagarelar from "@/assets/v4-tagarelar.jpeg";
 
 const produtos = [
-  { nome: "Plano 30 Dias com a Tia Thay", desc: "Roteiro diário passo a passo para destravar a fala do seu filho.", valor: "R$197,90", dataProduct: "plano30dias" },
-  { nome: "Caderno de Acompanhamento", desc: "Registre cada palavra nova e veja a evolução em tempo real.", valor: "R$27,00", dataProduct: "caderno" },
-  { nome: "50 Cards para Imprimir", desc: "Estímulos visuais prontos para usar todos os dias.", valor: "R$19,90", dataProduct: "cards" },
-  { nome: "Guia de Situações Difíceis", desc: "O que fazer quando ele se recusa, chora ou ignora.", valor: "R$17,00", dataProduct: "guia-situacoes" },
-  { nome: "Checklist de Marcos", desc: "Saiba exatamente o que esperar em cada idade.", valor: "R$17,00", dataProduct: "checklist" },
-  { nome: "App Tagarelar", desc: "Acesso ao app com jogos de estímulo de linguagem.", valor: "R$27,00", dataProduct: "tagarelar" },
+  { nome: "Plano 30 Dias com a Tia Thay", desc: "Roteiro diário passo a passo para destravar a fala do seu filho.", valor: "R$197,90", dataProduct: "plano30dias", img: imgPlano },
+  { nome: "Caderno de Acompanhamento", desc: "Registre cada palavra nova e veja a evolução em tempo real.", valor: "R$27,00", dataProduct: "caderno", img: imgCaderno },
+  { nome: "50 Cards para Imprimir", desc: "Estímulos visuais prontos para usar todos os dias.", valor: "R$19,90", dataProduct: "cards", img: imgCards },
+  { nome: "Guia de Situações Difíceis", desc: "O que fazer quando ele se recusa, chora ou ignora.", valor: "R$17,00", dataProduct: "guia-situacoes", img: imgGuia },
+  { nome: "Checklist de Marcos", desc: "Saiba exatamente o que esperar em cada idade.", valor: "R$17,00", dataProduct: "checklist", img: imgChecklist },
+  { nome: "App Tagarelar", desc: "Acesso ao app com jogos de estímulo de linguagem.", valor: "R$27,00", dataProduct: "tagarelar", img: imgTagarelar },
 ];
 
 const depoimentos = [
@@ -208,9 +214,10 @@ const V4 = () => {
               >
                 {/* SUBSTITUIR src PELA URL DA IMAGEM DO PRODUTO */}
                 <img
-                  src=""
+                  src={p.img}
                   alt={p.nome}
                   data-product={p.dataProduct}
+                  loading="lazy"
                   className="w-full bg-neutral-100"
                   style={{ height: "200px", objectFit: "cover" }}
                 />
