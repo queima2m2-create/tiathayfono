@@ -129,7 +129,11 @@ const V4 = () => {
             {/* @ts-ignore – custom Vturb web component */}
             <vturb-smartplayer
               id="vid-69e151b6eeef2dbf7e2a56c1"
-              style={{ display: "block", margin: "0 auto", width: "100%" }}
+              autoplay="true"
+              muted="false"
+              playsinline="true"
+              className="vturb-player"
+              style={{ display: "block", margin: "0 auto", width: "100%", pointerEvents: "auto", zIndex: 1 }}
             />
           </div>
 
