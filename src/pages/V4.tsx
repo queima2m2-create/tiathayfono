@@ -50,6 +50,22 @@ const V4 = () => {
     }
   }, []);
 
+  // Load Vturb player script
+  useEffect(() => {
+    const load = () => {
+      const s = document.createElement("script");
+      s.src =
+        "https://scripts.converteai.net/8cb68814-a0fc-45e0-ace9-4a6b005a0cc8/players/69e151b6eeef2dbf7e2a56c1/v4/player.js";
+      s.async = true;
+      document.head.appendChild(s);
+    };
+    if ("requestIdleCallback" in window) {
+      (window as any).requestIdleCallback(load, { timeout: 1500 });
+    } else {
+      setTimeout(load, 300);
+    }
+  }, []);
+
   // Reveal CTA at 4:50 (290s) of video.
   // ============================================================
   // COMO CONECTAR AO PLAYER REAL DO VÍDEO:
@@ -110,7 +126,11 @@ const V4 = () => {
             className="rounded-2xl overflow-hidden shadow-lg bg-black mx-auto"
             style={{ aspectRatio: "16/9" }}
           >
-            {/* COLE O EMBED DO VÍDEO AQUI */}
+            {/* @ts-ignore – custom Vturb web component */}
+            <vturb-smartplayer
+              id="vid-69e151b6eeef2dbf7e2a56c1"
+              style={{ display: "block", margin: "0 auto", width: "100%" }}
+            />
           </div>
 
           {/* 4. Headline ABAIXO do vídeo */}
