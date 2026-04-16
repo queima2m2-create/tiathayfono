@@ -110,7 +110,11 @@ const V4 = () => {
             className="rounded-2xl overflow-hidden shadow-lg bg-black mx-auto"
             style={{ aspectRatio: "16/9" }}
           >
-            {/* COLE O EMBED DO VÍDEO AQUI */}
+            {/* @ts-ignore – custom Vturb web component */}
+            <vturb-smartplayer
+              id="vid-69e151b6eeef2dbf7e2a56c1"
+              style={{ display: "block", margin: "0 auto", width: "100%" }}
+            />
           </div>
 
           {/* 4. Headline ABAIXO do vídeo */}
