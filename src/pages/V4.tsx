@@ -340,15 +340,21 @@ const V4 = () => {
         </div>
       </section>
 
-      {/* SEÇÃO 8 — RECUSA */}
+      {/* SEÇÃO 8 — RECUSA (Kiwify cancel trigger) */}
       <section className="bg-white px-4 py-10 text-center">
-        {/* COLE O LINK DE RECUSA DA KIWIFY AQUI */}
-        <a
-          href="#"
-          style={{ color: "#AAAAAA", fontSize: "13px", textDecoration: "none" }}
+        <div
+          id="kiwify-upsell-cancel-trigger-cXCgv1m"
+          style={{
+            color: "#AAAAAA",
+            fontSize: "13px",
+            textDecoration: "none",
+            cursor: "pointer",
+            fontFamily: "sans-serif",
+            textAlign: "center",
+          }}
         >
-          Não, prefiro continuar sem o passo a passo diário
-        </a>
+          agora não
+        </div>
       </section>
     </div>
   );
