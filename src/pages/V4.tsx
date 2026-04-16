@@ -245,6 +245,14 @@ const V4 = () => {
         </div>
       </section>
 
+      {/* WRAPPER — Tudo abaixo do vídeo: oculto até 5:55, fade-in 1s */}
+      <div
+        className={`transition-opacity duration-1000 ease-out ${
+          showButton ? "opacity-100" : "opacity-0"
+        }`}
+        style={{ display: showButton ? "block" : "none" }}
+        aria-hidden={!showButton}
+      >
       {/* ESPAÇAMENTO 60px */}
       <div style={{ height: "60px" }} />
 
