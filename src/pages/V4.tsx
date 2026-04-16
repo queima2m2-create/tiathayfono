@@ -219,7 +219,7 @@ const V4 = () => {
                   data-product={p.dataProduct}
                   loading="lazy"
                   className="w-full bg-neutral-100"
-                  style={{ height: "200px", objectFit: "cover" }}
+                  style={{ height: "260px", objectFit: "contain", padding: "12px" }}
                 />
                 <div className="p-4 md:p-5 flex flex-col flex-1">
                   <h3 className="font-bold text-sm md:text-base mb-1" style={{ color: ROXO }}>
