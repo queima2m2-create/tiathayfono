@@ -156,18 +156,21 @@ const V4 = () => {
             />
           </div>
 
-          {/* HEADLINE + BLOCO CTA — ocultos até 5:55, fade-in suave de 1s */}
-          <div
-            ref={ctaBlockRef}
-            className={`transition-opacity duration-1000 ease-out ${
-              showButton
-                ? "opacity-100 max-h-[3000px] mt-8"
-                : "opacity-0 max-h-0 overflow-hidden mt-0"
-            }`}
-            style={{ display: showButton ? "block" : "none" }}
-            aria-hidden={!showButton}
-          >
-            {/* 4. Headline ABAIXO do vídeo */}
+        </div>
+      </section>
+
+      {/* CONTEÚDO OCULTO — revelado quando o vídeo atinge 5:55 (355s) */}
+      <div
+        id="conteudo-oculto"
+        style={{
+          display: "none",
+          opacity: 0,
+          transition: "opacity 1s ease",
+        }}
+      >
+        {/* HEADLINE + BLOCO CTA (logo abaixo do vídeo, dentro do reveal) */}
+        <section className="px-4 pb-10 md:pb-16" style={{ background: CINZA_CLARO }}>
+          <div ref={ctaBlockRef} className="max-w-[800px] mx-auto text-center">
             <h1
               className="text-3xl md:text-5xl font-extrabold leading-[1.15]"
               style={{ color: ROXO }}
@@ -225,17 +228,8 @@ const V4 = () => {
               </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* WRAPPER — Tudo abaixo do vídeo: oculto até 5:55, fade-in 1s */}
-      <div
-        className={`transition-opacity duration-1000 ease-out ${
-          showButton ? "opacity-100" : "opacity-0"
-        }`}
-        style={{ display: showButton ? "block" : "none" }}
-        aria-hidden={!showButton}
-      >
       {/* ESPAÇAMENTO 60px */}
       <div style={{ height: "60px" }} />
 
