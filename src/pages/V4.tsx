@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useEffect } from "react";
 import { Shield, Lock, ShieldCheck } from "lucide-react";
 import imgPlano from "@/assets/v4-plano30dias.jpeg";
 import imgCaderno from "@/assets/v4-caderno.jpeg";
@@ -41,8 +41,6 @@ const VERDE_CLARO = "#E8F5ED";
 const CINZA_CLARO = "#F8F8F8";
 
 const V4 = () => {
-  const ctaBlockRef = useRef<HTMLDivElement | null>(null);
-
   // Defer pageView tracking
   useEffect(() => {
     const fire = () =>
@@ -66,178 +64,66 @@ const V4 = () => {
     document.head.appendChild(s);
   }, []);
 
-  // Reveal de TODO o conteúdo abaixo do vídeo aos 5:55 (355s de reprodução real).
-  // =================================================================================
-  // CONEXÃO COM O PLAYER VTURB:
-  // Se a Vturb expuser um evento global oficial de progresso, conecte-o no listener
-  // `window.addEventListener("message", ...)` abaixo. Como fallback robusto, também
-  // escutamos o <video> interno do player, inclusive dentro de shadow roots.
-  // =================================================================================
+  // Reveal do conteúdo usando postMessage da Vturb + fallback em 355s após o load.
   useEffect(() => {
-    const REVEAL_SEC = 355;
-    const PLAYER_ID = "vid-69e151b6eeef2dbf7e2a56c1";
-    const MEDIA_EVENTS = ["timeupdate", "seeked", "playing", "loadedmetadata"] as const;
     let revealed = false;
-    const videoCleanups: Array<() => void> = [];
-    const observers: MutationObserver[] = [];
-    const observedRoots = new WeakSet<Node>();
-    const observedVideos = new WeakSet<HTMLVideoElement>();
+    let fallbackStarted = false;
+    let revealTimer: number | null = null;
+    let fallbackTimer: number | null = null;
 
     const revealContent = () => {
       if (revealed) return;
 
-      const hiddenContent = document.getElementById("conteudo-oculto");
-      if (!hiddenContent || hiddenContent.classList.contains("revealed")) return;
-
       revealed = true;
-      hiddenContent.classList.add("revealed");
-      hiddenContent.style.display = "block";
-
-      requestAnimationFrame(() => {
-        hiddenContent.style.opacity = "1";
-        ctaBlockRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
-      });
-    };
-
-    const toNumber = (value: unknown): number | null => {
-      if (typeof value === "number" && Number.isFinite(value)) return value;
-      if (typeof value === "string") {
-        const parsed = Number(value);
-        return Number.isFinite(parsed) ? parsed : null;
-      }
-      return null;
-    };
-
-    const extractCurrentTime = (payload: unknown): number | null => {
-      const directNumber = toNumber(payload);
-      if (directNumber !== null) return directNumber;
-      if (!payload) return null;
-
-      if (typeof payload === "string") {
-        try {
-          return extractCurrentTime(JSON.parse(payload));
-        } catch {
-          return null;
-        }
-      }
-
-      if (Array.isArray(payload)) {
-        for (const item of payload) {
-          const nestedValue = extractCurrentTime(item);
-          if (nestedValue !== null) return nestedValue;
-        }
-        return null;
-      }
-
-      if (typeof payload === "object") {
-        const data = payload as Record<string, unknown>;
-
-        for (const key of ["currentTime", "current_time", "seconds", "time", "position"]) {
-          const value = toNumber(data[key]);
-          if (value !== null) return value;
-        }
-
-        for (const nested of Object.values(data)) {
-          const nestedValue = extractCurrentTime(nested);
-          if (nestedValue !== null) return nestedValue;
-        }
-      }
-
-      return null;
-    };
-
-    const checkRevealTime = (currentTime: number | null) => {
-      if (currentTime !== null && currentTime >= REVEAL_SEC) {
-        revealContent();
-      }
-    };
-
-    const onVideoProgress = (event: Event) => {
-      const video = event.currentTarget as HTMLVideoElement | null;
-      checkRevealTime(video?.currentTime ?? null);
-    };
-
-    const attachToVideo = (video: HTMLVideoElement | null) => {
-      if (!video || observedVideos.has(video) || revealed) return;
-
-      observedVideos.add(video);
-
-      MEDIA_EVENTS.forEach((eventName) => video.addEventListener(eventName, onVideoProgress));
-      videoCleanups.push(() => {
-        MEDIA_EVENTS.forEach((eventName) => video.removeEventListener(eventName, onVideoProgress));
-      });
-
-      checkRevealTime(video.currentTime);
-    };
-
-    const findVideoInRoot = (root: Document | HTMLElement | ShadowRoot): HTMLVideoElement | null => {
-      const directVideo = root.querySelector("video");
-      if (directVideo instanceof HTMLVideoElement) return directVideo;
-
-      for (const element of Array.from(root.querySelectorAll("*"))) {
-        const shadowRoot = (element as HTMLElement & { shadowRoot?: ShadowRoot | null }).shadowRoot;
-        if (!shadowRoot) continue;
-
-        const nestedVideo = findVideoInRoot(shadowRoot);
-        if (nestedVideo) return nestedVideo;
-      }
-
-      return null;
-    };
-
-    const tryAttachToVturbVideo = () => {
-      attachToVideo(findVideoInRoot(document));
-    };
-
-    const observeRoot = (root: Node | null) => {
-      if (!root || observedRoots.has(root)) return;
-
-      observedRoots.add(root);
-
-      const observer = new MutationObserver(() => {
-        registerObservedRoots();
-        tryAttachToVturbVideo();
-      });
-
-      observer.observe(root, { childList: true, subtree: true });
-      observers.push(observer);
-    };
-
-    const registerObservedRoots = () => {
-      observeRoot(document.body);
-
-      const host = document.getElementById(PLAYER_ID) as
-        | (HTMLElement & { shadowRoot?: ShadowRoot | null })
-        | null;
-
-      observeRoot(host);
-      observeRoot(host?.shadowRoot ?? null);
-
-      for (const element of Array.from(document.querySelectorAll("*"))) {
-        const shadowRoot = (element as HTMLElement & { shadowRoot?: ShadowRoot | null }).shadowRoot;
-        observeRoot(shadowRoot ?? null);
+      const hidden = document.getElementById("conteudo-oculto");
+      if (hidden) {
+        hidden.style.display = "block";
+        revealTimer = window.setTimeout(() => {
+          hidden.style.opacity = "1";
+          hidden.style.transition = "opacity 1s ease";
+          hidden.scrollIntoView({ behavior: "smooth", block: "start" });
+        }, 100);
       }
     };
 
     const onMessage = (e: MessageEvent) => {
-      if (revealed) return;
-      checkRevealTime(extractCurrentTime(e.data));
+      try {
+        const data = typeof e.data === "string" ? JSON.parse(e.data) : e.data;
+
+        if (
+          ((typeof data?.currentTime === "number" || typeof data?.currentTime === "string") && Number(data.currentTime) >= 355) ||
+          ((typeof data?.time === "number" || typeof data?.time === "string") && Number(data.time) >= 355) ||
+          (data?.event === "timeupdate" && (typeof data?.value === "number" || typeof data?.value === "string") && Number(data.value) >= 355) ||
+          (data?.type === "timeupdate" && (typeof data?.currentTime === "number" || typeof data?.currentTime === "string") && Number(data.currentTime) >= 355)
+        ) {
+          revealContent();
+        }
+      } catch {}
     };
 
-    registerObservedRoots();
-    tryAttachToVturbVideo();
+    const startFallback = () => {
+      if (fallbackStarted) return;
+      fallbackStarted = true;
+      fallbackTimer = window.setTimeout(() => {
+        revealContent();
+      }, 355000);
+    };
 
-    customElements.whenDefined("vturb-smartplayer").then(() => {
-      registerObservedRoots();
-      tryAttachToVturbVideo();
-    });
+    const onLoad = () => startFallback();
 
     window.addEventListener("message", onMessage);
 
+    if (document.readyState === "complete") {
+      startFallback();
+    } else {
+      window.addEventListener("load", onLoad, { once: true });
+    }
+
     return () => {
-      observers.forEach((observer) => observer.disconnect());
-      videoCleanups.forEach((cleanup) => cleanup());
       window.removeEventListener("message", onMessage);
+      window.removeEventListener("load", onLoad);
+      if (revealTimer !== null) window.clearTimeout(revealTimer);
+      if (fallbackTimer !== null) window.clearTimeout(fallbackTimer);
     };
   }, []);
 
@@ -297,7 +183,7 @@ const V4 = () => {
       >
         {/* HEADLINE + BLOCO CTA (logo abaixo do vídeo, dentro do reveal) */}
         <section className="px-4 pb-10 md:pb-16" style={{ background: CINZA_CLARO }}>
-          <div ref={ctaBlockRef} className="max-w-[800px] mx-auto text-center">
+            <div className="max-w-[800px] mx-auto text-center">
             <h1
               className="text-3xl md:text-5xl font-extrabold leading-[1.15]"
               style={{ color: ROXO }}
