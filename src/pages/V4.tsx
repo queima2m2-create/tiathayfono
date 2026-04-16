@@ -41,8 +41,6 @@ const VERDE_CLARO = "#E8F5ED";
 const CINZA_CLARO = "#F8F8F8";
 
 const V4 = () => {
-  const [showButton, setShowButton] = useState(false);
-  const startedAt = useRef<number>(Date.now());
   const ctaBlockRef = useRef<HTMLDivElement | null>(null);
 
   // Defer pageView tracking
