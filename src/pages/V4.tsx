@@ -164,14 +164,31 @@ const V4 = () => {
             </p>
 
             <div className="flex justify-center">
-              {/* EMBED KIWIFY BOTÃO 1 — SUBSTITUIR AQUI */}
-              <a
-                href="#"
-                className="inline-flex items-center justify-center w-full max-w-[520px] min-h-[64px] px-8 rounded-full text-white font-extrabold text-lg md:text-xl shadow-[0_10px_30px_-10px_rgba(26,122,58,0.55)] transition-transform hover:scale-[1.02] active:scale-[0.99]"
-                style={{ background: VERDE }}
+              <div
+                style={{ textAlign: "center", width: "100%" }}
+                id="kiwify-upsell-cXCgv1m"
+                data-upsell-url=""
+                data-downsell-url=""
               >
-                ✅ SIM — QUERO O PLANO 30 DIAS
-              </a>
+                <button
+                  id="kiwify-upsell-trigger-cXCgv1m"
+                  style={{
+                    backgroundColor: "#27AF60",
+                    color: "#FFFFFF",
+                    fontWeight: 600,
+                    border: "1px solid #27AF60",
+                    cursor: "pointer",
+                    width: "100%",
+                    maxWidth: "480px",
+                    padding: "18px 24px",
+                    fontSize: "22px",
+                    borderRadius: "50px",
+                    boxShadow: "0 4px 20px rgba(39,175,96,0.4)",
+                  }}
+                >
+                  Sim, QUERO O PLANO DA TIA THAY
+                </button>
+              </div>
             </div>
 
             <p className="font-extrabold mt-5 text-lg" style={{ color: ROXO }}>
