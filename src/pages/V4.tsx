@@ -66,75 +66,128 @@ const V4 = () => {
     document.head.appendChild(s);
   }, []);
 
-  // Reveal de TODO o conteúdo abaixo do vídeo aos 5:55 (355s).
-  // ============================================================
+  // Reveal de TODO o conteúdo abaixo do vídeo aos 5:55 (355s de reprodução real).
+  // =================================================================================
   // CONEXÃO COM O PLAYER VTURB:
-  // O Vturb é um web component (<vturb-smartplayer>) que renderiza
-  // um <video> interno (eventualmente dentro de shadow DOM). Fazemos
-  // polling do currentTime desse <video> e revelamos o bloco
-  // #conteudo-oculto quando passar de 355s.
-  //
-  // Também escutamos postMessage como fallback, caso o player exponha.
-  // ============================================================
+  // Se o player Vturb expuser um evento oficial de progresso, conecte-o no trecho
+  // `onMessage` abaixo. Em paralelo, também ouvimos o evento `timeupdate` do <video>
+  // interno renderizado pelo web component.
+  // =================================================================================
   useEffect(() => {
     const REVEAL_SEC = 355;
     let revealed = false;
-    let intervalId: number | undefined;
+    let detachVideoListener: (() => void) | null = null;
 
     const revealContent = () => {
       if (revealed) return;
+
       const hiddenContent = document.getElementById("conteudo-oculto");
       if (!hiddenContent || hiddenContent.classList.contains("revealed")) return;
+
       revealed = true;
       hiddenContent.classList.add("revealed");
       hiddenContent.style.display = "block";
-      window.setTimeout(() => {
+
+      requestAnimationFrame(() => {
         hiddenContent.style.opacity = "1";
         ctaBlockRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
-      }, 100);
-      if (intervalId) window.clearInterval(intervalId);
+      });
     };
 
-    // Procura o <video> renderizado pelo Vturb (incluindo shadow DOM)
-    const findVideo = (): HTMLVideoElement | null => {
-      const direct = document.querySelector("video") as HTMLVideoElement | null;
-      if (direct) return direct;
-      const host = document.getElementById("vid-69e151b6eeef2dbf7e2a56c1") as any;
-      if (host?.shadowRoot) {
-        const v = host.shadowRoot.querySelector("video") as HTMLVideoElement | null;
-        if (v) return v;
-      }
-      // Varre todos os shadow roots de qualquer custom element no documento
-      const all = document.querySelectorAll("*");
-      for (const el of Array.from(all)) {
-        const sr = (el as any).shadowRoot;
-        if (sr) {
-          const v = sr.querySelector("video") as HTMLVideoElement | null;
-          if (v) return v;
+    const extractCurrentTime = (payload: unknown): number | null => {
+      if (!payload) return null;
+
+      if (typeof payload === "number") return payload;
+
+      if (typeof payload === "string") {
+        try {
+          return extractCurrentTime(JSON.parse(payload));
+        } catch {
+          return null;
         }
       }
+
+      if (typeof payload === "object") {
+        const data = payload as Record<string, unknown>;
+
+        if (typeof data.currentTime === "number") return data.currentTime;
+
+        return (
+          extractCurrentTime(data.data) ??
+          extractCurrentTime(data.detail) ??
+          extractCurrentTime(data.payload) ??
+          null
+        );
+      }
+
       return null;
     };
 
-    intervalId = window.setInterval(() => {
-      const video = findVideo();
+    const onVideoTimeUpdate = (event: Event) => {
+      const video = event.currentTarget as HTMLVideoElement | null;
       if (video && video.currentTime >= REVEAL_SEC) {
         revealContent();
       }
-    }, 500);
+    };
 
-    // Fallback: postMessage (se o player vier a expor)
-    const onMessage = (e: MessageEvent) => {
-      if (revealed) return;
-      const data: any = e.data;
-      if (data && typeof data.currentTime === "number" && data.currentTime >= REVEAL_SEC) {
+    const attachToVideo = (video: HTMLVideoElement | null) => {
+      if (!video || detachVideoListener || revealed) return;
+
+      video.addEventListener("timeupdate", onVideoTimeUpdate);
+      detachVideoListener = () => video.removeEventListener("timeupdate", onVideoTimeUpdate);
+
+      if (video.currentTime >= REVEAL_SEC) {
         revealContent();
       }
     };
+
+    const tryAttachToVturbVideo = () => {
+      const host = document.getElementById("vid-69e151b6eeef2dbf7e2a56c1") as
+        | (HTMLElement & { shadowRoot?: ShadowRoot | null })
+        | null;
+
+      if (!host) return;
+
+      const directVideo = document.querySelector("video") as HTMLVideoElement | null;
+      if (directVideo) {
+        attachToVideo(directVideo);
+        return;
+      }
+
+      const shadowVideo = host.shadowRoot?.querySelector("video") as HTMLVideoElement | null;
+      if (shadowVideo) {
+        attachToVideo(shadowVideo);
+      }
+    };
+
+    const host = document.getElementById("vid-69e151b6eeef2dbf7e2a56c1");
+    const hostObserver = new MutationObserver(() => tryAttachToVturbVideo());
+
+    if (host) {
+      hostObserver.observe(host, { childList: true, subtree: true });
+    }
+
+    tryAttachToVturbVideo();
+
+    customElements.whenDefined("vturb-smartplayer").then(() => {
+      tryAttachToVturbVideo();
+      requestAnimationFrame(() => tryAttachToVturbVideo());
+    });
+
+    const onMessage = (e: MessageEvent) => {
+      if (revealed) return;
+
+      const currentTime = extractCurrentTime(e.data);
+      if (currentTime !== null && currentTime >= REVEAL_SEC) {
+        revealContent();
+      }
+    };
+
     window.addEventListener("message", onMessage);
 
     return () => {
-      if (intervalId) window.clearInterval(intervalId);
+      hostObserver.disconnect();
+      detachVideoListener?.();
       window.removeEventListener("message", onMessage);
     };
   }, []);
