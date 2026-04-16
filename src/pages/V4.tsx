@@ -69,17 +69,20 @@ const V4 = () => {
   // Reveal de TODO o conteúdo abaixo do vídeo aos 5:55 (355s).
   // ============================================================
   // CONEXÃO COM O PLAYER VTURB:
-  // O player Vturb emite mensagens via window.postMessage contendo
-  // { currentTime: <segundos> }. Escutamos esse evento e revelamos o
-  // bloco #conteudo-oculto quando currentTime >= 355.
+  // O Vturb é um web component (<vturb-smartplayer>) que renderiza
+  // um <video> interno (eventualmente dentro de shadow DOM). Fazemos
+  // polling do currentTime desse <video> e revelamos o bloco
+  // #conteudo-oculto quando passar de 355s.
   //
-  // Não usamos timer baseado no carregamento da página.
+  // Também escutamos postMessage como fallback, caso o player exponha.
   // ============================================================
   useEffect(() => {
     const REVEAL_SEC = 355;
     let revealed = false;
+    let intervalId: number | undefined;
 
     const revealContent = () => {
+      if (revealed) return;
       const hiddenContent = document.getElementById("conteudo-oculto");
       if (!hiddenContent || hiddenContent.classList.contains("revealed")) return;
       revealed = true;
@@ -89,8 +92,38 @@ const V4 = () => {
         hiddenContent.style.opacity = "1";
         ctaBlockRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
       }, 100);
+      if (intervalId) window.clearInterval(intervalId);
     };
 
+    // Procura o <video> renderizado pelo Vturb (incluindo shadow DOM)
+    const findVideo = (): HTMLVideoElement | null => {
+      const direct = document.querySelector("video") as HTMLVideoElement | null;
+      if (direct) return direct;
+      const host = document.getElementById("vid-69e151b6eeef2dbf7e2a56c1") as any;
+      if (host?.shadowRoot) {
+        const v = host.shadowRoot.querySelector("video") as HTMLVideoElement | null;
+        if (v) return v;
+      }
+      // Varre todos os shadow roots de qualquer custom element no documento
+      const all = document.querySelectorAll("*");
+      for (const el of Array.from(all)) {
+        const sr = (el as any).shadowRoot;
+        if (sr) {
+          const v = sr.querySelector("video") as HTMLVideoElement | null;
+          if (v) return v;
+        }
+      }
+      return null;
+    };
+
+    intervalId = window.setInterval(() => {
+      const video = findVideo();
+      if (video && video.currentTime >= REVEAL_SEC) {
+        revealContent();
+      }
+    }, 500);
+
+    // Fallback: postMessage (se o player vier a expor)
     const onMessage = (e: MessageEvent) => {
       if (revealed) return;
       const data: any = e.data;
@@ -98,9 +131,12 @@ const V4 = () => {
         revealContent();
       }
     };
-
     window.addEventListener("message", onMessage);
-    return () => window.removeEventListener("message", onMessage);
+
+    return () => {
+      if (intervalId) window.clearInterval(intervalId);
+      window.removeEventListener("message", onMessage);
+    };
   }, []);
 
 
