@@ -214,9 +214,10 @@ const V4 = () => {
               >
                 {/* SUBSTITUIR src PELA URL DA IMAGEM DO PRODUTO */}
                 <img
-                  src=""
+                  src={p.img}
                   alt={p.nome}
                   data-product={p.dataProduct}
+                  loading="lazy"
                   className="w-full bg-neutral-100"
                   style={{ height: "200px", objectFit: "cover" }}
                 />
