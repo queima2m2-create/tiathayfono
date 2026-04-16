@@ -228,7 +228,7 @@ const V4 = () => {
           <hr className="my-10 border-purple-200" />
           <div className="text-center">
             <p className="text-neutral-700 text-base md:text-lg">
-              Valor total: <span className="line-through text-red-600 font-semibold">R$305,80</span>
+              Valor total: <span className="line-through text-red-600 font-semibold">R$597,00</span>
             </p>
             <p className="mt-2 text-lg md:text-2xl font-extrabold" style={{ color: ROXO }}>
               Hoje: 12x de R$20,47 ou R$197,90 à vista
