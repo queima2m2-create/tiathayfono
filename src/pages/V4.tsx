@@ -72,24 +72,56 @@ const V4 = () => {
     }
   }, []);
 
-  // Reveal CTA at 4:50 (290s) of video.
+  // Reveal de TODO o conteúdo abaixo do vídeo aos 5:55 (355s).
   // ============================================================
-  // COMO CONECTAR AO PLAYER REAL DO VÍDEO:
-  // Substitua o setTimeout abaixo pelo evento timeupdate do player.
-  // Exemplo (HTML5 video):
-  //   const video = document.querySelector('video');
-  //   video.addEventListener('timeupdate', () => {
-  //     if (video.currentTime >= 290) setShowButton(true);
-  //   });
-  // Exemplo (VTurb / players customizados):
-  //   player.on('timeupdate', (t) => { if (t >= 290) setShowButton(true); });
+  // CONEXÃO COM O PLAYER VTURB:
+  // Escutamos o evento timeupdate do <video> renderizado dentro do
+  // web component <vturb-smartplayer>. Se o player ainda não estiver
+  // pronto, fazemos polling até encontrá-lo. Fallback: setTimeout.
+  //
+  // Para players com API JS própria, substituir por:
+  //   player.on('timeupdate', (t) => { if (t >= 355) reveal(); });
   // ============================================================
   useEffect(() => {
-    const REVEAL_MS = 290 * 1000;
+    const REVEAL_SEC = 355;
+    let revealed = false;
+    const reveal = () => {
+      if (revealed) return;
+      revealed = true;
+      setShowButton(true);
+    };
+
+    const REVEAL_MS = REVEAL_SEC * 1000;
     const elapsed = Date.now() - startedAt.current;
     const remaining = Math.max(0, REVEAL_MS - elapsed);
-    const id = window.setTimeout(() => setShowButton(true), remaining);
-    return () => window.clearTimeout(id);
+    const fallbackId = window.setTimeout(reveal, remaining);
+
+    let videoEl: HTMLVideoElement | null = null;
+    const onTimeUpdate = () => {
+      if (videoEl && videoEl.currentTime >= REVEAL_SEC) reveal();
+    };
+    const attach = () => {
+      const host = document.getElementById("vid-69e151b6eeef2dbf7e2a56c1");
+      const v = host?.querySelector("video") as HTMLVideoElement | null;
+      if (v) {
+        videoEl = v;
+        v.addEventListener("timeupdate", onTimeUpdate);
+        return true;
+      }
+      return false;
+    };
+    let pollId: number | undefined;
+    if (!attach()) {
+      pollId = window.setInterval(() => {
+        if (attach() && pollId) window.clearInterval(pollId);
+      }, 500);
+    }
+
+    return () => {
+      window.clearTimeout(fallbackId);
+      if (pollId) window.clearInterval(pollId);
+      if (videoEl) videoEl.removeEventListener("timeupdate", onTimeUpdate);
+    };
   }, []);
 
   // Smooth scroll para o bloco quando ele aparecer
