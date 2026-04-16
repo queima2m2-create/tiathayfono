@@ -69,14 +69,19 @@ const V4 = () => {
   // Reveal de TODO o conteúdo abaixo do vídeo aos 5:55 (355s de reprodução real).
   // =================================================================================
   // CONEXÃO COM O PLAYER VTURB:
-  // Se o player Vturb expuser um evento oficial de progresso, conecte-o no trecho
-  // `onMessage` abaixo. Em paralelo, também ouvimos o evento `timeupdate` do <video>
-  // interno renderizado pelo web component.
+  // Se a Vturb expuser um evento global oficial de progresso, conecte-o no listener
+  // `window.addEventListener("message", ...)` abaixo. Como fallback robusto, também
+  // escutamos o <video> interno do player, inclusive dentro de shadow roots.
   // =================================================================================
   useEffect(() => {
     const REVEAL_SEC = 355;
+    const PLAYER_ID = "vid-69e151b6eeef2dbf7e2a56c1";
+    const MEDIA_EVENTS = ["timeupdate", "seeked", "playing", "loadedmetadata"] as const;
     let revealed = false;
-    let detachVideoListener: (() => void) | null = null;
+    const videoCleanups: Array<() => void> = [];
+    const observers: MutationObserver[] = [];
+    const observedRoots = new WeakSet<Node>();
+    const observedVideos = new WeakSet<HTMLVideoElement>();
 
     const revealContent = () => {
       if (revealed) return;
@@ -94,10 +99,19 @@ const V4 = () => {
       });
     };
 
-    const extractCurrentTime = (payload: unknown): number | null => {
-      if (!payload) return null;
+    const toNumber = (value: unknown): number | null => {
+      if (typeof value === "number" && Number.isFinite(value)) return value;
+      if (typeof value === "string") {
+        const parsed = Number(value);
+        return Number.isFinite(parsed) ? parsed : null;
+      }
+      return null;
+    };
 
-      if (typeof payload === "number") return payload;
+    const extractCurrentTime = (payload: unknown): number | null => {
+      const directNumber = toNumber(payload);
+      if (directNumber !== null) return directNumber;
+      if (!payload) return null;
 
       if (typeof payload === "string") {
         try {
@@ -107,87 +121,122 @@ const V4 = () => {
         }
       }
 
+      if (Array.isArray(payload)) {
+        for (const item of payload) {
+          const nestedValue = extractCurrentTime(item);
+          if (nestedValue !== null) return nestedValue;
+        }
+        return null;
+      }
+
       if (typeof payload === "object") {
         const data = payload as Record<string, unknown>;
 
-        if (typeof data.currentTime === "number") return data.currentTime;
+        for (const key of ["currentTime", "current_time", "seconds", "time", "position"]) {
+          const value = toNumber(data[key]);
+          if (value !== null) return value;
+        }
 
-        return (
-          extractCurrentTime(data.data) ??
-          extractCurrentTime(data.detail) ??
-          extractCurrentTime(data.payload) ??
-          null
-        );
+        for (const nested of Object.values(data)) {
+          const nestedValue = extractCurrentTime(nested);
+          if (nestedValue !== null) return nestedValue;
+        }
       }
 
       return null;
     };
 
-    const onVideoTimeUpdate = (event: Event) => {
-      const video = event.currentTarget as HTMLVideoElement | null;
-      if (video && video.currentTime >= REVEAL_SEC) {
-        revealContent();
-      }
-    };
-
-    const attachToVideo = (video: HTMLVideoElement | null) => {
-      if (!video || detachVideoListener || revealed) return;
-
-      video.addEventListener("timeupdate", onVideoTimeUpdate);
-      detachVideoListener = () => video.removeEventListener("timeupdate", onVideoTimeUpdate);
-
-      if (video.currentTime >= REVEAL_SEC) {
-        revealContent();
-      }
-    };
-
-    const tryAttachToVturbVideo = () => {
-      const host = document.getElementById("vid-69e151b6eeef2dbf7e2a56c1") as
-        | (HTMLElement & { shadowRoot?: ShadowRoot | null })
-        | null;
-
-      if (!host) return;
-
-      const directVideo = document.querySelector("video") as HTMLVideoElement | null;
-      if (directVideo) {
-        attachToVideo(directVideo);
-        return;
-      }
-
-      const shadowVideo = host.shadowRoot?.querySelector("video") as HTMLVideoElement | null;
-      if (shadowVideo) {
-        attachToVideo(shadowVideo);
-      }
-    };
-
-    const host = document.getElementById("vid-69e151b6eeef2dbf7e2a56c1");
-    const hostObserver = new MutationObserver(() => tryAttachToVturbVideo());
-
-    if (host) {
-      hostObserver.observe(host, { childList: true, subtree: true });
-    }
-
-    tryAttachToVturbVideo();
-
-    customElements.whenDefined("vturb-smartplayer").then(() => {
-      tryAttachToVturbVideo();
-      requestAnimationFrame(() => tryAttachToVturbVideo());
-    });
-
-    const onMessage = (e: MessageEvent) => {
-      if (revealed) return;
-
-      const currentTime = extractCurrentTime(e.data);
+    const checkRevealTime = (currentTime: number | null) => {
       if (currentTime !== null && currentTime >= REVEAL_SEC) {
         revealContent();
       }
     };
 
+    const onVideoProgress = (event: Event) => {
+      const video = event.currentTarget as HTMLVideoElement | null;
+      checkRevealTime(video?.currentTime ?? null);
+    };
+
+    const attachToVideo = (video: HTMLVideoElement | null) => {
+      if (!video || observedVideos.has(video) || revealed) return;
+
+      observedVideos.add(video);
+
+      MEDIA_EVENTS.forEach((eventName) => video.addEventListener(eventName, onVideoProgress));
+      videoCleanups.push(() => {
+        MEDIA_EVENTS.forEach((eventName) => video.removeEventListener(eventName, onVideoProgress));
+      });
+
+      checkRevealTime(video.currentTime);
+    };
+
+    const findVideoInRoot = (root: Document | HTMLElement | ShadowRoot): HTMLVideoElement | null => {
+      const directVideo = root.querySelector("video");
+      if (directVideo instanceof HTMLVideoElement) return directVideo;
+
+      for (const element of Array.from(root.querySelectorAll("*"))) {
+        const shadowRoot = (element as HTMLElement & { shadowRoot?: ShadowRoot | null }).shadowRoot;
+        if (!shadowRoot) continue;
+
+        const nestedVideo = findVideoInRoot(shadowRoot);
+        if (nestedVideo) return nestedVideo;
+      }
+
+      return null;
+    };
+
+    const tryAttachToVturbVideo = () => {
+      attachToVideo(findVideoInRoot(document));
+    };
+
+    const observeRoot = (root: Node | null) => {
+      if (!root || observedRoots.has(root)) return;
+
+      observedRoots.add(root);
+
+      const observer = new MutationObserver(() => {
+        registerObservedRoots();
+        tryAttachToVturbVideo();
+      });
+
+      observer.observe(root, { childList: true, subtree: true });
+      observers.push(observer);
+    };
+
+    const registerObservedRoots = () => {
+      observeRoot(document.body);
+
+      const host = document.getElementById(PLAYER_ID) as
+        | (HTMLElement & { shadowRoot?: ShadowRoot | null })
+        | null;
+
+      observeRoot(host);
+      observeRoot(host?.shadowRoot ?? null);
+
+      for (const element of Array.from(document.querySelectorAll("*"))) {
+        const shadowRoot = (element as HTMLElement & { shadowRoot?: ShadowRoot | null }).shadowRoot;
+        observeRoot(shadowRoot ?? null);
+      }
+    };
+
+    const onMessage = (e: MessageEvent) => {
+      if (revealed) return;
+      checkRevealTime(extractCurrentTime(e.data));
+    };
+
+    registerObservedRoots();
+    tryAttachToVturbVideo();
+
+    customElements.whenDefined("vturb-smartplayer").then(() => {
+      registerObservedRoots();
+      tryAttachToVturbVideo();
+    });
+
     window.addEventListener("message", onMessage);
 
     return () => {
-      hostObserver.disconnect();
-      detachVideoListener?.();
+      observers.forEach((observer) => observer.disconnect());
+      videoCleanups.forEach((cleanup) => cleanup());
       window.removeEventListener("message", onMessage);
     };
   }, []);
