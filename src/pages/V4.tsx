@@ -36,39 +36,57 @@ const V4 = () => {
     if (revealed) return;
     let initTimer: number | null = null;
     let loadTimer: number | null = null;
+    let pollTimer: number | null = null;
     let listenerAttached = false;
 
+    const checkAndReveal = (player: any) => {
+      const t = Number(
+        player?.currentTime ||
+          player?.smartAutoPlay?.currentTime ||
+          player?.video?.currentTime ||
+          0
+      );
+      if (t >= 355) {
+        console.log("[V4] reveal acionado em t=", t);
+        setRevealed(true);
+        return true;
+      }
+      return false;
+    };
+
     const initVturbListener = () => {
-      const smartplayer = (window as Window & {
-        smartplayer?: {
-          instances?: Array<{
-            currentTime?: number;
-            smartAutoPlay?: { currentTime?: number };
-            on?: (event: string, callback: () => void) => void;
-          }>;
-        };
-      }).smartplayer;
+      const smartplayer = (window as any).smartplayer;
 
       if (
         typeof smartplayer !== "undefined" &&
         smartplayer.instances &&
-        smartplayer.instances.length > 0 &&
-        typeof smartplayer.instances[0]?.on === "function"
+        smartplayer.instances.length > 0
       ) {
-        if (listenerAttached) return;
-        listenerAttached = true;
         const player = smartplayer.instances[0];
-        player.on?.("timeupdate", () => {
-          const t = Number(player.currentTime || player.smartAutoPlay?.currentTime || 0);
-          if (t >= 355) setRevealed(true);
-        });
+
+        if (!listenerAttached && typeof player?.on === "function") {
+          listenerAttached = true;
+          console.log("[V4] listener timeupdate anexado");
+          player.on("timeupdate", () => checkAndReveal(player));
+          player.on("play", () => checkAndReveal(player));
+        }
+
+        // Polling de segurança a cada 1s — garante reveal mesmo se .on() não disparar
+        if (pollTimer === null) {
+          pollTimer = window.setInterval(() => {
+            if (checkAndReveal(player) && pollTimer !== null) {
+              window.clearInterval(pollTimer);
+              pollTimer = null;
+            }
+          }, 1000);
+        }
       } else {
         initTimer = window.setTimeout(initVturbListener, 500);
       }
     };
 
     const onLoad = () => {
-      loadTimer = window.setTimeout(initVturbListener, 1000);
+      loadTimer = window.setTimeout(initVturbListener, 800);
     };
 
     if (document.readyState === "complete") onLoad();
@@ -78,6 +96,7 @@ const V4 = () => {
       window.removeEventListener("load", onLoad);
       if (initTimer !== null) window.clearTimeout(initTimer);
       if (loadTimer !== null) window.clearTimeout(loadTimer);
+      if (pollTimer !== null) window.clearInterval(pollTimer);
     };
   }, [revealed]);
 
