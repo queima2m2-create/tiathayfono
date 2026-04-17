@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState, lazy, Suspense } from "react";
 import { Shield, Lock, ShieldCheck } from "lucide-react";
 import imgPlano from "@/assets/v4-plano30dias.jpeg";
 import imgCaderno from "@/assets/v4-caderno.jpeg";
