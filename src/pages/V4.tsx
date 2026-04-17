@@ -133,9 +133,9 @@ const V4 = () => {
     };
 
     const onLoad = () => {
+      // Reveal é controlado APENAS pelo tempo de reprodução do vídeo (5:55).
+      // Sem fallback de wall-clock — se a pessoa pausar/sair, o contador pausa junto.
       loadTimer = window.setTimeout(initVturbListener, 1000);
-      // Fallback: garante o reveal aos 6min mesmo se o evento do player não disparar
-      fallbackTimer = window.setTimeout(revealContent, 360000);
     };
 
     if (document.readyState === "complete") {
