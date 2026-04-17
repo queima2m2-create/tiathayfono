@@ -64,19 +64,19 @@ const V4 = () => {
     document.head.appendChild(s);
   }, []);
 
-  // Reveal do conteúdo usando postMessage da Vturb + fallback em 355s após o load.
+  // Reveal do conteúdo aos 5:55 usando smartplayer da Vturb + fallback.
   useEffect(() => {
+    let revealed = false;
     let revealTimer: number | null = null;
+    let initTimer: number | null = null;
     let fallbackTimer: number | null = null;
-    const revealApi = window as Window & {
-      revealContent?: () => void;
-      revealed?: boolean;
-    };
+    let loadTimer: number | null = null;
+    let listenerAttached = false;
 
     const revealContent = () => {
-      if (revealApi.revealed) return;
+      if (revealed) return;
+      revealed = true;
 
-      revealApi.revealed = true;
       const hidden = document.getElementById("conteudo-oculto");
       if (hidden) {
         hidden.style.display = "block";
@@ -100,36 +100,59 @@ const V4 = () => {
         ) {
           revealContent();
         }
-      } catch {}
+      }
     };
 
-    const startFallback = () => {
-      if (fallbackTimer !== null) return;
-      fallbackTimer = window.setTimeout(() => {
-        revealContent();
-      }, 355000);
+    const initVturbListener = () => {
+      const smartplayer = (window as Window & {
+        smartplayer?: {
+          instances?: Array<{
+            currentTime?: number;
+            smartAutoPlay?: { currentTime?: number };
+            on?: (event: string, callback: () => void) => void;
+          }>;
+        };
+      }).smartplayer;
+
+      if (
+        typeof smartplayer !== "undefined" &&
+        smartplayer.instances &&
+        smartplayer.instances.length > 0 &&
+        typeof smartplayer.instances[0]?.on === "function"
+      ) {
+        if (listenerAttached) return;
+
+        listenerAttached = true;
+        const player = smartplayer.instances[0];
+
+        player.on?.("timeupdate", () => {
+          const t = Number(player.currentTime || player.smartAutoPlay?.currentTime || 0);
+          if (t >= 355) {
+            revealContent();
+          }
+        });
+      } else {
+        initTimer = window.setTimeout(initVturbListener, 500);
+      }
     };
 
-    const onLoad = () => startFallback();
-
-    revealApi.revealed = false;
-    revealApi.revealContent = revealContent;
-
-    window.addEventListener("message", onMessage);
+    const onLoad = () => {
+      loadTimer = window.setTimeout(initVturbListener, 1000);
+      fallbackTimer = window.setTimeout(revealContent, 360000);
+    };
 
     if (document.readyState === "complete") {
-      startFallback();
+      onLoad();
     } else {
       window.addEventListener("load", onLoad, { once: true });
     }
 
     return () => {
-      window.removeEventListener("message", onMessage);
       window.removeEventListener("load", onLoad);
       if (revealTimer !== null) window.clearTimeout(revealTimer);
+      if (initTimer !== null) window.clearTimeout(initTimer);
       if (fallbackTimer !== null) window.clearTimeout(fallbackTimer);
-      delete revealApi.revealContent;
-      delete revealApi.revealed;
+      if (loadTimer !== null) window.clearTimeout(loadTimer);
     };
   }, []);
 
@@ -355,28 +378,6 @@ const V4 = () => {
           <p className="text-white/85 text-base md:text-lg mb-8">
             Essa condição existe só aqui, só agora. Quando você sair essa página ela some.
           </p>
-          <div className="min-h-[60px] flex justify-center items-center">
-            <div style={{ textAlign: "center", width: "100%" }}>
-              <button
-                id="kiwify-upsell-trigger-cXCgv1m"
-                style={{
-                  backgroundColor: "#FFFFFF",
-                  color: "#27AF60",
-                  fontWeight: 600,
-                  border: "1px solid #FFFFFF",
-                  cursor: "pointer",
-                  width: "100%",
-                  maxWidth: "480px",
-                  padding: "18px 24px",
-                  fontSize: "22px",
-                  borderRadius: "50px",
-                  boxShadow: "0 4px 20px rgba(39,175,96,0.4)",
-                }}
-              >
-                Sim, QUERO O PLANO DA TIA THAY
-              </button>
-            </div>
-          </div>
           <p className="mt-5 font-extrabold text-lg">12x de R$20,47 ou R$197,90 à vista</p>
         </div>
       </section>
