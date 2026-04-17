@@ -5,7 +5,7 @@ const corsHeaders = {
   "Access-Control-Allow-Headers": "authorization, x-client-info, apikey, content-type",
 };
 
-const FB_PIXEL_ID = "763712916051534";
+const FB_PIXEL_ID = "";
 const FB_API_VERSION = "v18.0";
 const MATCH_KEYS = ["fbp", "fbc", "em", "ph", "external_id", "client_ip_address"] as const;
 
