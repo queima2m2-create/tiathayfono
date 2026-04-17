@@ -223,24 +223,22 @@ const V4 = () => {
 
               <div className="flex justify-center">
                 <div
-                  style={{ textAlign: "center", width: "100%" }}
+                  style={{ textAlign: "center" }}
                   id="kiwify-upsell-cXCgv1m"
-                  data-upsell-url="https://pay.kiwify.com.br/cXCgv1m"
+                  data-upsell-url=""
                   data-downsell-url=""
                 >
                   <button
                     id="kiwify-upsell-trigger-cXCgv1m"
                     style={{
                       backgroundColor: "#27AF60",
-                      padding: "16px 24px",
+                      padding: "12px 16px",
                       cursor: "pointer",
                       color: "#FFFFFF",
-                      fontWeight: 700,
-                      borderRadius: "50px",
-                      border: "none",
+                      fontWeight: 600,
+                      borderRadius: "4px",
+                      border: "1px solid #27AF60",
                       fontSize: "20px",
-                      width: "100%",
-                      maxWidth: "500px",
                     }}
                   >
                     Sim, QUERO O PLANO DA TIA THAY
@@ -250,13 +248,12 @@ const V4 = () => {
                     style={{
                       marginTop: "1rem",
                       cursor: "pointer",
-                      fontSize: "14px",
+                      fontSize: "16px",
                       textDecoration: "underline",
                       fontFamily: "sans-serif",
-                      color: "#888",
                     }}
                   >
-                    não, quero perder essa oportunidade
+                    .
                   </div>
                 </div>
               </div>
