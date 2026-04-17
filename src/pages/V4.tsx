@@ -88,21 +88,6 @@ const V4 = () => {
       }
     };
 
-    const onMessage = (e: MessageEvent) => {
-      try {
-        const data = typeof e.data === "string" ? JSON.parse(e.data) : e.data;
-
-        if (
-          ((typeof data?.currentTime === "number" || typeof data?.currentTime === "string") && Number(data.currentTime) >= 355) ||
-          ((typeof data?.time === "number" || typeof data?.time === "string") && Number(data.time) >= 355) ||
-          (data?.event === "timeupdate" && (typeof data?.value === "number" || typeof data?.value === "string") && Number(data.value) >= 355) ||
-          (data?.type === "timeupdate" && (typeof data?.currentTime === "number" || typeof data?.currentTime === "string") && Number(data.currentTime) >= 355)
-        ) {
-          revealContent();
-        }
-      }
-    };
-
     const initVturbListener = () => {
       const smartplayer = (window as Window & {
         smartplayer?: {
