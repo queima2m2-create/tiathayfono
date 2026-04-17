@@ -133,8 +133,9 @@ const V4 = () => {
     };
 
     const onLoad = () => {
-      // TEMP: revela imediatamente para preview/QA
-      revealContent();
+      loadTimer = window.setTimeout(initVturbListener, 1000);
+      // Fallback: garante o reveal aos 6min mesmo se o evento do player não disparar
+      fallbackTimer = window.setTimeout(revealContent, 360000);
     };
 
     if (document.readyState === "complete") {
