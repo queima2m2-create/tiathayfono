@@ -133,14 +133,8 @@ const V4 = () => {
     };
 
     const onLoad = () => {
-      // Modo debug: ?debug=1 revela em 2s para visualizar a página
-      const isDebug = new URLSearchParams(window.location.search).get("debug") === "1";
-      if (isDebug) {
-        loadTimer = window.setTimeout(revealContent, 2000);
-        return;
-      }
-      loadTimer = window.setTimeout(initVturbListener, 1000);
-      fallbackTimer = window.setTimeout(revealContent, 360000);
+      // TEMP: revela imediatamente para preview/QA
+      revealContent();
     };
 
     if (document.readyState === "complete") {
