@@ -217,9 +217,6 @@ const V4 = () => {
             </h1>
 
             <div className="mt-10">
-              <p className="text-neutral-700 mb-5 text-sm md:text-base">
-                Adicione ao seu pedido com 1 clique — sem precisar digitar nada
-              </p>
 
               <div className="flex justify-center">
                 <div
