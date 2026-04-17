@@ -66,15 +66,17 @@ const V4 = () => {
 
   // Reveal do conteúdo usando postMessage da Vturb + fallback em 355s após o load.
   useEffect(() => {
-    let revealed = false;
-    let fallbackStarted = false;
     let revealTimer: number | null = null;
     let fallbackTimer: number | null = null;
+    const revealApi = window as Window & {
+      revealContent?: () => void;
+      revealed?: boolean;
+    };
 
     const revealContent = () => {
-      if (revealed) return;
+      if (revealApi.revealed) return;
 
-      revealed = true;
+      revealApi.revealed = true;
       const hidden = document.getElementById("conteudo-oculto");
       if (hidden) {
         hidden.style.display = "block";
@@ -102,14 +104,16 @@ const V4 = () => {
     };
 
     const startFallback = () => {
-      if (fallbackStarted) return;
-      fallbackStarted = true;
+      if (fallbackTimer !== null) return;
       fallbackTimer = window.setTimeout(() => {
         revealContent();
       }, 355000);
     };
 
     const onLoad = () => startFallback();
+
+    revealApi.revealed = false;
+    revealApi.revealContent = revealContent;
 
     window.addEventListener("message", onMessage);
 
@@ -124,6 +128,8 @@ const V4 = () => {
       window.removeEventListener("load", onLoad);
       if (revealTimer !== null) window.clearTimeout(revealTimer);
       if (fallbackTimer !== null) window.clearTimeout(fallbackTimer);
+      delete revealApi.revealContent;
+      delete revealApi.revealed;
     };
   }, []);
 
@@ -197,30 +203,32 @@ const V4 = () => {
               </p>
 
               <div className="flex justify-center">
-                <div
-                  style={{ textAlign: "center", width: "100%" }}
-                  id="kiwify-upsell-cXCgv1m"
-                  data-upsell-url=""
-                  data-downsell-url=""
-                >
-                  <button
-                    id="kiwify-upsell-trigger-cXCgv1m"
-                    style={{
-                      backgroundColor: "#27AF60",
-                      color: "#FFFFFF",
-                      fontWeight: 600,
-                      border: "1px solid #27AF60",
-                      cursor: "pointer",
-                      width: "100%",
-                      maxWidth: "480px",
-                      padding: "18px 24px",
-                      fontSize: "22px",
-                      borderRadius: "50px",
-                      boxShadow: "0 4px 20px rgba(39,175,96,0.4)",
-                    }}
+                <div id="kiwify-embed" style={{ width: "100%" }}>
+                  <div
+                    style={{ textAlign: "center", width: "100%" }}
+                    id="kiwify-upsell-cXCgv1m"
+                    data-upsell-url=""
+                    data-downsell-url=""
                   >
-                    Sim, QUERO O PLANO DA TIA THAY
-                  </button>
+                    <button
+                      id="kiwify-upsell-trigger-cXCgv1m"
+                      style={{
+                        backgroundColor: "#27AF60",
+                        color: "#FFFFFF",
+                        fontWeight: 600,
+                        border: "1px solid #27AF60",
+                        cursor: "pointer",
+                        width: "100%",
+                        maxWidth: "480px",
+                        padding: "18px 24px",
+                        fontSize: "22px",
+                        borderRadius: "50px",
+                        boxShadow: "0 4px 20px rgba(39,175,96,0.4)",
+                      }}
+                    >
+                      Sim, QUERO O PLANO DA TIA THAY
+                    </button>
+                  </div>
                 </div>
               </div>
 
