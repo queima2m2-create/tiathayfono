@@ -100,15 +100,42 @@ const V4 = () => {
     };
   }, [revealed]);
 
-  // Carrega script Kiwify só após o reveal
+  // Carrega script Kiwify só após o reveal E após o botão existir no DOM
   useEffect(() => {
     if (!revealed) return;
     const KIWIFY_SRC = "https://snippets.kiwify.com/upsell/upsell.min.js";
-    if (document.querySelector(`script[src="${KIWIFY_SRC}"]`)) return;
-    const s = document.createElement("script");
-    s.src = KIWIFY_SRC;
-    s.async = true;
-    document.body.appendChild(s);
+
+    let attempts = 0;
+    let timer: number | null = null;
+
+    const injectScript = () => {
+      // Remove script antigo (se existir) para forçar re-execução sobre o novo botão
+      const existing = document.querySelector(`script[src="${KIWIFY_SRC}"]`);
+      if (existing) existing.remove();
+      const s = document.createElement("script");
+      s.src = KIWIFY_SRC;
+      s.async = true;
+      document.body.appendChild(s);
+      console.log("[V4] script kiwify injetado");
+    };
+
+    const waitForButton = () => {
+      const trigger = document.getElementById("kiwify-upsell-trigger-cXCgv1m");
+      if (trigger) {
+        injectScript();
+        return;
+      }
+      attempts++;
+      if (attempts < 30) {
+        timer = window.setTimeout(waitForButton, 200);
+      }
+    };
+
+    waitForButton();
+
+    return () => {
+      if (timer !== null) window.clearTimeout(timer);
+    };
   }, [revealed]);
 
   // Scroll suave até o bloco revelado
