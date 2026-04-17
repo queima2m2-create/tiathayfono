@@ -227,17 +227,33 @@ const V4 = () => {
                 >
                   <button
                     id="kiwify-upsell-trigger-cXCgv1m"
+                    className="kiwify-cta-button"
                     style={{
-                      backgroundColor: "#27AF60",
-                      padding: "12px 16px",
+                      background: "linear-gradient(180deg, #2ED66F 0%, #27AF60 50%, #1F8F4E 100%)",
+                      padding: "20px 32px",
                       cursor: "pointer",
                       color: "#FFFFFF",
-                      fontWeight: 600,
-                      borderRadius: "4px",
-                      border: "1px solid #27AF60",
+                      fontWeight: 800,
+                      borderRadius: "16px",
+                      border: "none",
                       fontSize: "20px",
+                      lineHeight: 1.2,
+                      width: "100%",
+                      maxWidth: "520px",
+                      letterSpacing: "0.3px",
+                      textTransform: "uppercase",
+                      boxShadow:
+                        "0 10px 24px -8px rgba(31,143,78,0.55), 0 4px 0 0 #1F8F4E, inset 0 1px 0 rgba(255,255,255,0.35)",
+                      transition: "transform 120ms ease, box-shadow 120ms ease, filter 120ms ease",
+                      display: "inline-flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      gap: "10px",
+                      fontFamily: "'DM Sans', system-ui, sans-serif",
+                      textShadow: "0 1px 1px rgba(0,0,0,0.15)",
                     }}
                   >
+                    <span aria-hidden="true">🛒</span>
                     Sim, QUERO O PLANO DA TIA THAY
                   </button>
                   <div
