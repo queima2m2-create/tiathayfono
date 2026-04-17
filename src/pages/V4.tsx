@@ -168,12 +168,12 @@ const V4 = () => {
       <section className="px-4 py-10 md:py-16" style={{ background: CINZA_CLARO }}>
         <div className="max-w-[800px] mx-auto text-center">
           {/* 1. Badge */}
-          <span
-            className="inline-block px-4 py-1.5 rounded-full text-white text-xs md:text-sm font-semibold mb-4"
-            style={{ background: ROXO }}
+          <h1
+            className="text-2xl md:text-4xl lg:text-5xl font-extrabold leading-[1.15] mb-4"
+            style={{ color: ROXO }}
           >
             🎓 Aula 1 — Liberada exclusivamente para você
-          </span>
+          </h1>
 
           {/* 2. Subheadline */}
           <p className="text-neutral-500 text-sm md:text-base mb-6">
