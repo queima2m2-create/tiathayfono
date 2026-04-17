@@ -169,8 +169,8 @@ const V4 = () => {
         <div className="max-w-[800px] mx-auto text-center">
           {/* 1. Badge */}
           <h1
-            className="text-2xl md:text-4xl lg:text-5xl font-extrabold leading-[1.15] mb-4"
-            style={{ color: ROXO }}
+            className="inline-block px-6 py-3 rounded-full text-white text-xl md:text-3xl lg:text-4xl font-extrabold leading-[1.2] mb-4"
+            style={{ background: ROXO }}
           >
             🎓 Aula 1 — Liberada exclusivamente para você
           </h1>
