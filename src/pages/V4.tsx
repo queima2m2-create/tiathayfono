@@ -377,22 +377,6 @@ const V4 = () => {
         </div>
       </section>
 
-      {/* SEÇÃO 8 — RECUSA (Kiwify cancel trigger) */}
-      <section className="bg-white px-4 py-10 text-center">
-        <div
-          id="kiwify-upsell-cancel-trigger-cXCgv1m"
-          style={{
-            color: "#AAAAAA",
-            fontSize: "13px",
-            textDecoration: "none",
-            cursor: "pointer",
-            fontFamily: "sans-serif",
-            textAlign: "center",
-          }}
-        >
-          agora não
-        </div>
-      </section>
       </div>
     </div>
   );
