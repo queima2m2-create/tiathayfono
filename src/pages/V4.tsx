@@ -73,6 +73,15 @@ const V4 = () => {
     let loadTimer: number | null = null;
     let listenerAttached = false;
 
+    const loadKiwifyScript = () => {
+      const KIWIFY_SRC = "https://snippets.kiwify.com/upsell/upsell.min.js";
+      if (document.querySelector(`script[src="${KIWIFY_SRC}"]`)) return;
+      const s = document.createElement("script");
+      s.src = KIWIFY_SRC;
+      s.async = true;
+      document.body.appendChild(s);
+    };
+
     const revealContent = () => {
       if (revealed) return;
       revealed = true;
@@ -84,6 +93,8 @@ const V4 = () => {
           hidden.style.opacity = "1";
           hidden.style.transition = "opacity 1s ease";
           hidden.scrollIntoView({ behavior: "smooth", block: "start" });
+          // Carrega Kiwify SÓ depois do bloco estar visível no DOM (evita duplicação)
+          loadKiwifyScript();
         }, 100);
       }
     };
