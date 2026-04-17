@@ -211,31 +211,41 @@ const V4 = () => {
               </p>
 
               <div className="flex justify-center">
-                <div id="kiwify-embed" style={{ width: "100%" }}>
-                  <div
-                    style={{ textAlign: "center", width: "100%" }}
-                    id="kiwify-upsell-cXCgv1m"
-                    data-upsell-url=""
-                    data-downsell-url=""
+                <div
+                  style={{ textAlign: "center", width: "100%" }}
+                  id="kiwify-upsell-cXCgv1m"
+                  data-upsell-url="https://pay.kiwify.com.br/cXCgv1m"
+                  data-downsell-url=""
+                >
+                  <button
+                    id="kiwify-upsell-trigger-cXCgv1m"
+                    style={{
+                      backgroundColor: "#27AF60",
+                      padding: "16px 24px",
+                      cursor: "pointer",
+                      color: "#FFFFFF",
+                      fontWeight: 700,
+                      borderRadius: "50px",
+                      border: "none",
+                      fontSize: "20px",
+                      width: "100%",
+                      maxWidth: "500px",
+                    }}
                   >
-                    <button
-                      id="kiwify-upsell-trigger-cXCgv1m"
-                      style={{
-                        backgroundColor: "#27AF60",
-                        color: "#FFFFFF",
-                        fontWeight: 600,
-                        border: "1px solid #27AF60",
-                        cursor: "pointer",
-                        width: "100%",
-                        maxWidth: "480px",
-                        padding: "18px 24px",
-                        fontSize: "22px",
-                        borderRadius: "50px",
-                        boxShadow: "0 4px 20px rgba(39,175,96,0.4)",
-                      }}
-                    >
-                      Sim, QUERO O PLANO DA TIA THAY
-                    </button>
+                    Sim, QUERO O PLANO DA TIA THAY
+                  </button>
+                  <div
+                    id="kiwify-upsell-cancel-trigger-cXCgv1m"
+                    style={{
+                      marginTop: "1rem",
+                      cursor: "pointer",
+                      fontSize: "14px",
+                      textDecoration: "underline",
+                      fontFamily: "sans-serif",
+                      color: "#888",
+                    }}
+                  >
+                    não, quero perder essa oportunidade
                   </div>
                 </div>
               </div>
@@ -367,22 +377,6 @@ const V4 = () => {
         </div>
       </section>
 
-      {/* SEÇÃO 8 — RECUSA (Kiwify cancel trigger) */}
-      <section className="bg-white px-4 py-10 text-center">
-        <div
-          id="kiwify-upsell-cancel-trigger-cXCgv1m"
-          style={{
-            color: "#AAAAAA",
-            fontSize: "13px",
-            textDecoration: "none",
-            cursor: "pointer",
-            fontFamily: "sans-serif",
-            textAlign: "center",
-          }}
-        >
-          agora não
-        </div>
-      </section>
       </div>
     </div>
   );
