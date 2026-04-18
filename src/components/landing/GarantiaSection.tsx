@@ -1,6 +1,6 @@
 import PricingBlock from "./PricingBlock";
 import { getSocialProofCount } from "@/lib/socialProofCount";
-import seloGarantia from "@/assets/selo-garantia.png";
+import seloGarantia from "@/assets/selo-garantia.webp";
 
 const GarantiaSection = () => (
   <>
