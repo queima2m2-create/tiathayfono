@@ -1,11 +1,12 @@
 import { useEffect, lazy, Suspense } from "react";
-import HeroSectionV2 from "@/components/landing/HeroSectionV2";
+import HeroSection from "@/components/landing/HeroSection";
 import VturbPlayer from "@/components/landing/VturbPlayer";
 import { Button } from "@/components/ui/button";
 
+const SocialProofToast = lazy(() => import("@/components/landing/SocialProofToast"));
 const UnmuteOverlay = lazy(() => import("@/components/landing/UnmuteOverlay"));
 
-const ProvaRapidaV2 = lazy(() => import("@/components/landing/ProvaRapidaV2"));
+const ProvaRapida = lazy(() => import("@/components/landing/ProvaRapida"));
 const DorSection = lazy(() => import("@/components/landing/DorSection"));
 const ComoFunciona = lazy(() => import("@/components/landing/ComoFunciona"));
 const OQueRecebe = lazy(() => import("@/components/landing/OQueRecebe"));
@@ -32,10 +33,10 @@ const V2 = () => {
 
   return (
     <main>
-      <HeroSectionV2 />
+      <HeroSection />
       <VturbPlayer />
       <Suspense fallback={null}>
-        <ProvaRapidaV2 />
+        <ProvaRapida />
         <DorSection />
         <ComoFunciona />
         <OQueRecebe />
@@ -68,6 +69,7 @@ const V2 = () => {
         <Footer />
       </Suspense>
       <Suspense fallback={null}>
+        <SocialProofToast />
         <UnmuteOverlay />
       </Suspense>
     </main>
