@@ -1,11 +1,13 @@
 import depoimento1 from "@/assets/depoimento-1.jpeg";
 import depoimentoNovo1 from "@/assets/depoimento-novo-1.jpeg";
+import depoimentoNovo2 from "@/assets/depoimento-novo-2.jpeg";
 import depoimentoNovo3 from "@/assets/depoimento-novo-3.jpeg";
 import depoimentoNovo4 from "@/assets/depoimento-novo-4.jpeg";
 
 const depoimentos = [
   depoimento1,
   depoimentoNovo1,
+  depoimentoNovo2,
   depoimentoNovo3,
   depoimentoNovo4,
 ];
