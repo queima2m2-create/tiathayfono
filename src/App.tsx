@@ -1,5 +1,4 @@
 import { lazy, Suspense } from "react";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Index from "./pages/Index.tsx";
 
 const V2 = lazy(() => import("./pages/V2.tsx"));
@@ -8,17 +7,17 @@ const V4 = lazy(() => import("./pages/V4.tsx"));
 const NotFound = lazy(() => import("./pages/NotFound.tsx"));
 
 const App = () => {
+  const path = window.location.pathname;
+
+  if (path === "/") return <Index />;
+  if (path === "/v2") return <Suspense fallback={null}><V2 /></Suspense>;
+  if (path === "/v3") return <Suspense fallback={null}><V3 /></Suspense>;
+  if (path === "/v4") return <Suspense fallback={null}><V4 /></Suspense>;
+
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Index />} />
-        <Route path="/v2" element={<Suspense fallback={null}><V2 /></Suspense>} />
-        <Route path="/v3" element={<Suspense fallback={null}><V3 /></Suspense>} />
-        <Route path="/v4" element={<Suspense fallback={null}><V4 /></Suspense>} />
-        {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-        <Route path="*" element={<Suspense fallback={null}><NotFound /></Suspense>} />
-      </Routes>
-    </BrowserRouter>
+    <Suspense fallback={null}>
+      <NotFound />
+    </Suspense>
   );
 };
 

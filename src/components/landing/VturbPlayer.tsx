@@ -15,18 +15,18 @@ const VturbPlayer = () => {
       document.head.appendChild(s);
     };
 
-    // Defer heavy video script so the landing page paints first
+    // Defer heavy video script so the landing page paints and ad traffic connects first
     if ("requestIdleCallback" in window) {
-      (window as any).requestIdleCallback(load, { timeout: 4500 });
+      (window as any).requestIdleCallback(load, { timeout: 7000 });
     } else {
-      setTimeout(load, 2500);
+      setTimeout(load, 5500);
     }
   }, []);
 
   return (
     <section className="bg-background py-8 md:py-12 px-4">
       <div className="max-w-[800px] mx-auto">
-        <div className="rounded-2xl overflow-hidden" style={{ aspectRatio: "16/9", background: "#000" }}>
+        <div className="rounded-2xl overflow-hidden bg-foreground" style={{ aspectRatio: "16/9" }}>
           {/* @ts-ignore – custom Vturb web component */}
           <vturb-smartplayer
             id="vid-6898af1550270c783e275378"
