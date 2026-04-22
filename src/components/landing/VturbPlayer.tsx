@@ -1,8 +1,10 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import thaynaraFoto from "@/assets/thaynara-foto.jpg";
 
 const VturbPlayer = () => {
   const loaded = useRef(false);
+  const playerRef = useRef<HTMLElement | null>(null);
+  const [playerReady, setPlayerReady] = useState(false);
 
   useEffect(() => {
     if (loaded.current) return;
@@ -34,21 +36,78 @@ const VturbPlayer = () => {
     };
   }, []);
 
+  useEffect(() => {
+    const host = playerRef.current;
+    if (!host) return;
+
+    let released = false;
+    let fallbackId: number | undefined;
+    let iframeDelayId: number | undefined;
+
+    const releaseOverlay = () => {
+      if (released) return;
+      released = true;
+      setPlayerReady(true);
+    };
+
+    const bindSignals = () => {
+      const video = host.querySelector("video") as HTMLVideoElement | null;
+      if (video) {
+        if (video.readyState >= 2) {
+          releaseOverlay();
+          return;
+        }
+
+        video.addEventListener("loadeddata", releaseOverlay, { once: true });
+        video.addEventListener("canplay", releaseOverlay, { once: true });
+        video.addEventListener("playing", releaseOverlay, { once: true });
+      }
+
+      const iframe = host.querySelector("iframe");
+      if (iframe) {
+        iframe.addEventListener(
+          "load",
+          () => {
+            iframeDelayId = window.setTimeout(releaseOverlay, 500);
+          },
+          { once: true },
+        );
+      }
+    };
+
+    const observer = new MutationObserver(bindSignals);
+    observer.observe(host, { childList: true, subtree: true });
+    bindSignals();
+    fallbackId = window.setTimeout(releaseOverlay, 2400);
+
+    return () => {
+      observer.disconnect();
+      if (fallbackId) window.clearTimeout(fallbackId);
+      if (iframeDelayId) window.clearTimeout(iframeDelayId);
+    };
+  }, []);
+
   return (
     <section className="bg-background py-8 md:py-12 px-4">
       <div className="max-w-[800px] mx-auto">
         <div className="relative rounded-2xl overflow-hidden bg-muted" style={{ aspectRatio: "16/9" }}>
-          <img
-            src={thaynaraFoto}
-            alt=""
+          <div
             aria-hidden="true"
-            className="absolute inset-0 h-full w-full object-cover"
-            loading="eager"
-            fetchPriority="high"
-          />
-          <div className="absolute inset-0 bg-background/10" aria-hidden="true" />
+            className={`absolute inset-0 z-10 transition-opacity duration-300 ${playerReady ? "pointer-events-none opacity-0" : "opacity-100"}`}
+          >
+            <img
+              src={thaynaraFoto}
+              alt=""
+              aria-hidden="true"
+              className="absolute inset-0 h-full w-full object-cover"
+              loading="eager"
+              fetchPriority="high"
+            />
+            <div className="absolute inset-0 bg-background/10" />
+          </div>
           {/* @ts-ignore – custom Vturb web component */}
           <vturb-smartplayer
+            ref={playerRef as any}
             id="vid-6898af1550270c783e275378"
             data-autoplay="true"
             style={{ display: "block", margin: "0 auto", width: "100%", height: "100%", position: "relative", zIndex: 1 }}
