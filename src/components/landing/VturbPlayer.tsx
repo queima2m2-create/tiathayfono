@@ -15,11 +15,11 @@ const VturbPlayer = () => {
       document.head.appendChild(s);
     };
 
-    // Defer heavy video script so the landing page paints and ad traffic connects first
+    // Let the hero and pixel paint first, then load the player before the mobile viewport feels empty
     if ("requestIdleCallback" in window) {
-      (window as any).requestIdleCallback(load, { timeout: 7000 });
+      (window as any).requestIdleCallback(load, { timeout: 1800 });
     } else {
-      setTimeout(load, 5500);
+      setTimeout(load, 1200);
     }
   }, []);
 
