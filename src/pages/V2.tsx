@@ -34,7 +34,7 @@ const V2 = () => {
 
   useEffect(() => {
     const reveal = () => setShowRest(true);
-    const timer = window.setTimeout(reveal, 1800);
+    const timer = window.setTimeout(reveal, 600);
     window.addEventListener("scroll", reveal, { once: true, passive: true });
     window.addEventListener("pointerdown", reveal, { once: true, passive: true });
 
