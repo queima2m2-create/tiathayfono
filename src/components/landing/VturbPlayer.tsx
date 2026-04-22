@@ -15,11 +15,11 @@ const VturbPlayer = () => {
       document.head.appendChild(s);
     };
 
-    // Defer heavy video script until browser is idle or 1.5s max
+    // Defer heavy video script so the landing page paints first
     if ("requestIdleCallback" in window) {
-      (window as any).requestIdleCallback(load, { timeout: 1500 });
+      (window as any).requestIdleCallback(load, { timeout: 4500 });
     } else {
-      setTimeout(load, 300);
+      setTimeout(load, 2500);
     }
   }, []);
 
