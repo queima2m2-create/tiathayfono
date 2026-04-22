@@ -1,7 +1,6 @@
 import { useEffect, lazy, Suspense, useState } from "react";
 import HeroSection from "@/components/landing/HeroSection";
 import VturbPlayer from "@/components/landing/VturbPlayer";
-import { Button } from "@/components/ui/button";
 
 const SocialProofToast = lazy(() => import("@/components/landing/SocialProofToast"));
 const UnmuteOverlay = lazy(() => import("@/components/landing/UnmuteOverlay"));
@@ -35,7 +34,7 @@ const V2 = () => {
 
   useEffect(() => {
     const reveal = () => setShowRest(true);
-    const timer = window.setTimeout(reveal, 1200);
+    const timer = window.setTimeout(reveal, 4500);
     window.addEventListener("scroll", reveal, { once: true, passive: true });
     window.addEventListener("pointerdown", reveal, { once: true, passive: true });
 
@@ -60,19 +59,13 @@ const V2 = () => {
           <DepoimentosSection />
 
           <section className="bg-background pb-10 px-4 text-center">
-            <Button
-              variant="cta"
-              size="lg"
-              className="text-[0.85rem] md:text-[1rem] px-8 py-5 md:py-6 w-full md:w-auto max-w-[600px] leading-tight whitespace-normal h-auto"
-              asChild
+            <a
+              href="#recapitulando"
+              onClick={() => import("@/lib/fbConversions").then((m) => m.fbEvents.initiateCheckout())}
+              className="inline-flex items-center justify-center rounded-full bg-verde px-8 py-5 md:py-6 text-[0.85rem] md:text-[1rem] font-bold uppercase tracking-wide text-background shadow-lg shadow-verde/30 animate-pulse-glow w-full md:w-auto max-w-[600px] leading-tight"
             >
-              <a
-                href="#recapitulando"
-                onClick={() => import("@/lib/fbConversions").then((m) => m.fbEvents.initiateCheckout())}
-              >
-                QUERO DESTRAVAR A FALA DO MEU FILHO EM 30 DIAS →
-              </a>
-            </Button>
+              QUERO DESTRAVAR A FALA DO MEU FILHO EM 30 DIAS →
+            </a>
           </section>
 
           <ParaQuemSection />
