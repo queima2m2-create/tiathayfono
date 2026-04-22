@@ -37,12 +37,9 @@ const VturbPlayer = () => {
   }, []);
 
   useEffect(() => {
-    const host = playerRef.current;
-    if (!host) return;
-
     let released = false;
+    let pollId: number | undefined;
     let fallbackId: number | undefined;
-    let iframeDelayId: number | undefined;
 
     const releaseOverlay = () => {
       if (released) return;
@@ -50,12 +47,15 @@ const VturbPlayer = () => {
       setPlayerReady(true);
     };
 
-    const bindSignals = () => {
+    const bindPlayerSignals = () => {
+      const host = playerRef.current;
+      if (!host) return false;
+
       const video = host.querySelector("video") as HTMLVideoElement | null;
       if (video) {
         if (video.readyState >= 2) {
           releaseOverlay();
-          return;
+          return true;
         }
 
         video.addEventListener("loadeddata", releaseOverlay, { once: true });
@@ -63,27 +63,40 @@ const VturbPlayer = () => {
         video.addEventListener("playing", releaseOverlay, { once: true });
       }
 
-      const iframe = host.querySelector("iframe");
-      if (iframe) {
-        iframe.addEventListener(
-          "load",
-          () => {
-            iframeDelayId = window.setTimeout(releaseOverlay, 500);
-          },
-          { once: true },
-        );
+      const player = (window as any).smartplayer?.instances?.[0];
+      if (!player) return false;
+
+      if (typeof player?.on === "function") {
+        player.on("ready", releaseOverlay);
+        player.on("canplay", releaseOverlay);
+        player.on("play", releaseOverlay);
       }
+
+      const currentTime = Number(
+        player?.currentTime || player?.smartAutoPlay?.currentTime || player?.video?.currentTime || 0,
+      );
+
+      if (currentTime > 0 || player?.video?.readyState >= 2) {
+        releaseOverlay();
+      }
+
+      return true;
     };
 
-    const observer = new MutationObserver(bindSignals);
-    observer.observe(host, { childList: true, subtree: true });
-    bindSignals();
-    fallbackId = window.setTimeout(releaseOverlay, 2400);
+    if (!bindPlayerSignals()) {
+      pollId = window.setInterval(() => {
+        if (bindPlayerSignals() && pollId) {
+          window.clearInterval(pollId);
+          pollId = undefined;
+        }
+      }, 200);
+    }
+
+    fallbackId = window.setTimeout(releaseOverlay, 6000);
 
     return () => {
-      observer.disconnect();
+      if (pollId) window.clearInterval(pollId);
       if (fallbackId) window.clearTimeout(fallbackId);
-      if (iframeDelayId) window.clearTimeout(iframeDelayId);
     };
   }, []);
 
@@ -93,7 +106,7 @@ const VturbPlayer = () => {
         <div className="relative rounded-2xl overflow-hidden bg-muted" style={{ aspectRatio: "16/9" }}>
           <div
             aria-hidden="true"
-            className={`absolute inset-0 z-10 transition-opacity duration-300 ${playerReady ? "pointer-events-none opacity-0" : "opacity-100"}`}
+            className={`pointer-events-none absolute inset-0 z-10 transition-opacity duration-300 ${playerReady ? "opacity-0" : "opacity-100"}`}
           >
             <img
               src={thaynaraFoto}
