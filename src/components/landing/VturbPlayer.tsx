@@ -21,8 +21,8 @@ const VturbPlayer = () => {
     };
 
     const scheduleLoad = () => {
-      const requestIdle = window.requestIdleCallback ?? ((cb: IdleRequestCallback) => window.setTimeout(cb, 5000));
-      idleId = requestIdle(load, { timeout: 6500 });
+      const requestIdle = window.requestIdleCallback ?? ((cb: IdleRequestCallback) => window.setTimeout(cb, 1600));
+      idleId = requestIdle(load, { timeout: 2500 });
     };
 
     const loadOnInteraction = () => load();
