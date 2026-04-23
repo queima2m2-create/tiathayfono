@@ -14,7 +14,7 @@ export default defineConfig(({ mode }) => ({
   },
   plugins: [react(), mode === "development" && componentTagger()].filter(Boolean),
   build: {
-    target: "es2020",
+    target: "es2022",
     cssCodeSplit: true,
     modulePreload: false,
     rollupOptions: {
