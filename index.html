@@ -36,7 +36,29 @@
     <meta property="og:description" content="Brinque com seu filho 15 minutos por dia e veja ele formar as primeiras palavras em até 30 dias.">
     <meta name="twitter:description" content="Brinque com seu filho 15 minutos por dia e veja ele formar as primeiras palavras em até 30 dias.">
     <style>
-      :root{--boot-bg:#f7e9ef;--boot-fg:#4b333b;--boot-accent:#b58a45}html,body,#root{min-height:100%;background:var(--boot-bg)}body{margin:0}.app-boot{position:fixed;inset:0;z-index:2147483647;display:grid;place-items:center;background:linear-gradient(180deg,#f7d4e2 0%,#fff 92%);color:var(--boot-fg);font-family:'DM Sans',system-ui,sans-serif;text-align:center;padding:24px;transition:opacity .18s ease,visibility .18s ease}.app-boot__inner{max-width:330px}.app-boot__mark{width:34px;height:34px;margin:0 auto 14px;border-radius:999px;border:3px solid rgba(181,138,69,.25);border-top-color:var(--boot-accent);animation:appBootSpin .8s linear infinite}.app-boot__text{font-size:15px;font-weight:800;line-height:1.25;letter-spacing:0;text-transform:uppercase}.app-boot--hidden{opacity:0;visibility:hidden;pointer-events:none}@keyframes appBootSpin{to{transform:rotate(360deg)}}@media (prefers-reduced-motion:reduce){.app-boot__mark{animation:none}.app-boot{transition:none}}
+      /* Critical CSS — inlined so the hero renders instantly, before the JS bundle or Tailwind stylesheet load. */
+      :root{--marrom-dark:#3a2f33;--rosa-light:#f7d4e2;--dourado:#b58a45}
+      html,body,#root{min-height:100%;background:#fff;margin:0}
+      body{font-family:'DM Sans',system-ui,-apple-system,BlinkMacSystemFont,sans-serif;color:var(--marrom-dark);-webkit-font-smoothing:antialiased}
+      /* Static hero shown before React mounts */
+      .instant-hero{position:fixed;inset:0;z-index:2147483647;background:#fff;overflow-y:auto;transition:opacity .2s ease,visibility .2s ease}
+      .instant-hero--hidden{opacity:0;visibility:hidden;pointer-events:none}
+      .ih-header{background:linear-gradient(180deg,var(--rosa-light) 0%,#fff 100%);padding:1.5rem 1.5rem 1rem}
+      .ih-inner{max-width:1000px;margin:0 auto;text-align:center}
+      .ih-title{font-size:1.45rem;line-height:1.1;font-weight:900;color:var(--marrom-dark);margin:0 0 .5rem;text-transform:uppercase;letter-spacing:-.025em}
+      .ih-title span{color:var(--dourado)}
+      .ih-desc{font-size:.95rem;line-height:1.5;color:rgba(58,47,51,.8);max-width:480px;margin:0 auto;padding:0}
+      .ih-video-wrap{padding:2rem 1rem;background:#fff}
+      .ih-video-inner{max-width:800px;margin:0 auto}
+      .ih-video-box{aspect-ratio:16/9;background:#000;border-radius:1rem;overflow:hidden;display:flex;align-items:center;justify-content:center;position:relative}
+      .ih-spinner{width:28px;height:28px;border-radius:999px;border:3px solid rgba(255,255,255,.25);border-top-color:#fff;animation:ihSpin .8s linear infinite}
+      @keyframes ihSpin{to{transform:rotate(360deg)}}
+      @media (min-width:768px){
+        .ih-header{padding:4rem 1.5rem 3rem}
+        .ih-title{font-size:2.6rem}
+        .ih-desc{font-size:1.05rem;line-height:1.8}
+      }
+      @media (prefers-reduced-motion:reduce){.ih-spinner{animation:none}.instant-hero{transition:none}}
     </style>
     <!-- Meta Pixel Code (deferred to not block initial render) -->
     <script>
@@ -66,11 +88,23 @@
     <noscript><img height="1" width="1" style="display:none"
       src="https://www.facebook.com/tr?id=763712916051534&ev=PageView&noscript=1"
     /></noscript>
-    <div id="app-boot" class="app-boot" role="status" aria-live="polite">
-      <div class="app-boot__inner">
-        <div class="app-boot__mark" aria-hidden="true"></div>
-        <div class="app-boot__text">Carregando sua aula...</div>
-      </div>
+    <!-- Instant hero — rendered immediately on page open so the user sees content
+         BEFORE the JS bundle downloads/executes. React mounts below and this
+         overlay fades out once the interactive version is ready. -->
+    <div id="instant-hero" class="instant-hero" aria-hidden="false">
+      <section class="ih-header">
+        <div class="ih-inner">
+          <h1 class="ih-title">FAÇA ESSES AJUSTES NA ROTINA DO SEU FILHO POR 15 MINUTOS E VEJA ELE FORMAR AS PRIMEIRAS FRASES <span>EM ATÉ 30 DIAS</span></h1>
+          <p class="ih-desc">O método criado por uma fonoaudióloga que usa a rotina que você já tem — sem consulta, sem brinquedos especiais e sem complicação.</p>
+        </div>
+      </section>
+      <section class="ih-video-wrap">
+        <div class="ih-video-inner">
+          <div class="ih-video-box" role="status" aria-label="Carregando vídeo">
+            <div class="ih-spinner" aria-hidden="true"></div>
+          </div>
+        </div>
+      </section>
     </div>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
