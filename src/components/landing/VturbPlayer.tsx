@@ -8,6 +8,7 @@ const VturbPlayer = () => {
     loaded.current = true;
 
     let timeoutId: number | undefined;
+    let idleId: number | undefined;
 
     const load = () => {
       if (document.querySelector('script[data-vturb-player="landing-v1-v2"]')) return;
@@ -21,8 +22,13 @@ const VturbPlayer = () => {
     };
 
     const scheduleLoad = () => {
-      timeoutId = window.setTimeout(load, 150);
+      const requestIdle = window.requestIdleCallback ?? ((cb: IdleRequestCallback) => window.setTimeout(cb, 1600));
+      idleId = requestIdle(load, { timeout: 2500 });
     };
+
+    const loadOnInteraction = () => load();
+    window.addEventListener("pointerdown", loadOnInteraction, { once: true, passive: true });
+    window.addEventListener("keydown", loadOnInteraction, { once: true });
 
     window.requestAnimationFrame(() => {
       window.requestAnimationFrame(scheduleLoad);
@@ -30,6 +36,9 @@ const VturbPlayer = () => {
 
     return () => {
       if (timeoutId) window.clearTimeout(timeoutId);
+      if (idleId && window.cancelIdleCallback) window.cancelIdleCallback(idleId);
+      window.removeEventListener("pointerdown", loadOnInteraction);
+      window.removeEventListener("keydown", loadOnInteraction);
     };
   }, []);
 
