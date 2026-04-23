@@ -1,5 +1,3 @@
-import { supabase } from "@/integrations/supabase/client";
-
 interface FBEventData {
   event_name: string;
   event_id?: string;
@@ -73,6 +71,7 @@ export async function sendFBConversionEvent(eventData: FBEventData) {
       return null;
     }
 
+    const { supabase } = await import("@/integrations/supabase/client");
     const { data, error } = await supabase.functions.invoke("fb-conversions", {
       body: {
         ...eventData,
