@@ -9,7 +9,7 @@ import etapa2 from "@/assets/etapa2-protocolo.webp";
 import etapa3 from "@/assets/etapa3-tagarelas.webp";
 import entregaSinais from "@/assets/entrega-sinais-alerta.webp";
 import entregaFala from "@/assets/entrega-fala-funciona.webp";
-import entregaBrincadeiras from "@/assets/entrega-brincadeiras-fala.webp";
+import entregaBrincadeiras from "@/assets/entrega-brincadeiras-fala-es.webp";
 import entregaPalavras from "@/assets/entrega-palavras.webp";
 import entregaAtividades from "@/assets/entrega-atividades.webp";
 import entregaTelas from "@/assets/entrega-telas.webp";
