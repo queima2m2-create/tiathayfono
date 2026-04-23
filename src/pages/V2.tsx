@@ -25,7 +25,7 @@ const V2 = () => {
 
   useEffect(() => {
     const fire = () => import("@/lib/fbConversions").then((m) => m.fbEvents.pageView());
-    const schedule = () => setTimeout(fire, 1);
+    const schedule = () => setTimeout(fire, 3500);
     if (document.readyState === "complete") schedule();
     else window.addEventListener("load", schedule, { once: true });
 
@@ -34,7 +34,7 @@ const V2 = () => {
 
   useEffect(() => {
     const reveal = () => setShowRest(true);
-    const timer = window.setTimeout(reveal, 1200);
+    const timer = window.setTimeout(reveal, 2500);
     window.addEventListener("scroll", reveal, { once: true, passive: true });
     window.addEventListener("pointerdown", reveal, { once: true, passive: true });
 
