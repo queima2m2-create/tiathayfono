@@ -7,8 +7,6 @@ const VturbPlayer = () => {
     if (loaded.current) return;
     loaded.current = true;
 
-    let idleId: number | undefined;
-
     const load = () => {
       if (document.querySelector('script[data-vturb-player="landing-v1-v2"]')) return;
 
@@ -20,24 +18,7 @@ const VturbPlayer = () => {
       document.head.appendChild(s);
     };
 
-    const scheduleLoad = () => {
-      const requestIdle = window.requestIdleCallback ?? ((cb: IdleRequestCallback) => window.setTimeout(cb, 1600));
-      idleId = requestIdle(load, { timeout: 2500 });
-    };
-
-    const loadOnInteraction = () => load();
-    window.addEventListener("pointerdown", loadOnInteraction, { once: true, passive: true });
-    window.addEventListener("keydown", loadOnInteraction, { once: true });
-
-    window.requestAnimationFrame(() => {
-      window.requestAnimationFrame(scheduleLoad);
-    });
-
-    return () => {
-      if (idleId && window.cancelIdleCallback) window.cancelIdleCallback(idleId);
-      window.removeEventListener("pointerdown", loadOnInteraction);
-      window.removeEventListener("keydown", loadOnInteraction);
-    };
+    load();
   }, []);
 
   return (
