@@ -7,7 +7,6 @@ const VturbPlayer = () => {
     if (loaded.current) return;
     loaded.current = true;
 
-    let timeoutId: number | undefined;
     let idleId: number | undefined;
 
     const load = () => {
@@ -35,7 +34,6 @@ const VturbPlayer = () => {
     });
 
     return () => {
-      if (timeoutId) window.clearTimeout(timeoutId);
       if (idleId && window.cancelIdleCallback) window.cancelIdleCallback(idleId);
       window.removeEventListener("pointerdown", loadOnInteraction);
       window.removeEventListener("keydown", loadOnInteraction);
