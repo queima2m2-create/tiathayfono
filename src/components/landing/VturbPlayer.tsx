@@ -22,9 +22,9 @@ const VturbPlayer = () => {
   }, []);
 
   return (
-    <section className="bg-background py-8 md:py-12 px-4">
-      <div className="max-w-[800px] mx-auto">
-        <div className="rounded-2xl overflow-hidden bg-muted" style={{ aspectRatio: "16/9" }}>
+    <section className="initial-video bg-background py-8 md:py-12 px-4">
+      <div className="initial-video__inner max-w-[800px] mx-auto">
+        <div className="initial-video__box rounded-2xl overflow-hidden bg-muted" style={{ aspectRatio: "16/9" }}>
           {/* @ts-ignore – custom Vturb web component */}
           <vturb-smartplayer
             id="vid-6898af1550270c783e275378"
