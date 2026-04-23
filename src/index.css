@@ -80,15 +80,19 @@
 /* Kiwify CTA button polish */
 @keyframes kiwifyPulse {
   0%, 100% {
-    box-shadow: 0 10px 24px -8px rgba(31,143,78,0.55), 0 4px 0 0 #1F8F4E, inset 0 1px 0 rgba(255,255,255,0.35);
+    transform: translateZ(0) scale(1);
+    opacity: 1;
   }
   50% {
-    box-shadow: 0 14px 32px -6px rgba(31,143,78,0.75), 0 4px 0 0 #1F8F4E, inset 0 1px 0 rgba(255,255,255,0.45), 0 0 0 6px rgba(46,214,111,0.18);
+    transform: translateZ(0) scale(1.025);
+    opacity: 0.94;
   }
 }
 
 .kiwify-cta-button {
   animation: kiwifyPulse 2.2s ease-in-out infinite;
+  box-shadow: 0 10px 24px -8px hsl(var(--verde) / 0.55), 0 4px 0 0 hsl(var(--verde-hover)), inset 0 1px 0 hsl(var(--background) / 0.35);
+  will-change: transform, opacity;
 }
 
 .kiwify-cta-button:hover {
@@ -99,7 +103,7 @@
 
 .kiwify-cta-button:active {
   transform: translateY(2px);
-  box-shadow: 0 4px 12px -4px rgba(31,143,78,0.5), 0 1px 0 0 #1F8F4E, inset 0 1px 0 rgba(255,255,255,0.25) !important;
+  box-shadow: 0 4px 12px -4px hsl(var(--verde) / 0.5), 0 1px 0 0 hsl(var(--verde-hover)), inset 0 1px 0 hsl(var(--background) / 0.25) !important;
 }
 
 @keyframes fadeIn {

@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Mail, MessageCircle, CheckCircle2, Heart, Download } from "lucide-react";
-import thaynaraImg from "@/assets/thaynara.png";
+import thaynaraImg from "@/assets/thaynara.webp";
 
 const V3 = () => {
   useEffect(() => {
