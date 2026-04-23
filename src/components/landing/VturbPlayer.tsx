@@ -18,7 +18,13 @@ const VturbPlayer = () => {
       document.head.appendChild(s);
     };
 
-    load();
+    const timer = window.setTimeout(load, 900);
+    window.addEventListener("pointerdown", load, { once: true, passive: true });
+
+    return () => {
+      window.clearTimeout(timer);
+      window.removeEventListener("pointerdown", load);
+    };
   }, []);
 
   return (
