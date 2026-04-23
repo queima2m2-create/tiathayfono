@@ -1,25 +1,29 @@
 import { lazy, Suspense } from "react";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Index from "./pages/Index.tsx";
-import V2 from "./pages/V2.tsx";
 
+const V2 = lazy(() => import("./pages/V2.tsx"));
 const V3 = lazy(() => import("./pages/V3.tsx"));
 const V4 = lazy(() => import("./pages/V4.tsx"));
-const V5 = lazy(() => import("./pages/V5.tsx"));
 const NotFound = lazy(() => import("./pages/NotFound.tsx"));
 
+const queryClient = new QueryClient();
+
 const App = () => {
-  const path = window.location.pathname.replace(/\/$/, "") || "/";
-
-  if (path === "/") return <Index />;
-  if (path === "/v2") return <V2 />;
-  if (path === "/v3") return <Suspense fallback={null}><V3 /></Suspense>;
-  if (path === "/v4") return <Suspense fallback={null}><V4 /></Suspense>;
-  if (path === "/v5") return <Suspense fallback={null}><V5 /></Suspense>;
-
   return (
-    <Suspense fallback={null}>
-      <NotFound />
-    </Suspense>
+    <QueryClientProvider client={queryClient}>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Index />} />
+          <Route path="/v2" element={<Suspense fallback={null}><V2 /></Suspense>} />
+          <Route path="/v3" element={<Suspense fallback={null}><V3 /></Suspense>} />
+          <Route path="/v4" element={<Suspense fallback={null}><V4 /></Suspense>} />
+          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+          <Route path="*" element={<Suspense fallback={null}><NotFound /></Suspense>} />
+        </Routes>
+      </BrowserRouter>
+    </QueryClientProvider>
   );
 };
 

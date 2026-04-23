@@ -1,4 +1,4 @@
-import maeFilho from "@/assets/mae-filho-brincando.webp";
+import maeFilho from "@/assets/mae-filho-brincando.jpg";
 import { getSocialProofCount } from "@/lib/socialProofCount";
 
 const ProvaRapidaV2 = () => (

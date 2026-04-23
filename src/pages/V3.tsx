@@ -1,16 +1,16 @@
 import { useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Mail, MessageCircle, CheckCircle2, Heart, Download } from "lucide-react";
-import thaynaraImg from "@/assets/thaynara.webp";
+import thaynaraImg from "@/assets/thaynara.png";
 
 const V3 = () => {
   useEffect(() => {
     const fire = () => import("@/lib/fbConversions").then((m) => m.fbEvents.pageView());
-    const schedule = () => setTimeout(fire, 1);
-    if (document.readyState === "complete") schedule();
-    else window.addEventListener("load", schedule, { once: true });
-
-    return () => window.removeEventListener("load", schedule);
+    if ("requestIdleCallback" in window) {
+      (window as any).requestIdleCallback(fire, { timeout: 3000 });
+    } else {
+      setTimeout(fire, 1000);
+    }
   }, []);
 
   return (
@@ -27,9 +27,6 @@ const V3 = () => {
               alt="Thaynara Andrade - Fonoaudióloga"
               className="w-full h-full object-cover object-top scale-125"
               loading="eager"
-              fetchPriority="high"
-              width={896}
-              height={1200}
             />
           </div>
           <div className="absolute -bottom-2 -right-2 w-10 h-10 rounded-full bg-verde flex items-center justify-center shadow-md">

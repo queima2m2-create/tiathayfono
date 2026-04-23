@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import doisCaminhos from "@/assets/dois-caminhos.webp";
+import doisCaminhos from "@/assets/dois-caminhos.jpg";
 import PricingBlock from "./PricingBlock";
 
 const FinalCTA = () => (

@@ -1,13 +1,5 @@
-import { createRoot, hydrateRoot } from "react-dom/client";
-import "./index.css";
+import { createRoot } from "react-dom/client";
 import App from "./App.tsx";
+import "./index.css";
 
-const rootElement = document.getElementById("root")!;
-const path = window.location.pathname.replace(/\/$/, "") || "/";
-const shouldHydrateHome = path === "/" && rootElement.hasChildNodes();
-
-if (shouldHydrateHome) {
-  hydrateRoot(rootElement, <App />);
-} else {
-  createRoot(rootElement).render(<App />);
-}
+createRoot(document.getElementById("root")!).render(<App />);

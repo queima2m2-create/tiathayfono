@@ -1,63 +1,78 @@
-import { useEffect, lazy, Suspense, useState } from "react";
+import { useEffect, lazy, Suspense } from "react";
 import HeroSection from "@/components/landing/HeroSection";
 import VturbPlayer from "@/components/landing/VturbPlayer";
-import ProvaRapida from "@/components/landing/ProvaRapida";
-import DorSection from "@/components/landing/DorSection";
-import ComoFunciona from "@/components/landing/ComoFunciona";
+import { Button } from "@/components/ui/button";
 
-const DeferredLandingContent = lazy(() => import("@/components/landing/DeferredLandingContent"));
+const SocialProofToast = lazy(() => import("@/components/landing/SocialProofToast"));
+const UnmuteOverlay = lazy(() => import("@/components/landing/UnmuteOverlay"));
+
+const ProvaRapida = lazy(() => import("@/components/landing/ProvaRapida"));
+const DorSection = lazy(() => import("@/components/landing/DorSection"));
+const ComoFunciona = lazy(() => import("@/components/landing/ComoFunciona"));
+const OQueRecebe = lazy(() => import("@/components/landing/OQueRecebe"));
+const BonusSection = lazy(() => import("@/components/landing/BonusSection"));
+const DepoimentosSection = lazy(() => import("@/components/landing/DepoimentosSection"));
+const ParaQuemSection = lazy(() => import("@/components/landing/ParaQuemSection"));
+const SobreSection = lazy(() => import("@/components/landing/SobreSection"));
+const RecapSection = lazy(() => import("@/components/landing/RecapSection"));
+const PrecoSection = lazy(() => import("@/components/landing/PrecoSection"));
+const GarantiaSection = lazy(() => import("@/components/landing/GarantiaSection"));
+const FinalCTA = lazy(() => import("@/components/landing/FinalCTA"));
+const FAQSection = lazy(() => import("@/components/landing/FAQSection"));
+const Footer = lazy(() => import("@/components/landing/Footer"));
 
 const Index = () => {
-  const [showRest, setShowRest] = useState(false);
-
   useEffect(() => {
+    // Defer analytics to avoid blocking initial render
     const fire = () => import("@/lib/fbConversions").then((m) => m.fbEvents.pageView());
-    const schedule = () => setTimeout(fire, 1);
-    if (document.readyState === "complete") schedule();
-    else window.addEventListener("load", schedule, { once: true });
-
-    return () => window.removeEventListener("load", schedule);
-  }, []);
-
-  useEffect(() => {
-    let timeoutId: number | null = null;
-    let idleId: number | null = null;
-    const idleWindow = window as Window & {
-      requestIdleCallback?: (callback: () => void, options?: { timeout: number }) => number;
-      cancelIdleCallback?: (handle: number) => void;
-    };
-
-    const revealRest = () => setShowRest(true);
-
-    if (idleWindow.requestIdleCallback) {
-      idleId = idleWindow.requestIdleCallback(revealRest, { timeout: 1800 });
+    if ("requestIdleCallback" in window) {
+      (window as any).requestIdleCallback(fire, { timeout: 3000 });
     } else {
-      timeoutId = window.setTimeout(revealRest, 1200);
+      setTimeout(fire, 1000);
     }
-
-    window.addEventListener("scroll", revealRest, { once: true, passive: true });
-    window.addEventListener("pointerdown", revealRest, { once: true, passive: true });
-
-    return () => {
-      if (timeoutId !== null) window.clearTimeout(timeoutId);
-      if (idleId !== null && idleWindow.cancelIdleCallback) idleWindow.cancelIdleCallback(idleId);
-      window.removeEventListener("scroll", revealRest);
-      window.removeEventListener("pointerdown", revealRest);
-    };
   }, []);
 
   return (
     <main>
       <HeroSection />
       <VturbPlayer />
-      <ProvaRapida />
-      <DorSection />
-      <ComoFunciona />
-      {showRest && (
-        <Suspense fallback={null}>
-          <DeferredLandingContent />
-        </Suspense>
-      )}
+      <Suspense fallback={null}>
+        <ProvaRapida />
+        <DorSection />
+        <ComoFunciona />
+        <OQueRecebe />
+        <BonusSection />
+        <DepoimentosSection />
+
+        <section className="bg-background pb-10 px-4 text-center">
+          <Button
+            variant="cta"
+            size="lg"
+            className="text-[0.85rem] md:text-[1rem] px-8 py-5 md:py-6 w-full md:w-auto max-w-[600px] leading-tight whitespace-normal h-auto"
+            asChild
+          >
+            <a
+              href="#recapitulando"
+              onClick={() => import("@/lib/fbConversions").then((m) => m.fbEvents.initiateCheckout())}
+            >
+              QUERO DESTRAVAR A FALA DO MEU FILHO EM 30 DIAS →
+            </a>
+          </Button>
+        </section>
+
+        <ParaQuemSection />
+        <RecapSection />
+        <PrecoSection />
+        <FinalCTA />
+        <SobreSection />
+        <GarantiaSection />
+        <FAQSection />
+        <Footer />
+      </Suspense>
+      <Suspense fallback={null}>
+        <SocialProofToast />
+        <UnmuteOverlay />
+      </Suspense>
     </main>
   );
 };

@@ -1,7 +1,7 @@
-import etapa1 from "@/assets/etapa1-cerebro-fala.webp";
+import etapa1 from "@/assets/etapa1-cerebro-fala.jpg";
 import { getSocialProofCount } from "@/lib/socialProofCount";
-import etapa2 from "@/assets/etapa2-protocolo.webp";
-import etapa3 from "@/assets/etapa3-tagarelas.webp";
+import etapa2 from "@/assets/etapa2-protocolo.jpg";
+import etapa3 from "@/assets/etapa3-tagarelas.jpg";
 
 const steps = [
   {

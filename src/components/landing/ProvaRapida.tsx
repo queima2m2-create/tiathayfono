@@ -1,9 +1,9 @@
-import maeFilho from "@/assets/mae-filho-brincando.webp";
+import maeFilho from "@/assets/mae-filho-brincando.jpg";
 import { getSocialProofCount } from "@/lib/socialProofCount";
 
 const ProvaRapida = () => (
-  <section className="initial-proof bg-background pt-8 pb-8 md:pt-12 md:pb-12 px-6 text-center">
-    <div className="initial-proof__inner max-w-[800px] mx-auto">
+  <section className="bg-background pt-8 pb-8 md:pt-12 md:pb-12 px-6 text-center">
+    <div className="max-w-[800px] mx-auto">
       <h2 className="text-[1.6rem] md:text-[2.2rem] font-extrabold text-marrom-dark mb-3 leading-[1.25]">
         Mais de {getSocialProofCount()} famílias já aplicaram o método da Dra. Thaynara e viram seus filhos começar a falar.
       </h2>
@@ -13,11 +13,10 @@ const ProvaRapida = () => (
       <img
         src={maeFilho}
         alt="Mãe brincando com filho"
-        className="rounded-2xl w-full max-w-[320px] md:max-w-[500px] mx-auto shadow-md"
-        style={{ maxWidth: "100%", height: "auto" }}
+        className="rounded-2xl w-full max-w-[500px] mx-auto shadow-md"
         loading="lazy"
-        width={500}
-        height={375}
+        width={1024}
+        height={768}
       />
     </div>
   </section>

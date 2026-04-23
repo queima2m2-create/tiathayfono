@@ -12,11 +12,11 @@ const V4 = () => {
   useEffect(() => {
     const fire = () =>
       import("@/lib/fbConversions").then((m) => m.fbEvents.pageView());
-    const schedule = () => setTimeout(fire, 1);
-    if (document.readyState === "complete") schedule();
-    else window.addEventListener("load", schedule, { once: true });
-
-    return () => window.removeEventListener("load", schedule);
+    if ("requestIdleCallback" in window) {
+      (window as any).requestIdleCallback(fire, { timeout: 3000 });
+    } else {
+      setTimeout(fire, 1000);
+    }
   }, []);
 
   // Load Vturb player script — IMEDIATAMENTE (é o conteúdo principal)

@@ -1,12 +1,9 @@
 import { useState, useEffect } from "react";
 import { getSocialProofCount } from "@/lib/socialProofCount";
-import thaynaraFoto from "@/assets/thaynara-foto.webp";
-import sobreFilha from "@/assets/sobre-filha.webp";
+import thaynaraFoto from "@/assets/thaynara-foto.jpg";
+import sobreFilha from "@/assets/sobre-filha.jpeg";
 
-const images = [
-  { src: thaynaraFoto, width: 600, height: 800 },
-  { src: sobreFilha, width: 450, height: 800 },
-];
+const images = [thaynaraFoto, sobreFilha];
 
 const SobreSection = () => {
   const [current, setCurrent] = useState(0);
@@ -23,18 +20,15 @@ const SobreSection = () => {
       <div className="max-w-[900px] mx-auto grid grid-cols-1 md:grid-cols-[1fr_1.6fr] gap-10 items-center">
         <div className="flex flex-col items-center gap-3">
           <div className="relative w-full max-w-[320px] aspect-[3/4] rounded-2xl overflow-hidden shadow-lg">
-            {images.map((item, i) => (
+            {images.map((src, i) => (
               <img
                 key={i}
-                src={item.src}
+                src={src}
                 alt={`Thaynara Andrade - Foto ${i + 1}`}
                 className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ${
                   i === current ? "opacity-100" : "opacity-0"
                 }`}
                 loading="lazy"
-                decoding="async"
-                width={item.width}
-                height={item.height}
               />
             ))}
           </div>

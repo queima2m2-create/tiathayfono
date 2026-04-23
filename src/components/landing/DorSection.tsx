@@ -1,4 +1,4 @@
-import maeFilho from "@/assets/mae-filho-preocupada.webp";
+import maeFilho from "@/assets/mae-filho-preocupada.jpg";
 
 const bubbles = [
   { text: "Eu já tentei de tudo", className: "top-[3%] left-[2%]" },

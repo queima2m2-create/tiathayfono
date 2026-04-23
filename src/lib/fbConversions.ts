@@ -1,3 +1,5 @@
+import { supabase } from "@/integrations/supabase/client";
+
 interface FBEventData {
   event_name: string;
   event_id?: string;
@@ -57,8 +59,8 @@ const hasSufficientUserData = (userData: Record<string, string>) => {
 
 export async function sendFBConversionEvent(eventData: FBEventData) {
   try {
-    if (typeof window !== "undefined" && eventData.event_name !== "PageView") {
-      await waitForTrackingCookies(800);
+    if (typeof window !== "undefined") {
+      await waitForTrackingCookies(eventData.event_name === "PageView" ? 2500 : 1000);
     }
 
     const mergedUserData = {
@@ -71,28 +73,23 @@ export async function sendFBConversionEvent(eventData: FBEventData) {
       return null;
     }
 
-    const response = await fetch(`${import.meta.env.VITE_SUPABASE_URL}/functions/v1/fb-conversions`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY}`,
-      },
-      body: JSON.stringify({
+    const { data, error } = await supabase.functions.invoke("fb-conversions", {
+      body: {
         ...eventData,
         event_source_url:
           eventData.event_source_url ||
           (typeof window !== "undefined" ? window.location.href : undefined),
         event_time: Math.floor(Date.now() / 1000),
         user_data: mergedUserData,
-      }),
+      },
     });
 
-    if (!response.ok) {
-      console.error("FB Conversion event error:", await response.text());
+    if (error) {
+      console.error("FB Conversion event error:", error);
       return null;
     }
 
-    return response.json();
+    return data;
   } catch (err) {
     console.error("Failed to send FB conversion event:", err);
     return null;
