@@ -34,10 +34,12 @@ const Index = () => {
 
   useEffect(() => {
     const reveal = () => setShowRest(true);
+    const timer = window.setTimeout(reveal, 700);
     window.addEventListener("scroll", reveal, { once: true, passive: true });
     window.addEventListener("pointerdown", reveal, { once: true, passive: true });
 
     return () => {
+      window.clearTimeout(timer);
       window.removeEventListener("scroll", reveal);
       window.removeEventListener("pointerdown", reveal);
     };

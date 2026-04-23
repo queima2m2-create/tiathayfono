@@ -13,10 +13,11 @@ const ProvaRapida = () => (
       <img
         src={maeFilho}
         alt="Mãe brincando com filho"
-        className="rounded-2xl w-full max-w-[500px] mx-auto shadow-md"
+        className="rounded-2xl w-full max-w-[320px] md:max-w-[500px] mx-auto shadow-md"
+        style={{ maxWidth: "100%", height: "auto" }}
         loading="lazy"
-        width={1024}
-        height={768}
+        width={500}
+        height={375}
       />
     </div>
   </section>
