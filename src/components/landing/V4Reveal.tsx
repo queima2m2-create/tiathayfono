@@ -1,18 +1,18 @@
 import { Shield, Lock, ShieldCheck } from "lucide-react";
-import imgPlano from "@/assets/v4-plano30dias.jpeg";
-import imgCaderno from "@/assets/v4-caderno.jpeg";
-import imgCards from "@/assets/v4-cards.jpeg";
-import imgGuia from "@/assets/v4-guia-situacoes.jpeg";
-import imgChecklist from "@/assets/v4-checklist.jpeg";
-import imgTagarelar from "@/assets/v4-tagarelar.jpeg";
+import imgPlano from "@/assets/v4-plano30dias.webp";
+import imgCaderno from "@/assets/v4-caderno.webp";
+import imgCards from "@/assets/v4-cards.webp";
+import imgGuia from "@/assets/v4-guia-situacoes.webp";
+import imgChecklist from "@/assets/v4-checklist.webp";
+import imgTagarelar from "@/assets/v4-tagarelar.webp";
 
 const produtos = [
-  { nome: "Plano 30 Dias com a Tia Thay", desc: "Roteiro diário passo a passo para destravar a fala do seu filho.", valor: "R$297,00", dataProduct: "plano30dias", img: imgPlano },
-  { nome: "Caderno de Acompanhamento", desc: "Registre cada palavra nova e veja a evolução em tempo real.", valor: "R$47,00", dataProduct: "caderno", img: imgCaderno },
-  { nome: "50 Cards para Imprimir", desc: "Estímulos visuais prontos para usar todos os dias.", valor: "R$47,00", dataProduct: "cards", img: imgCards },
-  { nome: "Guia de Respostas para Situações Difíceis", desc: "O que fazer quando ele se recusa, chora ou ignora.", valor: "R$57,00", dataProduct: "guia-situacoes", img: imgGuia },
-  { nome: "Checklist de Marcos por Faixa Etária", desc: "Saiba exatamente o que esperar em cada idade.", valor: "R$52,00", dataProduct: "checklist", img: imgChecklist },
-  { nome: "App Tagarelar", desc: "Acesso ao app com jogos de estímulo de linguagem.", valor: "R$97,00", dataProduct: "tagarelar", img: imgTagarelar },
+  { nome: "Plano 30 Dias com a Tia Thay", desc: "Roteiro diário passo a passo para destravar a fala do seu filho.", valor: "R$297,00", dataProduct: "plano30dias", img: imgPlano, width: 825, height: 1024 },
+  { nome: "Caderno de Acompanhamento", desc: "Registre cada palavra nova e veja a evolução em tempo real.", valor: "R$47,00", dataProduct: "caderno", img: imgCaderno, width: 445, height: 625 },
+  { nome: "50 Cards para Imprimir", desc: "Estímulos visuais prontos para usar todos os dias.", valor: "R$47,00", dataProduct: "cards", img: imgCards, width: 446, height: 624 },
+  { nome: "Guia de Respostas para Situações Difíceis", desc: "O que fazer quando ele se recusa, chora ou ignora.", valor: "R$57,00", dataProduct: "guia-situacoes", img: imgGuia, width: 449, height: 621 },
+  { nome: "Checklist de Marcos por Faixa Etária", desc: "Saiba exatamente o que esperar em cada idade.", valor: "R$52,00", dataProduct: "checklist", img: imgChecklist, width: 447, height: 626 },
+  { nome: "App Tagarelar", desc: "Acesso ao app com jogos de estímulo de linguagem.", valor: "R$97,00", dataProduct: "tagarelar", img: imgTagarelar, width: 572, height: 1024 },
 ];
 
 const depoimentos = [
@@ -147,6 +147,8 @@ const V4Reveal = () => {
                   data-product={p.dataProduct}
                   loading="lazy"
                   decoding="async"
+                  width={p.width}
+                  height={p.height}
                   className="w-full bg-neutral-100"
                   style={{ height: "260px", objectFit: "contain", padding: "12px" }}
                 />

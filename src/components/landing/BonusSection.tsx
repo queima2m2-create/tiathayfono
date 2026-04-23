@@ -1,7 +1,7 @@
-import bonusMusicas from "@/assets/bonus-musicas.jpg";
-import bonusAulaVivo from "@/assets/bonus-aula-vivo.jpg";
-import bonusCards from "@/assets/bonus-cards.jpg";
-import bonusCertificado from "@/assets/bonus-certificado.jpg";
+import bonusMusicas from "@/assets/bonus-musicas.webp";
+import bonusAulaVivo from "@/assets/bonus-aula-vivo.webp";
+import bonusCards from "@/assets/bonus-cards.webp";
+import bonusCertificado from "@/assets/bonus-certificado.webp";
 
 const bonusItems = [
   {

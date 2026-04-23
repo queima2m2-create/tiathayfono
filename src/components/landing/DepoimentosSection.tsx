@@ -1,13 +1,13 @@
-import depoimento1 from "@/assets/depoimento-1.jpeg";
-import depoimentoNovo1 from "@/assets/depoimento-novo-1.jpeg";
-import depoimentoNovo2 from "@/assets/depoimento-novo-2.jpeg";
-import depoimentoNovo4 from "@/assets/depoimento-novo-4.jpeg";
+import depoimento1 from "@/assets/depoimento-1.webp";
+import depoimentoNovo1 from "@/assets/depoimento-novo-1.webp";
+import depoimentoNovo2 from "@/assets/depoimento-novo-2.webp";
+import depoimentoNovo4 from "@/assets/depoimento-novo-4.webp";
 
 const depoimentos = [
-  depoimento1,
-  depoimentoNovo1,
-  depoimentoNovo2,
-  depoimentoNovo4,
+  { src: depoimento1, width: 600, height: 800 },
+  { src: depoimentoNovo1, width: 1024, height: 774 },
+  { src: depoimentoNovo2, width: 991, height: 413 },
+  { src: depoimentoNovo4, width: 1032, height: 707 },
 ];
 
 const DepoimentosSection = () => (
@@ -21,13 +21,16 @@ const DepoimentosSection = () => (
       </p>
 
       <div className="flex flex-col gap-6 max-w-[500px] mx-auto">
-        {depoimentos.map((src, i) => (
+        {depoimentos.map((item, i) => (
           <img
             key={i}
-            src={src}
+            src={item.src}
             alt={`Depoimento ${i + 1}`}
             className="rounded-2xl w-full shadow-md"
             loading="lazy"
+            decoding="async"
+            width={item.width}
+            height={item.height}
           />
         ))}
       </div>

@@ -67,7 +67,7 @@ const SocialProofToast = () => {
       }`}
     >
       <div className="bg-white text-gray-900 rounded-lg shadow-2xl p-3 flex items-start gap-3 border border-gray-200">
-        <img src={kiwifyLogo} alt="Kiwify" className="flex-shrink-0 w-10 h-10 rounded-full object-contain" />
+        <img src={kiwifyLogo} alt="Kiwify" className="flex-shrink-0 w-10 h-10 rounded-full object-contain" loading="lazy" decoding="async" width={300} height={300} />
 
         <div className="flex-1 min-w-0">
           <p className="font-bold text-sm text-green-700">{msg.name}</p>

@@ -1,11 +1,11 @@
-import entregaSinais from "@/assets/entrega-sinais-alerta.jpg";
+import entregaSinais from "@/assets/entrega-sinais-alerta.webp";
 import { getSocialProofCount } from "@/lib/socialProofCount";
-import entregaFala from "@/assets/entrega-fala-funciona.jpg";
-import entregaBrincadeiras from "@/assets/entrega-brincadeiras-fala.jpg";
-import entregaPalavras from "@/assets/entrega-palavras.jpg";
-import entregaAtividades from "@/assets/entrega-atividades.jpg";
-import entregaTelas from "@/assets/entrega-telas.jpg";
-import entregaSuporteWpp from "@/assets/entrega-suporte-wpp.jpg";
+import entregaFala from "@/assets/entrega-fala-funciona.webp";
+import entregaBrincadeiras from "@/assets/entrega-brincadeiras-fala.webp";
+import entregaPalavras from "@/assets/entrega-palavras.webp";
+import entregaAtividades from "@/assets/entrega-atividades.webp";
+import entregaTelas from "@/assets/entrega-telas.webp";
+import entregaSuporteWpp from "@/assets/entrega-suporte-wpp.webp";
 
 const mainItems = [
   {
