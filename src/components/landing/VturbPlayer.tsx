@@ -7,20 +7,12 @@ const VturbPlayer = () => {
     if (loaded.current) return;
     loaded.current = true;
 
-    const load = () => {
-      const s = document.createElement("script");
-      s.src =
-        "https://scripts.converteai.net/8cb68814-a0fc-45e0-ace9-4a6b005a0cc8/players/6898af1550270c783e275378/v4/player.js";
-      s.async = true;
-      document.head.appendChild(s);
-    };
-
-    // Defer heavy video script until browser is idle or 1.5s max
-    if ("requestIdleCallback" in window) {
-      (window as any).requestIdleCallback(load, { timeout: 1500 });
-    } else {
-      setTimeout(load, 300);
-    }
+    // Script is preloaded in index.html — load it immediately so the preload is not wasted
+    const s = document.createElement("script");
+    s.src =
+      "https://scripts.converteai.net/8cb68814-a0fc-45e0-ace9-4a6b005a0cc8/players/6898af1550270c783e275378/v4/player.js";
+    s.async = true;
+    document.head.appendChild(s);
   }, []);
 
   return (

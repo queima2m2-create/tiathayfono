@@ -9,13 +9,22 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700;800;900&display=swap" onload="this.onload=null;this.rel='stylesheet'" />
-    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700;800;900&display=swap" /></noscript>
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700;900&display=swap" onload="this.onload=null;this.rel='stylesheet'" />
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700;900&display=swap" /></noscript>
+
+    <!-- VTurb speed optimization (official) -->
+    <script>!function(i,n){i._plt=i._plt||(n&&n.timeOrigin?n.timeOrigin+n.now():Date.now())}(window,performance);</script>
+    <link rel="preload" href="https://scripts.converteai.net/8cb68814-a0fc-45e0-ace9-4a6b005a0cc8/players/6898af1550270c783e275378/v4/player.js" as="script">
+    <link rel="preload" href="https://scripts.converteai.net/lib/js/smartplayer-wc/v4/smartplayer.js" as="script">
+    <link rel="preload" href="https://cdn.converteai.net/8cb68814-a0fc-45e0-ace9-4a6b005a0cc8/6898aeb9d7302addde0a1a96/main.m3u8" as="fetch" crossorigin>
     <link rel="preconnect" href="https://scripts.converteai.net" crossorigin />
-    <link rel="dns-prefetch" href="https://scripts.converteai.net" />
     <link rel="preconnect" href="https://cdn.converteai.net" crossorigin />
     <link rel="preconnect" href="https://vt-h-1.b-cdn.net" crossorigin />
     <link rel="preconnect" href="https://api.vturb.com.br" crossorigin />
+    <link rel="dns-prefetch" href="https://scripts.converteai.net">
+    <link rel="dns-prefetch" href="https://cdn.converteai.net">
+    <link rel="dns-prefetch" href="https://images.converteai.net">
+    <link rel="dns-prefetch" href="https://api.vturb.com.br">
 
 
     <meta property="og:type" content="website" />
@@ -30,15 +39,25 @@
     <style>
       :root{--boot-bg:#f7e9ef;--boot-fg:#4b333b;--boot-accent:#b58a45}html,body,#root{min-height:100%;background:var(--boot-bg)}body{margin:0}.app-boot{position:fixed;inset:0;z-index:2147483647;display:grid;place-items:center;background:linear-gradient(180deg,#f7d4e2 0%,#fff 92%);color:var(--boot-fg);font-family:'DM Sans',system-ui,sans-serif;text-align:center;padding:24px;transition:opacity .18s ease,visibility .18s ease}.app-boot__inner{max-width:330px}.app-boot__mark{width:34px;height:34px;margin:0 auto 14px;border-radius:999px;border:3px solid rgba(181,138,69,.25);border-top-color:var(--boot-accent);animation:appBootSpin .8s linear infinite}.app-boot__text{font-size:15px;font-weight:800;line-height:1.25;letter-spacing:0;text-transform:uppercase}.app-boot--hidden{opacity:0;visibility:hidden;pointer-events:none}@keyframes appBootSpin{to{transform:rotate(360deg)}}@media (prefers-reduced-motion:reduce){.app-boot__mark{animation:none}.app-boot{transition:none}}
     </style>
-    <!-- Meta Pixel Code -->
+    <!-- Meta Pixel Code (deferred to not block initial render) -->
     <script>
-    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
-    n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
-    t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
-    document,'script','https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '763712916051534');
-    fbq('track', 'PageView');
+    (function(){
+      function loadFbPixel(){
+        if (window.fbq) return;
+        !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+        n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+        document,'script','https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init','763712916051534');
+        fbq('track','PageView');
+      }
+      if ('requestIdleCallback' in window) {
+        requestIdleCallback(loadFbPixel, { timeout: 2500 });
+      } else {
+        window.addEventListener('load', function(){ setTimeout(loadFbPixel, 500); });
+      }
+    })();
     </script>
     <!-- End Meta Pixel Code -->
   </head>
