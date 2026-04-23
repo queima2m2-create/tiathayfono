@@ -93,7 +93,7 @@ const bonusItems = [
   { num: "08", title: "CANCIONES PARA HABLAR EN HASTA 7 DÍAS", desc: "Canciones en audio creadas estratégicamente por la fono para estimular en el día a día — en la calle, en el parque, en el baño… para que tu hijo aprenda sin darse cuenta.", checks: ["Audios listos para usar en cualquier momento", "Estimulación natural a través de la música"], img: bonusMusicas },
   { num: "09", title: "CONSULTA GRATUITA CON LA FONO", desc: "Gana acceso a un encuentro con Thaynara Andrade, fonoaudióloga infantil, y ten la oportunidad de resolver tus dudas e impulsar el habla de tu hijo.", checks: ["Encuentro en vivo con la fonoaudióloga", "Resuelve tus dudas en tiempo real"], img: bonusAulaVivo },
   { num: "10", title: "TARJETAS INTERACTIVAS DE ESTÍMULO", desc: "Tarjetas ilustradas y divertidas para usar en los juegos del día a día, transformando cada momento en una oportunidad para estimular el habla.", checks: ["Perfectas para jugar y aprender al mismo tiempo", "Desarrolladas por fonoaudióloga infantil"], img: bonusCards },
-  { num: "11", title: "CERTIFICADO TAGARELA", desc: "Imprime y guarda como recuerdo cuánto evolucionó tu pequeño con tu ayuda.", checks: ["Un registro especial de la evolución de tu hijo", "Para celebrar cada logro juntos"], img: bonusCertificado },
+  { num: "11", title: "CERTIFICADO HABLADOR", desc: "Imprime y guarda como recuerdo cuánto evolucionó tu pequeño con tu ayuda.", checks: ["Un registro especial de la evolución de tu hijo", "Para celebrar cada logro juntos"], img: bonusCertificado },
 ];
 
 const guideItems = [
