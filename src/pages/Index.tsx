@@ -34,10 +34,14 @@ const Index = () => {
 
   useEffect(() => {
     const reveal = () => setShowRest(true);
+    const timer = window.setTimeout(reveal, 700);
+    const idleId = "requestIdleCallback" in window ? window.requestIdleCallback(reveal, { timeout: 1000 }) : undefined;
     window.addEventListener("scroll", reveal, { once: true, passive: true });
     window.addEventListener("pointerdown", reveal, { once: true, passive: true });
 
     return () => {
+      window.clearTimeout(timer);
+      if (idleId) window.cancelIdleCallback(idleId);
       window.removeEventListener("scroll", reveal);
       window.removeEventListener("pointerdown", reveal);
     };

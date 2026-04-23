@@ -14,6 +14,7 @@ const ProvaRapida = () => (
         src={maeFilho}
         alt="Mãe brincando com filho"
         className="rounded-2xl w-full max-w-[500px] mx-auto shadow-md"
+        style={{ display: "block", width: "100%", maxWidth: 500, height: "auto" }}
         loading="lazy"
         width={1024}
         height={768}
