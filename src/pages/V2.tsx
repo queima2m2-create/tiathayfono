@@ -1,11 +1,11 @@
 import { useEffect, lazy, Suspense, useState } from "react";
 import HeroSection from "@/components/landing/HeroSection";
 import VturbPlayer from "@/components/landing/VturbPlayer";
+import ProvaRapida from "@/components/landing/ProvaRapida";
 
 const SocialProofToast = lazy(() => import("@/components/landing/SocialProofToast"));
 const UnmuteOverlay = lazy(() => import("@/components/landing/UnmuteOverlay"));
 
-const ProvaRapida = lazy(() => import("@/components/landing/ProvaRapida"));
 const DorSection = lazy(() => import("@/components/landing/DorSection"));
 const ComoFunciona = lazy(() => import("@/components/landing/ComoFunciona"));
 const OQueRecebe = lazy(() => import("@/components/landing/OQueRecebe"));
@@ -49,9 +49,9 @@ const V2 = () => {
     <main>
       <HeroSection />
       <VturbPlayer />
+      <ProvaRapida />
       {showRest && (
         <Suspense fallback={null}>
-          <ProvaRapida />
           <DorSection />
           <ComoFunciona />
           <OQueRecebe />
