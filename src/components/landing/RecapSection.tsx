@@ -1,4 +1,4 @@
-import produtoMockup from "@/assets/produto-mockup.webp";
+import produtoMockup from "@/assets/mockup-meu-filho-vai-falar.jpeg";
 
 const guideItems = [
   { emoji: "⚠️", price: "R$ 47,00", title: "Sinais de Alerta" },
