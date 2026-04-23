@@ -21,6 +21,7 @@ const FAQSection = lazy(() => import("@/components/landing/FAQSection"));
 const Footer = lazy(() => import("@/components/landing/Footer"));
 
 const Index = () => {
+  const [showSecondFold, setShowSecondFold] = useState(false);
   const [showRest, setShowRest] = useState(false);
 
   useEffect(() => {
@@ -33,15 +34,18 @@ const Index = () => {
   }, []);
 
   useEffect(() => {
-    const reveal = () => setShowRest(true);
-    const timer = window.setTimeout(reveal, 700);
-    window.addEventListener("scroll", reveal, { once: true, passive: true });
-    window.addEventListener("pointerdown", reveal, { once: true, passive: true });
+    const revealSecondFold = () => setShowSecondFold(true);
+    const revealRest = () => setShowRest(true);
+    const secondFoldTimer = window.setTimeout(revealSecondFold, 180);
+    const restTimer = window.setTimeout(revealRest, 1200);
+    window.addEventListener("scroll", revealRest, { once: true, passive: true });
+    window.addEventListener("pointerdown", revealRest, { once: true, passive: true });
 
     return () => {
-      window.clearTimeout(timer);
-      window.removeEventListener("scroll", reveal);
-      window.removeEventListener("pointerdown", reveal);
+      window.clearTimeout(secondFoldTimer);
+      window.clearTimeout(restTimer);
+      window.removeEventListener("scroll", revealRest);
+      window.removeEventListener("pointerdown", revealRest);
     };
   }, []);
 
@@ -50,10 +54,14 @@ const Index = () => {
       <HeroSection />
       <VturbPlayer />
       <ProvaRapida />
-      {showRest && (
+      {showSecondFold && (
         <Suspense fallback={null}>
           <DorSection />
           <ComoFunciona />
+        </Suspense>
+      )}
+      {showRest && (
+        <Suspense fallback={null}>
           <OQueRecebe />
           <BonusSection />
           <DepoimentosSection />
