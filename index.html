@@ -27,6 +27,9 @@
     <meta name="twitter:title" content="Guia: Meu Filho Vai Falar – Thaynara Andrade">
     <meta property="og:description" content="Brinque com seu filho 15 minutos por dia e veja ele formar as primeiras palavras em até 30 dias.">
     <meta name="twitter:description" content="Brinque com seu filho 15 minutos por dia e veja ele formar as primeiras palavras em até 30 dias.">
+    <style>
+      :root{--boot-bg:#f7e9ef;--boot-fg:#4b333b;--boot-accent:#b58a45}html,body,#root{min-height:100%;background:var(--boot-bg)}body{margin:0}.app-boot{position:fixed;inset:0;z-index:2147483647;display:grid;place-items:center;background:linear-gradient(180deg,#f7d4e2 0%,#fff 92%);color:var(--boot-fg);font-family:'DM Sans',system-ui,sans-serif;text-align:center;padding:24px;transition:opacity .18s ease,visibility .18s ease}.app-boot__inner{max-width:330px}.app-boot__mark{width:34px;height:34px;margin:0 auto 14px;border-radius:999px;border:3px solid rgba(181,138,69,.25);border-top-color:var(--boot-accent);animation:appBootSpin .8s linear infinite}.app-boot__text{font-size:15px;font-weight:800;line-height:1.25;letter-spacing:0;text-transform:uppercase}.app-boot--hidden{opacity:0;visibility:hidden;pointer-events:none}@keyframes appBootSpin{to{transform:rotate(360deg)}}@media (prefers-reduced-motion:reduce){.app-boot__mark{animation:none}.app-boot{transition:none}}
+    </style>
     <!-- Meta Pixel Code -->
     <script>
     !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -45,6 +48,12 @@
     <noscript><img height="1" width="1" style="display:none"
       src="https://www.facebook.com/tr?id=763712916051534&ev=PageView&noscript=1"
     /></noscript>
+    <div id="app-boot" class="app-boot" role="status" aria-live="polite">
+      <div class="app-boot__inner">
+        <div class="app-boot__mark" aria-hidden="true"></div>
+        <div class="app-boot__text">Carregando sua aula...</div>
+      </div>
+    </div>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
