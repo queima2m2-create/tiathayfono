@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import produtoMockup from "@/assets/mockup-meu-filho-vai-falar.jpeg";
+import produtoMockup from "@/assets/mockup-meu-filho-vai-falar.webp";
 
 const CTA_LINK = "https://pay.kiwify.com.br/uXb5s35";
 
