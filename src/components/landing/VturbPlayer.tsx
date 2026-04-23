@@ -115,6 +115,8 @@ const VturbPlayer = () => {
               className="absolute inset-0 h-full w-full object-cover"
               loading="eager"
               fetchPriority="high"
+              width={600}
+              height={800}
             />
             <div className="absolute inset-0 bg-background/10" />
           </div>
