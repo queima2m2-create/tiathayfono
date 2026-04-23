@@ -17,14 +17,13 @@
     <link rel="preload" href="https://scripts.converteai.net/8cb68814-a0fc-45e0-ace9-4a6b005a0cc8/players/6898af1550270c783e275378/v4/player.js" as="script">
     <link rel="preload" href="https://scripts.converteai.net/lib/js/smartplayer-wc/v4/smartplayer.js" as="script">
     <link rel="preload" href="https://cdn.converteai.net/8cb68814-a0fc-45e0-ace9-4a6b005a0cc8/6898aeb9d7302addde0a1a96/main.m3u8" as="fetch" crossorigin>
+    <!-- Keep preconnects only for the most critical origins -->
     <link rel="preconnect" href="https://scripts.converteai.net" crossorigin />
     <link rel="preconnect" href="https://cdn.converteai.net" crossorigin />
-    <link rel="preconnect" href="https://vt-h-1.b-cdn.net" crossorigin />
-    <link rel="preconnect" href="https://api.vturb.com.br" crossorigin />
-    <link rel="dns-prefetch" href="https://scripts.converteai.net">
-    <link rel="dns-prefetch" href="https://cdn.converteai.net">
-    <link rel="dns-prefetch" href="https://images.converteai.net">
+    <!-- DNS prefetch is cheaper; use for secondary origins -->
+    <link rel="dns-prefetch" href="https://vt-h-1.b-cdn.net">
     <link rel="dns-prefetch" href="https://api.vturb.com.br">
+    <link rel="dns-prefetch" href="https://images.converteai.net">
 
 
     <meta property="og:type" content="website" />
