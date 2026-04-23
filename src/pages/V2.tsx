@@ -1,5 +1,5 @@
 import { useEffect, lazy, Suspense, useState } from "react";
-import HeroSectionV2 from "@/components/landing/HeroSectionV2";
+import HeroSection from "@/components/landing/HeroSection";
 import VturbPlayer from "@/components/landing/VturbPlayer";
 import ProvaRapida from "@/components/landing/ProvaRapida";
 import DorSection from "@/components/landing/DorSection";
@@ -48,7 +48,7 @@ const V2 = () => {
 
   return (
     <main>
-      <HeroSectionV2 />
+      <HeroSection />
       <VturbPlayer />
       <ProvaRapida />
       <DorSection />
