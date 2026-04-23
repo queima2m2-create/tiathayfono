@@ -8,7 +8,16 @@ const loadStyles = () => {
 };
 
 if (typeof window !== "undefined") {
-  window.requestAnimationFrame(loadStyles);
+  let stylesLoaded = false;
+  const scheduleStyles = () => {
+    if (stylesLoaded) return;
+    stylesLoaded = true;
+    loadStyles();
+  };
+
+  window.addEventListener("scroll", scheduleStyles, { once: true, passive: true });
+  window.addEventListener("pointerdown", scheduleStyles, { once: true, passive: true });
+  window.setTimeout(scheduleStyles, 2500);
 } else {
   loadStyles();
 }
