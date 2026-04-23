@@ -7,12 +7,23 @@ const VturbPlayer = () => {
     if (loaded.current) return;
     loaded.current = true;
 
-    // Script is preloaded in index.html — load it immediately so the preload is not wasted
-    const s = document.createElement("script");
-    s.src =
-      "https://scripts.converteai.net/8cb68814-a0fc-45e0-ace9-4a6b005a0cc8/players/6898af1550270c783e275378/v4/player.js";
-    s.async = true;
-    document.head.appendChild(s);
+    // The script is already being downloaded via <link rel="preload"> in index.html.
+    // We only control WHEN it runs. Running immediately blocks the main thread and
+    // hurts TBT; idle-callback with a short deadline keeps TBT low while still
+    // starting the video quickly.
+    const load = () => {
+      const s = document.createElement("script");
+      s.src =
+        "https://scripts.converteai.net/8cb68814-a0fc-45e0-ace9-4a6b005a0cc8/players/6898af1550270c783e275378/v4/player.js";
+      s.async = true;
+      document.head.appendChild(s);
+    };
+
+    if ("requestIdleCallback" in window) {
+      (window as any).requestIdleCallback(load, { timeout: 400 });
+    } else {
+      setTimeout(load, 200);
+    }
   }, []);
 
   return (
