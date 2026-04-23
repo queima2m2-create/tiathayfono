@@ -14,9 +14,12 @@
 
     <!-- VTurb speed optimization (official) -->
     <script>!function(i,n){i._plt=i._plt||(n&&n.timeOrigin?n.timeOrigin+n.now():Date.now())}(window,performance);</script>
+    <!-- Only preload the PLAYER SCRIPTS. Deliberately NOT preloading the .m3u8
+         video stream here — it competes for bandwidth with the CSS/JS/images
+         needed for the first paint, which blanks the screen longer. The player
+         will fetch the video on its own once it initializes (~900ms in). -->
     <link rel="preload" href="https://scripts.converteai.net/8cb68814-a0fc-45e0-ace9-4a6b005a0cc8/players/6898af1550270c783e275378/v4/player.js" as="script">
     <link rel="preload" href="https://scripts.converteai.net/lib/js/smartplayer-wc/v4/smartplayer.js" as="script">
-    <link rel="preload" href="https://cdn.converteai.net/8cb68814-a0fc-45e0-ace9-4a6b005a0cc8/6898aeb9d7302addde0a1a96/main.m3u8" as="fetch" crossorigin>
     <!-- Keep preconnects only for the most critical origins -->
     <link rel="preconnect" href="https://scripts.converteai.net" crossorigin />
     <link rel="preconnect" href="https://cdn.converteai.net" crossorigin />
