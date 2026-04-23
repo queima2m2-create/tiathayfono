@@ -1,11 +1,13 @@
-import { createRoot } from "react-dom/client";
+import { createRoot, hydrateRoot } from "react-dom/client";
+import "./index.css";
 import App from "./App.tsx";
 
-createRoot(document.getElementById("root")!).render(<App />);
+const rootElement = document.getElementById("root")!;
+const path = window.location.pathname.replace(/\/$/, "") || "/";
+const shouldHydrateHome = path === "/" && rootElement.hasChildNodes();
 
-if (typeof window !== "undefined") {
-  const loadStyles = () => void import("./index.css");
-  window.requestAnimationFrame(() => window.setTimeout(loadStyles, 0));
+if (shouldHydrateHome) {
+  hydrateRoot(rootElement, <App />);
 } else {
-  void import("./index.css");
+  createRoot(rootElement).render(<App />);
 }
