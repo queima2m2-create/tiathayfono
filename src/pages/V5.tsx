@@ -7,7 +7,7 @@ import maePreocupada from "@/assets/mae-filho-preocupada.webp";
 import etapa1 from "@/assets/etapa1-cerebro-fala.webp";
 import etapa2 from "@/assets/etapa2-protocolo.webp";
 import etapa3 from "@/assets/etapa3-tagarelas.webp";
-import entregaSinais from "@/assets/entrega-sinais-alerta.webp";
+import entregaSinais from "@/assets/entrega-sinais-alerta-es.webp";
 import entregaFala from "@/assets/entrega-fala-funciona.webp";
 import entregaBrincadeiras from "@/assets/entrega-brincadeiras-fala-es.webp";
 import entregaPalavras from "@/assets/entrega-palavras-es.webp";
