@@ -18,7 +18,7 @@ import bonusMusicas from "@/assets/bonus-musicas.webp";
 import bonusAulaVivo from "@/assets/bonus-aula-vivo.webp";
 import bonusCards from "@/assets/bonus-cards-es.webp";
 import bonusCertificado from "@/assets/bonus-certificado-es.webp";
-import produtoMockup from "@/assets/mockup-mi-hijo-va-a-hablar.jpeg";
+import produtoMockup from "@/assets/mockup-mi-hijo-va-a-hablar.webp";
 import doisCaminhos from "@/assets/dois-caminhos-es.webp";
 import thaynaraFoto from "@/assets/thaynara-foto.webp";
 import sobreFilha from "@/assets/sobre-filha.webp";
