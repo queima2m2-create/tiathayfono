@@ -12,13 +12,18 @@ import { componentTagger } from "lovable-tagger";
 const nonBlockingCss = (): Plugin => ({
   name: "non-blocking-css",
   apply: "build",
-  transformIndexHtml(html) {
-    return html.replace(
-      /<link rel="stylesheet"([^>]*href="[^"]+\.css"[^>]*)>/g,
-      (_, attrs) =>
-        `<link rel="preload" as="style"${attrs} onload="this.onload=null;this.rel='stylesheet'">` +
-        `<noscript><link rel="stylesheet"${attrs}></noscript>`
-    );
+  // Must run AFTER Vite injects the <link rel="stylesheet"> for the CSS bundle,
+  // otherwise there is nothing to rewrite. "post" ordering is required here.
+  transformIndexHtml: {
+    order: "post",
+    handler(html) {
+      return html.replace(
+        /<link rel="stylesheet"([^>]*href="\/assets\/[^"]+\.css"[^>]*)>/g,
+        (_, attrs) =>
+          `<link rel="preload" as="style"${attrs} onload="this.onload=null;this.rel='stylesheet'">` +
+          `<noscript><link rel="stylesheet"${attrs}></noscript>`
+      );
+    },
   },
 });
 
