@@ -22,11 +22,15 @@ const Index = () => {
   useEffect(() => {
     let timeoutId: number | null = null;
     let idleId: number | null = null;
+    const idleWindow = window as Window & {
+      requestIdleCallback?: (callback: () => void, options?: { timeout: number }) => number;
+      cancelIdleCallback?: (handle: number) => void;
+    };
 
     const revealRest = () => setShowRest(true);
 
-    if ("requestIdleCallback" in window) {
-      idleId = window.requestIdleCallback(revealRest, { timeout: 1800 });
+    if (idleWindow.requestIdleCallback) {
+      idleId = idleWindow.requestIdleCallback(revealRest, { timeout: 1800 });
     } else {
       timeoutId = window.setTimeout(revealRest, 1200);
     }
@@ -36,7 +40,7 @@ const Index = () => {
 
     return () => {
       if (timeoutId !== null) window.clearTimeout(timeoutId);
-      if (idleId !== null && "cancelIdleCallback" in window) window.cancelIdleCallback(idleId);
+      if (idleId !== null && idleWindow.cancelIdleCallback) idleWindow.cancelIdleCallback(idleId);
       window.removeEventListener("scroll", revealRest);
       window.removeEventListener("pointerdown", revealRest);
     };
