@@ -29,6 +29,26 @@ const SocialProofToast = lazy(() => import("@/components/landing/SocialProofToas
 const UnmuteOverlay = lazy(() => import("@/components/landing/UnmuteOverlay"));
 
 const CTA_LINK = "https://pay.kiwify.com.br/uXb5s35";
+const TIMER_KEY = "pricing_timer_start_v5";
+const TWENTY_FOUR_HOURS = 24 * 60 * 60 * 1000;
+
+const getTimeLeft = () => {
+  let start = localStorage.getItem(TIMER_KEY);
+  if (!start) {
+    start = String(Date.now());
+    localStorage.setItem(TIMER_KEY, start);
+  }
+  const elapsed = Date.now() - Number(start);
+  return Math.max(0, TWENTY_FOUR_HOURS - elapsed);
+};
+
+const formatTime = (ms: number) => {
+  const totalSec = Math.floor(ms / 1000);
+  const h = String(Math.floor(totalSec / 3600)).padStart(2, "0");
+  const m = String(Math.floor((totalSec % 3600) / 60)).padStart(2, "0");
+  const s = String(totalSec % 60).padStart(2, "0");
+  return `${h}:${m}:${s}`;
+};
 
 const painBubbles = [
   { text: "Ya intenté de todo", className: "top-[3%] left-[2%]" },
@@ -117,10 +137,19 @@ const faqs = [
   { q: "¿La plataforma de pago es segura?", a: "Sí, usamos tecnologías avanzadas de seguridad para garantizar un proceso de pago 100% confiable y protegido." },
 ];
 
-const PricingBlockSpanish = ({ showUrgency = true }: { showUrgency?: boolean }) => (
+const PricingBlockSpanish = ({ showUrgency = true }: { showUrgency?: boolean }) => {
+  const [timeLeft, setTimeLeft] = useState(getTimeLeft);
+
+  useEffect(() => {
+    if (!showUrgency) return;
+    const id = setInterval(() => setTimeLeft(getTimeLeft()), 1000);
+    return () => clearInterval(id);
+  }, [showUrgency]);
+
+  return (
   <div className="text-center max-w-[520px] mx-auto">
     <div className="bg-background text-marrom-dark rounded-2xl p-8 md:p-10 shadow-xl">
-      {showUrgency && <span className="inline-block bg-vermelho text-background text-[0.85rem] font-bold px-6 py-2.5 rounded-lg mb-5">⏰ Oferta especial disponible hoy</span>}
+      {showUrgency && <span className="inline-block bg-vermelho text-background text-[0.85rem] font-bold px-6 py-2.5 rounded-lg mb-5">⏰ La oferta termina en: {formatTime(timeLeft)}</span>}
       <div className="w-full max-w-[320px] mx-auto mb-4 aspect-video rounded-2xl overflow-hidden drop-shadow-lg">
         <img src={produtoMockup} alt="Guía completa Método Tagarela" className="w-full h-full object-cover" loading="lazy" decoding="async" width={1024} height={1024} />
       </div>
@@ -134,7 +163,8 @@ const PricingBlockSpanish = ({ showUrgency = true }: { showUrgency?: boolean }) 
       <p className="text-[0.85rem] text-primary/60 mt-4 font-semibold">📲 RECIBE ACCESO INMEDIATO EN TU EMAIL</p>
     </div>
   </div>
-);
+  );
+};
 
 const V5 = () => {
   const [showRest, setShowRest] = useState(false);
