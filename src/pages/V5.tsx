@@ -19,7 +19,7 @@ import bonusAulaVivo from "@/assets/bonus-aula-vivo.webp";
 import bonusCards from "@/assets/bonus-cards.webp";
 import bonusCertificado from "@/assets/bonus-certificado-es.webp";
 import produtoMockup from "@/assets/mockup-mi-hijo-va-a-hablar.jpeg";
-import doisCaminhos from "@/assets/dois-caminhos.webp";
+import doisCaminhos from "@/assets/dois-caminhos-es.webp";
 import thaynaraFoto from "@/assets/thaynara-foto.webp";
 import sobreFilha from "@/assets/sobre-filha.webp";
 import seloGarantia from "@/assets/selo-garantia.webp";
