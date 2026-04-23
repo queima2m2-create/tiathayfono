@@ -1,24 +1,23 @@
-import { useEffect, useRef } from "react";
+import { useLayoutEffect, useRef } from "react";
+
+const loadVturbScript = () => {
+  if (document.querySelector('script[data-vturb-player="landing-v1-v2"]')) return;
+
+  const s = document.createElement("script");
+  s.src =
+    "https://scripts.converteai.net/8cb68814-a0fc-45e0-ace9-4a6b005a0cc8/players/6898af1550270c783e275378/v4/player.js";
+  s.async = true;
+  s.dataset.vturbPlayer = "landing-v1-v2";
+  document.head.appendChild(s);
+};
 
 const VturbPlayer = () => {
   const loaded = useRef(false);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (loaded.current) return;
     loaded.current = true;
-
-    const load = () => {
-      if (document.querySelector('script[data-vturb-player="landing-v1-v2"]')) return;
-
-      const s = document.createElement("script");
-      s.src =
-        "https://scripts.converteai.net/8cb68814-a0fc-45e0-ace9-4a6b005a0cc8/players/6898af1550270c783e275378/v4/player.js";
-      s.async = true;
-      s.dataset.vturbPlayer = "landing-v1-v2";
-      document.head.appendChild(s);
-    };
-
-    load();
+    loadVturbScript();
   }, []);
 
   return (
