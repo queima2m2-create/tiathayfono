@@ -30,9 +30,25 @@ const MESSAGES: ToastMessage[] = [
   { name: "Daniela", text: "comprou o Guia Meu Filho Vai Falar", time: "há 1 minuto" },
 ];
 
-const SocialProofToast = () => {
+const SPANISH_MESSAGES: ToastMessage[] = [
+  { name: "María", text: "compró la Guía Mi Hijo Va a Hablar", time: "hace 3 minutos" },
+  { name: "Sofía", text: "compró la Guía Mi Hijo Va a Hablar", time: "hace 7 minutos" },
+  { name: "Valentina", text: "dejó 5 estrellas ⭐⭐⭐⭐⭐", time: "hace 11 minutos" },
+  { name: "Camila", text: "acaba de acceder al material", time: "hace 2 minutos" },
+  { name: "Lucía", text: "compró la Guía Mi Hijo Va a Hablar", time: "hace 15 minutos" },
+  { name: "Isabella", text: "dejó 5 estrellas ⭐⭐⭐⭐⭐", time: "hace 5 minutos" },
+  { name: "Martina", text: "compró la Guía Mi Hijo Va a Hablar", time: "hace 1 minuto" },
+  { name: "Daniela", text: "dejó 5 estrellas ⭐⭐⭐⭐⭐", time: "hace 9 minutos" },
+  { name: "Gabriela", text: "acaba de acceder al material", time: "hace 4 minutos" },
+  { name: "Alejandra", text: "compró la Guía Mi Hijo Va a Hablar", time: "hace 8 minutos" },
+  { name: "Victoria", text: "compró la Guía Mi Hijo Va a Hablar", time: "hace 6 minutos" },
+  { name: "Natalia", text: "dejó 5 estrellas ⭐⭐⭐⭐⭐", time: "hace 12 minutos" },
+];
+
+const SocialProofToast = ({ language = "pt" }: { language?: "pt" | "es" }) => {
   const [visible, setVisible] = useState(false);
   const [index, setIndex] = useState(0);
+  const messages = language === "es" ? SPANISH_MESSAGES : MESSAGES;
 
   useEffect(() => {
     let timeout: ReturnType<typeof setTimeout>;
@@ -41,7 +57,7 @@ const SocialProofToast = () => {
     const showNext = () => {
       setIndex(currentIndex);
       setVisible(true);
-      currentIndex = (currentIndex + 1) % MESSAGES.length;
+      currentIndex = (currentIndex + 1) % messages.length;
 
       timeout = setTimeout(() => {
         setVisible(false);
@@ -54,9 +70,10 @@ const SocialProofToast = () => {
     timeout = setTimeout(showNext, 10000);
 
     return () => clearTimeout(timeout);
-  }, []);
+  }, [messages.length]);
 
-  const msg = MESSAGES[index];
+  const msg = messages[index];
+  const isPurchase = language === "es" ? msg.text.includes("compró") : msg.text.includes("comprou");
 
   return (
     <div
@@ -74,9 +91,9 @@ const SocialProofToast = () => {
           <p className="text-xs text-gray-700 leading-snug">
             {msg.text}
           </p>
-          {msg.text.includes("comprou") && (
+          {isPurchase && (
             <p className="text-xs mt-0.5">
-              <span className="bg-green-100 text-green-700 text-[0.65rem] font-bold px-1.5 py-0.5 rounded">com 85% de desconto</span>
+              <span className="bg-green-100 text-green-700 text-[0.65rem] font-bold px-1.5 py-0.5 rounded">{language === "es" ? "con 80% de descuento" : "com 85% de desconto"}</span>
             </p>
           )}
           <p className="text-[0.65rem] text-gray-400 mt-1">{msg.time}</p>
@@ -85,7 +102,7 @@ const SocialProofToast = () => {
         <button
           onClick={() => setVisible(false)}
           className="text-gray-400 hover:text-gray-600 text-xs flex-shrink-0"
-          aria-label="Fechar"
+          aria-label={language === "es" ? "Cerrar" : "Fechar"}
         >
           ✕
         </button>
