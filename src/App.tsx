@@ -8,7 +8,7 @@ const V5 = lazy(() => import("./pages/V5.tsx"));
 const NotFound = lazy(() => import("./pages/NotFound.tsx"));
 
 const App = () => {
-  const path = window.location.pathname;
+  const path = window.location.pathname.replace(/\/$/, "") || "/";
 
   if (path === "/") return <Index />;
   if (path === "/v2") return <Suspense fallback={null}><V2 /></Suspense>;
