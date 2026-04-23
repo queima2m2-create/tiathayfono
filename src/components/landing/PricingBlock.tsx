@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import { fbEvents } from "@/lib/fbConversions";
 import produtoMockup from "@/assets/mockup-meu-filho-vai-falar.jpeg";
 
 const CTA_LINK = "https://pay.kiwify.com.br/uXb5s35";
@@ -72,7 +71,7 @@ const PricingBlock = ({ className = "", showUrgency = true }: { className?: stri
 
         <div className="mt-5">
           <Button variant="cta" size="lg" className="text-[0.9rem] md:text-[1rem] px-8 py-6 md:py-7 w-full leading-tight whitespace-normal h-auto text-background font-extrabold" asChild>
-            <a href={CTA_LINK} onClick={() => fbEvents.initiateCheckout()}>QUERO DESTRAVAR A FALA DO MEU FILHO EM 30 DIAS</a>
+            <a href={CTA_LINK} onClick={() => import("@/lib/fbConversions").then((m) => m.fbEvents.initiateCheckout())}>QUERO DESTRAVAR A FALA DO MEU FILHO EM 30 DIAS</a>
           </Button>
         </div>
 
