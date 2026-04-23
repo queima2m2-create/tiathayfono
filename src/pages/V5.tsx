@@ -22,7 +22,7 @@ import produtoMockup from "@/assets/mockup-mi-hijo-va-a-hablar.jpeg";
 import doisCaminhos from "@/assets/dois-caminhos-es.webp";
 import thaynaraFoto from "@/assets/thaynara-foto.webp";
 import sobreFilha from "@/assets/sobre-filha.webp";
-import seloGarantia from "@/assets/selo-garantia.webp";
+import seloGarantia from "@/assets/selo-garantia-es.webp";
 
 const DepoimentosSection = lazy(() => import("@/components/landing/DepoimentosSection"));
 const SocialProofToast = lazy(() => import("@/components/landing/SocialProofToast"));
