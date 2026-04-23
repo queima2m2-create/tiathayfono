@@ -57,8 +57,8 @@ const hasSufficientUserData = (userData: Record<string, string>) => {
 
 export async function sendFBConversionEvent(eventData: FBEventData) {
   try {
-    if (typeof window !== "undefined") {
-      await waitForTrackingCookies(eventData.event_name === "PageView" ? 2500 : 1000);
+    if (typeof window !== "undefined" && eventData.event_name !== "PageView") {
+      await waitForTrackingCookies(800);
     }
 
     const mergedUserData = {
