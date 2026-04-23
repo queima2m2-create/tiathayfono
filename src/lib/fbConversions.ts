@@ -71,24 +71,28 @@ export async function sendFBConversionEvent(eventData: FBEventData) {
       return null;
     }
 
-    const { supabase } = await import("@/integrations/supabase/client");
-    const { data, error } = await supabase.functions.invoke("fb-conversions", {
-      body: {
+    const response = await fetch(`${import.meta.env.VITE_SUPABASE_URL}/functions/v1/fb-conversions`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY}`,
+      },
+      body: JSON.stringify({
         ...eventData,
         event_source_url:
           eventData.event_source_url ||
           (typeof window !== "undefined" ? window.location.href : undefined),
         event_time: Math.floor(Date.now() / 1000),
         user_data: mergedUserData,
-      },
+      }),
     });
 
-    if (error) {
-      console.error("FB Conversion event error:", error);
+    if (!response.ok) {
+      console.error("FB Conversion event error:", await response.text());
       return null;
     }
 
-    return data;
+    return response.json();
   } catch (err) {
     console.error("Failed to send FB conversion event:", err);
     return null;
