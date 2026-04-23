@@ -12,8 +12,9 @@ dist
 dist-ssr
 *.local
 
-# Environment variables (do not commit secrets)
-.env
+# Environment variables — DO NOT commit real secrets here.
+# (.env is tracked because it only contains public Supabase publishable keys
+# that Lovable/Vite need at build time. Never add secret keys to .env.)
 .env.local
 .env.*.local
 
