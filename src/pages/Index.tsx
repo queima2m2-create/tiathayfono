@@ -1,4 +1,4 @@
-import { useEffect, lazy, Suspense, useState } from "react";
+import { useEffect, lazy, Suspense, useRef, useState } from "react";
 import HeroSection from "@/components/landing/HeroSection";
 import VturbPlayer from "@/components/landing/VturbPlayer";
 import ProvaRapida from "@/components/landing/ProvaRapida";
@@ -23,6 +23,7 @@ const Footer = lazy(() => import("@/components/landing/Footer"));
 const Index = () => {
   const [showSecondFold, setShowSecondFold] = useState(false);
   const [showRest, setShowRest] = useState(false);
+  const lazyLoadRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
     const fire = () => import("@/lib/fbConversions").then((m) => m.fbEvents.pageView());
@@ -34,18 +35,31 @@ const Index = () => {
   }, []);
 
   useEffect(() => {
-    const revealSecondFold = () => setShowSecondFold(true);
-    const revealRest = () => setShowRest(true);
-    const secondFoldTimer = window.setTimeout(revealSecondFold, 180);
-    const restTimer = window.setTimeout(revealRest, 1200);
-    window.addEventListener("scroll", revealRest, { once: true, passive: true });
-    window.addEventListener("pointerdown", revealRest, { once: true, passive: true });
+    const revealBelowFold = () => {
+      setShowSecondFold(true);
+      setShowRest(true);
+    };
+
+    const target = lazyLoadRef.current;
+    const observer = target && "IntersectionObserver" in window
+      ? new IntersectionObserver(
+          ([entry]) => {
+            if (!entry.isIntersecting) return;
+            revealBelowFold();
+            observer.disconnect();
+          },
+          { rootMargin: "650px 0px" }
+        )
+      : null;
+
+    if (target && observer) observer.observe(target);
+    window.addEventListener("scroll", revealBelowFold, { once: true, passive: true });
+    window.addEventListener("pointerdown", revealBelowFold, { once: true, passive: true });
 
     return () => {
-      window.clearTimeout(secondFoldTimer);
-      window.clearTimeout(restTimer);
-      window.removeEventListener("scroll", revealRest);
-      window.removeEventListener("pointerdown", revealRest);
+      observer?.disconnect();
+      window.removeEventListener("scroll", revealBelowFold);
+      window.removeEventListener("pointerdown", revealBelowFold);
     };
   }, []);
 
@@ -54,6 +68,7 @@ const Index = () => {
       <HeroSection />
       <VturbPlayer />
       <ProvaRapida />
+      <div ref={lazyLoadRef} aria-hidden="true" />
       {showSecondFold && (
         <Suspense fallback={null}>
           <DorSection />
