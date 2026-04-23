@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import thaynaraFoto from "@/assets/thaynara-foto.jpg";
+import thaynaraFoto from "@/assets/thaynara-foto.webp";
 
 const VturbPlayer = () => {
   const loaded = useRef(false);

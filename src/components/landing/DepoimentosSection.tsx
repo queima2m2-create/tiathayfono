@@ -1,7 +1,7 @@
-import depoimento1 from "@/assets/depoimento-1.jpeg";
-import depoimentoNovo1 from "@/assets/depoimento-novo-1.jpeg";
-import depoimentoNovo2 from "@/assets/depoimento-novo-2.jpeg";
-import depoimentoNovo4 from "@/assets/depoimento-novo-4.jpeg";
+import depoimento1 from "@/assets/depoimento-1.webp";
+import depoimentoNovo1 from "@/assets/depoimento-novo-1.webp";
+import depoimentoNovo2 from "@/assets/depoimento-novo-2.webp";
+import depoimentoNovo4 from "@/assets/depoimento-novo-4.webp";
 
 const depoimentos = [
   depoimento1,

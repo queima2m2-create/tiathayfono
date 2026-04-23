@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { getSocialProofCount } from "@/lib/socialProofCount";
-import thaynaraFoto from "@/assets/thaynara-foto.jpg";
-import sobreFilha from "@/assets/sobre-filha.jpeg";
+import thaynaraFoto from "@/assets/thaynara-foto.webp";
+import sobreFilha from "@/assets/sobre-filha.webp";
 
 const images = [thaynaraFoto, sobreFilha];
 
