@@ -1,121 +1,59 @@
-import { supabase } from "@/integrations/supabase/client";
+/**
+ * Meta Pixel events (client-side only).
+ *
+ * Previous version dual-fired each event: once via the browser pixel (window.fbq)
+ * and once to a Supabase edge function that forwarded to Meta's server-side
+ * Conversions API. The edge function was returning 4xx for every call, so the
+ * server-side leg never actually reached Meta. It also pulled in the entire
+ * @supabase/supabase-js SDK (~60 KiB gzipped) and ran heavy work on the main
+ * thread right during the critical paint window.
+ *
+ * We now just fire the client-side pixel, which is what the Meta Pixel snippet
+ * in index.html sets up. The browser pixel alone is enough to drive ad
+ * optimization — CAPI can be added back later via a server that actually works
+ * if attribution gaps become visible.
+ */
 
-interface FBEventData {
-  event_name: string;
-  event_id?: string;
-  event_source_url?: string;
-  user_data?: Record<string, string>;
-  custom_data?: Record<string, unknown>;
-}
+type FbqFn = (...args: unknown[]) => void;
 
-const MATCH_KEYS = ["fbp", "fbc", "em", "ph", "external_id", "client_ip_address"] as const;
-
-const getCookie = (name: string) => {
-  if (typeof document === "undefined") return undefined;
-
-  return document.cookie
-    .split("; ")
-    .find((row) => row.startsWith(`${name}=`))
-    ?.split("=")
-    .slice(1)
-    .join("=");
+const fbq = (): FbqFn | null => {
+  if (typeof window === "undefined") return null;
+  const w = window as unknown as { fbq?: FbqFn };
+  return typeof w.fbq === "function" ? w.fbq : null;
 };
 
-const delay = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
-
-const waitForTrackingCookies = async (timeoutMs = 2500) => {
-  const start = Date.now();
-
-  while (Date.now() - start < timeoutMs) {
-    const fbp = getCookie("_fbp");
-    const fbc = getCookie("_fbc");
-
-    if (fbp || fbc) return;
-
-    await delay(250);
-  }
+const track = (eventName: string, customData?: Record<string, unknown>) => {
+  const f = fbq();
+  if (!f) return;
+  if (customData) f("track", eventName, customData);
+  else f("track", eventName);
 };
-
-const getBrowserUserData = () => {
-  if (typeof window === "undefined") return {};
-
-  const userData: Record<string, string> = {
-    client_user_agent: window.navigator.userAgent,
-  };
-
-  const fbp = getCookie("_fbp");
-  const fbc = getCookie("_fbc");
-
-  if (fbp) userData.fbp = fbp;
-  if (fbc) userData.fbc = fbc;
-
-  return userData;
-};
-
-const hasSufficientUserData = (userData: Record<string, string>) => {
-  const hasMatchKey = MATCH_KEYS.some((key) => Boolean(userData[key]));
-  return Boolean(userData.client_user_agent) && hasMatchKey;
-};
-
-export async function sendFBConversionEvent(eventData: FBEventData) {
-  try {
-    if (typeof window !== "undefined") {
-      await waitForTrackingCookies(eventData.event_name === "PageView" ? 2500 : 1000);
-    }
-
-    const mergedUserData = {
-      ...getBrowserUserData(),
-      ...(eventData.user_data ?? {}),
-    };
-
-    if (!hasSufficientUserData(mergedUserData)) {
-      console.info(`Skipping FB Conversion event \"${eventData.event_name}\": insufficient user data`);
-      return null;
-    }
-
-    const { data, error } = await supabase.functions.invoke("fb-conversions", {
-      body: {
-        ...eventData,
-        event_source_url:
-          eventData.event_source_url ||
-          (typeof window !== "undefined" ? window.location.href : undefined),
-        event_time: Math.floor(Date.now() / 1000),
-        user_data: mergedUserData,
-      },
-    });
-
-    if (error) {
-      console.error("FB Conversion event error:", error);
-      return null;
-    }
-
-    return data;
-  } catch (err) {
-    console.error("Failed to send FB conversion event:", err);
-    return null;
-  }
-}
 
 export const fbEvents = {
-  pageView: () => sendFBConversionEvent({ event_name: "PageView" }),
+  pageView: () => {
+    // The inline pixel in index.html already fires PageView on load; keep this
+    // for parity with the previous API but make it a no-op to avoid double-counting.
+    return null;
+  },
 
   initiateCheckout: () =>
-    sendFBConversionEvent({
-      event_name: "InitiateCheckout",
-      custom_data: { content_name: "Guia Meu Filho Vai Falar", value: 67, currency: "BRL" },
+    track("InitiateCheckout", {
+      content_name: "Guia Meu Filho Vai Falar",
+      value: 67,
+      currency: "BRL",
     }),
 
   purchase: () =>
-    sendFBConversionEvent({
-      event_name: "Purchase",
-      custom_data: { content_name: "Guia Meu Filho Vai Falar", value: 67, currency: "BRL" },
+    track("Purchase", {
+      content_name: "Guia Meu Filho Vai Falar",
+      value: 67,
+      currency: "BRL",
     }),
 
-  lead: () => sendFBConversionEvent({ event_name: "Lead" }),
+  lead: () => track("Lead"),
 
   viewContent: () =>
-    sendFBConversionEvent({
-      event_name: "ViewContent",
-      custom_data: { content_name: "Guia Meu Filho Vai Falar" },
+    track("ViewContent", {
+      content_name: "Guia Meu Filho Vai Falar",
     }),
 };
