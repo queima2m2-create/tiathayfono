@@ -1,0 +1,36 @@
+name: tiathayfono
+region: nyc
+# App Platform reads this file when the app is created from the repo.
+# Declaring `static_sites:` (not `services:`) forces the resource to be a
+# free Static Site instead of a paid Web Service — avoids the $24/mo auto-
+# detection for Node projects.
+static_sites:
+  - name: tiathayfono
+    environment_slug: node-js
+    source_dir: /
+    build_command: npm run build
+    output_dir: dist
+    index_document: index.html
+    # SPA fallback — every unknown route serves index.html so React Router can
+    # pick up /v2, /v3, etc. without the CDN returning a 404.
+    catchall_document: index.html
+    github:
+      repo: queima2m2-create/tiathayfono
+      branch: main
+      deploy_on_push: true
+    envs:
+      - key: VITE_SUPABASE_URL
+        scope: BUILD_TIME
+        value: https://cvhxkujavtfbwsreouat.supabase.co
+      - key: VITE_SUPABASE_PUBLISHABLE_KEY
+        scope: BUILD_TIME
+        value: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImN2aHhrdWphdnRmYndzcmVvdWF0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzUwMTA4MjksImV4cCI6MjA5MDU4NjgyOX0.J1e77Q-sjRkBFnx1Tef3Ff0Lm1g3zPYenTWdcWdut3U
+      - key: VITE_SUPABASE_PROJECT_ID
+        scope: BUILD_TIME
+        value: cvhxkujavtfbwsreouat
+      - key: SUPABASE_URL
+        scope: BUILD_TIME
+        value: https://cvhxkujavtfbwsreouat.supabase.co
+      - key: SUPABASE_PUBLISHABLE_KEY
+        scope: BUILD_TIME
+        value: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImN2aHhrdWphdnRmYndzcmVvdWF0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzUwMTA4MjksImV4cCI6MjA5MDU4NjgyOX0.J1e77Q-sjRkBFnx1Tef3Ff0Lm1g3zPYenTWdcWdut3U
