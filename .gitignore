@@ -12,6 +12,12 @@ dist
 dist-ssr
 *.local
 
+# Use only npm (package-lock.json) — avoid multi-package-manager conflicts
+# that break hosted builds (DigitalOcean App Platform rejects the repo
+# otherwise). Lovable regenerates bun.lock locally as needed.
+bun.lock
+bun.lockb
+
 # Environment variables — DO NOT commit real secrets here.
 # (.env is tracked because it only contains public Supabase publishable keys
 # that Lovable/Vite need at build time. Never add secret keys to .env.)
