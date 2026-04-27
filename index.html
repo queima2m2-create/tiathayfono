@@ -65,12 +65,15 @@
     <meta name="twitter:description" content="Brinque com seu filho 15 minutos por dia e veja ele formar as primeiras palavras em até 30 dias.">
     <style>
       /* Critical CSS — inlined so the hero renders instantly, before the JS bundle or Tailwind stylesheet load. */
-      :root{--marrom-dark:#3a2f33;--rosa-light:#f7d4e2;--dourado:#b58a45}
+      :root{--marrom-dark:#3a2f33;--rosa-light:#f7d4e2;--dourado:#b58a45;--roxo:#6B2D8B;--cinza-claro:#F8F8F8}
       html,body,#root{min-height:100%;background:#fff;margin:0}
       body{font-family:'DM Sans',system-ui,-apple-system,BlinkMacSystemFont,sans-serif;color:var(--marrom-dark);-webkit-font-smoothing:antialiased}
-      /* Static hero shown before React mounts */
-      .instant-hero{position:fixed;inset:0;z-index:2147483647;background:#fff;overflow-y:auto;transition:opacity .2s ease,visibility .2s ease}
+      /* Static hero shown before React mounts. All variants hidden by default — the
+         per-route selector script below shows the correct one based on pathname. */
+      .instant-hero{position:fixed;inset:0;z-index:2147483647;background:#fff;overflow-y:auto;transition:opacity .2s ease,visibility .2s ease;display:none}
+      .instant-hero[data-active="true"]{display:block}
       .instant-hero--hidden{opacity:0;visibility:hidden;pointer-events:none}
+      /* Default + ES variant share the same layout (rosa header + video box) */
       .ih-header{background:linear-gradient(180deg,var(--rosa-light) 0%,#fff 100%);padding:1.5rem 1.5rem 1rem}
       .ih-inner{max-width:1000px;margin:0 auto;text-align:center}
       .ih-title{font-size:1.45rem;line-height:1.1;font-weight:900;color:var(--marrom-dark);margin:0 0 .5rem;text-transform:uppercase;letter-spacing:-.025em}
@@ -81,10 +84,21 @@
       .ih-video-box{aspect-ratio:16/9;background:#000;border-radius:1rem;overflow:hidden;display:flex;align-items:center;justify-content:center;position:relative}
       .ih-spinner{width:28px;height:28px;border-radius:999px;border:3px solid rgba(255,255,255,.25);border-top-color:#fff;animation:ihSpin .8s linear infinite}
       @keyframes ihSpin{to{transform:rotate(360deg)}}
+      /* V4 variant — purple urgency bar + "Aula 1" pill + video box on light gray bg */
+      .ih-v4{background:#fff}
+      .ih-v4-bar{position:sticky;top:0;width:100%;background:var(--roxo);color:#fff;text-align:center;font-size:12px;padding:10px 16px;letter-spacing:.025em;z-index:1}
+      .ih-v4-section{background:var(--cinza-claro);padding:2.5rem 1rem;text-align:center}
+      .ih-v4-pill{display:inline-block;background:var(--roxo);color:#fff;font-size:1.25rem;font-weight:800;line-height:1.2;padding:.75rem 1.5rem;border-radius:9999px;margin:0 0 1rem;max-width:90%}
+      .ih-v4-sub{color:#737373;font-size:.875rem;margin:0 0 1.5rem}
+      .ih-v4-video{aspect-ratio:16/9;max-width:800px;margin:0 auto;background:#000;border-radius:1rem;overflow:hidden;display:flex;align-items:center;justify-content:center;box-shadow:0 10px 25px -10px rgba(0,0,0,.2)}
       @media (min-width:768px){
         .ih-header{padding:4rem 1.5rem 3rem}
         .ih-title{font-size:2.6rem}
         .ih-desc{font-size:1.05rem;line-height:1.8}
+        .ih-v4-bar{font-size:14px;padding:12px 16px}
+        .ih-v4-section{padding:4rem 1.5rem}
+        .ih-v4-pill{font-size:2rem;padding:1rem 2rem}
+        .ih-v4-sub{font-size:1rem}
       }
       @media (prefers-reduced-motion:reduce){.ih-spinner{animation:none}.instant-hero{transition:none}}
     </style>
@@ -116,10 +130,14 @@
     <noscript><img height="1" width="1" style="display:none"
       src="https://www.facebook.com/tr?id=763712916051534&ev=PageView&noscript=1"
     /></noscript>
-    <!-- Instant hero — rendered immediately on page open so the user sees content
-         BEFORE the JS bundle downloads/executes. React mounts below and this
-         overlay fades out once the interactive version is ready. -->
-    <div id="instant-hero" class="instant-hero" aria-hidden="false">
+    <!-- Instant hero — three variants rendered in HTML, but only ONE is shown
+         depending on the current route (selected by the inline script below
+         BEFORE React loads). This eliminates the visual flash that happens
+         when the static hero content doesn't match what React renders for
+         that route (different copy, different layout, or different language). -->
+
+    <!-- Variant A: Default PT (used by /, /v2, /v3) -->
+    <div id="instant-hero-pt" class="instant-hero" aria-hidden="false">
       <section class="ih-header">
         <div class="ih-inner">
           <h1 class="ih-title">FAÇA ESSES AJUSTES NA ROTINA DO SEU FILHO POR 15 MINUTOS E VEJA ELE FORMAR AS PRIMEIRAS FRASES <span>EM ATÉ 30 DIAS</span></h1>
@@ -134,6 +152,53 @@
         </div>
       </section>
     </div>
+
+    <!-- Variant B: V4 (upsell page — purple urgency bar + "Aula 1" pill) -->
+    <div id="instant-hero-v4" class="instant-hero ih-v4" aria-hidden="false">
+      <div class="ih-v4-bar">⏳ Seu acesso ao Guia está sendo liberado... Assista a aula exclusiva da Tia Thay antes de ir</div>
+      <section class="ih-v4-section">
+        <h1 class="ih-v4-pill">🎓 Aula 1 — Liberada exclusivamente para você</h1>
+        <p class="ih-v4-sub">Assista até o fim — essa aula aparece só uma vez</p>
+        <div class="ih-v4-video" role="status" aria-label="Carregando vídeo">
+          <div class="ih-spinner" aria-hidden="true"></div>
+        </div>
+      </section>
+    </div>
+
+    <!-- Variant C: ES (used by /v5 — Spanish landing) -->
+    <div id="instant-hero-es" class="instant-hero" aria-hidden="false">
+      <section class="ih-header">
+        <div class="ih-inner">
+          <h1 class="ih-title">HAZ ESTOS AJUSTES EN LA RUTINA DE TU HIJO POR 15 MINUTOS Y VELO FORMAR SUS PRIMERAS FRASES <span>EN HASTA 30 DÍAS</span></h1>
+          <p class="ih-desc">El método creado por una fonoaudióloga que usa la rutina que ya tienes — sin consulta, sin juguetes especiales y sin complicaciones.</p>
+        </div>
+      </section>
+      <section class="ih-video-wrap">
+        <div class="ih-video-inner">
+          <div class="ih-video-box" role="status" aria-label="Cargando video">
+            <div class="ih-spinner" aria-hidden="true"></div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- Selector: pick the right variant for this route. Runs synchronously
+         in <1ms (vanilla DOM, no deps) right after the variants are parsed,
+         so only the correct one ever paints. -->
+    <script>
+      (function(){
+        var path = location.pathname.replace(/\/$/, '') || '/';
+        var heroMap = { '/v4': 'instant-hero-v4', '/v5': 'instant-hero-es' };
+        var activeId = heroMap[path] || 'instant-hero-pt';
+        var ids = ['instant-hero-pt','instant-hero-v4','instant-hero-es'];
+        for (var i=0; i<ids.length; i++){
+          var el = document.getElementById(ids[i]);
+          if (!el) continue;
+          if (ids[i] === activeId) el.setAttribute('data-active','true');
+        }
+      })();
+    </script>
+
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
