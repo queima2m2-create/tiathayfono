@@ -1,4 +1,4 @@
-import maeFilho from "@/assets/mae-filho-brincando.jpg";
+import maeFilho from "@/assets/es/prova-rapida-es.jpeg";
 import { getSocialProofCountEs } from "@/lib/socialProofCountEs";
 
 const ProvaRapidaEs = () => (
