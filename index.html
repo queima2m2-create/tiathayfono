@@ -69,10 +69,13 @@
       html,body,#root{min-height:100%;background:#fff;margin:0}
       body{font-family:'DM Sans',system-ui,-apple-system,BlinkMacSystemFont,sans-serif;color:var(--marrom-dark);-webkit-font-smoothing:antialiased}
       /* Static hero shown before React mounts. All variants hidden by default — the
-         per-route selector script below shows the correct one based on pathname. */
-      .instant-hero{position:fixed;inset:0;z-index:2147483647;background:#fff;overflow-y:auto;transition:opacity .2s ease,visibility .2s ease;display:none}
+         per-route selector script below shows the correct one based on pathname.
+         No fade transition: when React paints, the instant-hero is removed
+         instantly so we never have two layers visible at the same time (which
+         was causing a "ghost" effect on /v5 due to subtle font-loading
+         differences between the static and React-rendered text). */
+      .instant-hero{position:fixed;inset:0;z-index:2147483647;background:#fff;overflow-y:auto;display:none}
       .instant-hero[data-active="true"]{display:block}
-      .instant-hero--hidden{opacity:0;visibility:hidden;pointer-events:none}
       /* Default + ES variant share the same layout (rosa header + video box) */
       .ih-header{background:linear-gradient(180deg,var(--rosa-light) 0%,#fff 100%);padding:1.5rem 1.5rem 1rem}
       .ih-inner{max-width:1000px;margin:0 auto;text-align:center}
