@@ -2,10 +2,8 @@ import depoimentoNovo1 from "@/assets/es/depoimento-novo-1-es.jpeg";
 import depoimentoNovo2 from "@/assets/es/depoimento-novo-2-es.jpeg";
 
 const depoimentos = [
-  depoimento1,
   depoimentoNovo1,
   depoimentoNovo2,
-  depoimentoNovo4,
 ];
 
 const DepoimentosSectionEs = () => (
