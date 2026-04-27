@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { fbEvents } from "@/lib/fbConversions";
-import produtoMockup from "@/assets/es/produto-mockup-es.jpeg";
+import produtoMockup from "@/assets/es/produto-mockup-precos-es.jpeg";
 
 const CTA_LINK = "https://pay.kiwify.com.br/uXb5s35";
 
