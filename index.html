@@ -21,6 +21,30 @@
     <link rel="preload" href="https://scripts.converteai.net/8cb68814-a0fc-45e0-ace9-4a6b005a0cc8/players/6898af1550270c783e275378/v4/player.js" as="script">
     <link rel="preload" href="https://scripts.converteai.net/lib/js/smartplayer-wc/v4/smartplayer.js" as="script">
     <link rel="preload" href="https://cdn.converteai.net/8cb68814-a0fc-45e0-ace9-4a6b005a0cc8/6898aeb9d7302addde0a1a96/main.m3u8" as="fetch" crossorigin>
+    <!-- Per-route player preload: v4 and v5 use different VTurb players than the
+         main one. Without this, those routes start downloading the player.js
+         only after React mounts (~500-1000ms delay perceived by the user).
+         This script runs synchronously in <1ms and adds the right preload
+         link for the current route, so the player.js is already in cache by
+         the time React asks for it. Routes /, /v2, /v3 keep using the static
+         preload above (main player) — we don't add anything for them. -->
+    <script>
+      (function(){
+        var path = location.pathname.replace(/\/$/, '') || '/';
+        var routePlayers = {
+          '/v4': '69e151b6eeef2dbf7e2a56c1',
+          '/v5': '69efc2df3fdd3d20d10403ab'
+        };
+        var playerId = routePlayers[path];
+        if (playerId) {
+          var link = document.createElement('link');
+          link.rel = 'preload';
+          link.as = 'script';
+          link.href = 'https://scripts.converteai.net/8cb68814-a0fc-45e0-ace9-4a6b005a0cc8/players/' + playerId + '/v4/player.js';
+          document.head.appendChild(link);
+        }
+      })();
+    </script>
     <!-- Keep preconnects only for the most critical origins -->
     <link rel="preconnect" href="https://scripts.converteai.net" crossorigin />
     <link rel="preconnect" href="https://cdn.converteai.net" crossorigin />
