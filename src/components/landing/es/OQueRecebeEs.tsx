@@ -1,9 +1,9 @@
-import entregaSinais from "@/assets/entrega-sinais-alerta.jpg";
+import entregaSinais from "@/assets/es/checklist-del-habla-es.jpeg";
 import { getSocialProofCountEs } from "@/lib/socialProofCountEs";
 import entregaFala from "@/assets/entrega-fala-funciona.jpg";
-import entregaBrincadeiras from "@/assets/entrega-brincadeiras-fala.jpg";
-import entregaPalavras from "@/assets/entrega-palavras.jpg";
-import entregaAtividades from "@/assets/entrega-atividades.jpg";
+import entregaBrincadeiras from "@/assets/es/jugar-sonar-hablar-es.jpeg";
+import entregaPalavras from "@/assets/es/palabras-que-destraban-es.jpeg";
+import entregaAtividades from "@/assets/es/nino-parlanchin-es.jpeg";
 import entregaTelas from "@/assets/entrega-telas.jpg";
 import entregaSuporteWpp from "@/assets/entrega-suporte-wpp.jpg";
 
