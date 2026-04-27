@@ -1,4 +1,4 @@
-import produtoMockup from "@/assets/produto-mockup.jpg";
+import produtoMockup from "@/assets/es/produto-mockup-es.jpeg";
 
 const guideItems = [
   { emoji: "⚠️", price: "$13", title: "Señales de Alerta" },
