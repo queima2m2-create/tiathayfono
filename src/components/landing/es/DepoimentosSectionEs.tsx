@@ -1,9 +1,15 @@
 import depoimentoNovo1 from "@/assets/es/depoimento-novo-1-es.jpeg";
 import depoimentoNovo2 from "@/assets/es/depoimento-novo-2-es.jpeg";
+import depoimentoNovo3 from "@/assets/es/depoimento-novo-3-es.jpeg";
+import depoimentoNovo4 from "@/assets/es/depoimento-novo-4-es.jpeg";
+import depoimentoNovo5 from "@/assets/es/depoimento-novo-5-es.jpeg";
 
 const depoimentos = [
   depoimentoNovo1,
   depoimentoNovo2,
+  depoimentoNovo3,
+  depoimentoNovo4,
+  depoimentoNovo5,
 ];
 
 const DepoimentosSectionEs = () => (
