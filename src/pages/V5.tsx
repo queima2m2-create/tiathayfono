@@ -1,6 +1,6 @@
 import { useEffect, lazy, Suspense } from "react";
 import HeroSectionEs from "@/components/landing/es/HeroSectionEs";
-import VturbPlayer from "@/components/landing/VturbPlayer";
+import VturbPlayer from "@/components/landing/VturbPlayerV5";
 import { Button } from "@/components/ui/button";
 
 const SocialProofToastEs = lazy(() => import("@/components/landing/es/SocialProofToastEs"));
