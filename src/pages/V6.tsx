@@ -134,22 +134,22 @@ const V6 = () => {
           className="max-w-[420px] mx-auto rounded-2xl text-center px-4 py-4 bg-white"
           style={{ border: `2px solid ${DOURADO}` }}
         >
-          <p className="text-[0.85rem] line-through" style={{ color: CINZA_MEDIO }}>
+          <p className="text-[0.95rem] line-through font-semibold" style={{ color: VERMELHO }}>
             De R$ 197
           </p>
-          <p className="text-[0.78rem] mt-0.5" style={{ color: CINZA_MEDIO }}>
+          <p className="text-[0.8rem] mt-1" style={{ color: CINZA_TEXTO }}>
             Por apenas
           </p>
           <p
-            className="font-black leading-none my-1"
-            style={{ color: VERMELHO, fontSize: "clamp(2.6rem, 11vw, 3.6rem)" }}
+            className="font-black leading-none mt-1"
+            style={{ color: "#43A047", fontSize: "clamp(2.4rem, 10vw, 3.4rem)" }}
           >
-            R$ 97,00
+            12x de R$ 10,03
           </p>
-          <p className="text-[0.95rem] font-bold" style={{ color: ROXO }}>
-            ou 12x de R$ 9,99
+          <p className="text-[1.05rem] font-bold mt-2" style={{ color: ROXO }}>
+            ou R$ 97,00 à vista
           </p>
-          <p className="text-[0.85rem] font-extrabold mt-1.5" style={{ color: DOURADO_HOVER }}>
+          <p className="text-[0.95rem] font-extrabold mt-2" style={{ color: "#43A047" }}>
             50% OFF — só nesta tela
           </p>
         </div>
