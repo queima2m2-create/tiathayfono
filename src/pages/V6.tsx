@@ -126,45 +126,51 @@ const V6 = () => {
         </div>
       </section>
 
-      {/* 6) CTA */}
-      <section className="px-4 pb-1.5">
-        <a
-          href={CHECKOUT_LINK}
-          onClick={handleCta}
-          className="downsell-cta block w-[92%] max-w-[420px] mx-auto rounded-full uppercase font-extrabold text-white text-center py-3.5 px-4 text-[0.92rem] tracking-wide transition-all"
-          style={{
-            background: "#43A047",
-            boxShadow: `0 8px 22px -8px #43A047cc`,
-          }}
-        >
-          QUERO O PLANO COM 50% OFF ➔
-        </a>
-      </section>
+      {/* 6) CTA + 8) LINK SAÍDA — Kiwify One-Click */}
+      <div
+        id="kiwify-upsell-2YqnsXX"
+        data-upsell-url=""
+        data-downsell-url="https://www.tiathayfono.com.br/obrigado"
+      >
+        <section className="px-4 pb-1.5">
+          <button
+            id="kiwify-upsell-trigger-2YqnsXX"
+            onClick={handleCta}
+            className="downsell-cta block w-[92%] max-w-[420px] mx-auto rounded-full uppercase font-extrabold text-white text-center py-3.5 px-4 text-[0.92rem] tracking-wide transition-all border-0 cursor-pointer"
+            style={{
+              background: "#43A047",
+              boxShadow: `0 8px 22px -8px #43A047cc`,
+            }}
+          >
+            QUERO O PLANO COM 50% OFF ➔
+          </button>
+        </section>
 
-      {/* 7) MICROCOPY */}
-      <section className="px-4 pb-1.5 pt-1 text-center">
-        <p className="text-[0.72rem] leading-snug" style={{ color: CINZA_MEDIO }}>
-          ✅ Acesso vitalício • ✅ Garantia incondicional de 7 dias
-        </p>
-      </section>
+        {/* 7) MICROCOPY */}
+        <section className="px-4 pb-1.5 pt-1 text-center">
+          <p className="text-[0.72rem] leading-snug" style={{ color: CINZA_MEDIO }}>
+            ✅ Acesso vitalício • ✅ Garantia incondicional de 7 dias
+          </p>
+        </section>
 
-      {/* 7b) DISCLAIMER */}
-      <section className="px-4 pb-2 text-center">
-        <p className="text-[0.65rem] leading-snug" style={{ color: "#999999" }}>
-          *Esta oferta especial não inclui os bônus do plano premium (Guia de Situações Difíceis, Checklist de Marcos e App Tagarelar).
-        </p>
-      </section>
+        {/* 7b) DISCLAIMER */}
+        <section className="px-4 pb-2 text-center">
+          <p className="text-[0.65rem] leading-snug" style={{ color: "#999999" }}>
+            *Esta oferta especial não inclui os bônus do plano premium (Guia de Situações Difíceis, Checklist de Marcos e App Tagarelar).
+          </p>
+        </section>
 
-      {/* 8) LINK SAÍDA */}
-      <section className="px-4 pb-4 text-center">
-        <a
-          href={SAIDA_LINK}
-          className="inline-block text-[0.78rem] underline underline-offset-2"
-          style={{ color: "#999999" }}
-        >
-          Não, prefiro continuar sem
-        </a>
-      </section>
+        {/* 8) LINK SAÍDA */}
+        <section className="px-4 pb-4 text-center">
+          <div
+            id="kiwify-upsell-cancel-trigger-2YqnsXX"
+            className="inline-block text-[0.78rem] underline underline-offset-2 cursor-pointer"
+            style={{ color: "#999999" }}
+          >
+            Não, prefiro continuar sem
+          </div>
+        </section>
+      </div>
 
       <style>{`
         @keyframes downsellPulse {
