@@ -57,7 +57,7 @@ const V4Reveal = () => {
                 style={{ textAlign: "center" }}
                 id="kiwify-upsell-cXCgv1m"
                 data-upsell-url=""
-                data-downsell-url=""
+                data-downsell-url="https://www.tiathayfono.com.br/downsell"
               >
                 <button
                   id="kiwify-upsell-trigger-cXCgv1m"
@@ -93,14 +93,17 @@ const V4Reveal = () => {
                 <div
                   id="kiwify-upsell-cancel-trigger-cXCgv1m"
                   style={{
-                    marginTop: "1rem",
+                    marginTop: "1.5rem",
                     cursor: "pointer",
-                    fontSize: "16px",
+                    fontSize: "14px",
+                    color: "#999999",
+                    fontWeight: 400,
                     textDecoration: "underline",
+                    textAlign: "center",
                     fontFamily: "sans-serif",
                   }}
                 >
-                  .
+                  Agora não, obrigada
                 </div>
               </div>
             </div>
