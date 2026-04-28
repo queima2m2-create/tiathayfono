@@ -92,15 +92,30 @@ const V4Reveal = () => {
                 </button>
                 <div
                   id="kiwify-upsell-cancel-trigger-cXCgv1m"
+                  onMouseEnter={(e) => {
+                    (e.currentTarget as HTMLDivElement).style.backgroundColor = "#F5F5F5";
+                  }}
+                  onMouseLeave={(e) => {
+                    (e.currentTarget as HTMLDivElement).style.backgroundColor = "#FFFFFF";
+                  }}
                   style={{
-                    marginTop: "1.5rem",
+                    marginTop: "16px",
                     cursor: "pointer",
-                    fontSize: "14px",
-                    color: "#999999",
+                    fontSize: "16px",
+                    color: "#666666",
                     fontWeight: 400,
-                    textDecoration: "underline",
+                    textDecoration: "none",
                     textAlign: "center",
                     fontFamily: "sans-serif",
+                    backgroundColor: "#FFFFFF",
+                    border: "1px solid #D4D4D4",
+                    padding: "12px 24px",
+                    borderRadius: "8px",
+                    width: "90%",
+                    marginLeft: "auto",
+                    marginRight: "auto",
+                    display: "block",
+                    transition: "background-color 0.15s ease",
                   }}
                 >
                   Agora não, obrigada
