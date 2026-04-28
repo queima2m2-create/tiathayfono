@@ -39,7 +39,7 @@ const V6 = () => {
         className="sticky top-0 z-50 w-full text-white text-center text-[12px] py-1 px-3 font-medium"
         style={{ background: ROXO }}
       >
-        ⏳ Espera, mãe! Antes de você ir...
+        🔥 ÚLTIMA CHANCE — Oferta exclusiva desta tela
       </div>
 
       {/* 2) HERO COMPACTO */}
@@ -48,11 +48,10 @@ const V6 = () => {
           className="text-[1.15rem] font-extrabold leading-snug mb-1.5"
           style={{ color: ROXO }}
         >
-          Vi que você não quis o Plano completo...
+          VOCÊ AINDA PODE LEVAR O PLANO 30 DIAS COM 50% OFF
         </h1>
         <p className="text-[0.88rem] leading-snug" style={{ color: CINZA_TEXTO }}>
-          Sem problema! Separei um <strong style={{ color: ROXO }}>KIT INICIAL</strong> com{" "}
-          <strong style={{ color: VERMELHO }}>50% OFF</strong> — só nesta tela.
+          Última oportunidade de levar o método completo da Tia Thay para destravar a fala do seu filho — com <strong style={{ color: VERMELHO }}>metade do preço</strong>.
         </p>
       </section>
 
@@ -63,15 +62,15 @@ const V6 = () => {
           style={{ background: LILAS }}
         >
           <h2 className="text-[0.95rem] font-extrabold mb-2 text-center" style={{ color: ROXO }}>
-            ✅ O kit inicial inclui:
+            ✅ Você leva o método completo:
           </h2>
 
-          <ul className="space-y-1 mb-2.5">
+          <ul className="space-y-1.5 mb-2.5">
             {ITENS_PRINCIPAIS.map((item) => (
               <li key={item.titulo} className="text-[0.88rem] font-bold leading-snug" style={{ color: CINZA_TEXTO }}>
                 {item.icon} {item.titulo}{" "}
-                <span className="line-through font-semibold" style={{ color: CINZA_MEDIO }}>
-                  ({item.valor})
+                <span className="line-through font-semibold ml-1" style={{ color: CINZA_MEDIO }}>
+                  De {item.valor}
                 </span>
               </li>
             ))}
@@ -82,7 +81,7 @@ const V6 = () => {
             style={{ background: DOURADO }}
           >
             <p className="text-white font-extrabold text-[0.85rem] leading-tight">
-              Valor real: R$391 | Você leva por R$97
+              Valor real R$391 → Hoje por apenas R$97
             </p>
           </div>
         </div>
@@ -110,7 +109,7 @@ const V6 = () => {
             ou R$ 97,00 à vista
           </p>
           <p className="text-[0.85rem] font-extrabold mt-0.5 leading-tight" style={{ color: "#43A047" }}>
-            50% OFF — só nesta tela
+            💚 ECONOMIA DE R$100 — só nesta tela 💚
           </p>
         </div>
       </section>
@@ -122,7 +121,7 @@ const V6 = () => {
           style={{ background: ROXO_ESCURO }}
         >
           <p className="text-white font-bold text-[0.82rem] leading-tight">
-            ⏰ Esta oferta desaparece se você sair desta página
+            ⚠️ Se você sair desta página, esta oferta NÃO estará disponível depois
           </p>
         </div>
       </section>
@@ -134,18 +133,25 @@ const V6 = () => {
           onClick={handleCta}
           className="downsell-cta block w-[92%] max-w-[420px] mx-auto rounded-full uppercase font-extrabold text-white text-center py-3.5 px-4 text-[0.92rem] tracking-wide transition-all"
           style={{
-            background: DOURADO,
-            boxShadow: `0 8px 22px -8px ${DOURADO}cc`,
+            background: "#43A047",
+            boxShadow: `0 8px 22px -8px #43A047cc`,
           }}
         >
-          SIM, QUERO COMEÇAR POR R$ 97 ➔
+          QUERO O PLANO COM 50% OFF ➔
         </a>
       </section>
 
       {/* 7) MICROCOPY */}
-      <section className="px-4 pb-2 pt-1 text-center">
+      <section className="px-4 pb-1.5 pt-1 text-center">
         <p className="text-[0.72rem] leading-snug" style={{ color: CINZA_MEDIO }}>
-          ✅ Acesso vitalício • ✅ Garantia 7 dias • ❌ Sem Guia, Checklist e App (no plano completo)
+          ✅ Acesso vitalício • ✅ Garantia incondicional de 7 dias
+        </p>
+      </section>
+
+      {/* 7b) DISCLAIMER */}
+      <section className="px-4 pb-2 text-center">
+        <p className="text-[0.65rem] leading-snug" style={{ color: "#999999" }}>
+          *Esta oferta especial não inclui os bônus do plano premium (Guia de Situações Difíceis, Checklist de Marcos e App Tagarelar).
         </p>
       </section>
 
@@ -162,11 +168,11 @@ const V6 = () => {
 
       <style>{`
         @keyframes downsellPulse {
-          0%, 100% { transform: scale(1); box-shadow: 0 8px 22px -8px ${DOURADO}cc; }
-          50% { transform: scale(1.03); box-shadow: 0 12px 28px -6px ${DOURADO}e6; }
+          0%, 100% { transform: scale(1); box-shadow: 0 8px 22px -8px #43A047cc; }
+          50% { transform: scale(1.03); box-shadow: 0 12px 28px -6px #43A047e6; }
         }
         .downsell-cta { animation: downsellPulse 2.2s ease-in-out infinite; }
-        .downsell-cta:hover { background: ${DOURADO_HOVER} !important; animation-play-state: paused; }
+        .downsell-cta:hover { background: #2E7D32 !important; animation-play-state: paused; }
       `}</style>
     </div>
   );
