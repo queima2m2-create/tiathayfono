@@ -138,7 +138,7 @@ const V6 = () => {
       <div
         id="kiwify-upsell-2YqnsXX"
         data-upsell-url=""
-        data-downsell-url="https://www.tiathayfono.com.br/obrigado"
+        data-downsell-url="https://www.tiathayfono.com.br/v3"
       >
         <section className="px-4 pb-1.5">
           <button
