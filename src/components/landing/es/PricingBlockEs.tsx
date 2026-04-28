@@ -66,9 +66,12 @@ const PricingBlockEs = ({ className = "", showUrgency = true }: { className?: st
           Por solo <strong className="text-[2.8rem] md:text-[3.2rem] font-black text-marrom-dark leading-none">$19,99</strong>
         </p>
 
-        <div className="inline-block bg-marrom-dark/80 text-background text-[1.3rem] font-black px-8 py-3 rounded-xl my-4">
+        <div className="inline-block bg-marrom-dark/80 text-background text-[1.3rem] font-black px-8 py-3 rounded-xl mt-4">
           PAGO ÚNICO EN USD
         </div>
+        <p className="italic text-[0.85rem] text-[#888888] mt-1.5 mb-4 text-center">
+          El cobro se convierte automáticamente a tu moneda local
+        </p>
 
         <div className="mt-5">
           <Button variant="cta" size="lg" className="text-[0.9rem] md:text-[1rem] px-8 py-6 md:py-7 w-full leading-tight whitespace-normal h-auto text-background font-extrabold" asChild>
