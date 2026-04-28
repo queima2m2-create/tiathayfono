@@ -91,7 +91,7 @@ const V6 = () => {
               </div>
               <div className="flex-1">
                 <h3 className="font-extrabold text-[1.05rem] md:text-[1.2rem] mb-1" style={{ color: ROXO }}>
-                  Plano 30 Dias com a Tia Thay <span style={{ color: DOURADO }}>(R$297)</span>
+                  Plano 30 Dias com a Tia Thay <span className="line-through" style={{ color: CINZA_MEDIO }}>(R$297)</span>
                 </h3>
                 <p className="text-[0.95rem] md:text-[1rem] leading-relaxed" style={{ color: CINZA_TEXTO }}>
                   Roteiro diário passo a passo para destravar a fala do seu filho — completo, igualzinho ao da versão premium.
@@ -110,7 +110,7 @@ const V6 = () => {
               </div>
               <div className="flex-1">
                 <h3 className="font-extrabold text-[1.05rem] md:text-[1.2rem] mb-1" style={{ color: ROXO }}>
-                  Caderno de Acompanhamento <span style={{ color: DOURADO }}>(R$47)</span>
+                  Caderno de Acompanhamento <span className="line-through" style={{ color: CINZA_MEDIO }}>(R$47)</span>
                 </h3>
                 <p className="text-[0.95rem] md:text-[1rem] leading-relaxed" style={{ color: CINZA_TEXTO }}>
                   Registre cada palavra nova e veja a evolução em tempo real durante os 30 dias.
@@ -129,7 +129,7 @@ const V6 = () => {
               </div>
               <div className="flex-1">
                 <h3 className="font-extrabold text-[1.05rem] md:text-[1.2rem] mb-1" style={{ color: ROXO }}>
-                  50 Cards para Imprimir <span style={{ color: DOURADO }}>(R$47)</span>
+                  50 Cards para Imprimir <span className="line-through" style={{ color: CINZA_MEDIO }}>(R$47)</span>
                 </h3>
                 <p className="text-[0.95rem] md:text-[1rem] leading-relaxed" style={{ color: CINZA_TEXTO }}>
                   Estímulos visuais prontos para usar todos os dias junto com o Plano.
