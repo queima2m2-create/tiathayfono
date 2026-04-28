@@ -11,7 +11,7 @@ const DOURADO = "#D4A047";
 const DOURADO_HOVER = "#B8862F";
 const VERMELHO = "#C62828";
 
-const CHECKOUT_LINK = "https://pay.kiwify.com/6tBcvSl";
+const CHECKOUT_LINK = "https://pay.kiwify.com.br/2YqnsXX";
 const SAIDA_LINK = "/v3";
 
 const ITENS_PRINCIPAIS = [
