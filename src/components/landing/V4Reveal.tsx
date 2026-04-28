@@ -93,25 +93,28 @@ const V4Reveal = () => {
                 <div
                   id="kiwify-upsell-cancel-trigger-cXCgv1m"
                   onMouseEnter={(e) => {
-                    (e.currentTarget as HTMLDivElement).style.backgroundColor = "#F5F5F5";
+                    (e.currentTarget as HTMLDivElement).style.backgroundColor = "#5A6268";
                   }}
                   onMouseLeave={(e) => {
-                    (e.currentTarget as HTMLDivElement).style.backgroundColor = "#FFFFFF";
+                    (e.currentTarget as HTMLDivElement).style.backgroundColor = "#6C757D";
                   }}
                   style={{
-                    marginTop: "16px",
+                    marginTop: "12px",
                     cursor: "pointer",
-                    fontSize: "16px",
-                    color: "#666666",
-                    fontWeight: 400,
-                    textDecoration: "none",
+                    backgroundColor: "#6C757D",
+                    color: "#FFFFFF",
+                    fontWeight: 700,
+                    fontSize: "18px",
+                    textTransform: "uppercase",
+                    padding: "20px 32px",
+                    border: "none",
+                    borderRadius: "16px",
+                    width: "100%",
+                    maxWidth: "520px",
+                    letterSpacing: "0.3px",
+                    boxShadow: "0 6px 14px -6px rgba(108,117,125,0.45), 0 2px 0 0 #5A6268",
                     textAlign: "center",
-                    fontFamily: "sans-serif",
-                    backgroundColor: "#FFFFFF",
-                    border: "1px solid #D4D4D4",
-                    padding: "12px 24px",
-                    borderRadius: "8px",
-                    width: "90%",
+                    fontFamily: "'DM Sans', system-ui, sans-serif",
                     marginLeft: "auto",
                     marginRight: "auto",
                     display: "block",
