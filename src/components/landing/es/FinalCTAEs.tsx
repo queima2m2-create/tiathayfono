@@ -1,4 +1,4 @@
-import doisCaminhos from "@/assets/dois-caminhos.jpg";
+import doisCaminhos from "@/assets/es/dois-caminhos-es.jpeg";
 import PricingBlockEs from "./PricingBlockEs";
 
 const FinalCTAEs = () => (
