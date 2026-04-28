@@ -1,6 +1,6 @@
 import bonusMusicas from "@/assets/bonus-musicas.jpg";
 import bonusAulaVivo from "@/assets/bonus-aula-vivo.jpg";
-import bonusCards from "@/assets/bonus-cards.jpg";
+import bonusCards from "@/assets/es/bonus-cards-es.jpeg";
 import bonusCertificado from "@/assets/es/certificado-hablador-es.jpeg";
 
 const bonusItems = [
