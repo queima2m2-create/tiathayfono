@@ -23,6 +23,14 @@ const ITENS_PRINCIPAIS = [
 const V6 = () => {
   useEffect(() => {
     fbEvents.pageView();
+
+    const SRC = "https://snippets.kiwify.com/upsell/upsell.min.js";
+    if (!document.querySelector(`script[src="${SRC}"]`)) {
+      const s = document.createElement("script");
+      s.src = SRC;
+      s.async = true;
+      document.body.appendChild(s);
+    }
   }, []);
 
   const handleCta = () => {
