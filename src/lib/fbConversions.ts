@@ -39,6 +39,7 @@ export const fbEvents = {
   initiateCheckout: () =>
     track("InitiateCheckout", {
       content_name: "Guia Meu Filho Vai Falar",
+      content_type: "product",
       value: 67,
       currency: "BRL",
     }),
