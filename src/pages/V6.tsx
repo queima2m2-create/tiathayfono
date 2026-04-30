@@ -34,7 +34,14 @@ const V6 = () => {
   }, []);
 
   const handleCta = () => {
-    fbEvents.initiateCheckout();
+    if (typeof (window as any).fbq !== "undefined") {
+      (window as any).fbq("track", "InitiateCheckout", {
+        value: 97,
+        currency: "BRL",
+        content_name: "Plano 30 Dias - Oferta Especial",
+        content_type: "product",
+      });
+    }
   };
 
   return (
