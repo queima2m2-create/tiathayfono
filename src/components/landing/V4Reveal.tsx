@@ -62,6 +62,16 @@ const V4Reveal = () => {
                 <button
                   id="kiwify-upsell-trigger-cXCgv1m"
                   className="kiwify-cta-button"
+                  onClick={() => {
+                    if (typeof (window as any).fbq !== "undefined") {
+                      (window as any).fbq("track", "InitiateCheckout", {
+                        value: 197,
+                        currency: "BRL",
+                        content_name: "Plano 30 Dias Tia Thay",
+                        content_type: "product",
+                      });
+                    }
+                  }}
                   style={{
                     background: "linear-gradient(180deg, #2ED66F 0%, #27AF60 50%, #1F8F4E 100%)",
                     padding: "20px 32px",
