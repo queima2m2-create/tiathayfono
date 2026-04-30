@@ -51,10 +51,7 @@ const Index = () => {
             className="text-[0.85rem] md:text-[1rem] px-8 py-5 md:py-6 w-full md:w-auto max-w-[600px] leading-tight whitespace-normal h-auto"
             asChild
           >
-            <a
-              href="#recapitulando"
-              onClick={() => import("@/lib/fbConversions").then((m) => m.fbEvents.initiateCheckout())}
-            >
+            <a href="#recapitulando">
               QUERO DESTRAVAR A FALA DO MEU FILHO EM 30 DIAS →
             </a>
           </Button>
