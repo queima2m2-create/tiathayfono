@@ -10,6 +10,14 @@ const V5 = lazy(() => import("./pages/V5.tsx"));
 const V6 = lazy(() => import("./pages/V6.tsx"));
 const NotFound = lazy(() => import("./pages/NotFound.tsx"));
 
+const PageViewTracker = () => {
+  const location = useLocation();
+  useEffect(() => {
+    firePageViewWithDedup();
+  }, [location.pathname]);
+  return null;
+};
+
 const App = () => {
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
@@ -22,6 +30,7 @@ const App = () => {
 
   return (
     <BrowserRouter>
+      <PageViewTracker />
       <Routes>
         <Route path="/" element={<Index />} />
         <Route path="/v2" element={<Suspense fallback={null}><V2 /></Suspense>} />
