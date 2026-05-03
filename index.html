@@ -116,7 +116,7 @@
         t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
         document,'script','https://connect.facebook.net/en_US/fbevents.js');
         fbq('init','763712916051534');
-        fbq('track','PageView');
+        // PageView agora é disparado via firePageViewWithDedup (dedup com CAPI)
       }
       if ('requestIdleCallback' in window) {
         requestIdleCallback(loadFbPixel, { timeout: 2500 });

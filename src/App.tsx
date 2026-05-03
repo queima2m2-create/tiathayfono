@@ -1,6 +1,7 @@
 import { lazy, Suspense, useEffect } from "react";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes, useLocation } from "react-router-dom";
 import Index from "./pages/Index.tsx";
+import { firePageViewWithDedup } from "@/lib/pageView";
 
 const V2 = lazy(() => import("./pages/V2.tsx"));
 const V3 = lazy(() => import("./pages/V3.tsx"));
@@ -8,6 +9,14 @@ const V4 = lazy(() => import("./pages/V4.tsx"));
 const V5 = lazy(() => import("./pages/V5.tsx"));
 const V6 = lazy(() => import("./pages/V6.tsx"));
 const NotFound = lazy(() => import("./pages/NotFound.tsx"));
+
+const PageViewTracker = () => {
+  const location = useLocation();
+  useEffect(() => {
+    firePageViewWithDedup();
+  }, [location.pathname]);
+  return null;
+};
 
 const App = () => {
   useEffect(() => {
@@ -21,6 +30,7 @@ const App = () => {
 
   return (
     <BrowserRouter>
+      <PageViewTracker />
       <Routes>
         <Route path="/" element={<Index />} />
         <Route path="/v2" element={<Suspense fallback={null}><V2 /></Suspense>} />
