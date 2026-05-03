@@ -1,6 +1,7 @@
 import { lazy, Suspense, useEffect } from "react";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes, useLocation } from "react-router-dom";
 import Index from "./pages/Index.tsx";
+import { firePageViewWithDedup } from "@/lib/pageView";
 
 const V2 = lazy(() => import("./pages/V2.tsx"));
 const V3 = lazy(() => import("./pages/V3.tsx"));
