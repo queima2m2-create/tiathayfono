@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { fbEvents } from "@/lib/fbConversions";
+import { buildKiwifyCheckoutUrl } from "@/lib/kiwifyUrl";
 import produtoMockup from "@/assets/produto-mockup.jpg";
 
 const CTA_LINK = "https://pay.kiwify.com.br/uXb5s35";
