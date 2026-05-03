@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { fbEvents } from "@/lib/fbConversions";
-import { buildKiwifyCheckoutUrl } from "@/lib/kiwifyUrl";
+import { buildKiwifyCheckoutUrl, sendTrackingEnrichment } from "@/lib/kiwifyUrl";
 import produtoMockup from "@/assets/produto-mockup.jpg";
 
 const CTA_LINK = "https://pay.kiwify.com.br/uXb5s35";
@@ -76,10 +76,12 @@ const PricingBlock = ({ className = "", showUrgency = true }: { className?: stri
             variant="cta"
             size="lg"
             className="text-[0.9rem] md:text-[1rem] px-8 py-6 md:py-7 w-full leading-tight whitespace-normal h-auto text-background font-extrabold"
-            onClick={() => {
+            onClick={async () => {
+              await sendTrackingEnrichment({ value: 67, contentName: 'Guia Meu Filho Vai Falar' });
               fbEvents.initiateCheckout();
+              await new Promise(r => setTimeout(r, 200));
               const url = buildKiwifyCheckoutUrl(CTA_LINK);
-              setTimeout(() => { window.location.href = url; }, 100);
+              window.location.href = url;
             }}
           >
             QUERO DESTRAVAR A FALA DO MEU FILHO EM 30 DIAS

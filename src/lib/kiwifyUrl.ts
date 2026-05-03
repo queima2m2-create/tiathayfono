@@ -31,3 +31,41 @@ export function buildKiwifyCheckoutUrl(baseUrl: string): string {
 
   return url.toString();
 }
+
+export async function sendTrackingEnrichment(extra?: {
+  value?: number;
+  contentName?: string;
+}) {
+  if (typeof window === "undefined") return;
+
+  const fbclid =
+    new URLSearchParams(window.location.search).get("fbclid") ||
+    localStorage.getItem("_fbclid") ||
+    "";
+
+  if (!fbclid) return;
+
+  const fbcMatch = document.cookie.match(/_fbc=([^;]+)/);
+  const fbpMatch = document.cookie.match(/_fbp=([^;]+)/);
+  const fbc = fbcMatch ? decodeURIComponent(fbcMatch[1]) : "";
+  const fbp = fbpMatch ? decodeURIComponent(fbpMatch[1]) : "";
+
+  try {
+    await fetch("https://n8n.mq2m2.com/webhook/tracking-enrich", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        fbclid,
+        user_agent: navigator.userAgent,
+        fbc,
+        fbp,
+        url: window.location.href,
+        value: extra?.value || 0,
+        contentName: extra?.contentName || "",
+      }),
+      keepalive: true,
+    });
+  } catch (e) {
+    console.warn("Enrichment falhou:", e);
+  }
+}
