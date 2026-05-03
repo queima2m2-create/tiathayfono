@@ -1,4 +1,4 @@
-import { lazy, Suspense } from "react";
+import { lazy, Suspense, useEffect } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Index from "./pages/Index.tsx";
 
@@ -10,6 +10,15 @@ const V6 = lazy(() => import("./pages/V6.tsx"));
 const NotFound = lazy(() => import("./pages/NotFound.tsx"));
 
 const App = () => {
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const fbclid = params.get("fbclid");
+    if (fbclid) {
+      localStorage.setItem("_fbclid", fbclid);
+      localStorage.setItem("_fbclid_ts", Date.now().toString());
+    }
+  }, []);
+
   return (
     <BrowserRouter>
       <Routes>
