@@ -10,7 +10,15 @@ const V6 = lazy(() => import("./pages/V6.tsx"));
 const NotFound = lazy(() => import("./pages/NotFound.tsx"));
 
 const App = () => {
-  return (
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const fbclid = params.get("fbclid");
+    if (fbclid) {
+      localStorage.setItem("_fbclid", fbclid);
+      localStorage.setItem("_fbclid_ts", Date.now().toString());
+    }
+  }, []);
+
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Index />} />
