@@ -72,18 +72,17 @@ const PricingBlock = ({ className = "", showUrgency = true }: { className?: stri
         </div>
 
         <div className="mt-5">
-          <Button variant="cta" size="lg" className="text-[0.9rem] md:text-[1rem] px-8 py-6 md:py-7 w-full leading-tight whitespace-normal h-auto text-background font-extrabold" asChild>
-            <a
-              href={CTA_LINK}
-              onClick={(e) => {
-                e.preventDefault();
-                fbEvents.initiateCheckout();
-                const url = buildKiwifyCheckoutUrl(CTA_LINK);
-                setTimeout(() => { window.location.href = url; }, 100);
-              }}
-            >
-              QUERO DESTRAVAR A FALA DO MEU FILHO EM 30 DIAS
-            </a>
+          <Button
+            variant="cta"
+            size="lg"
+            className="text-[0.9rem] md:text-[1rem] px-8 py-6 md:py-7 w-full leading-tight whitespace-normal h-auto text-background font-extrabold"
+            onClick={() => {
+              fbEvents.initiateCheckout();
+              const url = buildKiwifyCheckoutUrl(CTA_LINK);
+              setTimeout(() => { window.location.href = url; }, 100);
+            }}
+          >
+            QUERO DESTRAVAR A FALA DO MEU FILHO EM 30 DIAS
           </Button>
         </div>
 
