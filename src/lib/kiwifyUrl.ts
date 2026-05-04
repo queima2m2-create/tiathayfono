@@ -13,7 +13,10 @@ export function buildKiwifyCheckoutUrl(baseUrl: string): string {
     currentParams.get("fbclid") ||
     localStorage.getItem("_fbclid") ||
     "";
-  if (fbclid) url.searchParams.set("fbclid", fbclid);
+  if (fbclid) {
+    url.searchParams.set("fbclid", fbclid);
+    url.searchParams.set("src", "fbclid_" + fbclid);
+  }
 
   // _fbc cookie
   const fbcMatch = document.cookie.match(/_fbc=([^;]+)/);
