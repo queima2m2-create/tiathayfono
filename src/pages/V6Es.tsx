@@ -46,7 +46,7 @@ const V6Es = () => {
           player?.video?.currentTime ||
           0
       );
-      if (t >= 355) {
+      if (t >= 403) {
         setRevealed(true);
         return true;
       }
