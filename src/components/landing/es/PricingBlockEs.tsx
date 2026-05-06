@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { fbEvents } from "@/lib/fbConversions";
+import { buildKiwifyCheckoutUrl, sendTrackingEnrichment } from "@/lib/kiwifyUrl";
 import produtoMockup from "@/assets/es/produto-mockup-precos-es.jpeg";
 
 const CTA_LINK = "https://pay.kiwify.com/6tBcvSl";
@@ -74,8 +75,25 @@ const PricingBlockEs = ({ className = "", showUrgency = true }: { className?: st
         </p>
 
         <div className="mt-5">
-          <Button variant="cta" size="lg" className="text-[0.9rem] md:text-[1rem] px-8 py-6 md:py-7 w-full leading-tight whitespace-normal h-auto text-background font-extrabold" asChild>
-            <a href={CTA_LINK} onClick={() => fbEvents.initiateCheckout()}>QUIERO DESBLOQUEAR EL HABLA DE MI HIJO EN 30 DÍAS</a>
+          <Button
+            variant="cta"
+            size="lg"
+            className="text-[0.9rem] md:text-[1rem] px-8 py-6 md:py-7 w-full leading-tight whitespace-normal h-auto text-background font-extrabold"
+            onClick={async () => {
+              await sendTrackingEnrichment({ value: 19.99, contentName: 'Mi Hijo Va a Hablar' });
+              if (typeof (window as any).fbq !== 'undefined') {
+                (window as any).fbq('track', 'InitiateCheckout', {
+                  value: 19.99,
+                  currency: 'USD',
+                  content_name: 'Mi Hijo Va a Hablar',
+                  content_type: 'product',
+                });
+              }
+              await new Promise(r => setTimeout(r, 200));
+              window.location.href = buildKiwifyCheckoutUrl(CTA_LINK);
+            }}
+          >
+            QUIERO DESBLOQUEAR EL HABLA DE MI HIJO EN 30 DÍAS
           </Button>
         </div>
 
