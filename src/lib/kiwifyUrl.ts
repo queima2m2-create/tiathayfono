@@ -53,7 +53,11 @@ export async function sendTrackingEnrichment(extra?: {
   const fbc = fbcMatch ? decodeURIComponent(fbcMatch[1]) : "";
   const fbp = fbpMatch ? decodeURIComponent(fbpMatch[1]) : "";
 
-  const isLatam = window.location.pathname.startsWith("/v5");
+  const path = window.location.pathname;
+  const isLatam =
+    path.startsWith("/v5") ||
+    path.startsWith("/v6") ||
+    path.startsWith("/v5-downsell");
   const endpoint = isLatam
     ? "https://n8n.mq2m2.com/webhook/tracking-enrich-latam"
     : "https://n8n.mq2m2.com/webhook/tracking-enrich";
