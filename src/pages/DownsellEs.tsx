@@ -138,13 +138,13 @@ const DownsellEs = () => {
 
       {/* 6) CTA + 8) LINK SAÍDA — Kiwify One-Click */}
       <div
-        id="kiwify-upsell-DOWNSELL_LATAM_PLACEHOLDER"
+        id="kiwify-upsell-L7BYGXv"
         data-upsell-url=""
         data-downsell-url=""
       >
         <section className="px-4 pb-1.5">
           <button
-            id="kiwify-upsell-trigger-DOWNSELL_LATAM_PLACEHOLDER"
+            id="kiwify-upsell-trigger-L7BYGXv"
             onClick={handleCta}
             className="downsell-cta block w-[92%] max-w-[420px] mx-auto rounded-full uppercase font-extrabold text-white text-center py-3.5 px-4 text-[0.92rem] tracking-wide transition-all border-0 cursor-pointer"
             style={{
@@ -173,7 +173,7 @@ const DownsellEs = () => {
         {/* 8) LINK SAÍDA */}
         <section className="px-4 pb-4 text-center">
           <div
-            id="kiwify-upsell-cancel-trigger-DOWNSELL_LATAM_PLACEHOLDER"
+            id="kiwify-upsell-cancel-trigger-L7BYGXv"
             className="inline-block text-[0.78rem] underline underline-offset-2 cursor-pointer"
             style={{ color: "#999999" }}
           >
