@@ -7,7 +7,7 @@ import imgChecklist from "@/assets/v4-checklist.jpeg";
 import imgTagarelar from "@/assets/v4-tagarelar.jpeg";
 
 const produtos = [
-  { nome: "Plan 30 Días con la Tía Thay", desc: "Guion diario paso a paso para desbloquear el habla de tu hijo.", valor: "$59,00", dataProduct: "plano30dias", img: imgPlano },
+  { nome: "Plan 30 Días con la Tía Thay", desc: "Guion diario paso a paso para desbloquear el habla de tu hijo.", valor: "$137,00", dataProduct: "plano30dias", img: imgPlano },
   { nome: "Cuaderno de Acompañamiento", desc: "Registra cada palabra nueva y mira la evolución en tiempo real.", valor: "$10,00", dataProduct: "caderno", img: imgCaderno },
   { nome: "50 Tarjetas para Imprimir", desc: "Estímulos visuales listos para usar todos los días.", valor: "$10,00", dataProduct: "cards", img: imgCards },
   { nome: "Guía de Respuestas para Situaciones Difíciles", desc: "Qué hacer cuando se niega, llora o ignora.", valor: "$12,00", dataProduct: "guia-situacoes", img: imgGuia },
