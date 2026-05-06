@@ -53,8 +53,13 @@ export async function sendTrackingEnrichment(extra?: {
   const fbc = fbcMatch ? decodeURIComponent(fbcMatch[1]) : "";
   const fbp = fbpMatch ? decodeURIComponent(fbpMatch[1]) : "";
 
+  const isLatam = window.location.pathname.startsWith("/v5");
+  const endpoint = isLatam
+    ? "https://n8n.mq2m2.com/webhook/tracking-enrich-latam"
+    : "https://n8n.mq2m2.com/webhook/tracking-enrich";
+
   try {
-    await fetch("https://n8n.mq2m2.com/webhook/tracking-enrich", {
+    await fetch(endpoint, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
