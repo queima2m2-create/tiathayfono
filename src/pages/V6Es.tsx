@@ -1,306 +1,193 @@
-import { useEffect } from "react";
+import { useEffect, useState, lazy, Suspense } from "react";
 
-// Paleta /v4
+const V6EsReveal = lazy(() => import("@/components/landing/V6EsReveal"));
+
 const ROXO = "#6B2D8B";
-const ROXO_ESCURO = "#5A1F75";
-const LILAS = "#F3E8F8";
-const CINZA_MEDIO = "#7A6A6E";
-const CINZA_TEXTO = "#3a2f33";
-const DOURADO = "#b58a45";
-const VERMELHO = "#C62828";
-const VERDE = "#2E7D32";
-
-const SAIDA_LINK = "/v5-downsell";
-
-const ITENS_PRINCIPAIS = [
-  { icon: "✅", titulo: "Plan 30 Días con actividades diarias" },
-  { icon: "✅", titulo: "Cuaderno de Acompañamiento" },
-  { icon: "✅", titulo: "50 Tarjetas para Imprimir" },
-  { icon: "✅", titulo: "Guía de Respuestas para Situaciones Difíciles" },
-  { icon: "✅", titulo: "Checklist de Hitos por Edad" },
-  { icon: "✅", titulo: "App Tagarelar (acceso premium)" },
-];
-
-const DEPOIMENTOS = [
-  {
-    nome: "María, mamá de Lucas (3 años)",
-    texto:
-      "En 3 semanas mi hijo empezó a juntar palabras. Las actividades son simples y se hacen jugando.",
-  },
-  {
-    nome: "Camila, mamá de Sofía (2 años y medio)",
-    texto:
-      "Pensé que iba a ser difícil, pero la Tía Thay explica todo paso a paso. ¡Hoy Sofía ya pide las cosas hablando!",
-  },
-  {
-    nome: "Ana, mamá de Mateo (4 años)",
-    texto:
-      "Las tarjetas para imprimir cambiaron nuestra rutina. Mateo se volvió mucho más comunicativo.",
-  },
-];
-
-const FAQS = [
-  {
-    q: "¿Cuánto tiempo tarda en llegar?",
-    a: "El acceso es inmediato. Apenas confirmes la compra recibes todo en tu correo.",
-  },
-  {
-    q: "¿Funciona si mi hijo todavía no habla nada?",
-    a: "Sí. El método fue diseñado justamente para niños que aún no comenzaron a hablar o que hablan muy poco.",
-  },
-  {
-    q: "¿Hasta qué edad funciona?",
-    a: "El plan funciona para niños de 1 a 6 años. Las actividades se adaptan según la etapa.",
-  },
-  {
-    q: "¿Y si no me gusta?",
-    a: "Tienes 7 días de garantía incondicional. Si no te encanta, te devolvemos el 100% sin preguntas.",
-  },
-];
+const CINZA_CLARO = "#F8F8F8";
 
 const V6Es = () => {
+  const [revealed, setRevealed] = useState(false);
+
+  // Defer pageView tracking
   useEffect(() => {
-    const SRC = "https://snippets.kiwify.com/upsell/upsell.min.js";
-    if (!document.querySelector(`script[src="${SRC}"]`)) {
-      const s = document.createElement("script");
-      s.src = SRC;
-      s.async = true;
-      document.body.appendChild(s);
+    const fire = () =>
+      import("@/lib/fbConversions").then((m) => m.fbEvents.pageView());
+    if ("requestIdleCallback" in window) {
+      (window as any).requestIdleCallback(fire, { timeout: 3000 });
+    } else {
+      setTimeout(fire, 1000);
     }
   }, []);
 
-  const handleCta = () => {
-    if (typeof (window as any).fbq !== "undefined") {
-      (window as any).fbq("track", "InitiateCheckout", {
-        value: 39.9,
-        currency: "USD",
-        content_name: "Plan 30 Días - Upsell LATAM",
-        content_type: "product",
+  // Load Vturb player script
+  useEffect(() => {
+    const SRC =
+      "https://scripts.converteai.net/8cb68814-a0fc-45e0-ace9-4a6b005a0cc8/players/69e151b6eeef2dbf7e2a56c1/v4/player.js";
+    if (document.querySelector(`script[src="${SRC}"]`)) return;
+    const s = document.createElement("script");
+    s.src = SRC;
+    s.async = true;
+    (s as any).fetchPriority = "high";
+    document.head.appendChild(s);
+  }, []);
+
+  // Reveal aos 5:55
+  useEffect(() => {
+    if (revealed) return;
+    let initTimer: number | null = null;
+    let loadTimer: number | null = null;
+    let pollTimer: number | null = null;
+    let listenerAttached = false;
+
+    const checkAndReveal = (player: any) => {
+      const t = Number(
+        player?.currentTime ||
+          player?.smartAutoPlay?.currentTime ||
+          player?.video?.currentTime ||
+          0
+      );
+      if (t >= 355) {
+        setRevealed(true);
+        return true;
+      }
+      return false;
+    };
+
+    const initVturbListener = () => {
+      const smartplayer = (window as any).smartplayer;
+      if (
+        typeof smartplayer !== "undefined" &&
+        smartplayer.instances &&
+        smartplayer.instances.length > 0
+      ) {
+        const player = smartplayer.instances[0];
+        if (!listenerAttached && typeof player?.on === "function") {
+          listenerAttached = true;
+          player.on("timeupdate", () => checkAndReveal(player));
+          player.on("play", () => checkAndReveal(player));
+        }
+        if (pollTimer === null) {
+          pollTimer = window.setInterval(() => {
+            if (checkAndReveal(player) && pollTimer !== null) {
+              window.clearInterval(pollTimer);
+              pollTimer = null;
+            }
+          }, 1000);
+        }
+      } else {
+        initTimer = window.setTimeout(initVturbListener, 500);
+      }
+    };
+
+    const onLoad = () => {
+      loadTimer = window.setTimeout(initVturbListener, 800);
+    };
+
+    if (document.readyState === "complete") onLoad();
+    else window.addEventListener("load", onLoad, { once: true });
+
+    return () => {
+      window.removeEventListener("load", onLoad);
+      if (initTimer !== null) window.clearTimeout(initTimer);
+      if (loadTimer !== null) window.clearTimeout(loadTimer);
+      if (pollTimer !== null) window.clearInterval(pollTimer);
+    };
+  }, [revealed]);
+
+  // Carrega script Kiwify após reveal
+  useEffect(() => {
+    if (!revealed) return;
+    const KIWIFY_SRC = "https://snippets.kiwify.com/upsell/upsell.min.js";
+
+    let attempts = 0;
+    let timer: number | null = null;
+
+    const injectScript = () => {
+      const existing = document.querySelector(`script[src="${KIWIFY_SRC}"]`);
+      if (existing) existing.remove();
+      const s = document.createElement("script");
+      s.src = KIWIFY_SRC;
+      s.async = true;
+      document.body.appendChild(s);
+    };
+
+    const waitForButton = () => {
+      const trigger = document.getElementById("kiwify-upsell-trigger-PLACEHOLDER");
+      if (trigger) {
+        injectScript();
+        return;
+      }
+      attempts++;
+      if (attempts < 30) {
+        timer = window.setTimeout(waitForButton, 200);
+      }
+    };
+
+    waitForButton();
+
+    return () => {
+      if (timer !== null) window.clearTimeout(timer);
+    };
+  }, [revealed]);
+
+  // Scroll suave
+  useEffect(() => {
+    if (!revealed) return;
+    const id = window.setTimeout(() => {
+      document.getElementById("conteudo-revelado")?.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
       });
-    }
-  };
+    }, 200);
+    return () => window.clearTimeout(id);
+  }, [revealed]);
 
   return (
-    <div
-      className="min-h-screen bg-white flex flex-col"
-      style={{ fontFamily: "'DM Sans', system-ui, sans-serif", color: CINZA_TEXTO }}
-    >
-      {/* BARRA SUPERIOR */}
+    <div className="min-h-screen bg-white text-neutral-800" style={{ fontFamily: "'DM Sans', system-ui, sans-serif" }}>
+      {/* BARRA DE URGÊNCIA */}
       <div
-        className="sticky top-0 z-50 w-full text-white text-center text-[12px] py-1.5 px-3 font-medium"
+        className="sticky top-0 z-50 w-full text-white text-center text-[12px] md:text-sm py-2.5 px-4 tracking-wide"
         style={{ background: ROXO }}
       >
-        Tía Thay
+        ⏳ Tu acceso a la Guía está siendo liberado... Mira la clase exclusiva de la Tía Thay antes de irte
       </div>
 
-      {/* HERO */}
-      <section className="px-5 pt-6 pb-3 text-center max-w-[520px] mx-auto">
-        <h1
-          className="text-[1.4rem] md:text-[1.7rem] font-extrabold leading-tight mb-2"
-          style={{ color: ROXO, fontFamily: "'Playfair Display', serif" }}
-        >
-          ¡Espera, mamá! Antes de irte...
-        </h1>
-        <p className="text-[0.95rem] leading-snug" style={{ color: CINZA_TEXTO }}>
-          Acabas de garantizar el ebook <strong>"Mi Hijo Va a Hablar"</strong>. Pero tengo una sorpresa especial para ti...
-        </p>
-      </section>
-
-      {/* OFERTA PRINCIPAL */}
-      <section className="px-4 pb-3">
-        <div
-          className="max-w-[480px] mx-auto rounded-2xl px-5 py-5"
-          style={{ background: LILAS }}
-        >
-          <h2
-            className="text-[1.05rem] font-extrabold mb-3 text-center"
-            style={{ color: ROXO }}
+      {/* VÍDEO */}
+      <section className="px-4 py-10 md:py-16" style={{ background: CINZA_CLARO }}>
+        <div className="max-w-[800px] mx-auto text-center">
+          <h1
+            className="inline-block px-6 py-3 rounded-full text-white text-xl md:text-3xl lg:text-4xl font-extrabold leading-[1.2] mb-4"
+            style={{ background: ROXO }}
           >
-            Plan 30 Días con la Tía Thay
-          </h2>
+            🎓 Clase 1 — Liberada exclusivamente para ti
+          </h1>
 
-          <ul className="space-y-2 mb-3">
-            {ITENS_PRINCIPAIS.map((item) => (
-              <li
-                key={item.titulo}
-                className="text-[0.92rem] font-semibold leading-snug"
-                style={{ color: CINZA_TEXTO }}
-              >
-                {item.icon} {item.titulo}
-              </li>
-            ))}
-          </ul>
-        </div>
-      </section>
-
-      {/* BOX DE PREÇO */}
-      <section className="px-4 pb-3">
-        <div
-          className="max-w-[440px] mx-auto rounded-xl text-center px-4 py-4 bg-white"
-          style={{ border: `2px solid ${DOURADO}` }}
-        >
-          <p
-            className="text-[0.9rem] line-through font-semibold leading-tight"
-            style={{ color: VERMELHO }}
-          >
-            De $59 USD
-          </p>
-          <p className="text-[0.75rem] leading-tight mt-1" style={{ color: CINZA_MEDIO }}>
-            Por solo
-          </p>
-          <p
-            className="font-black leading-none mt-1"
-            style={{ color: VERDE, fontSize: "clamp(2.2rem, 9vw, 3rem)" }}
-          >
-            $39,90 USD
-          </p>
-          <p className="text-[0.75rem] leading-tight mt-1" style={{ color: CINZA_MEDIO }}>
-            al contado
-          </p>
-          <p
-            className="text-[0.95rem] font-bold mt-2 leading-tight"
-            style={{ color: ROXO }}
-          >
-            o 12x de $3,60 sin intereses
-          </p>
-        </div>
-      </section>
-
-      {/* URGÊNCIA */}
-      <section className="px-4 pb-3">
-        <div
-          className="max-w-[440px] mx-auto rounded-md text-center px-3 py-2"
-          style={{ background: ROXO_ESCURO }}
-        >
-          <p className="text-white font-bold text-[0.85rem] leading-tight">
-            ⚠️ Si sales de esta página, esta oferta NO estará disponible después
-          </p>
-        </div>
-      </section>
-
-      {/* CTA — Kiwify Upsell Snippet (PLACEHOLDER) */}
-      <section className="px-4 pb-2 text-center my-4">
-        {/* PLACEHOLDER — substituir pelo Kiwify Upsell Snippet quando o produto upsell for criado na Kiwify */}
-        <div
-          style={{ textAlign: "center" }}
-          id="kiwify-upsell-PLACEHOLDER"
-          data-upsell-url=""
-          data-downsell-url={SAIDA_LINK}
-        >
-          <button
-            id="kiwify-upsell-trigger-PLACEHOLDER"
-            onClick={handleCta}
-            className="upsell-cta block w-[92%] max-w-[440px] mx-auto rounded-full uppercase font-extrabold text-white text-center py-4 px-5 text-[0.95rem] tracking-wide transition-all border-0 cursor-pointer"
-            style={{
-              background: VERDE,
-              boxShadow: `0 8px 22px -8px ${VERDE}cc`,
-            }}
-          >
-            QUIERO EL PLAN COMPLETO POR $39,90 ➔
-          </button>
-
-          {/* Microcopy + garantia */}
-          <p
-            className="text-[0.78rem] leading-snug mt-3"
-            style={{ color: CINZA_MEDIO }}
-          >
-            ✅ Acceso de por vida • ✅ Garantía de 7 días
+          <p className="text-neutral-500 text-sm md:text-base mb-6">
+            Mira hasta el final — esta clase aparece solo una vez
           </p>
 
-          {/* Saída */}
           <div
-            id="kiwify-upsell-cancel-trigger-PLACEHOLDER"
-            className="inline-block mt-4 text-[0.82rem] underline underline-offset-2 cursor-pointer"
-            style={{ color: "#999999" }}
+            className="rounded-2xl overflow-hidden shadow-lg bg-black mx-auto"
+            style={{ aspectRatio: "16/9" }}
           >
-            No, prefiero seguir sin
+            {/* @ts-ignore */}
+            <vturb-smartplayer
+              id="vid-69e151b6eeef2dbf7e2a56c1"
+              {...({ autoplay: "true", muted: "false", playsinline: "true" } as any)}
+              className="vturb-player"
+              style={{ display: "block", margin: "0 auto", width: "100%", pointerEvents: "auto", zIndex: 1 }}
+            />
           </div>
         </div>
       </section>
 
-      {/* PROVA SOCIAL */}
-      <section className="px-4 py-6" style={{ background: "#FAFAFA" }}>
-        <div className="max-w-[520px] mx-auto">
-          <h3
-            className="text-center text-[1.1rem] font-extrabold mb-4"
-            style={{ color: ROXO, fontFamily: "'Playfair Display', serif" }}
-          >
-            Mamás que ya transformaron la rutina de sus hijos
-          </h3>
-          <div className="space-y-3">
-            {DEPOIMENTOS.map((d) => (
-              <div
-                key={d.nome}
-                className="rounded-xl p-4 bg-white"
-                style={{ border: `1px solid ${LILAS}` }}
-              >
-                <p className="text-[0.9rem] italic leading-snug" style={{ color: CINZA_TEXTO }}>
-                  "{d.texto}"
-                </p>
-                <p className="text-[0.78rem] font-bold mt-2" style={{ color: ROXO }}>
-                  — {d.nome}
-                </p>
-              </div>
-            ))}
-          </div>
+      {revealed && (
+        <div id="conteudo-revelado" style={{ animation: "fadeIn 0.8s ease forwards" }}>
+          <Suspense fallback={null}>
+            <V6EsReveal />
+          </Suspense>
         </div>
-      </section>
-
-      {/* FAQ */}
-      <section className="px-4 py-6">
-        <div className="max-w-[520px] mx-auto">
-          <h3
-            className="text-center text-[1.1rem] font-extrabold mb-4"
-            style={{ color: ROXO, fontFamily: "'Playfair Display', serif" }}
-          >
-            Preguntas frecuentes
-          </h3>
-          <div className="space-y-2">
-            {FAQS.map((f) => (
-              <details
-                key={f.q}
-                className="rounded-lg px-4 py-3 cursor-pointer"
-                style={{ background: LILAS }}
-              >
-                <summary
-                  className="text-[0.92rem] font-bold list-none flex justify-between items-center"
-                  style={{ color: ROXO }}
-                >
-                  {f.q}
-                  <span className="ml-2">+</span>
-                </summary>
-                <p
-                  className="text-[0.88rem] mt-2 leading-snug"
-                  style={{ color: CINZA_TEXTO }}
-                >
-                  {f.a}
-                </p>
-              </details>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* FOOTER */}
-      <footer
-        className="px-5 py-6 text-center mt-auto"
-        style={{ background: ROXO, color: "#fff" }}
-      >
-        <p className="text-[0.82rem]">© 2025 Tía Thay - Todos los derechos reservados</p>
-        <p className="text-[0.7rem] mt-3 opacity-80 max-w-[480px] mx-auto leading-snug">
-          Las actividades son herramientas de estimulación y no sustituyen el seguimiento profesional de un fonoaudiólogo.
-        </p>
-      </footer>
-
-      <style>{`
-        @keyframes upsellPulse {
-          0%, 100% { transform: scale(1); box-shadow: 0 8px 22px -8px ${VERDE}cc; }
-          50% { transform: scale(1.03); box-shadow: 0 12px 28px -6px ${VERDE}e6; }
-        }
-        .upsell-cta { animation: upsellPulse 2.2s ease-in-out infinite; }
-        .upsell-cta:hover { background: #1B5E20 !important; animation-play-state: paused; }
-        details > summary::-webkit-details-marker { display: none; }
-      `}</style>
+      )}
     </div>
   );
 };
