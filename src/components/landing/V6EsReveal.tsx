@@ -55,12 +55,12 @@ const V6EsReveal = () => {
             <div className="flex justify-center">
               <div
                 style={{ textAlign: "center" }}
-                id="kiwify-upsell-PLACEHOLDER"
+                id="kiwify-upsell-M0yny2u"
                 data-upsell-url=""
-                data-downsell-url="https://www.tiathayfono.com.br/v5-downsell"
+                data-downsell-url="https://www.tiathayfono.com.br/downsell-es"
               >
                 <button
-                  id="kiwify-upsell-trigger-PLACEHOLDER"
+                  id="kiwify-upsell-trigger-M0yny2u"
                   className="kiwify-cta-button"
                   onClick={() => {
                     if (typeof (window as any).fbq !== "undefined") {
@@ -101,7 +101,7 @@ const V6EsReveal = () => {
                   Sí, QUIERO EL PLAN DE LA TÍA THAY
                 </button>
                 <div
-                  id="kiwify-upsell-cancel-trigger-PLACEHOLDER"
+                  id="kiwify-upsell-cancel-trigger-M0yny2u"
                   onMouseEnter={(e) => {
                     (e.currentTarget as HTMLDivElement).style.backgroundColor = "#5A6268";
                   }}
