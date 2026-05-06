@@ -1,10 +1,10 @@
 import { Shield, Lock, ShieldCheck } from "lucide-react";
-import imgPlano from "@/assets/v4-plano30dias.jpeg";
-import imgCaderno from "@/assets/v4-caderno.jpeg";
-import imgCards from "@/assets/v4-cards.jpeg";
-import imgGuia from "@/assets/v4-guia-situacoes.jpeg";
-import imgChecklist from "@/assets/v4-checklist.jpeg";
-import imgTagarelar from "@/assets/v4-tagarelar.jpeg";
+import imgPlano from "@/assets/v6-plano30dias.jpeg";
+import imgCaderno from "@/assets/v6-caderno.jpeg";
+import imgCards from "@/assets/v6-cards.jpeg";
+import imgGuia from "@/assets/v6-guia.jpeg";
+import imgChecklist from "@/assets/v6-checklist.jpeg";
+import imgTagarelar from "@/assets/v6-tagarelar.jpeg";
 
 const produtos = [
   { nome: "Plan 30 Días con la Tía Thay", desc: "Guion diario paso a paso para desbloquear el habla de tu hijo.", valor: "$137,00", dataProduct: "plano30dias", img: imgPlano },
