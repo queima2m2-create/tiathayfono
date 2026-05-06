@@ -22,7 +22,7 @@ const V6Es = () => {
   // Load Vturb player script
   useEffect(() => {
     const SRC =
-      "https://scripts.converteai.net/8cb68814-a0fc-45e0-ace9-4a6b005a0cc8/players/69e151b6eeef2dbf7e2a56c1/v4/player.js";
+      "https://scripts.converteai.net/8cb68814-a0fc-45e0-ace9-4a6b005a0cc8/players/69efc2fab4ba2692ad54c2cc/v4/player.js";
     if (document.querySelector(`script[src="${SRC}"]`)) return;
     const s = document.createElement("script");
     s.src = SRC;
