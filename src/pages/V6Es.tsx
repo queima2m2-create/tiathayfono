@@ -172,7 +172,7 @@ const V6Es = () => {
           >
             {/* @ts-ignore */}
             <vturb-smartplayer
-              id="vid-69e151b6eeef2dbf7e2a56c1"
+              id="vid-69efc2fab4ba2692ad54c2cc"
               {...({ autoplay: "true", muted: "false", playsinline: "true" } as any)}
               className="vturb-player"
               style={{ display: "block", margin: "0 auto", width: "100%", pointerEvents: "auto", zIndex: 1 }}
