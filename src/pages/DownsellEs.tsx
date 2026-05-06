@@ -166,7 +166,7 @@ const DownsellEs = () => {
         {/* 7b) DISCLAIMER */}
         <section className="px-4 pb-2 text-center">
           <p className="text-[0.65rem] leading-snug" style={{ color: "#999999" }}>
-            *Esta oferta especial no incluye los bonos del plan premium (Guía de Situaciones Difíciles, Checklist de Hitos y App Tagarelar).
+            *Esta oferta especial no incluye los bonos del plan premium (Guía de Situaciones Difíciles, Checklist de Hitos y App Parlanchín).
           </p>
         </section>
 
