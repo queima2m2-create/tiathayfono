@@ -112,7 +112,7 @@ const V6Es = () => {
     };
 
     const waitForButton = () => {
-      const trigger = document.getElementById("kiwify-upsell-trigger-PLACEHOLDER");
+      const trigger = document.getElementById("kiwify-upsell-trigger-M0yny2u");
       if (trigger) {
         injectScript();
         return;
