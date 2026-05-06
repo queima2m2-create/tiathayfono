@@ -7,7 +7,7 @@ import imgChecklist from "@/assets/v4-checklist.jpeg";
 import imgTagarelar from "@/assets/v4-tagarelar.jpeg";
 
 const produtos = [
-  { nome: "Plan 30 Días con la Tía Thay", desc: "Guion diario paso a paso para desbloquear el habla de tu hijo.", valor: "$59,00", dataProduct: "plano30dias", img: imgPlano },
+  { nome: "Plan 30 Días con la Tía Thay", desc: "Guion diario paso a paso para desbloquear el habla de tu hijo.", valor: "$137,00", dataProduct: "plano30dias", img: imgPlano },
   { nome: "Cuaderno de Acompañamiento", desc: "Registra cada palabra nueva y mira la evolución en tiempo real.", valor: "$10,00", dataProduct: "caderno", img: imgCaderno },
   { nome: "50 Tarjetas para Imprimir", desc: "Estímulos visuales listos para usar todos los días.", valor: "$10,00", dataProduct: "cards", img: imgCards },
   { nome: "Guía de Respuestas para Situaciones Difíciles", desc: "Qué hacer cuando se niega, llora o ignora.", valor: "$12,00", dataProduct: "guia-situacoes", img: imgGuia },
@@ -136,12 +136,14 @@ const V6EsReveal = () => {
               </div>
             </div>
 
-            <p className="font-extrabold mt-5 text-lg" style={{ color: ROXO }}>
-              12x de $3,60 USD
+            <p className="text-neutral-500 text-sm line-through text-red-600 font-semibold">
+              De $137 USD
             </p>
-            <p className="text-neutral-500 text-sm mt-1">
-              o $39,99 USD al contado — acceso inmediato y de por vida
+            <p className="text-neutral-500 text-xs mt-1">Por solo</p>
+            <p className="font-extrabold mt-1 text-2xl" style={{ color: VERDE }}>
+              $39,99 USD
             </p>
+            <p className="text-neutral-500 text-xs mt-1">al contado</p>
 
             <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 mt-6 text-neutral-500 text-xs md:text-sm">
               <span className="inline-flex items-center gap-1.5">
@@ -195,11 +197,12 @@ const V6EsReveal = () => {
           <hr className="my-10 border-purple-200" />
           <div className="text-center">
             <p className="text-neutral-700 text-base md:text-lg">
-              Valor total: <span className="line-through text-red-600 font-semibold">$120,00 USD</span>
+              Valor total: <span className="line-through text-red-600 font-semibold">$198,00 USD</span>
             </p>
-            <p className="mt-2 text-lg md:text-2xl font-extrabold" style={{ color: ROXO }}>
-              Hoy: 12x de $3,60 USD o $39,99 USD al contado
+            <p className="mt-2 text-lg md:text-2xl font-extrabold" style={{ color: VERDE }}>
+              Por solo $39,99 USD
             </p>
+            <p className="text-neutral-500 text-sm mt-1">al contado</p>
           </div>
         </div>
       </section>
@@ -254,7 +257,8 @@ const V6EsReveal = () => {
           <p className="text-white/85 text-base md:text-lg mb-8">
             Esta condición existe solo aquí, solo ahora. Cuando salgas de esta página desaparece.
           </p>
-          <p className="mt-5 font-extrabold text-lg">12x de $3,60 USD o $39,99 USD al contado</p>
+          <p className="mt-5 font-extrabold text-2xl" style={{ color: "#2ED66F" }}>Por solo $39,99 USD</p>
+          <p className="text-white/70 text-sm mt-1">al contado</p>
         </div>
       </section>
     </>
