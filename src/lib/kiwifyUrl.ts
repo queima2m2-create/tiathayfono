@@ -57,7 +57,8 @@ export async function sendTrackingEnrichment(extra?: {
   const isLatam =
     path.startsWith("/v5") ||
     path.startsWith("/v6") ||
-    path.startsWith("/v5-downsell");
+    path.startsWith("/v5-downsell") ||
+    path.startsWith("/downsell-es");
   const endpoint = isLatam
     ? "https://n8n.mq2m2.com/webhook/tracking-enrich-latam"
     : "https://n8n.mq2m2.com/webhook/tracking-enrich";
