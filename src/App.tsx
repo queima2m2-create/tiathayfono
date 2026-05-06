@@ -8,6 +8,7 @@ const V3 = lazy(() => import("./pages/V3.tsx"));
 const V4 = lazy(() => import("./pages/V4.tsx"));
 const V5 = lazy(() => import("./pages/V5.tsx"));
 const V6 = lazy(() => import("./pages/V6.tsx"));
+const V6Es = lazy(() => import("./pages/V6Es.tsx"));
 const NotFound = lazy(() => import("./pages/NotFound.tsx"));
 
 const PageViewTracker = () => {
