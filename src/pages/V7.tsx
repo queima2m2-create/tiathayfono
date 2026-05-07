@@ -304,7 +304,13 @@ const V7 = () => {
           </div>
           <p className="text-center mt-5 text-[0.95rem] md:text-base text-neutral-700 leading-relaxed">
             Por <strong style={{ color: ROXO }}>R$ 1,36 por dia</strong>, seu filho tem acompanhamento estruturado o ano inteiro.
-          </p>
+      {/* CAIXA PREÇO + BOTÃO ÚNICO */}
+      <section className="px-4 py-10 md:py-14" style={{ background: CINZA_CLARO }}>
+        <div className="max-w-[600px] mx-auto">
+          <PriceBox
+            suffix=""
+            ctaLabel="QUERO GARANTIR OS PRÓXIMOS 12 MESES POR R$ 497"
+          />
         </div>
       </section>
 
