@@ -382,45 +382,47 @@ const V7 = () => {
             style={{ borderColor: ROXO, background: "#F3E8F8" }}
           >
             <p className="text-neutral-600 text-sm md:text-base mb-2">
-              O Programa Despertar — 12 meses completo
+              Programa Despertar — 12 meses
             </p>
             <p
-              className="font-extrabold leading-none mb-1"
+              className="font-extrabold leading-none mb-2"
               style={{
                 color: VERDE,
-                fontSize: "clamp(3rem, 11vw, 5.5rem)",
+                fontSize: "clamp(3rem, 12vw, 4.5rem)",
                 fontFamily: "'Playfair Display', serif",
               }}
             >
-              R$ 497
+              12x R$ 49,80
             </p>
-            <p className="text-neutral-500 text-sm md:text-base mb-1">
-              à vista
+            <p
+              className="font-bold mb-3"
+              style={{ color: VERDE, fontSize: "clamp(1.1rem, 4vw, 1.5rem)" }}
+            >
+              sem juros
             </p>
-            <p className="text-neutral-700 font-semibold text-base md:text-lg mb-6">
-              ou 12x de R$ 49,80 sem juros
+            <p className="text-neutral-500 text-sm mb-6">
+              ou R$ 497 à vista
             </p>
 
             <div className="border-t border-neutral-300/60 my-6" />
 
-            {/* MATEMÁTICA DIÁRIA */}
+            {/* MATEMÁTICA */}
             <div className="mb-6">
-              <p className="font-bold text-lg mb-3" style={{ color: ROXO }}>
-                🧮 Vamos quebrar isso?
+              <p className="font-bold text-lg mb-4" style={{ color: ROXO }}>
+                🧮 Vamos quebrar?
               </p>
-              <div className="space-y-1 text-neutral-700 text-base md:text-lg font-semibold mb-5">
-                <p>R$ 497 ÷ 12 meses = <span style={{ color: VERDE }}>R$ 41/mês</span></p>
-                <p>R$ 497 ÷ 365 dias = <span style={{ color: VERDE }}>R$ 1,36/dia</span></p>
-              </div>
               <div className="space-y-2 text-left max-w-[420px] mx-auto">
                 <p className="bg-white rounded-xl px-4 py-3 text-neutral-700 text-[0.95rem] shadow-sm">
-                  ☕ Menos que um café por dia
+                  ✓ R$ 49,80 por mês
                 </p>
                 <p className="bg-white rounded-xl px-4 py-3 text-neutral-700 text-[0.95rem] shadow-sm">
-                  🍕 Menos que 1 pizza por mês
+                  ✓ R$ 1,66 por dia
                 </p>
-                <p className="bg-white rounded-xl px-4 py-3 text-neutral-700 text-[0.95rem] shadow-sm font-semibold">
-                  👶 Pelo desenvolvimento INTEGRAL da fala do seu filho
+                <p className="bg-white rounded-xl px-4 py-3 text-neutral-700 text-[0.95rem] shadow-sm">
+                  ✓ Menos que um café diário ☕
+                </p>
+                <p className="bg-white rounded-xl px-4 py-3 text-neutral-700 text-[0.95rem] shadow-sm">
+                  ✓ Menos que 1 pizza por mês 🍕
                 </p>
               </div>
             </div>
