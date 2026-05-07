@@ -304,8 +304,12 @@ const V7 = () => {
           </div>
           <p className="text-center mt-5 text-[0.95rem] md:text-base text-neutral-700 leading-relaxed">
             Por <strong style={{ color: ROXO }}>R$ 1,36 por dia</strong>, seu filho tem acompanhamento estruturado o ano inteiro.
+          </p>
+        </div>
+      </section>
+
       {/* CAIXA PREÇO + BOTÃO ÚNICO */}
-      <section className="px-4 py-10 md:py-14" style={{ background: CINZA_CLARO }}>
+      <section className="px-4 py-10 md:py-14 bg-white">
         <div className="max-w-[600px] mx-auto">
           <PriceBox
             suffix=""
@@ -315,7 +319,7 @@ const V7 = () => {
       </section>
 
       {/* FAQ */}
-      <section className="px-5 py-10 md:py-12 bg-white">
+      <section className="px-5 py-10 md:py-12" style={{ background: CINZA_CLARO }}>
         <div className="max-w-[640px] mx-auto">
           <h2
             className="text-xl md:text-2xl font-extrabold text-center mb-6"
@@ -327,7 +331,7 @@ const V7 = () => {
             {faqs.map((f, i) => (
               <div
                 key={i}
-                className="bg-neutral-50 border border-neutral-200 rounded-xl overflow-hidden"
+                className="bg-white border border-neutral-200 rounded-xl overflow-hidden"
               >
                 <button
                   onClick={() => setOpenFaq(openFaq === i ? null : i)}
@@ -346,13 +350,6 @@ const V7 = () => {
               </div>
             ))}
           </div>
-        </div>
-      </section>
-
-      {/* CAIXA PREÇO + BOTÃO #2 (final) */}
-      <section className="px-4 py-10 md:py-14" style={{ background: CINZA_CLARO }}>
-        <div className="max-w-[560px] mx-auto">
-          <PriceBox suffix="-2" ctaLabel="QUERO GARANTIR POR R$ 497" compact />
         </div>
       </section>
 
