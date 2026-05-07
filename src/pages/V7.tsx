@@ -5,12 +5,35 @@ const DOURADO = "#b58a45";
 const VERDE = "#2E7D32";
 const CINZA_CLARO = "#F8F8F8";
 
-const bullets = [
-  "Material novo TODO MÊS pelos próximos 12 meses",
-  "Personalizado pelo perfil do seu filho (questionário inicial)",
-  "Reavaliação a cada 3 meses pra ajustar conforme avança",
+const pilares = [
+  {
+    icon: "🎯",
+    titulo: "PERSONALIZADO",
+    texto:
+      "Questionário inicial classifica seu filho em 1 dos 8 perfis. Material específico pra cada estágio.",
+  },
+  {
+    icon: "📅",
+    titulo: "EVOLUTIVO",
+    texto:
+      "A cada mês, novo material. A cada 3 meses, reavaliação pra ajustar.",
+  },
+  {
+    icon: "🛡️",
+    titulo: "ESTRUTURADO",
+    texto:
+      "12 meses pensados por fonoaudióloga. Material novo toda semana. Você nunca fica sem o que fazer.",
+  },
+];
+
+const inclui = [
+  "12 meses de material personalizado pelo perfil do seu filho",
+  "Questionário inicial + reavaliação a cada 3 meses",
+  "Material novo TODO mês na área de membros",
   "Atividades práticas, áudios e PDFs imprimíveis",
   "Comunidade VIP incluída (suporte de outras mães)",
+  "Acesso vitalício ao material já liberado",
+  "Garantia de 7 dias",
 ];
 
 const comparacoes = [
@@ -30,7 +53,7 @@ const faqs = [
   },
   {
     q: "É realmente personalizado?",
-    a: "Sim. Você responde um questionário inicial. O sistema classifica em 1 dos 8 perfis e libera material específico pra ele.",
+    a: "Sim. Questionário inicial classifica em 1 dos 8 perfis. Material específico libera baseado no perfil. Reavaliação a cada 3 meses.",
   },
 ];
 
@@ -53,6 +76,82 @@ const CtaButton = ({ suffix, label }: { suffix: string; label: string }) => (
     >
       Não, prefiro continuar sem o acompanhamento anual
     </div>
+  </div>
+);
+
+const PriceBox = ({
+  suffix,
+  ctaLabel,
+  compact = false,
+}: {
+  suffix: string;
+  ctaLabel: string;
+  compact?: boolean;
+}) => (
+  <div
+    className={`rounded-3xl text-center shadow-xl border-2 ${
+      compact ? "p-5 md:p-7" : "p-6 md:p-9"
+    }`}
+    style={{ borderColor: ROXO, background: "#F3E8F8" }}
+  >
+    <p className="text-neutral-700 text-sm md:text-base font-semibold mb-2">
+      Programa Despertar — 12 meses completos
+    </p>
+    <p
+      className="font-extrabold leading-none mb-1"
+      style={{
+        color: VERDE,
+        fontSize: compact
+          ? "clamp(2.2rem, 9vw, 3.2rem)"
+          : "clamp(2.5rem, 11vw, 4rem)",
+        fontFamily: "'Playfair Display', serif",
+      }}
+    >
+      12x R$ 49,80
+    </p>
+    <p
+      className="font-bold mb-1"
+      style={{ color: VERDE, fontSize: "clamp(1rem, 3.5vw, 1.25rem)" }}
+    >
+      sem juros
+    </p>
+    <p className="text-neutral-500 text-sm mb-5">ou R$ 497 à vista</p>
+
+    {!compact && (
+      <>
+        <div className="border-t border-neutral-300/60 my-5" />
+        <div className="mb-5 text-left max-w-[360px] mx-auto">
+          <p className="font-bold text-base mb-3 text-center" style={{ color: ROXO }}>
+            🧮 Vamos quebrar?
+          </p>
+          <ul className="space-y-1.5 text-neutral-700 text-[0.95rem]">
+            <li>• R$ 49,80 por mês</li>
+            <li>• R$ 1,66 por dia</li>
+            <li>• Menos que um café diário ☕</li>
+          </ul>
+        </div>
+        <div
+          className="rounded-xl p-3 mb-5 text-left text-[0.85rem] md:text-[0.9rem] font-semibold leading-relaxed"
+          style={{
+            background: "#FFF8DC",
+            border: "2px solid #F4C430",
+            color: "#7A5A00",
+          }}
+        >
+          ⚠️ <strong>Atenção:</strong> este preço é EXCLUSIVO pra quem JÁ comprou o Plano 30 Dias. Não estará disponível depois.
+        </div>
+      </>
+    )}
+
+    <CtaButton suffix={suffix} label={ctaLabel} />
+
+    {!compact && (
+      <div className="mt-5 pt-4 border-t border-neutral-300/60 flex flex-wrap justify-center gap-x-4 gap-y-1 text-xs md:text-sm text-neutral-700">
+        <span>🛡️ Garantia 7 dias</span>
+        <span>🔒 Pagamento seguro</span>
+        <span>✅ Acesso vitalício</span>
+      </div>
+    )}
   </div>
 );
 
@@ -86,80 +185,80 @@ const V7 = () => {
         </h2>
       </header>
 
-      {/* HERO COMPACTO */}
-      <section className="px-5 pt-6 pb-3 text-center">
-        <h1
-          className="text-xl md:text-3xl font-extrabold leading-tight mb-2"
-          style={{ color: ROXO, fontFamily: "'Playfair Display', serif" }}
-        >
-          🎉 Espera, mãe! Só mais uma coisa...
-        </h1>
-        <p className="text-sm md:text-base text-neutral-700 max-w-[600px] mx-auto">
-          Você acabou de garantir 30 dias com a Tia Thay. Continue por mais 11 meses.
-        </p>
+      {/* HERO */}
+      <section className="px-5 py-8 md:py-12 text-center" style={{ background: CINZA_CLARO }}>
+        <div className="max-w-[760px] mx-auto">
+          <h1
+            className="text-2xl md:text-4xl font-extrabold leading-tight mb-4"
+            style={{ color: ROXO, fontFamily: "'Playfair Display', serif" }}
+          >
+            🎉 Espera, mãe! Tenho mais uma surpresa pra você...
+          </h1>
+          <p className="text-base md:text-lg font-semibold text-neutral-700 mb-4 leading-snug">
+            Você acabou de garantir seus 30 dias com a Tia Thay.
+            <br />
+            Mas e depois desses 30 dias?
+          </p>
+          <p className="text-[0.95rem] md:text-base text-neutral-600 leading-relaxed mb-3">
+            A maior parte das mães desiste exatamente quando o filho começa a evoluir. Não pelo desinteresse — pela falta de continuidade. Pelo material que acaba.
+          </p>
+          <p
+            className="text-[0.95rem] md:text-base font-semibold leading-relaxed"
+            style={{ color: ROXO }}
+          >
+            Seu filho merece os próximos 11 meses TÃO BEM ESTRUTURADOS quanto os primeiros 30 dias.
+          </p>
+        </div>
       </section>
 
-      {/* BOX PREÇO + CTA #1 */}
-      <section className="px-4 pt-3 pb-8">
-        <div className="max-w-[600px] mx-auto">
-          <div
-            className="rounded-3xl p-5 md:p-8 text-center shadow-xl border-2"
-            style={{ borderColor: ROXO, background: "#F3E8F8" }}
+      {/* APRESENTAÇÃO + 3 PILARES */}
+      <section className="px-5 py-10 md:py-14 bg-white">
+        <div className="max-w-[1000px] mx-auto text-center">
+          <h2
+            className="text-2xl md:text-3xl font-extrabold mb-2"
+            style={{ color: ROXO, fontFamily: "'Playfair Display', serif" }}
           >
-            <p className="text-neutral-700 text-sm md:text-base font-semibold mb-2">
-              Programa Despertar — 12 Meses Completos
-            </p>
-            <p
-              className="font-extrabold leading-none mb-1"
-              style={{
-                color: VERDE,
-                fontSize: "clamp(2.5rem, 11vw, 4rem)",
-                fontFamily: "'Playfair Display', serif",
-              }}
-            >
-              12x R$ 49,80
-            </p>
-            <p
-              className="font-bold mb-1"
-              style={{ color: VERDE, fontSize: "clamp(1rem, 3.5vw, 1.25rem)" }}
-            >
-              sem juros
-            </p>
-            <p className="text-neutral-500 text-sm mb-5">ou R$ 497 à vista</p>
+            Programa Despertar — 12 meses de continuidade
+          </h2>
+          <p className="text-base text-neutral-600 mb-8 max-w-[680px] mx-auto leading-relaxed">
+            Material PERSONALIZADO mês a mês baseado no desenvolvimento do seu filho
+          </p>
 
-            <CtaButton
-              suffix=""
-              label="QUERO GARANTIR OS PRÓXIMOS 12 MESES POR R$ 497"
-            />
-
-            <div className="mt-5 flex flex-wrap justify-center gap-x-4 gap-y-1 text-xs md:text-sm text-neutral-700">
-              <span>🛡️ Garantia 7 dias</span>
-              <span>🔒 Pagamento seguro</span>
-              <span>✅ Acesso vitalício</span>
-            </div>
+          <div className="grid md:grid-cols-3 gap-4">
+            {pilares.map((p, i) => (
+              <div
+                key={i}
+                className="bg-neutral-50 rounded-2xl p-5 shadow-sm border border-neutral-100"
+              >
+                <div className="text-4xl mb-2">{p.icon}</div>
+                <h3 className="font-extrabold text-base mb-2 tracking-wide" style={{ color: ROXO }}>
+                  {p.titulo}
+                </h3>
+                <p className="text-neutral-600 text-[0.92rem] leading-relaxed">
+                  {p.texto}
+                </p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* BULLETS */}
-      <section
-        className="px-5 py-8"
-        style={{ background: CINZA_CLARO }}
-      >
+      {/* INCLUI */}
+      <section className="px-5 py-10 md:py-12" style={{ background: CINZA_CLARO }}>
         <div className="max-w-[640px] mx-auto">
           <h2
-            className="text-xl md:text-2xl font-extrabold text-center mb-5"
+            className="text-xl md:text-2xl font-extrabold text-center mb-6"
             style={{ color: ROXO, fontFamily: "'Playfair Display', serif" }}
           >
-            O que você ganha:
+            Tudo o que está incluso:
           </h2>
-          <ul className="space-y-2">
-            {bullets.map((b, i) => (
+          <ul className="space-y-2.5">
+            {inclui.map((b, i) => (
               <li
                 key={i}
                 className="flex items-start gap-3 text-neutral-700 text-[0.95rem] md:text-base leading-snug"
               >
-                <span className="shrink-0" style={{ color: VERDE }}>✅</span>
+                <span className="shrink-0 mt-0.5" style={{ color: VERDE }}>✅</span>
                 <span>{b}</span>
               </li>
             ))}
@@ -167,20 +266,30 @@ const V7 = () => {
         </div>
       </section>
 
+      {/* CAIXA PREÇO + BOTÃO #1 */}
+      <section className="px-4 py-10 md:py-14 bg-white">
+        <div className="max-w-[600px] mx-auto">
+          <PriceBox
+            suffix=""
+            ctaLabel="QUERO GARANTIR OS PRÓXIMOS 12 MESES POR R$ 497"
+          />
+        </div>
+      </section>
+
       {/* COMPARAÇÃO */}
-      <section className="px-5 py-8 bg-white">
+      <section className="px-5 py-10 md:py-12" style={{ background: CINZA_CLARO }}>
         <div className="max-w-[640px] mx-auto">
           <h2
-            className="text-xl md:text-2xl font-extrabold text-center mb-5"
+            className="text-xl md:text-2xl font-extrabold text-center mb-6"
             style={{ color: ROXO, fontFamily: "'Playfair Display', serif" }}
           >
-            Vamos comparar?
+            Por que vale cada centavo?
           </h2>
           <div className="space-y-2">
             {comparacoes.map((c, i) => (
               <div
                 key={i}
-                className="flex items-center justify-between gap-3 bg-neutral-50 border border-neutral-200 rounded-xl px-4 py-2.5"
+                className="flex items-center justify-between gap-3 bg-white border border-neutral-200 rounded-xl px-4 py-2.5"
               >
                 <span className="text-neutral-700 text-sm md:text-base">{c.t}</span>
                 <span
@@ -199,28 +308,21 @@ const V7 = () => {
                 Programa Despertar
               </span>
               <span className="font-extrabold text-base md:text-lg" style={{ color: VERDE }}>
-                R$ 497 ← VOCÊ
+                R$ 497 ✅
               </span>
             </div>
           </div>
-          <p className="text-center mt-5 text-base md:text-lg font-semibold" style={{ color: ROXO }}>
-            R$ 1,36 por dia. Menos que um café. ☕
+          <p className="text-center mt-5 text-[0.95rem] md:text-base text-neutral-700 leading-relaxed">
+            Por <strong style={{ color: ROXO }}>R$ 1,36 por dia</strong>, seu filho tem acompanhamento estruturado o ano inteiro.
           </p>
         </div>
       </section>
 
-      {/* CTA #2 */}
-      <section className="px-4 py-6" style={{ background: CINZA_CLARO }}>
-        <div className="max-w-[600px] mx-auto">
-          <CtaButton suffix="-2" label="QUERO GARANTIR POR R$ 497" />
-        </div>
-      </section>
-
-      {/* FAQ CURTO */}
-      <section className="px-5 py-8 bg-white">
+      {/* FAQ */}
+      <section className="px-5 py-10 md:py-12 bg-white">
         <div className="max-w-[640px] mx-auto">
           <h2
-            className="text-xl md:text-2xl font-extrabold text-center mb-5"
+            className="text-xl md:text-2xl font-extrabold text-center mb-6"
             style={{ color: ROXO, fontFamily: "'Playfair Display', serif" }}
           >
             Dúvidas rápidas
@@ -251,13 +353,10 @@ const V7 = () => {
         </div>
       </section>
 
-      {/* CTA #3 + GARANTIA */}
-      <section className="px-4 py-8" style={{ background: CINZA_CLARO }}>
-        <div className="max-w-[600px] mx-auto text-center">
-          <CtaButton suffix="-3" label="QUERO GARANTIR POR R$ 497" />
-          <p className="mt-5 text-sm md:text-base text-neutral-700 font-semibold">
-            🛡️ Garantia incondicional de 7 dias
-          </p>
+      {/* CAIXA PREÇO + BOTÃO #2 (final) */}
+      <section className="px-4 py-10 md:py-14" style={{ background: CINZA_CLARO }}>
+        <div className="max-w-[560px] mx-auto">
+          <PriceBox suffix="-2" ctaLabel="QUERO GARANTIR POR R$ 497" compact />
         </div>
       </section>
 
@@ -265,14 +364,10 @@ const V7 = () => {
       <footer className="px-5 py-8 bg-neutral-900 text-neutral-400 text-xs md:text-sm">
         <div className="max-w-[760px] mx-auto space-y-3 leading-relaxed">
           <p>
-            <strong className="text-neutral-200">Aviso importante:</strong> O Programa
-            Despertar é um material educacional de estimulação da fala e linguagem,
-            criado pela fonoaudióloga Dra. Thaynara para uso por pais e responsáveis em
-            casa. Não substitui avaliação ou tratamento fonoaudiológico individual.
-            Resultados variam de criança pra criança.
+            <strong className="text-neutral-200">Disclaimer:</strong> Programa Despertar é uma ferramenta de estimulação educacional baseada em técnicas fonoaudiológicas. Não substitui acompanhamento profissional individual. Em casos de atraso significativo, recomendamos avaliação presencial.
           </p>
           <p className="text-center pt-3 border-t border-neutral-800">
-            © Tia Thay — Todos os direitos reservados.
+            © 2025 Tia Thay — Todos os direitos reservados.
           </p>
         </div>
       </footer>
