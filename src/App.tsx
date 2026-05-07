@@ -9,6 +9,7 @@ const V4 = lazy(() => import("./pages/V4.tsx"));
 const V5 = lazy(() => import("./pages/V5.tsx"));
 const V6 = lazy(() => import("./pages/V6.tsx"));
 const V6Es = lazy(() => import("./pages/V6Es.tsx"));
+const V7 = lazy(() => import("./pages/V7.tsx"));
 const DownsellEs = lazy(() => import("./pages/DownsellEs.tsx"));
 const NotFound = lazy(() => import("./pages/NotFound.tsx"));
 
@@ -41,6 +42,7 @@ const App = () => {
         <Route path="/v5" element={<Suspense fallback={null}><V5 /></Suspense>} />
         <Route path="/downsell" element={<Suspense fallback={null}><V6 /></Suspense>} />
         <Route path="/v6" element={<Suspense fallback={null}><V6Es /></Suspense>} />
+        <Route path="/v7" element={<Suspense fallback={null}><V7 /></Suspense>} />
         <Route path="/downsell-es" element={<Suspense fallback={null}><DownsellEs /></Suspense>} />
         {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
         <Route path="*" element={<Suspense fallback={null}><NotFound /></Suspense>} />
