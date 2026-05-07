@@ -266,18 +266,8 @@ const V7 = () => {
         </div>
       </section>
 
-      {/* CAIXA PREÇO + BOTÃO #1 */}
-      <section className="px-4 py-10 md:py-14 bg-white">
-        <div className="max-w-[600px] mx-auto">
-          <PriceBox
-            suffix=""
-            ctaLabel="QUERO GARANTIR OS PRÓXIMOS 12 MESES POR R$ 497"
-          />
-        </div>
-      </section>
-
       {/* COMPARAÇÃO */}
-      <section className="px-5 py-10 md:py-12" style={{ background: CINZA_CLARO }}>
+      <section className="px-5 py-10 md:py-12 bg-white">
         <div className="max-w-[640px] mx-auto">
           <h2
             className="text-xl md:text-2xl font-extrabold text-center mb-6"
