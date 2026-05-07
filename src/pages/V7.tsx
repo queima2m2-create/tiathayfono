@@ -60,18 +60,18 @@ const faqs = [
 const CtaButton = ({ suffix, label }: { suffix: string; label: string }) => (
   <div
     style={{ textAlign: "center" }}
-    id={`kiwify-upsell-PROGRAMA_ANUAL_PLACEHOLDER${suffix}`}
+    id={`kiwify-upsell-hicUYip${suffix}`}
     data-upsell-url=""
     data-downsell-url=""
   >
     <button
-      id={`kiwify-upsell-trigger-PROGRAMA_ANUAL_PLACEHOLDER${suffix}`}
+      id={`kiwify-upsell-trigger-hicUYip${suffix}`}
       className="bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-4 px-5 md:px-8 rounded-xl text-base md:text-lg shadow-lg cursor-pointer transition-all w-full"
     >
       {label} ➔
     </button>
     <div
-      id={`kiwify-upsell-cancel-trigger-PROGRAMA_ANUAL_PLACEHOLDER${suffix}`}
+      id={`kiwify-upsell-cancel-trigger-hicUYip${suffix}`}
       className="mt-3 text-gray-600 text-sm cursor-pointer hover:underline"
     >
       Não, prefiro continuar sem o acompanhamento anual
