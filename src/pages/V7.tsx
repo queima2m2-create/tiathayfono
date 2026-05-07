@@ -66,7 +66,7 @@ const CtaButton = ({ suffix, label }: { suffix: string; label: string }) => (
   >
     <button
       id={`kiwify-upsell-trigger-hicUYip${suffix}`}
-      className="bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-4 px-5 md:px-8 rounded-xl text-base md:text-lg shadow-lg cursor-pointer transition-all w-full"
+      className="bg-green-600 hover:bg-green-700 text-white font-bold py-4 px-5 md:px-8 rounded-xl text-base md:text-lg shadow-lg cursor-pointer transition-all w-full"
     >
       {label} ➔
     </button>
@@ -313,7 +313,7 @@ const V7 = () => {
         <div className="max-w-[600px] mx-auto">
           <PriceBox
             suffix=""
-            ctaLabel="QUERO GARANTIR OS PRÓXIMOS 12 MESES POR R$ 497"
+            ctaLabel="GARANTIR MEU ACESSO ANUAL"
           />
         </div>
       </section>
