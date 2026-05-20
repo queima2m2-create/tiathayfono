@@ -64,11 +64,11 @@ const PricingBlock = ({ className = "", showUrgency = true }: { className?: stri
         </p>
 
         <p className="text-[1.1rem] mb-1 mt-3">
-          12x de <strong className="text-[2.8rem] md:text-[3.2rem] font-black text-marrom-dark leading-none">R$ 6,93</strong>
+          12x de <strong className="text-[2.8rem] md:text-[3.2rem] font-black text-marrom-dark leading-none">R$ 10,03</strong>
         </p>
 
         <div className="inline-block bg-marrom-dark/80 text-background text-[1.3rem] font-black px-8 py-3 rounded-xl my-4">
-          OU R$ 67 NO PIX
+          OU R$ 97 NO PIX
         </div>
 
         <div className="mt-5">
@@ -77,7 +77,7 @@ const PricingBlock = ({ className = "", showUrgency = true }: { className?: stri
             size="lg"
             className="text-[0.9rem] md:text-[1rem] px-8 py-6 md:py-7 w-full leading-tight whitespace-normal h-auto text-background font-extrabold"
             onClick={async () => {
-              await sendTrackingEnrichment({ value: 67, contentName: 'Guia Meu Filho Vai Falar' });
+              await sendTrackingEnrichment({ value: 97, contentName: 'Guia Meu Filho Vai Falar' });
               fbEvents.initiateCheckout();
               await new Promise(r => setTimeout(r, 200));
               const url = buildKiwifyCheckoutUrl(CTA_LINK);
