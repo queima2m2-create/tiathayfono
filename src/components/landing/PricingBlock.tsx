@@ -77,7 +77,7 @@ const PricingBlock = ({ className = "", showUrgency = true }: { className?: stri
             size="lg"
             className="text-[0.9rem] md:text-[1rem] px-8 py-6 md:py-7 w-full leading-tight whitespace-normal h-auto text-background font-extrabold"
             onClick={async () => {
-              await sendTrackingEnrichment({ value: 67, contentName: 'Guia Meu Filho Vai Falar' });
+              await sendTrackingEnrichment({ value: 97, contentName: 'Guia Meu Filho Vai Falar' });
               fbEvents.initiateCheckout();
               await new Promise(r => setTimeout(r, 200));
               const url = buildKiwifyCheckoutUrl(CTA_LINK);
