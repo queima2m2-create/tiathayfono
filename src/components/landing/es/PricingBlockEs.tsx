@@ -68,7 +68,7 @@ const PricingBlockEs = ({ className = "", showUrgency = true }: { className?: st
         </p>
 
         <div className="inline-block bg-marrom-dark/80 text-background text-[1.3rem] font-black px-8 py-3 rounded-xl mt-4">
-          PAGO ÚNICO EN USD
+          PAGO ÚNICO
         </div>
         <p className="italic text-[0.85rem] text-[#888888] mt-1.5 mb-4 text-center">
           El cobro se convierte automáticamente a tu moneda local
