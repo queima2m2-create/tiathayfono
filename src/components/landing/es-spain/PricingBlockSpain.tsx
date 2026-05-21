@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { buildKiwifyCheckoutUrl, sendTrackingEnrichment } from "@/lib/kiwifyUrl";
 import produtoMockup from "@/assets/es/produto-mockup-precos-es.jpeg";
 
-const CTA_LINK = "https://pay.kiwify.com.br/PRODUCT_ID_SPAIN_AQUI";
+const CTA_LINK = "https://pay.kiwify.com/xejcn1H";
 
 const TIMER_KEY = "pricing_timer_start_spain";
 const TWENTY_FOUR_HOURS = 24 * 60 * 60 * 1000;
