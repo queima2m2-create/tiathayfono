@@ -10,6 +10,7 @@ const V5 = lazy(() => import("./pages/V5.tsx"));
 const V6 = lazy(() => import("./pages/V6.tsx"));
 const V6Es = lazy(() => import("./pages/V6Es.tsx"));
 const V7 = lazy(() => import("./pages/V7.tsx"));
+const V5Espana = lazy(() => import("./pages/V5Espana.tsx"));
 const DownsellEs = lazy(() => import("./pages/DownsellEs.tsx"));
 const NotFound = lazy(() => import("./pages/NotFound.tsx"));
 
