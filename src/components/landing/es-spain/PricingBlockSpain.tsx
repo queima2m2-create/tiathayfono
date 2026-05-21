@@ -1,12 +1,11 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import { fbEvents } from "@/lib/fbConversions";
 import { buildKiwifyCheckoutUrl, sendTrackingEnrichment } from "@/lib/kiwifyUrl";
 import produtoMockup from "@/assets/es/produto-mockup-precos-es.jpeg";
 
-const CTA_LINK = "https://pay.kiwify.com/6tBcvSl";
+const CTA_LINK = "https://pay.kiwify.com.br/PRODUCT_ID_SPAIN_AQUI";
 
-const TIMER_KEY = "pricing_timer_start_es";
+const TIMER_KEY = "pricing_timer_start_spain";
 const TWENTY_FOUR_HOURS = 24 * 60 * 60 * 1000;
 
 const getTimeLeft = () => {
@@ -42,7 +41,7 @@ const PricingBlockSpain = ({ className = "", showUrgency = true }: { className?:
       <div className="bg-background text-marrom-dark rounded-2xl p-8 md:p-10 shadow-xl">
         {showUrgency && (
           <span className="inline-block bg-vermelho text-background text-[0.85rem] font-bold px-6 py-2.5 rounded-lg mb-5">
-            ⏰ La oferta expira en: {formatTime(timeLeft)}
+            ⏰ La oferta caduca en: {formatTime(timeLeft)}
           </span>
         )}
 
@@ -59,19 +58,19 @@ const PricingBlockSpain = ({ className = "", showUrgency = true }: { className?:
 
         <p className="text-[1rem] mb-2 font-semibold">
           <span className="bg-vermelho text-background px-3 py-1 rounded-md text-[1.1rem] font-bold">
-            De: <span className="line-through">$137 USD</span>
+            Antes: <span className="line-through">137,00 € EUR</span>
           </span>
         </p>
 
         <p className="text-[1.1rem] mb-1 mt-3">
-          Por solo <strong className="text-[2.8rem] md:text-[3.2rem] font-black text-marrom-dark leading-none">$14,99</strong>
+          Por solo <strong className="text-[2.8rem] md:text-[3.2rem] font-black text-marrom-dark leading-none">19,99 €</strong>
         </p>
 
         <div className="inline-block bg-marrom-dark/80 text-background text-[1.3rem] font-black px-8 py-3 rounded-xl mt-4">
           PAGO ÚNICO
         </div>
         <p className="italic text-[0.85rem] text-[#888888] mt-1.5 mb-4 text-center">
-          El cobro se convierte automáticamente a tu moneda local
+          IVA incluido · Pago seguro en euros (EUR)
         </p>
 
         <div className="mt-5">
@@ -80,12 +79,12 @@ const PricingBlockSpain = ({ className = "", showUrgency = true }: { className?:
             size="lg"
             className="text-[0.9rem] md:text-[1rem] px-8 py-6 md:py-7 w-full leading-tight whitespace-normal h-auto text-background font-extrabold"
             onClick={async () => {
-              await sendTrackingEnrichment({ value: 14.99, contentName: 'Mi Hijo Va a Hablar' });
+              await sendTrackingEnrichment({ value: 19.99, contentName: 'Mi Hijo Va a Hablar - España' });
               if (typeof (window as any).fbq !== 'undefined') {
                 (window as any).fbq('track', 'InitiateCheckout', {
-                  value: 14.99,
-                  currency: 'USD',
-                  content_name: 'Mi Hijo Va a Hablar',
+                  value: 19.99,
+                  currency: 'EUR',
+                  content_name: 'Mi Hijo Va a Hablar - España',
                   content_type: 'product',
                 });
               }
@@ -93,7 +92,7 @@ const PricingBlockSpain = ({ className = "", showUrgency = true }: { className?:
               window.location.href = buildKiwifyCheckoutUrl(CTA_LINK);
             }}
           >
-            QUIERO DESBLOQUEAR EL HABLA DE MI HIJO EN 30 DÍAS
+            QUIERO DESBLOQUEAR EL HABLA DE MI HIJO POR 19,99 €
           </Button>
         </div>
 
