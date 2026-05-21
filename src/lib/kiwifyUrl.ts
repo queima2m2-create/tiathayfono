@@ -54,12 +54,17 @@ export async function sendTrackingEnrichment(extra?: {
   const fbp = fbpMatch ? decodeURIComponent(fbpMatch[1]) : "";
 
   const path = window.location.pathname;
+  const isSpain = path.startsWith("/es-espana");
   const isLatam =
-    path.startsWith("/v5") ||
-    path.startsWith("/v6") ||
-    path.startsWith("/v5-downsell") ||
-    path.startsWith("/downsell-es");
-  const endpoint = isLatam
+    !isSpain && (
+      path.startsWith("/v5") ||
+      path.startsWith("/v6") ||
+      path.startsWith("/v5-downsell") ||
+      path.startsWith("/downsell-es")
+    );
+  const endpoint = isSpain
+    ? "https://n8n.mq2m2.com/webhook/tracking-enrich-spain"
+    : isLatam
     ? "https://n8n.mq2m2.com/webhook/tracking-enrich-latam"
     : "https://n8n.mq2m2.com/webhook/tracking-enrich";
 
