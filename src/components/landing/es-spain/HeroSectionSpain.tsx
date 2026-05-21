@@ -7,7 +7,7 @@ const HeroSectionSpain = () => (
       </h1>
 
       <p className="text-[0.95rem] md:text-[1.05rem] text-primary/80 leading-[1.5] md:leading-[1.8] max-w-[480px] mx-auto">
-        El método creado por una fonoaudióloga que usa la rutina que ya tienes — sin consulta, sin juguetes especiales y sin complicaciones.
+        El método creado por una logopeda que usa la rutina que ya tienes — sin consulta, sin juguetes especiales y sin complicaciones.
       </p>
     </div>
   </section>

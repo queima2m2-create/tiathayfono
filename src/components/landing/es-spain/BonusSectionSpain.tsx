@@ -7,22 +7,22 @@ const bonusItems = [
   {
     num: "08",
     title: "CANCIONES PARA HABLAR EN HASTA 7 DÍAS",
-    desc: "Canciones en audios creadas por la fonoaudióloga de forma estratégica para estimular en el día a día — en la calle, en el parque, en el baño… que harán que tu hijo aprenda sin querer.",
+    desc: "Canciones en audios creadas por la logopeda de forma estratégica para estimular en el día a día — en la calle, en el parque, en el baño… que harán que tu hijo aprenda sin querer.",
     checks: ["Audios listos para usar en cualquier momento", "Estímulo natural a través de la música"],
     img: bonusMusicas,
   },
   {
     num: "09",
     title: "CONSULTA GRATUITA CON LA FONOAUDIÓLOGA",
-    desc: "Recibe un acceso a un encuentro con Thaynara Andrade, fonoaudióloga infantil, y tendrás la oportunidad de aclarar tus dudas e impulsar el habla de tu hijo.",
-    checks: ["Encuentro en vivo con la fonoaudióloga", "Resuelve todas tus dudas en tiempo real"],
+    desc: "Recibe un acceso a un encuentro con Thaynara Andrade, logopeda infantil, y tendrás la oportunidad de aclarar tus dudas e impulsar el habla de tu hijo.",
+    checks: ["Encuentro en vivo con la logopeda", "Resuelve todas tus dudas en tiempo real"],
     img: bonusAulaVivo,
   },
   {
     num: "10",
     title: "TARJETAS INTERACTIVAS DE ESTÍMULO",
     desc: "Tarjetas ilustradas y divertidas para usar en los juegos del día a día, transformando cada momento en una oportunidad de estimular el habla.",
-    checks: ["Perfectas para jugar y aprender al mismo tiempo", "Desarrolladas por fonoaudióloga infantil"],
+    checks: ["Perfectas para jugar y aprender al mismo tiempo", "Desarrolladas por logopeda infantil"],
     img: bonusCards,
   },
   {

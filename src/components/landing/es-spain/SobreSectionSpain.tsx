@@ -55,7 +55,7 @@ const SobreSectionSpain = () => {
           </h2>
           <div className="space-y-4 text-[1rem] text-primary/80 leading-[1.8]">
             <p>
-              <strong className="text-marrom-dark">Fonoaudióloga infantil especializada en el desarrollo de la comunicación y el lenguaje en los primeros años de vida.</strong>
+              <strong className="text-marrom-dark">Logopeda infantil especializada en el desarrollo de la comunicación y el lenguaje en los primeros años de vida.</strong>
             </p>
             <p>
               Ya he acompañado a más de <strong className="text-marrom-dark">{getSocialProofCountSpain()} familias</strong> — y lo que noté en todas ellas fue lo mismo: las mamás necesitaban algo más que la consulta — saber exactamente qué hacer en casa, en el baño, a la hora de comer, en el juego del día a día.

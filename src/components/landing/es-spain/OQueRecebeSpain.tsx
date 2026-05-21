@@ -22,7 +22,7 @@ const mainItems = [
   },
   {
     num: "03", title: "LOS 10 MEJORES JUEGOS QUE DESBLOQUEAN EL HABLA",
-    desc: "Juegos simples, divertidos y validados por una fonoaudióloga que estimulan a tu hijo a hablar de forma natural mientras se divierte.",
+    desc: "Juegos simples, divertidos y validados por una logopeda que estimulan a tu hijo a hablar de forma natural mientras se divierte.",
     checks: ["Juegos que estimulan sonidos y palabras nuevas", "Fáciles de hacer en casa con lo que ya tienes"],
     img: entregaBrincadeiras,
   },
@@ -35,7 +35,7 @@ const mainItems = [
   {
     num: "05", title: "RUTINA DEL NIÑO PARLANCHÍN",
     desc: "Usa tu día a día común para hacer que tu hijo hable — sin sufrimiento.",
-    checks: ["Encaja en cualquier rutina", "Juegos validados por fonoaudióloga"],
+    checks: ["Encaja en cualquier rutina", "Juegos validados por logopeda"],
     img: entregaAtividades,
   },
   {

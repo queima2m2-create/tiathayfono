@@ -7,11 +7,11 @@ const guideItems = [
   { emoji: "💬", price: "$13", title: "Palabras de Poder Que Desbloquean la Comunicación" },
   { emoji: "🎮", price: "$13", title: "Rutina del Niño Parlanchín" },
   { emoji: "📱", price: "$13", title: "Pantallas — ¿Aliado o Enemigo del Habla?" },
-  { emoji: "📲", price: "$13", title: "Soporte con la Fonoaudióloga por WhatsApp" },
+  { emoji: "📲", price: "$13", title: "Soporte con la Logopeda por WhatsApp" },
 ];
 const bonusItems = [
   { emoji: "🎵", price: "$18", title: "Canciones Para Hablar en Hasta 7 Días" },
-  { emoji: "🎥", price: "$13", title: "Clase en Vivo Gratuita con la Fonoaudióloga" },
+  { emoji: "🎥", price: "$13", title: "Clase en Vivo Gratuita con la Logopeda" },
   { emoji: "🃏", price: "$13", title: "Tarjetas Interactivas de Estímulo" },
   { emoji: "🏅", price: "$10", title: "Certificado Parlanchín" },
 ];

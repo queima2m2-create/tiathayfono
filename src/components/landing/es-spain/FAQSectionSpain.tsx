@@ -18,8 +18,8 @@ const faqs = [
     a: "Sí — y mucho. La diferencia está en el origen: lo que intentaste antes probablemente era contenido genérico, sin estructura clínica. Aquí recibes el mismo protocolo que la Dra. Thaynara aplica en consultorio, adaptado para mamás, con paso a paso claro y validado con cientos de niños reales.",
   },
   {
-    q: "Mi hijo ya hace terapia con una fonoaudióloga. ¿Sigue valiendo la pena?",
-    a: "Vale — y mucho. La fonoaudióloga atiende a tu hijo por 1 hora a la semana. La Guía te pone en acción en las otras horas del día, dentro de casa. No compite con la terapia, amplifica su resultado. Muchas fonoaudiólogas inclusive la recomiendan.",
+    q: "Mi hijo ya hace terapia con una logopeda. ¿Sigue valiendo la pena?",
+    a: "Vale — y mucho. La logopeda atiende a tu hijo por 1 hora a la semana. La Guía te pone en acción en las otras horas del día, dentro de casa. No compite con la terapia, amplifica su resultado. Muchas logopedas inclusive la recomiendan.",
   },
   {
     q: "¿Cómo sé si la Guía es la adecuada para mi hijo?",
