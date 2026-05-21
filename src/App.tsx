@@ -44,6 +44,7 @@ const App = () => {
         <Route path="/downsell" element={<Suspense fallback={null}><V6 /></Suspense>} />
         <Route path="/v6" element={<Suspense fallback={null}><V6Es /></Suspense>} />
         <Route path="/v7" element={<Suspense fallback={null}><V7 /></Suspense>} />
+        <Route path="/es-espana" element={<Suspense fallback={null}><V5Espana /></Suspense>} />
         <Route path="/downsell-es" element={<Suspense fallback={null}><DownsellEs /></Suspense>} />
         {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
         <Route path="*" element={<Suspense fallback={null}><NotFound /></Suspense>} />
