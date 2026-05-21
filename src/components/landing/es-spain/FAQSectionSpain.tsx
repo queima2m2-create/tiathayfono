@@ -18,8 +18,12 @@ const faqs = [
     a: "Sí — y mucho. La diferencia está en el origen: lo que intentaste antes probablemente era contenido genérico, sin estructura clínica. Aquí recibes el mismo protocolo que la Dra. Thaynara aplica en consultorio, adaptado para mamás, con paso a paso claro y validado con cientos de niños reales.",
   },
   {
-    q: "Mi hijo ya hace terapia con una logopeda. ¿Sigue valiendo la pena?",
-    a: "Vale — y mucho. La logopeda atiende a tu hijo por 1 hora a la semana. La Guía te pone en acción en las otras horas del día, dentro de casa. No compite con la terapia, amplifica su resultado. Muchas logopedas inclusive la recomiendan.",
+    q: "Estoy esperando cita con la logopeda en la Seguridad Social. ¿Me sirve esta Guía mientras tanto?",
+    a: "Sí, totalmente. Sabemos que las listas de espera del SEPAS (Sistema Público de Salud) pueden tardar meses. Mientras esperas tu cita en el sistema público, esta Guía te ayuda a empezar a estimular el habla de tu hijo desde casa, hoy mismo. No sustituye a tu logopeda — es un complemento que te pone en acción ya, en lugar de perder semanas críticas del desarrollo de tu peque.",
+  },
+  {
+    q: "Mi hijo ya hace terapia con una logopeda. ¿Sigue mereciendo la pena?",
+    a: "Vale — y mucho. La logopeda atiende a tu hijo 1 hora a la semana. La Guía te pone en acción en las otras horas del día, dentro de casa. No compite con la terapia, amplifica su resultado. Muchas logopedas incluso la recomiendan.",
   },
   {
     q: "¿Cómo sé si la Guía es la adecuada para mi hijo?",
