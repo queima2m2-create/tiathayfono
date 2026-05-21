@@ -34,7 +34,7 @@ const bonusItems = [
   },
 ];
 
-const BonusSectionEs = () => (
+const BonusSectionSpain = () => (
   <section className="bg-rosa pt-6 md:pt-8 pb-20 md:pb-28 px-6">
     <div className="max-w-[900px] mx-auto">
       <h2 className="text-[1.6rem] md:text-[2.2rem] font-extrabold text-center text-background mb-16 leading-[1.25]">
@@ -75,4 +75,4 @@ const BonusSectionEs = () => (
   </section>
 );
 
-export default BonusSectionEs;
+export default BonusSectionSpain;

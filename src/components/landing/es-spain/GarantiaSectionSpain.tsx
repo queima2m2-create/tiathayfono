@@ -1,8 +1,8 @@
-import PricingBlockEs from "./PricingBlockEs";
-import { getSocialProofCountEs } from "@/lib/socialProofCountEs";
+import PricingBlockSpain from "./PricingBlockSpain";
+import { getSocialProofCountSpain } from "@/lib/socialProofCountSpain";
 import seloGarantia from "@/assets/es/selo-garantia-es.jpeg";
 
-const GarantiaSectionEs = () => (
+const GarantiaSectionSpain = () => (
   <>
     <section className="bg-rosa py-20 md:py-28 px-6">
       <div className="max-w-[750px] mx-auto text-background text-center">
@@ -23,7 +23,7 @@ const GarantiaSectionEs = () => (
 
         <div className="space-y-5 text-[1rem] opacity-90 leading-[1.8] max-w-[650px] mx-auto">
           <p>
-            <strong>Yo sé lo que este método hace por la vida de una familia. Lo viví en más de {getSocialProofCountEs()} atenciones. Por eso tengo total confianza en ofrecer esta garantía: entra, aplícalo con tu hijo y vive la experiencia completa. Si en 30 días no sientes que valió cada centavo — solo dímelo y te devuelvo todo. Sin burocracia, sin preguntas, sin juicios.</strong>
+            <strong>Yo sé lo que este método hace por la vida de una familia. Lo viví en más de {getSocialProofCountSpain()} atenciones. Por eso tengo total confianza en ofrecer esta garantía: entra, aplícalo con tu hijo y vive la experiencia completa. Si en 30 días no sientes que valió cada centavo — solo dímelo y te devuelvo todo. Sin burocracia, sin preguntas, sin juicios.</strong>
           </p>
           <p>
             <strong>El riesgo es cero. Lo que puedes ganar es ver a tu hijo hablar. Ese es el intercambio que la Dra. Thaynara te está proponiendo hoy.</strong>
@@ -33,9 +33,9 @@ const GarantiaSectionEs = () => (
     </section>
 
     <section className="bg-rosa py-20 md:py-24 px-6">
-      <PricingBlockEs />
+      <PricingBlockSpain />
     </section>
   </>
 );
 
-export default GarantiaSectionEs;
+export default GarantiaSectionSpain;

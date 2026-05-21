@@ -10,7 +10,7 @@ const depoimentos = [
   depoimentoNovo5,
 ];
 
-const DepoimentosSectionEs = () => (
+const DepoimentosSectionSpain = () => (
   <section id="depoimentos" className="bg-background py-20 md:py-28 px-6">
     <div className="max-w-[900px] mx-auto">
       <h2 className="text-[1.6rem] md:text-[2.2rem] font-extrabold text-marrom-dark mb-3 leading-[1.25]">
@@ -35,4 +35,4 @@ const DepoimentosSectionEs = () => (
   </section>
 );
 
-export default DepoimentosSectionEs;
+export default DepoimentosSectionSpain;

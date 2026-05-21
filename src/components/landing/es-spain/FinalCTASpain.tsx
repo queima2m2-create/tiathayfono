@@ -1,7 +1,7 @@
 import doisCaminhos from "@/assets/es/dois-caminhos-es.jpeg";
-import PricingBlockEs from "./PricingBlockEs";
+import PricingBlockSpain from "./PricingBlockSpain";
 
-const FinalCTAEs = () => (
+const FinalCTASpain = () => (
   <>
     <section className="bg-background py-12 md:py-16 px-6 text-center">
       <div className="max-w-[750px] mx-auto">
@@ -35,9 +35,9 @@ const FinalCTAEs = () => (
     </section>
 
     <section className="bg-rosa py-14 md:py-20 px-6">
-      <PricingBlockEs showUrgency={false} />
+      <PricingBlockSpain showUrgency={false} />
     </section>
   </>
 );
 
-export default FinalCTAEs;
+export default FinalCTASpain;

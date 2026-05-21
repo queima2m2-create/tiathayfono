@@ -30,7 +30,7 @@ const MESSAGES: ToastMessage[] = [
   { name: "Daniela", text: "compró la Guía Mi Hijo Va a Hablar", time: "hace 1 minuto" },
 ];
 
-const SocialProofToastEs = () => {
+const SocialProofToastSpain = () => {
   const [visible, setVisible] = useState(false);
   const [index, setIndex] = useState(0);
 
@@ -92,4 +92,4 @@ const SocialProofToastEs = () => {
   );
 };
 
-export default SocialProofToastEs;
+export default SocialProofToastSpain;

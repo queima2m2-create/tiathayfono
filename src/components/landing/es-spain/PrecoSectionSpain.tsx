@@ -1,9 +1,9 @@
-import PricingBlockEs from "./PricingBlockEs";
+import PricingBlockSpain from "./PricingBlockSpain";
 
-const PrecoSectionEs = () => (
+const PrecoSectionSpain = () => (
   <section id="preco" className="bg-rosa pt-4 pb-8 md:pt-6 md:pb-10 px-4">
-    <PricingBlockEs />
+    <PricingBlockSpain />
   </section>
 );
 
-export default PrecoSectionEs;
+export default PrecoSectionSpain;

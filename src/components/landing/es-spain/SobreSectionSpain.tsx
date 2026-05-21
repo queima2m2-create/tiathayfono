@@ -1,11 +1,11 @@
 import { useState, useEffect } from "react";
-import { getSocialProofCountEs } from "@/lib/socialProofCountEs";
+import { getSocialProofCountSpain } from "@/lib/socialProofCountSpain";
 import thaynaraFoto from "@/assets/thaynara-foto.jpg";
 import sobreFilha from "@/assets/sobre-filha.jpeg";
 
 const images = [thaynaraFoto, sobreFilha];
 
-const SobreSectionEs = () => {
+const SobreSectionSpain = () => {
   const [current, setCurrent] = useState(0);
 
   useEffect(() => {
@@ -58,7 +58,7 @@ const SobreSectionEs = () => {
               <strong className="text-marrom-dark">Fonoaudióloga infantil especializada en el desarrollo de la comunicación y el lenguaje en los primeros años de vida.</strong>
             </p>
             <p>
-              Ya he acompañado a más de <strong className="text-marrom-dark">{getSocialProofCountEs()} familias</strong> — y lo que noté en todas ellas fue lo mismo: las mamás necesitaban algo más que la consulta — saber exactamente qué hacer en casa, en el baño, a la hora de comer, en el juego del día a día.
+              Ya he acompañado a más de <strong className="text-marrom-dark">{getSocialProofCountSpain()} familias</strong> — y lo que noté en todas ellas fue lo mismo: las mamás necesitaban algo más que la consulta — saber exactamente qué hacer en casa, en el baño, a la hora de comer, en el juego del día a día.
             </p>
             <p>
               Mamás que estaban perdidas, pensando que su hijo nunca iba a hablar — <strong className="text-marrom-dark">hoy me envían videos emocionadas con cada palabrita nueva.</strong>
@@ -79,4 +79,4 @@ const SobreSectionEs = () => {
   );
 };
 
-export default SobreSectionEs;
+export default SobreSectionSpain;

@@ -35,7 +35,7 @@ const faqs = [
   },
 ];
 
-const FAQSectionEs = () => {
+const FAQSectionSpain = () => {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   return (
@@ -70,4 +70,4 @@ const FAQSectionEs = () => {
   );
 };
 
-export default FAQSectionEs;
+export default FAQSectionSpain;

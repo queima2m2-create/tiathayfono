@@ -1,5 +1,5 @@
 import entregaSinais from "@/assets/es/checklist-del-habla-es.jpeg";
-import { getSocialProofCountEs } from "@/lib/socialProofCountEs";
+import { getSocialProofCountSpain } from "@/lib/socialProofCountSpain";
 import entregaFala from "@/assets/entrega-fala-funciona.jpg";
 import entregaBrincadeiras from "@/assets/es/jugar-sonar-hablar-es.jpeg";
 import entregaPalavras from "@/assets/es/palabras-que-destraban-es.jpeg";
@@ -52,11 +52,11 @@ const mainItems = [
   },
 ];
 
-const OQueRecebeEs = () => (
+const OQueRecebeSpain = () => (
   <section className="bg-rosa pt-20 md:pt-28 pb-6 md:pb-8 px-6">
     <div className="max-w-[900px] mx-auto">
       <h2 className="text-[1.6rem] md:text-[2.2rem] font-extrabold text-center text-background mb-16 leading-[1.25]">
-        Lo que está dentro de la Guía que ya desbloqueó el habla de {getSocialProofCountEs()} niños
+        Lo que está dentro de la Guía que ya desbloqueó el habla de {getSocialProofCountSpain()} niños
       </h2>
 
       <div className="space-y-10">
@@ -93,4 +93,4 @@ const OQueRecebeEs = () => (
   </section>
 );
 
-export default OQueRecebeEs;
+export default OQueRecebeSpain;

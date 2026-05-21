@@ -1,5 +1,5 @@
 import etapa1 from "@/assets/etapa1-cerebro-fala.jpg";
-import { getSocialProofCountEs } from "@/lib/socialProofCountEs";
+import { getSocialProofCountSpain } from "@/lib/socialProofCountSpain";
 import etapa2 from "@/assets/etapa2-protocolo.jpg";
 import etapa3 from "@/assets/etapa3-tagarelas.jpg";
 
@@ -15,19 +15,19 @@ const steps = [
     num: "ETAPA 2",
     title: "APLICA LA ESTRUCTURA ÚNICA DE LA DRA. THAYNARA",
     subtitle:
-      `Pon en práctica el protocolo exclusivo desarrollado a partir de ${getSocialProofCountEs()} atenciones. Una secuencia específica de estímulos que respeta exactamente la fase de tu hijo y desbloquea el habla de adentro hacia afuera — de forma natural, sin presión, sin salir de casa.`,
+      `Pon en práctica el protocolo exclusivo desarrollado a partir de ${getSocialProofCountSpain()} atenciones. Una secuencia específica de estímulos que respeta exactamente la fase de tu hijo y desbloquea el habla de adentro hacia afuera — de forma natural, sin presión, sin salir de casa.`,
     img: etapa2,
   },
   {
     num: "ETAPA 3",
     title: "EL SECRETO DE LOS NIÑOS PARLANCHINES",
     subtitle:
-      "Descubre lo que todo niño que habla por los codos tiene en común — y cómo transformar la rutina de tu hijo para que él llegue ahí. No es suerte. No es genética. Es método.",
+      "Descubre lo que todo niño que habla por los codos tiene en común — y cómo transformar la rutina de tu hijo para que él llegue ahí. No es suerte. No es genética. Spain método.",
     img: etapa3,
   },
 ];
 
-const ComoFuncionaEs = () => (
+const ComoFuncionaSpain = () => (
   <section className="bg-rosa-light pt-12 pb-12 md:pt-16 md:pb-16 px-4">
     <div className="max-w-[720px] mx-auto">
       <h2 className="text-[1.6rem] md:text-[2.2rem] font-extrabold text-marrom-dark mb-3 text-center leading-[1.2]">
@@ -69,4 +69,4 @@ const ComoFuncionaEs = () => (
   </section>
 );
 
-export default ComoFuncionaEs;
+export default ComoFuncionaSpain;

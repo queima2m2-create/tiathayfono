@@ -28,7 +28,7 @@ const formatTime = (ms: number) => {
   return `${h}:${m}:${s}`;
 };
 
-const PricingBlockEs = ({ className = "", showUrgency = true }: { className?: string; showUrgency?: boolean }) => {
+const PricingBlockSpain = ({ className = "", showUrgency = true }: { className?: string; showUrgency?: boolean }) => {
   const [timeLeft, setTimeLeft] = useState(getTimeLeft);
 
   useEffect(() => {
@@ -105,4 +105,4 @@ const PricingBlockEs = ({ className = "", showUrgency = true }: { className?: st
   );
 };
 
-export default PricingBlockEs;
+export default PricingBlockSpain;
