@@ -1,5 +1,4 @@
 import { useEffect, lazy, Suspense } from "react";
-
 import HeroSectionSpain from "@/components/landing/es-spain/HeroSectionSpain";
 import VturbPlayer from "@/components/landing/VturbPlayerV5";
 import { Button } from "@/components/ui/button";
@@ -22,75 +21,86 @@ const FinalCTASpain = lazy(() => import("@/components/landing/es-spain/FinalCTAS
 const FAQSectionSpain = lazy(() => import("@/components/landing/es-spain/FAQSectionSpain"));
 const FooterSpain = lazy(() => import("@/components/landing/es-spain/FooterSpain"));
 
+const TITLE = "Mi Hijo Va a Hablar - Guía para Mamás de España";
+const DESCRIPTION =
+  "Mientras esperas tu cita de logopeda en la Seguridad Social, esta guía te ayuda a estimular el habla de tu hijo desde casa. Método creado por logopeda infantil. Por solo 19,99 € (IVA incluido).";
+
+const setOrCreateMeta = (selector: string, attr: string, value: string, content: string) => {
+  let el = document.head.querySelector<HTMLMetaElement>(selector);
+  if (!el) {
+    el = document.createElement("meta");
+    el.setAttribute(attr, value);
+    document.head.appendChild(el);
+  }
+  el.setAttribute("content", content);
+};
+
 const V5Espana = () => {
   useEffect(() => {
+    const prevLang = document.documentElement.lang;
+    const prevTitle = document.title;
     document.documentElement.lang = "es-ES";
+    document.title = TITLE;
+    setOrCreateMeta('meta[name="description"]', "name", "description", DESCRIPTION);
+    setOrCreateMeta('meta[property="og:locale"]', "property", "og:locale", "es_ES");
+    setOrCreateMeta('meta[property="og:title"]', "property", "og:title", TITLE);
+    setOrCreateMeta('meta[property="og:description"]', "property", "og:description", DESCRIPTION);
+
     const fire = () => import("@/lib/fbConversions").then((m) => m.fbEvents.pageView());
     if ("requestIdleCallback" in window) {
       (window as any).requestIdleCallback(fire, { timeout: 3000 });
     } else {
       setTimeout(fire, 1000);
     }
+
+    return () => {
+      document.documentElement.lang = prevLang;
+      document.title = prevTitle;
+    };
   }, []);
 
   return (
-    <HelmetProvider>
-      <Helmet>
-        <html lang="es-ES" />
-        <title>Mi Hijo Va a Hablar - Guía para Mamás de España</title>
-        <meta
-          name="description"
-          content="Mientras esperas tu cita de logopeda en la Seguridad Social, esta guía te ayuda a estimular el habla de tu hijo desde casa. Método creado por logopeda infantil. Por solo 19,99 € (IVA incluido)."
-        />
-        <meta property="og:locale" content="es_ES" />
-        <meta property="og:title" content="Mi Hijo Va a Hablar - Guía para Mamás de España" />
-        <meta
-          property="og:description"
-          content="Haz estos ajustes en la rutina de tu hijo durante 15 minutos al día y velo formar sus primeras frases en hasta 30 días."
-        />
-      </Helmet>
-      <main>
-        <HeroSectionSpain />
-        <VturbPlayer />
-        <Suspense fallback={null}>
-          <ProvaRapidaSpain />
-          <DorSectionSpain />
-          <ComoFuncionaSpain />
-          <OQueRecebeSpain />
-          <BonusSectionSpain />
-          <DepoimentosSectionSpain />
+    <main>
+      <HeroSectionSpain />
+      <VturbPlayer />
+      <Suspense fallback={null}>
+        <ProvaRapidaSpain />
+        <DorSectionSpain />
+        <ComoFuncionaSpain />
+        <OQueRecebeSpain />
+        <BonusSectionSpain />
+        <DepoimentosSectionSpain />
 
-          <section className="bg-background pb-10 px-4 text-center">
-            <Button
-              variant="cta"
-              size="lg"
-              className="text-[0.85rem] md:text-[1rem] px-8 py-5 md:py-6 w-full md:w-auto max-w-[600px] leading-tight whitespace-normal h-auto"
-              asChild
+        <section className="bg-background pb-10 px-4 text-center">
+          <Button
+            variant="cta"
+            size="lg"
+            className="text-[0.85rem] md:text-[1rem] px-8 py-5 md:py-6 w-full md:w-auto max-w-[600px] leading-tight whitespace-normal h-auto"
+            asChild
+          >
+            <a
+              href="#preco"
+              onClick={() => import("@/lib/fbConversions").then((m) => m.fbEvents.initiateCheckout())}
             >
-              <a
-                href="#preco"
-                onClick={() => import("@/lib/fbConversions").then((m) => m.fbEvents.initiateCheckout())}
-              >
-                QUIERO DESBLOQUEAR EL HABLA DE MI HIJO POR 19,99 € →
-              </a>
-            </Button>
-          </section>
+              QUIERO DESBLOQUEAR EL HABLA DE MI HIJO POR 19,99 € →
+            </a>
+          </Button>
+        </section>
 
-          <ParaQuemSectionSpain />
-          <RecapSectionSpain />
-          <PrecoSectionSpain />
-          <FinalCTASpain />
-          <SobreSectionSpain />
-          <GarantiaSectionSpain />
-          <FAQSectionSpain />
-          <FooterSpain />
-        </Suspense>
-        <Suspense fallback={null}>
-          <SocialProofToastSpain />
-          <UnmuteOverlay />
-        </Suspense>
-      </main>
-    </HelmetProvider>
+        <ParaQuemSectionSpain />
+        <RecapSectionSpain />
+        <PrecoSectionSpain />
+        <FinalCTASpain />
+        <SobreSectionSpain />
+        <GarantiaSectionSpain />
+        <FAQSectionSpain />
+        <FooterSpain />
+      </Suspense>
+      <Suspense fallback={null}>
+        <SocialProofToastSpain />
+        <UnmuteOverlay />
+      </Suspense>
+    </main>
   );
 };
 
