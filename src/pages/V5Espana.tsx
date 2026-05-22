@@ -98,6 +98,11 @@ const V5Espana = () => {
         <SobreSectionSpain />
         <GarantiaSectionSpain />
         <FAQSectionSpain />
+        <section className="bg-background py-6 px-6">
+          <p className="max-w-[700px] mx-auto text-center text-[0.8rem] md:text-[0.85rem] text-primary/60 leading-[1.6]">
+            Esta guía es material educativo y NO sustituye la consulta ni el seguimiento profesional con una logopeda titulada. Si tu hijo presenta retraso en el habla, consulta siempre con un profesional de la salud.
+          </p>
+        </section>
         <FooterSpain />
       </Suspense>
       <Suspense fallback={null}>

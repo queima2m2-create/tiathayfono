@@ -7,7 +7,7 @@ const HeroSectionSpain = () => (
       </h1>
 
       <p className="text-[0.95rem] md:text-[1.05rem] text-primary/80 leading-[1.5] md:leading-[1.8] max-w-[520px] mx-auto">
-        El método brasileño creado por la logopeda Thaynara Andrade que usa la rutina que ya tienes — sin esperar meses por una cita pública y sin pagar €60 por cada sesión privada.
+        El método brasileño creado por la logopeda Thaynara Andrade para potenciar el desarrollo del habla de tu hijo desde casa — mientras esperas tu cita en el SEPAS o como complemento a la terapia que ya estás haciendo.
       </p>
     </div>
   </section>
