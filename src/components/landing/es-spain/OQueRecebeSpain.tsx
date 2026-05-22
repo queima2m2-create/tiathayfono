@@ -45,7 +45,7 @@ const mainItems = [
     img: entregaTelas,
   },
   {
-    num: "07", title: "HABLA DIRECTO CON LA DRA. THAYNARA",
+    num: "07", title: "HABLA DIRECTO CON THAYNARA ANDRADE",
     desc: "¿Tienes dudas en el camino? Envía un mensaje. Thaynara responde y te orienta personalmente.",
     checks: ["Orientación personalizada para tu hijo", "Alguien de verdad a tu lado en cada etapa"],
     img: entregaSuporteWpp,

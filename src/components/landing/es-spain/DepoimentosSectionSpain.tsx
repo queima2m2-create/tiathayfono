@@ -17,7 +17,7 @@ const DepoimentosSectionSpain = () => (
         Mamás reales. Hijos que empezaron a hablar. Mira lo que está pasando.
       </h2>
       <p className="text-[1.05rem] text-primary/70 mb-14 leading-[1.7]">
-        Cada testimonio aquí es de una mamá que dudó — y hoy no puede imaginar su vida sin el método de la Dra. Thaynara.
+        Cada testimonio aquí es de una mamá que dudó — y hoy no puede imaginar su vida sin el método de Thaynara Andrade.
       </p>
 
       <div className="flex flex-col gap-6 max-w-[500px] mx-auto">

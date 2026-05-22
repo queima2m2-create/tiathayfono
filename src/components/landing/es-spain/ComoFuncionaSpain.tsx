@@ -13,7 +13,7 @@ const steps = [
   },
   {
     num: "ETAPA 2",
-    title: "APLICA LA ESTRUCTURA ÚNICA DE LA DRA. THAYNARA",
+    title: "APLICA LA ESTRUCTURA ÚNICA DE THAYNARA ANDRADE",
     subtitle:
       `Pon en práctica el protocolo exclusivo desarrollado a partir de ${getSocialProofCountSpain()} atenciones. Una secuencia específica de estímulos que respeta exactamente la fase de tu hijo y desbloquea el habla de adentro hacia afuera — de forma natural, sin presión, sin salir de casa.`,
     img: etapa2,

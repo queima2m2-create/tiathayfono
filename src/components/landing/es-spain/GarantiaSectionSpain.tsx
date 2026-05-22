@@ -26,7 +26,7 @@ const GarantiaSectionSpain = () => (
             <strong>Yo sé lo que este método hace por la vida de una familia. Lo viví en más de {getSocialProofCountSpain()} atenciones. Por eso tengo total confianza en ofrecer esta garantía: entra, aplícalo con tu hijo y vive la experiencia completa. Si en 30 días no sientes que valió cada centavo — solo dímelo y te devuelvo todo. Sin burocracia, sin preguntas, sin juicios.</strong>
           </p>
           <p>
-            <strong>El riesgo es cero. Lo que puedes ganar es ver a tu hijo hablar. Ese es el intercambio que la Dra. Thaynara te está proponiendo hoy.</strong>
+            <strong>El riesgo es cero. Lo que puedes ganar es ver a tu hijo hablar. Ese es el intercambio que Thaynara Andrade te está proponiendo hoy.</strong>
           </p>
         </div>
       </div>

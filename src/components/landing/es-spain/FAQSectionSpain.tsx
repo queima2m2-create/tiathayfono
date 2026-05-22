@@ -15,7 +15,7 @@ const faqs = [
   },
   {
     q: "Ya intenté varias cosas antes y no vi resultados. ¿Esto es diferente?",
-    a: "Sí — y mucho. La diferencia está en el origen: lo que intentaste antes probablemente era contenido genérico, sin estructura clínica. Aquí recibes el mismo protocolo que la Dra. Thaynara aplica en consultorio, adaptado para mamás, con paso a paso claro y validado con cientos de niños reales.",
+    a: "Sí — y mucho. La diferencia está en el origen: lo que intentaste antes probablemente era contenido genérico, sin estructura clínica. Aquí recibes el mismo protocolo que Thaynara Andrade aplica en consulta, adaptado para mamás, con paso a paso claro y validado con cientos de niños reales.",
   },
   {
     q: "Estoy esperando cita con la logopeda en la Seguridad Social. ¿Me sirve esta Guía mientras tanto?",
