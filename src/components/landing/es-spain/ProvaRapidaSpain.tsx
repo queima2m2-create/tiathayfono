@@ -5,10 +5,10 @@ const ProvaRapidaSpain = () => (
   <section className="bg-background pt-8 pb-8 md:pt-12 md:pb-12 px-6 text-center">
     <div className="max-w-[800px] mx-auto">
       <h2 className="text-[1.6rem] md:text-[2.2rem] font-extrabold text-marrom-dark mb-3 leading-[1.25]">
-        Más de {getSocialProofCountSpain()} familias ya aplicaron el método de la Dra. Thaynara y vieron a sus hijos comenzar a hablar.
+        Más de {getSocialProofCountSpain()} familias ya aplicaron el método de Thaynara Andrade y vieron a sus hijos comenzar a hablar.
       </h2>
       <p className="text-[1.05rem] text-primary/70 leading-[1.8] max-w-[700px] mx-auto mb-8">
-        Y tú también puedes hacerlo — usando la rutina que ya tienes, sin terapia cara, sin juguetes especiales y sin miedo a equivocarte.
+        Y tú también puedes hacerlo — usando la rutina que ya tienes, mientras esperas la cita en el sistema público, sin juguetes especiales y sin miedo a equivocarte.
       </p>
       <img
         src={maeFilho}
