@@ -8,7 +8,7 @@ const ProvaRapidaSpain = () => (
         Más de {getSocialProofCountSpain()} familias ya aplicaron el método de Thaynara Andrade y vieron a sus hijos comenzar a hablar.
       </h2>
       <p className="text-[1.05rem] text-primary/70 leading-[1.8] max-w-[700px] mx-auto mb-8">
-        Y tú también puedes hacerlo — usando la rutina que ya tienes, mientras esperas la cita en el sistema público, sin juguetes especiales y sin miedo a equivocarte.
+        Y tú también puedes hacerlo — usando la rutina que ya tienes, sin esperar la cita en el SEPAS y sin gastar cientos de euros en terapia privada cada mes.
       </p>
       <img
         src={maeFilho}
