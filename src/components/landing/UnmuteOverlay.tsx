@@ -7,7 +7,7 @@ const UnmuteOverlay = () => {
     setActive(false);
 
     // Try to unmute the Vturb player via its internal video/audio elements
-    const player = document.getElementById("vid-6898af1550270c783e275378");
+    const player = document.getElementById("vid-6a0fbbbfdb647b1c8c23f572");
     if (player) {
       const videos = player.querySelectorAll("video");
       videos.forEach((v) => {
