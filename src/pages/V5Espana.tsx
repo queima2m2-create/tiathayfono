@@ -82,7 +82,7 @@ const V5Espana = () => {
               href="#preco"
               onClick={() => import("@/lib/fbConversions").then((m) => m.fbEvents.initiateCheckout())}
             >
-              QUIERO DESBLOQUEAR EL HABLA DE MI HIJO POR 19,99 € →
+              QUIERO DESBLOQUEAR EL HABLA DE MI HIJO →
             </a>
           </Button>
         </section>
