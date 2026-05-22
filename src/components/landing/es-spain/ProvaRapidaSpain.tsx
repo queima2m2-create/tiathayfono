@@ -8,7 +8,7 @@ const ProvaRapidaSpain = () => (
         Más de {getSocialProofCountSpain()} familias ya aplicaron el método de Thaynara Andrade y vieron a sus hijos comenzar a hablar.
       </h2>
       <p className="text-[1.05rem] text-primary/70 leading-[1.8] max-w-[700px] mx-auto mb-8">
-        Y tú también puedes hacerlo — usando la rutina que ya tienes, sin esperar la cita en el SEPAS y sin gastar cientos de euros en terapia privada cada mes.
+        Y tú también puedes hacerlo en casa — sumando 15 minutos al día al trabajo que la logopeda ya hace o iniciando desde hoy mientras esperas tu primera cita.
       </p>
       <img
         src={maeFilho}
