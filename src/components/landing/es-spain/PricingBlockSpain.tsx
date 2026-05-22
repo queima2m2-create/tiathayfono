@@ -92,7 +92,7 @@ const PricingBlockSpain = ({ className = "", showUrgency = true }: { className?:
               window.location.href = buildKiwifyCheckoutUrl(CTA_LINK);
             }}
           >
-            QUIERO DESBLOQUEAR EL HABLA DE MI HIJO POR 19,99 €
+            QUIERO DESBLOQUEAR EL HABLA DE MI HIJO
           </Button>
         </div>
 
