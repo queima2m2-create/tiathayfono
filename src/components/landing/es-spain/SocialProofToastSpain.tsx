@@ -8,26 +8,26 @@ type ToastMessage = {
 };
 
 const MESSAGES: ToastMessage[] = [
-  { name: "Fernanda", text: "compró la Guía Mi Hijo Va a Hablar", time: "hace 3 minutos" },
-  { name: "Camila", text: "compró la Guía Mi Hijo Va a Hablar", time: "hace 7 minutos" },
+  { name: "Fernanda", text: "compró el Programa Mi Hijo Va a Hablar", time: "hace 3 minutos" },
+  { name: "Camila", text: "compró el Programa Mi Hijo Va a Hablar", time: "hace 7 minutos" },
   { name: "Patricia", text: "dejó 5 estrellas ⭐⭐⭐⭐⭐", time: "hace 11 minutos" },
   { name: "Juliana", text: "acaba de acceder al material", time: "hace 2 minutos" },
-  { name: "Renata", text: "compró la Guía Mi Hijo Va a Hablar", time: "hace 15 minutos" },
+  { name: "Renata", text: "compró el Programa Mi Hijo Va a Hablar", time: "hace 15 minutos" },
   { name: "Mariana", text: "dejó 5 estrellas ⭐⭐⭐⭐⭐", time: "hace 5 minutos" },
-  { name: "Alina", text: "compró la Guía Mi Hijo Va a Hablar", time: "hace 1 minuto" },
+  { name: "Alina", text: "compró el Programa Mi Hijo Va a Hablar", time: "hace 1 minuto" },
   { name: "Beatriz", text: "dejó 5 estrellas ⭐⭐⭐⭐⭐", time: "hace 9 minutos" },
   { name: "Cristina", text: "acaba de acceder al material", time: "hace 4 minutos" },
-  { name: "Larissa", text: "compró la Guía Mi Hijo Va a Hablar", time: "hace 8 minutos" },
-  { name: "Gabriela", text: "compró la Guía Mi Hijo Va a Hablar", time: "hace 6 minutos" },
+  { name: "Larissa", text: "compró el Programa Mi Hijo Va a Hablar", time: "hace 8 minutos" },
+  { name: "Gabriela", text: "compró el Programa Mi Hijo Va a Hablar", time: "hace 6 minutos" },
   { name: "Helena", text: "dejó 5 estrellas ⭐⭐⭐⭐⭐", time: "hace 12 minutos" },
   { name: "Isabela", text: "acaba de acceder al material", time: "hace 3 minutos" },
-  { name: "Priscila", text: "compró la Guía Mi Hijo Va a Hablar", time: "hace 10 minutos" },
+  { name: "Priscila", text: "compró el Programa Mi Hijo Va a Hablar", time: "hace 10 minutos" },
   { name: "Natalia", text: "dejó 5 estrellas ⭐⭐⭐⭐⭐", time: "hace 14 minutos" },
-  { name: "Débora", text: "compró la Guía Mi Hijo Va a Hablar", time: "hace 2 minutos" },
+  { name: "Débora", text: "compró el Programa Mi Hijo Va a Hablar", time: "hace 2 minutos" },
   { name: "Tatiana", text: "acaba de acceder al material", time: "hace 7 minutos" },
-  { name: "Viviana", text: "compró la Guía Mi Hijo Va a Hablar", time: "hace 5 minutos" },
+  { name: "Viviana", text: "compró el Programa Mi Hijo Va a Hablar", time: "hace 5 minutos" },
   { name: "Bianca", text: "dejó 5 estrellas ⭐⭐⭐⭐⭐", time: "hace 8 minutos" },
-  { name: "Daniela", text: "compró la Guía Mi Hijo Va a Hablar", time: "hace 1 minuto" },
+  { name: "Daniela", text: "compró el Programa Mi Hijo Va a Hablar", time: "hace 1 minuto" },
 ];
 
 const SocialProofToastSpain = () => {

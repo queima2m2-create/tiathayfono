@@ -7,7 +7,7 @@ const faqs = [
   },
   {
     q: "¿Cuánto tiempo tarda mi hijo en empezar a hablar más?",
-    a: "La mayoría de las mamás ya nota algo diferente en la primera semana — un intento nuevo, una palabra que no existía antes. El programa es de 30 días, pero las primeras señales aparecen mucho antes. Cada niño tiene su tiempo, y la Guía fue hecha para respetar eso sin dejarte sin acción.",
+    a: "La mayoría de las mamás ya nota algo diferente en la primera semana — un intento nuevo, una palabra que no existía antes. El programa es de 30 días, pero las primeras señales aparecen mucho antes. Cada niño tiene su tiempo, y el Programa fue hecho para respetar eso sin dejarte sin acción.",
   },
   {
     q: "¿Necesito tener algún conocimiento o comprar material especial?",
@@ -18,20 +18,20 @@ const faqs = [
     a: "Sí — y mucho. La diferencia está en el origen: lo que intentaste antes probablemente era contenido genérico, sin estructura clínica. Aquí recibes el mismo protocolo que Thaynara Andrade aplica en consulta, adaptado para mamás, con paso a paso claro y validado con cientos de niños reales.",
   },
   {
-    q: "Estoy esperando cita con la logopeda en la Seguridad Social. ¿Me sirve esta Guía mientras tanto?",
-    a: "Sí, totalmente. Sabemos que las listas de espera del SEPAS (Sistema Público de Salud) pueden tardar meses. Mientras esperas tu cita en el sistema público, esta Guía te ayuda a empezar a estimular el habla de tu hijo desde casa, hoy mismo. No sustituye a tu logopeda — es un complemento que te pone en acción ya, en lugar de perder semanas críticas del desarrollo de tu peque.",
+    q: "Estoy esperando cita con la logopeda en la Seguridad Social. ¿Me sirve este Programa mientras tanto?",
+    a: "Sí, totalmente. Sabemos que las listas de espera del SEPAS (Sistema Público de Salud) pueden tardar meses. Mientras esperas tu cita en el sistema público, este Programa te ayuda a empezar a estimular el habla de tu hijo desde casa, hoy mismo. No sustituye a tu logopeda — es un complemento que te pone en acción ya, en lugar de perder semanas críticas del desarrollo de tu peque.",
   },
   {
     q: "Mi hijo ya hace terapia con una logopeda. ¿Sigue mereciendo la pena?",
-    a: "Vale — y mucho. La logopeda atiende a tu hijo 1 hora a la semana. La Guía te pone en acción en las otras horas del día, dentro de casa. No compite con la terapia, amplifica su resultado. Muchas logopedas incluso la recomiendan.",
+    a: "Vale — y mucho. La logopeda atiende a tu hijo 1 hora a la semana. El Programa te pone en acción en las otras horas del día, dentro de casa. No compite con la terapia, amplifica su resultado. Muchas logopedas incluso lo recomiendan.",
   },
   {
-    q: "¿Cómo sé si la Guía es la adecuada para mi hijo?",
-    a: "Si tu hijo tiene entre 1 y 5 años y sientes que él podría estar comunicándose mejor — habla poco, no habla nada, entiende pero no verbaliza, o regresó — entonces la Guía fue hecha para él. Y para ti.",
+    q: "¿Cómo sé si el Programa es el adecuado para mi hijo?",
+    a: "Si tu hijo tiene entre 1 y 5 años y sientes que él podría estar comunicándose mejor — habla poco, no habla nada, entiende pero no verbaliza, o regresó — entonces el Programa fue hecho para él. Y para ti.",
   },
   {
-    q: "¿A partir de qué edad puedo usar la Guía?",
-    a: "La Guía está indicada para niños de 1 a 5 años, que es la fase donde el cerebro está más receptivo para aprender a hablar. Cuanto antes empieces, más fuerte es el resultado — pero dentro de ese rango, nunca es tarde para actuar.",
+    q: "¿A partir de qué edad puedo usar el Programa?",
+    a: "El Programa está indicado para niños de 1 a 5 años, que es la fase donde el cerebro está más receptivo para aprender a hablar. Cuanto antes empieces, más fuerte es el resultado — pero dentro de ese rango, nunca es tarde para actuar.",
   },
   {
     q: "¿La plataforma de pagos es segura?",

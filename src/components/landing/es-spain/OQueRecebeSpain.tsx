@@ -10,7 +10,7 @@ import entregaSuporteWpp from "@/assets/entrega-suporte-wpp.jpg";
 const mainItems = [
   {
     num: "01", title: "SEÑALES DE ALERTA",
-    desc: "Descubre si tu hijo tiene alguna señal de retraso y aplica la guía de forma estratégica.",
+    desc: "Descubre si tu hijo tiene alguna señal de retraso y aplica el programa de forma estratégica.",
     checks: ["Identifica señales tempranamente", "Sabe cuándo buscar ayuda profesional"],
     img: entregaSinais,
   },
@@ -56,7 +56,7 @@ const OQueRecebeSpain = () => (
   <section className="bg-rosa pt-20 md:pt-28 pb-6 md:pb-8 px-6">
     <div className="max-w-[900px] mx-auto">
       <h2 className="text-[1.6rem] md:text-[2.2rem] font-extrabold text-center text-background mb-16 leading-[1.25]">
-        Lo que está dentro de la Guía que ya desbloqueó el habla de {getSocialProofCountSpain()} niños
+        Lo que está dentro del Programa que ya desbloqueó el habla de {getSocialProofCountSpain()} niños
       </h2>
 
       <div className="space-y-10">

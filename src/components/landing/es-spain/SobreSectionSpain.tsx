@@ -64,7 +64,7 @@ const SobreSectionSpain = () => {
               Mamás que estaban perdidas, pensando que su hijo nunca iba a hablar — <strong className="text-marrom-dark">hoy me envían videos emocionadas con cada palabrita nueva.</strong>
             </p>
             <p>
-              Creé esta Guía porque sé que no toda mamá puede ir a terapia todas las semanas. <strong className="text-marrom-dark">Pero toda mamá puede aprender a estimular mejor.</strong>
+              Creé este Programa porque sé que no toda mamá puede ir a terapia todas las semanas. <strong className="text-marrom-dark">Pero toda mamá puede aprender a estimular mejor.</strong>
             </p>
             <p>
               Aquí no vas a encontrar fórmulas mágicas. Vas a encontrar un <strong className="text-marrom-dark">camino claro, ligero y basado en lo que realmente funciona en la práctica clínica</strong> — usando situaciones simples que ya vives, sin materiales complejos y sin transformar tu rutina en algo imposible.

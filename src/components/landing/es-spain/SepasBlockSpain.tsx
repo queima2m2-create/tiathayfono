@@ -12,7 +12,7 @@ const SepasBlockSpain = () => (
           La ventana crítica del desarrollo del lenguaje se cierra hacia los <strong className="text-marrom-dark">5 años</strong>. Cada momento que pasas con tu hijo es una oportunidad de estimulación.
         </p>
         <p>
-          Esta guía te enseña cómo aprovechar esos momentos con estrategias simples de <span className="text-dourado font-bold">15 minutos al día</span> — para que el trabajo de la logopeda se multiplique en casa, o para que empieces desde HOY si todavía estás esperando una cita.
+          Este programa te enseña cómo aprovechar esos momentos con estrategias simples de <span className="text-dourado font-bold">15 minutos al día</span> — para que el trabajo de la logopeda se multiplique en casa, o para que empieces desde HOY si todavía estás esperando una cita.
         </p>
       </div>
     </div>

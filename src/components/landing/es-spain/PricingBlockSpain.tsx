@@ -48,13 +48,17 @@ const PricingBlockSpain = ({ className = "", showUrgency = true }: { className?:
         <div className="w-full max-w-[320px] mx-auto mb-4 aspect-video rounded-2xl overflow-hidden drop-shadow-lg">
           <img
             src={produtoMockup}
-            alt="Guía completa - Método Parlanchín"
+            alt="Programa completo - Método Parlanchín"
             className="w-full h-full object-cover"
             loading="lazy"
             width={1024}
             height={1024}
           />
         </div>
+
+        <p className="text-[0.95rem] text-primary/80 leading-[1.6] mb-4 max-w-[480px] mx-auto">
+          Una sesión privada con una logopeda en España cuesta entre <strong className="text-marrom-dark">50 y 90 €</strong>. Recibe el programa completo de la Logopeda Thaynara — vídeos, manual y materiales — por menos del precio de <strong className="text-marrom-dark">UNA sola consulta</strong>.
+        </p>
 
         <p className="text-[1rem] mb-2 font-semibold">
           <span className="bg-vermelho text-background px-3 py-1 rounded-md text-[1.1rem] font-bold">
@@ -63,7 +67,7 @@ const PricingBlockSpain = ({ className = "", showUrgency = true }: { className?:
         </p>
 
         <p className="text-[1.1rem] mb-1 mt-3">
-          Por solo <strong className="text-[2.8rem] md:text-[3.2rem] font-black text-marrom-dark leading-none">19,99 €</strong>
+          Por solo <strong className="text-[2.8rem] md:text-[3.2rem] font-black text-marrom-dark leading-none">47 €</strong>
         </p>
 
         <div className="inline-block bg-marrom-dark/80 text-background text-[1.3rem] font-black px-8 py-3 rounded-xl mt-4">
@@ -73,16 +77,31 @@ const PricingBlockSpain = ({ className = "", showUrgency = true }: { className?:
           IVA incluido · Pago seguro en euros (EUR)
         </p>
 
+        <div className="text-left bg-rosa/10 border border-rosa/30 rounded-xl p-4 mb-5 max-w-[480px] mx-auto">
+          <p className="text-[0.85rem] font-bold text-marrom-dark mb-2.5 uppercase tracking-wide">
+            📦 EL PROGRAMA INCLUYE:
+          </p>
+          <ul className="space-y-1.5 text-[0.88rem] text-primary/80">
+            <li className="flex items-start gap-2"><span className="text-dourado font-bold shrink-0">✓</span> Clases en vídeo con la logopeda Thaynara Andrade</li>
+            <li className="flex items-start gap-2"><span className="text-dourado font-bold shrink-0">✓</span> Manual PDF completo paso a paso</li>
+            <li className="flex items-start gap-2"><span className="text-dourado font-bold shrink-0">✓</span> Audios de estimulación</li>
+            <li className="flex items-start gap-2"><span className="text-dourado font-bold shrink-0">✓</span> Plantillas imprimibles</li>
+            <li className="flex items-start gap-2"><span className="text-dourado font-bold shrink-0">✓</span> Lista de palabras clave por edad</li>
+            <li className="flex items-start gap-2"><span className="text-dourado font-bold shrink-0">✓</span> Acceso vitalicio</li>
+            <li className="flex items-start gap-2"><span className="text-dourado font-bold shrink-0">✓</span> Actualizaciones gratuitas</li>
+          </ul>
+        </div>
+
         <div className="mt-5">
           <Button
             variant="cta"
             size="lg"
             className="text-[0.9rem] md:text-[1rem] px-8 py-6 md:py-7 w-full leading-tight whitespace-normal h-auto text-background font-extrabold"
             onClick={async () => {
-              await sendTrackingEnrichment({ value: 19.99, contentName: 'Mi Hijo Va a Hablar - España' });
+              await sendTrackingEnrichment({ value: 47, contentName: 'Mi Hijo Va a Hablar - España' });
               if (typeof (window as any).fbq !== 'undefined') {
                 (window as any).fbq('track', 'InitiateCheckout', {
-                  value: 19.99,
+                  value: 47,
                   currency: 'EUR',
                   content_name: 'Mi Hijo Va a Hablar - España',
                   content_type: 'product',
@@ -95,6 +114,10 @@ const PricingBlockSpain = ({ className = "", showUrgency = true }: { className?:
             QUIERO DESBLOQUEAR EL HABLA DE MI HIJO
           </Button>
         </div>
+
+        <p className="text-[0.75rem] text-primary/40 mt-2 font-medium tracking-wide">
+          💳 Pago seguro · Tarjeta · PayPal
+        </p>
 
         <p className="text-[0.85rem] text-primary/60 mt-4 font-semibold">
           📲 RECIBE ACCESO INMEDIATO EN TU EMAIL

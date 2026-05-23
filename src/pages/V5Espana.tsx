@@ -23,9 +23,9 @@ const FinalCTASpain = lazy(() => import("@/components/landing/es-spain/FinalCTAS
 const FAQSectionSpain = lazy(() => import("@/components/landing/es-spain/FAQSectionSpain"));
 const FooterSpain = lazy(() => import("@/components/landing/es-spain/FooterSpain"));
 
-const TITLE = "Mi Hijo Va a Hablar - Guía para Mamás de España";
+const TITLE = "Mi Hijo Va a Hablar - Programa para Mamás de España";
 const DESCRIPTION =
-  "Mientras esperas tu cita de logopeda en la Seguridad Social, esta guía te ayuda a estimular el habla de tu hijo desde casa. Método creado por logopeda infantil. Por solo 19,99 € (IVA incluido).";
+  "Mientras esperas tu cita de logopeda en la Seguridad Social, este programa te ayuda a estimular el habla de tu hijo desde casa. Método creado por logopeda infantil. Por solo 47 € (IVA incluido).";
 
 const setOrCreateMeta = (selector: string, attr: string, value: string, content: string) => {
   let el = document.head.querySelector<HTMLMetaElement>(selector);
@@ -100,7 +100,7 @@ const V5Espana = () => {
         <FAQSectionSpain />
         <section className="bg-background py-6 px-6">
           <p className="max-w-[700px] mx-auto text-center text-[0.8rem] md:text-[0.85rem] text-primary/60 leading-[1.6]">
-            Esta guía es material educativo y NO sustituye la consulta ni el seguimiento profesional con una logopeda titulada. Si tu hijo presenta retraso en el habla, consulta siempre con un profesional de la salud.
+            Este programa es material educativo y NO sustituye la consulta ni el seguimiento profesional con una logopeda titulada. Si tu hijo presenta retraso en el habla, consulta siempre con un profesional de la salud.
           </p>
         </section>
         <FooterSpain />
