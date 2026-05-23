@@ -28,7 +28,7 @@ const RecapSectionSpain = () => (
 
       <img
         src={produtoMockup}
-        alt="Guía completa"
+        alt="Programa completo"
         className="rounded-2xl w-full max-w-[520px] mx-auto mb-8 shadow-lg"
         loading="lazy"
         width={1024}
@@ -36,7 +36,7 @@ const RecapSectionSpain = () => (
       />
 
       <h3 className="text-[1.05rem] font-extrabold text-marrom-dark mb-3">
-        📖 Contenido de la Guía
+        📖 Contenido del Programa
       </h3>
       <div className="max-w-[600px] mx-auto mb-5 space-y-2">
         {guideItems.map((item, i) => (
