@@ -48,13 +48,17 @@ const PricingBlockSpain = ({ className = "", showUrgency = true }: { className?:
         <div className="w-full max-w-[320px] mx-auto mb-4 aspect-video rounded-2xl overflow-hidden drop-shadow-lg">
           <img
             src={produtoMockup}
-            alt="Guía completa - Método Parlanchín"
+            alt="Programa completo - Método Parlanchín"
             className="w-full h-full object-cover"
             loading="lazy"
             width={1024}
             height={1024}
           />
         </div>
+
+        <p className="text-[0.95rem] text-primary/80 leading-[1.6] mb-4 max-w-[480px] mx-auto">
+          Una sesión privada con una logopeda en España cuesta entre <strong className="text-marrom-dark">50 y 90 €</strong>. Recibe el programa completo de la Logopeda Thaynara — vídeos, manual y materiales — por menos del precio de <strong className="text-marrom-dark">UNA sola consulta</strong>.
+        </p>
 
         <p className="text-[1rem] mb-2 font-semibold">
           <span className="bg-vermelho text-background px-3 py-1 rounded-md text-[1.1rem] font-bold">
