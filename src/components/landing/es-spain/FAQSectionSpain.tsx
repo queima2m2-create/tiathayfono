@@ -11,7 +11,7 @@ const faqs = [
   },
   {
     q: "¿Necesito tener algún conocimiento o comprar material especial?",
-    a: "No necesitas nada de eso. Todo fue creado para funcionar con lo que ya tienes en casa y con la rutina que ya vives. No es necesario entender de fonoaudiología, no es necesario comprar juguetes nuevos. Solo eres tú, tu hijo y 15 minutos al día.",
+    a: "No necesitas nada de eso. Todo fue creado para funcionar con lo que ya tienes en casa y con la rutina que ya vives. No es necesario entender de logopedia, no es necesario comprar juguetes nuevos. Solo eres tú, tu hijo y 15 minutos al día.",
   },
   {
     q: "Ya intenté varias cosas antes y no vi resultados. ¿Esto es diferente?",

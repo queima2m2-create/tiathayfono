@@ -55,7 +55,7 @@ const SobreSectionSpain = () => {
           </h2>
           <div className="space-y-4 text-[1rem] text-primary/80 leading-[1.8]">
             <p>
-              <strong className="text-marrom-dark">Thaynara Andrade — logopeda brasileña con más de 8 años de experiencia, registrada en el Consejo Regional de Logopedia (CRFa 4-13693), creadora de un método que ya transformó la vida de más de 2073 familias.</strong>
+              <strong className="text-marrom-dark">Thaynara Andrade — logopeda brasileña con más de 8 años de experiencia, registrada en el Consejo Regional de Logopedia (CRFa 4-13693), creadora de un método que ya transformó la vida de más de 2076 familias.</strong>
             </p>
             <p>
               Ya he acompañado a más de <strong className="text-marrom-dark">{getSocialProofCountSpain()} familias</strong> — y lo que noté en todas ellas fue lo mismo: las mamás necesitaban algo más que la consulta — saber exactamente qué hacer en casa, en el baño, a la hora de comer, en el juego del día a día.

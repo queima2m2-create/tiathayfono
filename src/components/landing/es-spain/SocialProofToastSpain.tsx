@@ -74,7 +74,7 @@ const SocialProofToastSpain = () => {
           </p>
           {msg.text.includes("compró") && (
             <p className="text-xs mt-0.5">
-              <span className="bg-green-100 text-green-700 text-[0.65rem] font-bold px-1.5 py-0.5 rounded">con 85% de descuento</span>
+              <span className="bg-green-100 text-green-700 text-[0.65rem] font-bold px-1.5 py-0.5 rounded">hace unos minutos</span>
             </p>
           )}
           <p className="text-[0.65rem] text-gray-400 mt-1">{msg.time}</p>
