@@ -41,7 +41,7 @@ const PricingBlockSpain = ({ className = "", showUrgency = true }: { className?:
       <div className="bg-background text-marrom-dark rounded-2xl p-8 md:p-10 shadow-xl">
         {showUrgency && (
           <span className="inline-block bg-vermelho text-background text-[0.85rem] font-bold px-6 py-2.5 rounded-lg mb-5">
-            ⏰ La oferta caduca en: {formatTime(timeLeft)}
+            ⏰ Oferta de lanzamiento por tiempo limitado
           </span>
         )}
 

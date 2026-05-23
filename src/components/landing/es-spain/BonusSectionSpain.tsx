@@ -13,7 +13,7 @@ const bonusItems = [
   },
   {
     num: "09",
-    title: "CONSULTA GRATUITA CON LA FONOAUDIÓLOGA",
+    title: "CONSULTA GRATUITA CON LA LOGOPEDA",
     desc: "Recibe un acceso a un encuentro con Thaynara Andrade, logopeda infantil, y tendrás la oportunidad de aclarar tus dudas e impulsar el habla de tu hijo.",
     checks: ["Encuentro en vivo con la logopeda", "Resuelve todas tus dudas en tiempo real"],
     img: bonusAulaVivo,

@@ -21,8 +21,8 @@ const steps = [
   {
     num: "ETAPA 3",
     title: "EL SECRETO DE LOS NIÑOS PARLANCHINES",
-    subtitle:
-      "Descubre lo que todo niño que habla por los codos tiene en común — y cómo transformar la rutina de tu hijo para que él llegue ahí. No es suerte. No es genética. Spain método.",
+      subtitle:
+        "Descubre lo que todo niño que habla por los codos tiene en común — y cómo transformar la rutina de tu hijo para que él llegue ahí. No es suerte. No es genética. Es solo método correcto.",
     img: etapa3,
   },
 ];
