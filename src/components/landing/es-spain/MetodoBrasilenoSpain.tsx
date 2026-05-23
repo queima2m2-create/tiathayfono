@@ -15,7 +15,7 @@ const MetodoBrasilenoSpain = () => (
         Más de <strong className="text-marrom-dark">2073 familias</strong> en Latinoamérica ya aplicaron este método con resultados, y ahora llega a España.
       </p>
       <p className="text-[0.9rem] md:text-[0.95rem] text-primary/70 leading-[1.6] bg-background/60 border border-dourado/30 rounded-lg p-4">
-        ⚠️ Esta guía <strong>NO sustituye</strong> la atención profesional de una logopeda. Es un complemento diseñado para potenciar el desarrollo del habla desde casa.
+        ⚠️ Este programa <strong>NO sustituye</strong> la atención profesional de una logopeda. Es un complemento diseñado para potenciar el desarrollo del habla desde casa.
       </p>
     </div>
   </section>
