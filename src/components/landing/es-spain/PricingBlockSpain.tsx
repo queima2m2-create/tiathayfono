@@ -115,6 +115,10 @@ const PricingBlockSpain = ({ className = "", showUrgency = true }: { className?:
           </Button>
         </div>
 
+        <p className="text-[0.75rem] text-primary/40 mt-2 font-medium tracking-wide">
+          💳 Pago seguro · Tarjeta · PayPal
+        </p>
+
         <p className="text-[0.85rem] text-primary/60 mt-4 font-semibold">
           📲 RECIBE ACCESO INMEDIATO EN TU EMAIL
         </p>
