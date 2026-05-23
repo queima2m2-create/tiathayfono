@@ -98,10 +98,10 @@ const PricingBlockSpain = ({ className = "", showUrgency = true }: { className?:
             size="lg"
             className="text-[0.9rem] md:text-[1rem] px-8 py-6 md:py-7 w-full leading-tight whitespace-normal h-auto text-background font-extrabold"
             onClick={async () => {
-              await sendTrackingEnrichment({ value: 19.99, contentName: 'Mi Hijo Va a Hablar - España' });
+              await sendTrackingEnrichment({ value: 47, contentName: 'Mi Hijo Va a Hablar - España' });
               if (typeof (window as any).fbq !== 'undefined') {
                 (window as any).fbq('track', 'InitiateCheckout', {
-                  value: 19.99,
+                  value: 47,
                   currency: 'EUR',
                   content_name: 'Mi Hijo Va a Hablar - España',
                   content_type: 'product',
