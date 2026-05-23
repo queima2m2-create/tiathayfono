@@ -77,6 +77,21 @@ const PricingBlockSpain = ({ className = "", showUrgency = true }: { className?:
           IVA incluido · Pago seguro en euros (EUR)
         </p>
 
+        <div className="text-left bg-rosa/10 border border-rosa/30 rounded-xl p-4 mb-5 max-w-[480px] mx-auto">
+          <p className="text-[0.85rem] font-bold text-marrom-dark mb-2.5 uppercase tracking-wide">
+            📦 EL PROGRAMA INCLUYE:
+          </p>
+          <ul className="space-y-1.5 text-[0.88rem] text-primary/80">
+            <li className="flex items-start gap-2"><span className="text-dourado font-bold shrink-0">✓</span> Clases en vídeo con la logopeda Thaynara Andrade</li>
+            <li className="flex items-start gap-2"><span className="text-dourado font-bold shrink-0">✓</span> Manual PDF completo paso a paso</li>
+            <li className="flex items-start gap-2"><span className="text-dourado font-bold shrink-0">✓</span> Audios de estimulación</li>
+            <li className="flex items-start gap-2"><span className="text-dourado font-bold shrink-0">✓</span> Plantillas imprimibles</li>
+            <li className="flex items-start gap-2"><span className="text-dourado font-bold shrink-0">✓</span> Lista de palabras clave por edad</li>
+            <li className="flex items-start gap-2"><span className="text-dourado font-bold shrink-0">✓</span> Acceso vitalicio</li>
+            <li className="flex items-start gap-2"><span className="text-dourado font-bold shrink-0">✓</span> Actualizaciones gratuitas</li>
+          </ul>
+        </div>
+
         <div className="mt-5">
           <Button
             variant="cta"
