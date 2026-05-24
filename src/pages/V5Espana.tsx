@@ -26,7 +26,7 @@ const FooterSpain = lazy(() => import("@/components/landing/es-spain/FooterSpain
 
 const TITLE = "Mi Hijo Va a Hablar - Programa para Mamás de España";
 const DESCRIPTION =
-  "Mientras esperas tu cita de logopeda en la Seguridad Social, este programa te ayuda a estimular el habla de tu hijo desde casa. Método creado por logopeda infantil. Por solo 47 € (IVA incluido).";
+  "Mientras esperas tu cita de logopeda en la Seguridad Social, este programa te ayuda a estimular el habla de tu hijo desde casa. Método creado por logopeda infantil. Por solo 27 € (IVA incluido).";
 
 const setOrCreateMeta = (selector: string, attr: string, value: string, content: string) => {
   let el = document.head.querySelector<HTMLMetaElement>(selector);

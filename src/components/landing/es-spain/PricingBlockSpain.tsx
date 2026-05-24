@@ -67,7 +67,7 @@ const PricingBlockSpain = ({ className = "", showUrgency = true }: { className?:
         </p>
 
         <p className="text-[1.1rem] mb-1 mt-3">
-          Por solo <strong className="text-[2.8rem] md:text-[3.2rem] font-black text-marrom-dark leading-none">47 €</strong>
+          Por solo <strong className="text-[2.8rem] md:text-[3.2rem] font-black text-marrom-dark leading-none">27 €</strong>
         </p>
 
         <div className="inline-block bg-marrom-dark/80 text-background text-[1.3rem] font-black px-8 py-3 rounded-xl mt-4">
@@ -84,10 +84,10 @@ const PricingBlockSpain = ({ className = "", showUrgency = true }: { className?:
             size="lg"
             className="text-[0.9rem] md:text-[1rem] px-8 py-6 md:py-7 w-full leading-tight whitespace-normal h-auto text-background font-extrabold"
             onClick={async () => {
-              await sendTrackingEnrichment({ value: 47, contentName: 'Mi Hijo Va a Hablar - España' });
+              await sendTrackingEnrichment({ value: 27, contentName: 'Mi Hijo Va a Hablar - España' });
               if (typeof (window as any).fbq !== 'undefined') {
                 (window as any).fbq('track', 'InitiateCheckout', {
-                  value: 47,
+                  value: 27,
                   currency: 'EUR',
                   content_name: 'Mi Hijo Va a Hablar - España',
                   content_type: 'product',
