@@ -9,6 +9,7 @@ const UnmuteOverlay = lazy(() => import("@/components/landing/UnmuteOverlay"));
 const ProvaRapidaSpain = lazy(() => import("@/components/landing/es-spain/ProvaRapidaSpain"));
 const SepasBlockSpain = lazy(() => import("@/components/landing/es-spain/SepasBlockSpain"));
 const MetodoBrasilenoSpain = lazy(() => import("@/components/landing/es-spain/MetodoBrasilenoSpain"));
+
 const DorSectionSpain = lazy(() => import("@/components/landing/es-spain/DorSectionSpain"));
 const ComoFuncionaSpain = lazy(() => import("@/components/landing/es-spain/ComoFuncionaSpain"));
 const OQueRecebeSpain = lazy(() => import("@/components/landing/es-spain/OQueRecebeSpain"));
