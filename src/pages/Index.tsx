@@ -94,7 +94,7 @@ const Index = () => {
         <SocialProofToast />
         <UnmuteOverlay />
       </Suspense>
-      <StickyMobileCTA />
+      
     </main>
   );
 };
