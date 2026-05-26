@@ -33,35 +33,62 @@ const INTERVAL_MS = 35000;
 const SocialProofToast = () => {
   const [visible, setVisible] = useState(false);
   const [index, setIndex] = useState(0);
+  const [ctaInView, setCtaInView] = useState(false);
+
+  // Hide when any data-cta button is in viewport (avoids overlap)
+  useEffect(() => {
+    const ctas = document.querySelectorAll('[data-cta]');
+    if (!ctas.length) return;
+    const obs = new IntersectionObserver(
+      (entries) => {
+        const anyVisible = entries.some((e) => e.isIntersecting);
+        setCtaInView((prev) => {
+          if (anyVisible) return true;
+          // re-check all
+          const stillVisible = Array.from(ctas).some((el) => {
+            const r = (el as HTMLElement).getBoundingClientRect();
+            return r.top < window.innerHeight && r.bottom > 0;
+          });
+          return stillVisible;
+        });
+      },
+      { threshold: 0.01 }
+    );
+    ctas.forEach((el) => obs.observe(el));
+    return () => obs.disconnect();
+  }, []);
 
   useEffect(() => {
     let timeout: ReturnType<typeof setTimeout>;
     let currentIndex = 0;
+    let appearances = 0;
 
     const showNext = () => {
+      if (appearances >= MAX_APPEARANCES) return;
+      appearances += 1;
       setIndex(currentIndex);
       setVisible(true);
       currentIndex = (currentIndex + 1) % MESSAGES.length;
 
       timeout = setTimeout(() => {
         setVisible(false);
-        // Wait 5s after hiding, then show next
-        timeout = setTimeout(showNext, 7000);
-      }, 4000);
+        if (appearances < MAX_APPEARANCES) {
+          timeout = setTimeout(showNext, INTERVAL_MS - VISIBLE_MS);
+        }
+      }, VISIBLE_MS);
     };
 
-    // First toast after 10s
-    timeout = setTimeout(showNext, 10000);
-
+    timeout = setTimeout(showNext, 12000);
     return () => clearTimeout(timeout);
   }, []);
 
   const msg = MESSAGES[index];
+  const show = visible && !ctaInView;
 
   return (
     <div
-      className={`fixed bottom-4 left-4 z-50 max-w-[340px] transition-all duration-500 ${
-        visible
+      className={`fixed bottom-4 left-4 z-30 max-w-[340px] transition-all duration-500 ${
+        show
           ? "translate-y-0 opacity-100"
           : "translate-y-4 opacity-0 pointer-events-none"
       }`}
@@ -74,11 +101,6 @@ const SocialProofToast = () => {
           <p className="text-xs text-gray-700 leading-snug">
             {msg.text}
           </p>
-          {msg.text.includes("comprou") && (
-            <p className="text-xs mt-0.5">
-              <span className="bg-green-100 text-green-700 text-[0.65rem] font-bold px-1.5 py-0.5 rounded">com 85% de desconto</span>
-            </p>
-          )}
           <p className="text-[0.65rem] text-gray-400 mt-1">{msg.time}</p>
         </div>
 
@@ -93,5 +115,6 @@ const SocialProofToast = () => {
     </div>
   );
 };
+
 
 export default SocialProofToast;
