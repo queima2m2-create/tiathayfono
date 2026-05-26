@@ -2,6 +2,8 @@ import { useEffect, lazy, Suspense } from "react";
 import HeroSection from "@/components/landing/HeroSection";
 import VturbPlayer from "@/components/landing/VturbPlayer";
 import { Button } from "@/components/ui/button";
+import GuaranteeBadge from "@/components/landing/GuaranteeBadge";
+import StickyMobileCTA from "@/components/landing/StickyMobileCTA";
 
 const SocialProofToast = lazy(() => import("@/components/landing/SocialProofToast"));
 const UnmuteOverlay = lazy(() => import("@/components/landing/UnmuteOverlay"));
@@ -23,7 +25,6 @@ const Footer = lazy(() => import("@/components/landing/Footer"));
 
 const Index = () => {
   useEffect(() => {
-    // Defer analytics to avoid blocking initial render
     const fire = () => import("@/lib/fbConversions").then((m) => m.fbEvents.pageView());
     if ("requestIdleCallback" in window) {
       (window as any).requestIdleCallback(fire, { timeout: 3000 });
@@ -33,9 +34,29 @@ const Index = () => {
   }, []);
 
   return (
-    <main>
+    <main className="pb-20 md:pb-0">
       <HeroSection />
       <VturbPlayer />
+
+      {/* CTA imediatamente abaixo do VSL (sem preço) */}
+      <section className="bg-background px-4 pt-2 pb-8 md:pb-10 text-center">
+        <div className="max-w-[600px] mx-auto flex flex-col items-center gap-3">
+          <Button
+            variant="ctaCoral"
+            size="lg"
+            data-cta="primary"
+            className="text-[0.95rem] md:text-[1.1rem] px-8 py-5 md:py-6 w-full leading-tight whitespace-normal h-auto font-extrabold"
+            asChild
+          >
+            <a href="#oferta">QUERO DESTRAVAR A FALA DO MEU FILHO →</a>
+          </Button>
+          <p className="text-[0.78rem] md:text-[0.85rem] text-primary/60 font-medium">
+            🛡️ Acesso imediato · Garantia 30 dias · Risco zero
+          </p>
+          <GuaranteeBadge />
+        </div>
+      </section>
+
       <Suspense fallback={null}>
         <ProvaRapida />
         <DorSection />
@@ -45,16 +66,20 @@ const Index = () => {
         <DepoimentosSection />
 
         <section className="bg-background pb-10 px-4 text-center">
-          <Button
-            variant="cta"
-            size="lg"
-            className="text-[0.85rem] md:text-[1rem] px-8 py-5 md:py-6 w-full md:w-auto max-w-[600px] leading-tight whitespace-normal h-auto"
-            asChild
-          >
-            <a href="#recapitulando">
-              QUERO DESTRAVAR A FALA DO MEU FILHO EM 30 DIAS →
-            </a>
-          </Button>
+          <div className="max-w-[600px] mx-auto flex flex-col items-center gap-3">
+            <Button
+              variant="ctaCoral"
+              size="lg"
+              data-cta="primary"
+              className="text-[0.85rem] md:text-[1rem] px-8 py-5 md:py-6 w-full leading-tight whitespace-normal h-auto font-extrabold"
+              asChild
+            >
+              <a href="#oferta">
+                QUERO DESTRAVAR A FALA DO MEU FILHO EM 30 DIAS →
+              </a>
+            </Button>
+            <GuaranteeBadge />
+          </div>
         </section>
 
         <ParaQuemSection />
@@ -70,6 +95,7 @@ const Index = () => {
         <SocialProofToast />
         <UnmuteOverlay />
       </Suspense>
+      <StickyMobileCTA />
     </main>
   );
 };
