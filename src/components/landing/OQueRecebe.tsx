@@ -27,9 +27,9 @@ const mainItems = [
     img: entregaBrincadeiras,
   },
   {
-    num: "04", title: "PALAVRAS DE PODER QUE DESTRAVAM A COMUNICAÇÃO",
-    desc: "Use as palavras certas que farão seu filho se sentir seguro para começar a falar.",
-    checks: ["Palavras que geram resultado real", "Fácil de aplicar no dia a dia"],
+    num: "04", title: "AS 50 PALAVRAS EXATAS QUE DESTRAVAM A FALA",
+    desc: "Lista completa com as 50 palavras-alvo que estimulam o cérebro do seu filho — organizadas por nível de complexidade. Você não precisa adivinhar mais qual palavra usar.",
+    checks: ["Lista exata por nível (não por idade adivinhada)", "Fácil de aplicar no dia a dia"],
     img: entregaPalavras,
   },
   {
