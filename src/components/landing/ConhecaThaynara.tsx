@@ -1,5 +1,4 @@
 import thaynaraFoto from "@/assets/thaynara-foto.jpg";
-import { Button } from "@/components/ui/button";
 
 const ConhecaThaynara = () => (
   <section className="bg-background py-12 md:py-16 px-6 text-center">
@@ -21,20 +20,11 @@ const ConhecaThaynara = () => (
             Conheça a fonoaudióloga
           </h2>
           <p className="text-[1rem] md:text-[1.05rem] text-primary/80 leading-[1.7]">
-            <strong className="text-marrom-dark">Oi, eu sou a Dra. Thaynara Andrade.</strong>
+            <strong className="text-marrom-dark">A fonoaudióloga que destravou a fala de 2.092 crianças</strong>
             <br /><br />
             Fonoaudióloga infantil (CRFa 4-13693) com mais de 8 anos de experiência e 2.092 famílias atendidas. Vou te mostrar como destravar a fala do seu filho usando 15 min por dia da sua rotina.
           </p>
         </div>
-
-        <Button
-          variant="ctaCoral"
-          size="lg"
-          className="text-[0.85rem] md:text-[0.95rem] px-6 py-3 md:py-4 rounded-full font-extrabold shadow-lg shadow-coral/30 mt-2"
-          asChild
-        >
-          <a href="#entregas">Continuar →</a>
-        </Button>
       </div>
     </div>
   </section>
