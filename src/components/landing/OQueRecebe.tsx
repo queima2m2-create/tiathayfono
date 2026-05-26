@@ -18,8 +18,8 @@ type Item = {
 const mainItems: Item[] = [
   {
     num: "01", title: "SINAIS DE ALERTA",
-    desc: "Descubra se seu filho tem algum sinal de atraso e aplique o guia de forma estratégica.",
-    checks: ["Identifique sinais precocemente", "Saiba quando procurar ajuda profissional"],
+    desc: "Identifique rapidamente se seu filho tem sinais reais de atraso na fala — sem precisar esperar pelo pediatra dizer 'espera mais um pouco'. Você vai saber EXATAMENTE o que observar, em que momento agir, e quando vale a pena buscar uma fono presencial.",
+    checks: ["Marcos do desenvolvimento da fala por idade", "Os sinais que nenhuma mãe pode ignorar", "Quando o 'esperar mais' pode atrasar ainda mais seu filho"],
     img: entregaSinais,
   },
   {
