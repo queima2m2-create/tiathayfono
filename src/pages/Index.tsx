@@ -9,6 +9,7 @@ const UnmuteOverlay = lazy(() => import("@/components/landing/UnmuteOverlay"));
 
 const ProvaRapida = lazy(() => import("@/components/landing/ProvaRapida"));
 const DorSection = lazy(() => import("@/components/landing/DorSection"));
+const ConhecaThaynara = lazy(() => import("@/components/landing/ConhecaThaynara"));
 const ComoFunciona = lazy(() => import("@/components/landing/ComoFunciona"));
 const OQueRecebe = lazy(() => import("@/components/landing/OQueRecebe"));
 const BonusSection = lazy(() => import("@/components/landing/BonusSection"));

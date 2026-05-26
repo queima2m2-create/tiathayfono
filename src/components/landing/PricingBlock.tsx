@@ -12,7 +12,7 @@ const PricingBlock = ({ className = "", showUrgency = true }: { className?: stri
       <div className="bg-background text-marrom-dark rounded-2xl p-8 md:p-10 shadow-xl">
         {showUrgency && (
           <span className="inline-block bg-coral text-white text-[0.8rem] md:text-[0.9rem] font-bold px-5 py-2.5 rounded-lg mb-5">
-            🔥 Oferta de lançamento válida até 31/05/2026
+            🔥 Oferta de lançamento por tempo limitado
           </span>
         )}
 
