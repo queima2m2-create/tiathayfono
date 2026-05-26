@@ -47,7 +47,7 @@ const Index = () => {
             className="text-[0.95rem] md:text-[1.1rem] px-8 py-5 md:py-6 w-full leading-tight whitespace-normal h-auto font-extrabold"
             asChild
           >
-            <a href="#oferta">QUERO DESTRAVAR A FALA DO MEU FILHO →</a>
+            <a href="#entregas">QUERO DESTRAVAR A FALA DO MEU FILHO →</a>
           </Button>
           <p className="text-[0.78rem] md:text-[0.85rem] text-primary/60 font-medium">
             🛡️ Acesso imediato · Garantia 30 dias · Risco zero
