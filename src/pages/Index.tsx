@@ -60,6 +60,7 @@ const Index = () => {
       <Suspense fallback={null}>
         <ProvaRapida />
         <DorSection />
+        <ConhecaThaynara />
         <ComoFunciona />
         <OQueRecebe />
         <BonusSection />
