@@ -24,8 +24,8 @@ const mainItems: Item[] = [
   },
   {
     num: "02", title: "AULA COMPLETA: O QUE FAZER PARA SEU FILHO FALAR",
-    desc: "Aula explicativa e dinâmica onde eu vou te mostrar exatamente o que fazer para seu filho falar.",
-    checks: ["Aula prática e direto ao ponto", "Orientação profissional de verdade"],
+    desc: "Várias aulas em vídeo onde a Dra. Thaynara mostra exatamente o que fazer pra seu filho falar — passo a passo, com método e propósito real.",
+    checks: ["Aulas práticas e direto ao ponto", "Orientação profissional de verdade", "Acesso vitalício a todo o conteúdo"],
     img: entregaFala,
   },
   {

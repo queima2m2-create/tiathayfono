@@ -1,19 +1,20 @@
 import produtoMockup from "@/assets/produto-mockup.jpg";
 
 const guideItems = [
-  { emoji: "⚠️", price: "R$ 47,00", title: "Sinais de Alerta" },
+  { emoji: "⚠️", price: "R$ 37,00", title: "Sinais de Alerta" },
   { emoji: "🎥", price: "R$ 67,00", title: "Aula Completa: O Que Fazer Para Seu Filho Falar" },
   { emoji: "🎲", price: "R$ 47,00", title: "As 10 Melhores Brincadeiras que Desbloqueiam a Fala" },
-  { emoji: "💬", price: "R$ 47,00", title: "Palavras de Poder que Destravam a Comunicação" },
-  { emoji: "🎮", price: "R$ 47,00", title: "Rotina da Criança Tagarela" },
-  { emoji: "📱", price: "R$ 47,00", title: "Telas — Aliado ou Inimigo da Fala?" },
-  { emoji: "📲", price: "R$ 47,00", title: "Suporte com a Fono no WhatsApp" },
+  { emoji: "💬", price: "R$ 47,00", title: "As 50 Palavras Exatas que Destravam a Fala" },
+  { emoji: "🎮", price: "R$ 37,00", title: "Rotina da Criança Tagarela" },
+  { emoji: "📱", price: "R$ 37,00", title: "Telas — Aliado ou Inimigo da Fala?" },
+  { emoji: "📲", price: "R$ 97,00", title: "Suporte com a Fono no WhatsApp" },
 ];
 const bonusItems = [
-  { emoji: "🎵", price: "R$ 67,00", title: "Músicas para Falar em Até 7 Dias" },
-  { emoji: "🎥", price: "R$ 47,00", title: "Aula ao Vivo Gratuita com a Fono" },
-  { emoji: "🃏", price: "R$ 47,00", title: "Cards Interativos de Estímulo" },
-  { emoji: "🏅", price: "R$ 34,00", title: "Certificado Tagarela" },
+  { emoji: "🎵", price: "R$ 37,00", title: "10 Músicas para Falar em Até 7 Dias" },
+  { emoji: "🎥", price: "R$ 47,00", title: "Lives Exclusivas com a Dra. Thaynara" },
+  { emoji: "🃏", price: "R$ 27,00", title: "50 Cards Interativos de Estímulo (Imprimíveis)" },
+  { emoji: "👩‍👧", price: "R$ 27,00", title: "Comunidade VIP de Mães no WhatsApp" },
+  { emoji: "📊", price: "R$ 27,00", title: "Planner de Evolução da Fala (Imprimível)" },
 ];
 
 const RecapSection = () => (
