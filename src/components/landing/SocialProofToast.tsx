@@ -8,27 +8,27 @@ type ToastMessage = {
 };
 
 const MESSAGES: ToastMessage[] = [
-  { name: "Fernanda", text: "comprou o Guia Meu Filho Vai Falar", time: "há 3 minutos" },
-  { name: "Camila", text: "comprou o Guia Meu Filho Vai Falar", time: "há 7 minutos" },
+  { name: "Fernanda", text: "acabou de comprar o Programa", time: "há 3 minutos" },
+  { name: "Camila", text: "acabou de comprar o Programa", time: "há 7 minutos" },
   { name: "Patrícia", text: "deixou 5 estrelas ⭐⭐⭐⭐⭐", time: "há 11 minutos" },
   { name: "Juliana", text: "acabou de acessar o material", time: "há 2 minutos" },
-  { name: "Renata", text: "comprou o Guia Meu Filho Vai Falar", time: "há 15 minutos" },
+  { name: "Renata", text: "acabou de comprar o Programa", time: "há 15 minutos" },
   { name: "Mariana", text: "deixou 5 estrelas ⭐⭐⭐⭐⭐", time: "há 5 minutos" },
-  { name: "Aline", text: "comprou o Guia Meu Filho Vai Falar", time: "há 1 minuto" },
+  { name: "Aline", text: "acabou de comprar o Programa", time: "há 1 minuto" },
   { name: "Beatriz", text: "deixou 5 estrelas ⭐⭐⭐⭐⭐", time: "há 9 minutos" },
   { name: "Cristina", text: "acabou de acessar o material", time: "há 4 minutos" },
-  { name: "Larissa", text: "comprou o Guia Meu Filho Vai Falar", time: "há 8 minutos" },
-  { name: "Gabriela", text: "comprou o Guia Meu Filho Vai Falar", time: "há 6 minutos" },
+  { name: "Larissa", text: "acabou de comprar o Programa", time: "há 8 minutos" },
+  { name: "Gabriela", text: "acabou de comprar o Programa", time: "há 6 minutos" },
   { name: "Helena", text: "deixou 5 estrelas ⭐⭐⭐⭐⭐", time: "há 12 minutos" },
   { name: "Isabela", text: "acabou de acessar o material", time: "há 3 minutos" },
-  { name: "Priscila", text: "comprou o Guia Meu Filho Vai Falar", time: "há 10 minutos" },
+  { name: "Priscila", text: "acabou de comprar o Programa", time: "há 10 minutos" },
   { name: "Natália", text: "deixou 5 estrelas ⭐⭐⭐⭐⭐", time: "há 14 minutos" },
-  { name: "Débora", text: "comprou o Guia Meu Filho Vai Falar", time: "há 2 minutos" },
-  { name: "Tatiane", text: "acabou de acessar o material", time: "há 7 minutos" },
-  { name: "Viviane", text: "comprou o Guia Meu Filho Vai Falar", time: "há 5 minutos" },
-  { name: "Bianca", text: "deixou 5 estrelas ⭐⭐⭐⭐⭐", time: "há 8 minutos" },
-  { name: "Daniela", text: "comprou o Guia Meu Filho Vai Falar", time: "há 1 minuto" },
+  { name: "Débora", text: "acabou de comprar o Programa", time: "há 2 minutos" },
 ];
+
+const MAX_APPEARANCES = 4;
+const VISIBLE_MS = 4500;
+const INTERVAL_MS = 35000;
 
 const SocialProofToast = () => {
   const [visible, setVisible] = useState(false);
