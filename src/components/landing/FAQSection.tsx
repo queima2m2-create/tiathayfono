@@ -33,6 +33,26 @@ const faqs = [
     q: "A plataforma de pagamentos é segura?",
     a: "Sim, utilizamos tecnologias avançadas de segurança, garantindo um processo de pagamento 100% confiável e protegido.",
   },
+  {
+    q: "E se meu filho tiver autismo (ou suspeita de TEA)?",
+    a: "O método foca em estímulos universais de linguagem que ajudam qualquer criança — incluindo crianças no espectro autista. Se há diagnóstico de TEA, recomendo combinar com acompanhamento profissional. Já tive várias mães de crianças autistas relatando avanço significativo — veja os depoimentos.",
+  },
+  {
+    q: "Por que tão barato (R$67)? Tem pegadinha?",
+    a: "Não tem pegadinha. Vendi a R$200 antes e percebi que a mãe que mais PRECISA do método é justamente a que não tem R$200 sobrando. Decidi cobrar R$67 para atingir o máximo de famílias possível. A qualidade do conteúdo é exatamente a mesma. E você tem 30 dias de garantia incondicional.",
+  },
+  {
+    q: "Quanto tempo de aula são?",
+    a: "Aulas curtas de 5 a 15 minutos cada. No total, são aproximadamente 3 horas de conteúdo em vídeo + áudios + cards interativos. Você assiste no celular, no ônibus, na pausa do café — sem virar mais uma tarefa pesada.",
+  },
+  {
+    q: "Vou ter contato direto com você?",
+    a: "Sim. O bônus 07 do programa te dá acesso direto a mim pelo WhatsApp. Sou eu de verdade respondendo, não é robô nem assistente.",
+  },
+  {
+    q: "E se em 30 dias eu não ver resultado nenhum?",
+    a: "Manda mensagem e devolvo cada centavo. Sem perguntas, sem formulário, sem julgamento. O risco é meu, não seu.",
+  },
 ];
 
 const FAQSection = () => {
