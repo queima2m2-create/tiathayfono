@@ -3,7 +3,6 @@ import HeroSection from "@/components/landing/HeroSection";
 import VturbPlayer from "@/components/landing/VturbPlayer";
 import { Button } from "@/components/ui/button";
 import GuaranteeBadge from "@/components/landing/GuaranteeBadge";
-import StickyMobileCTA from "@/components/landing/StickyMobileCTA";
 
 const SocialProofToast = lazy(() => import("@/components/landing/SocialProofToast"));
 const UnmuteOverlay = lazy(() => import("@/components/landing/UnmuteOverlay"));
