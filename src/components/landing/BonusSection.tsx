@@ -17,8 +17,8 @@ const bonusItems: Bonus[] = [
   {
     num: "08",
     title: "MÚSICAS PARA FALAR EM ATÉ 7 DIAS",
-    desc: "Músicas em áudios criadas pela fono de forma estratégica pra estimular no dia a dia — na rua, no parque, no banho… que farão seu filho aprender sem querer.",
-    checks: ["Áudios prontos para usar a qualquer momento", "Estímulo natural através da música"],
+    desc: "10 áudios em formato música criados pela fonoaudióloga de forma estratégica pra estimular no dia a dia — na rua, no parque, no banho… que farão seu filho aprender sem querer.",
+    checks: ["10 áudios prontos para usar a qualquer momento", "Estímulo natural através da música", "Funcionam em qualquer lugar (carro, banho, parquinho)"],
     img: bonusMusicas,
   },
   {
@@ -36,9 +36,9 @@ const bonusItems: Bonus[] = [
   },
   {
     num: "10",
-    title: "CARDS INTERATIVOS DE ESTÍMULO",
-    desc: "Cards ilustrados e divertidos para usar nas brincadeiras do dia a dia, transformando cada momento em uma oportunidade de estimular a fala.",
-    checks: ["Perfeitos para brincar e aprender ao mesmo tempo", "Desenvolvidos por fonoaudióloga infantil"],
+    title: "50 CARDS INTERATIVOS DE ESTÍMULO (IMPRIMÍVEIS)",
+    desc: "50 cards ilustrados e divertidos em PDF imprimível para usar nas brincadeiras do dia a dia. Transforme cada momento em uma oportunidade de estimular a fala do seu filho.",
+    checks: ["50 cards prontos pra imprimir em casa", "Perfeitos para brincar e aprender ao mesmo tempo", "Desenvolvidos por fonoaudióloga infantil"],
     img: bonusCards,
   },
   {
@@ -46,10 +46,10 @@ const bonusItems: Bonus[] = [
     title: "COMUNIDADE VIP DE MÃES NO WHATSAPP",
     desc: "Entre num grupo exclusivo no WhatsApp com outras mães que estão na mesma jornada. Compartilhe conquistas, troque experiências, comemore cada palavrinha nova. Você NUNCA mais vai se sentir sozinha nessa jornada.",
     checks: [
-      "Grupo ativo com 2.000+ mães na mesma situação",
-      "Comemore cada conquista junto",
+      "Grupo exclusivo só pra alunas do programa",
+      "Comemore cada conquista junto com outras mães",
       "Suporte emocional 24/7",
-      "Tire dúvidas com outras mães experientes",
+      "Tire dúvidas e troque experiências reais",
     ],
     img: suporteWhatsapp,
   },
