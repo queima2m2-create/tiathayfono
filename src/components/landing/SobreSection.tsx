@@ -17,9 +17,9 @@ const SobreSection = () => {
 
   return (
     <section className="bg-background py-14 md:py-20 px-6">
-      <div className="max-w-[900px] mx-auto grid grid-cols-1 md:grid-cols-[1fr_1.6fr] gap-10 items-center">
+      <div className="max-w-[1000px] mx-auto grid grid-cols-1 md:grid-cols-[1.1fr_1.4fr] gap-10 items-center">
         <div className="flex flex-col items-center gap-3">
-          <div className="relative w-full max-w-[320px] aspect-[3/4] rounded-2xl overflow-hidden shadow-lg">
+          <div className="relative w-full max-w-[200px] md:max-w-[340px] aspect-[3/4] rounded-2xl overflow-hidden shadow-xl ring-4 ring-rosa-light">
             {images.map((src, i) => (
               <img
                 key={i}
@@ -47,6 +47,18 @@ const SobreSection = () => {
         </div>
 
         <div>
+          <div className="bg-rosa-light/50 border-l-4 border-rosa rounded-r-xl px-5 py-4 mb-6">
+            <p className="text-[1.15rem] md:text-[1.3rem] font-extrabold text-marrom-dark leading-tight">
+              Thaynara Andrade
+            </p>
+            <p className="text-[0.9rem] md:text-[0.95rem] text-marrom-dark/80 font-semibold mt-1">
+              Fonoaudióloga · CRFa 4-13693
+            </p>
+            <p className="text-[0.85rem] md:text-[0.9rem] text-marrom-dark/70 mt-0.5">
+              8+ anos de experiência · 2.092 famílias atendidas
+            </p>
+          </div>
+
           <span className="inline-block px-4 py-1.5 border border-primary rounded-full text-[0.85rem] text-primary mb-5">
             Conheça a criadora da Estrutura Única da Fala
           </span>

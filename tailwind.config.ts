@@ -69,6 +69,10 @@ export default {
           dark: "hsl(var(--bege2))",
         },
         vermelho: "hsl(var(--vermelho))",
+        coral: {
+          DEFAULT: "hsl(var(--coral))",
+          hover: "hsl(var(--coral-hover))",
+        },
         sidebar: {
           DEFAULT: "hsl(var(--sidebar-background))",
           foreground: "hsl(var(--sidebar-foreground))",
