@@ -8,22 +8,22 @@ type ToastMessage = {
 };
 
 const MESSAGES: ToastMessage[] = [
-  { name: "Fernanda", text: "acabou de comprar o Programa", time: "há 3 minutos" },
-  { name: "Camila", text: "acabou de comprar o Programa", time: "há 7 minutos" },
+  { name: "Fernanda", text: "acabou de comprar o Guia", time: "há 3 minutos" },
+  { name: "Camila", text: "acabou de comprar o Guia", time: "há 7 minutos" },
   { name: "Patrícia", text: "deixou 5 estrelas ⭐⭐⭐⭐⭐", time: "há 11 minutos" },
   { name: "Juliana", text: "acabou de acessar o material", time: "há 2 minutos" },
-  { name: "Renata", text: "acabou de comprar o Programa", time: "há 15 minutos" },
+  { name: "Renata", text: "acabou de comprar o Guia", time: "há 15 minutos" },
   { name: "Mariana", text: "deixou 5 estrelas ⭐⭐⭐⭐⭐", time: "há 5 minutos" },
-  { name: "Aline", text: "acabou de comprar o Programa", time: "há 1 minuto" },
+  { name: "Aline", text: "acabou de comprar o Guia", time: "há 1 minuto" },
   { name: "Beatriz", text: "deixou 5 estrelas ⭐⭐⭐⭐⭐", time: "há 9 minutos" },
   { name: "Cristina", text: "acabou de acessar o material", time: "há 4 minutos" },
-  { name: "Larissa", text: "acabou de comprar o Programa", time: "há 8 minutos" },
-  { name: "Gabriela", text: "acabou de comprar o Programa", time: "há 6 minutos" },
+  { name: "Larissa", text: "acabou de comprar o Guia", time: "há 8 minutos" },
+  { name: "Gabriela", text: "acabou de comprar o Guia", time: "há 6 minutos" },
   { name: "Helena", text: "deixou 5 estrelas ⭐⭐⭐⭐⭐", time: "há 12 minutos" },
   { name: "Isabela", text: "acabou de acessar o material", time: "há 3 minutos" },
-  { name: "Priscila", text: "acabou de comprar o Programa", time: "há 10 minutos" },
+  { name: "Priscila", text: "acabou de comprar o Guia", time: "há 10 minutos" },
   { name: "Natália", text: "deixou 5 estrelas ⭐⭐⭐⭐⭐", time: "há 14 minutos" },
-  { name: "Débora", text: "acabou de comprar o Programa", time: "há 2 minutos" },
+  { name: "Débora", text: "acabou de comprar o Guia", time: "há 2 minutos" },
 ];
 
 const MAX_APPEARANCES = 4;

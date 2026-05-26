@@ -73,9 +73,9 @@ const Index = () => {
               className="text-[0.85rem] md:text-[1rem] px-8 py-5 md:py-6 w-full leading-tight whitespace-normal h-auto font-extrabold"
               asChild
             >
-              <a href="#oferta">
-                QUERO DESTRAVAR A FALA DO MEU FILHO EM 30 DIAS →
-              </a>
+            <a href="#oferta">
+              QUERO DESTRAVAR A FALA DO MEU FILHO →
+            </a>
             </Button>
             <GuaranteeBadge />
           </div>

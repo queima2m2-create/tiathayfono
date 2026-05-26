@@ -29,12 +29,12 @@ const PricingBlock = ({ className = "", showUrgency = true }: { className?: stri
 
         <p className="text-[1rem] mb-2 font-semibold">
           <span className="bg-vermelho text-background px-3 py-1 rounded-md text-[1.1rem] font-bold">
-            De: <span className="line-through">R$ 497,00</span>
+            De: <span className="line-through">R$ 534,00</span>
           </span>
         </p>
 
         <p className="inline-block bg-verde/10 text-verde font-extrabold text-[0.95rem] px-4 py-1.5 rounded-md mt-2">
-          VOCÊ ECONOMIZA R$ 430 — paga apenas R$ 67
+          VOCÊ ECONOMIZA R$ 467 — paga apenas R$ 67
         </p>
 
         <p className="text-[1.1rem] mb-1 mt-3">
