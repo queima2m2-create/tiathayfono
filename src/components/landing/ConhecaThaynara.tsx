@@ -20,7 +20,7 @@ const ConhecaThaynara = () => (
             Conheça a fonoaudióloga
           </h2>
           <p className="text-[1rem] md:text-[1.05rem] text-primary/80 leading-[1.7]">
-            <strong className="text-marrom-dark">A fonoaudióloga que destravou a fala de 2.092 crianças</strong>
+            <strong className="text-marrom-dark">Dra. Thaynara Andrade — a fonoaudióloga que destravou a fala de 2.092 crianças</strong>
             <br /><br />
             Fonoaudióloga infantil (CRFa 4-13693) com mais de 8 anos de experiência e 2.092 famílias atendidas. Vou te mostrar como destravar a fala do seu filho usando 15 min por dia da sua rotina.
           </p>
