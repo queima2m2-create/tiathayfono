@@ -1,48 +1,18 @@
-import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { fbEvents } from "@/lib/fbConversions";
 import { buildKiwifyCheckoutUrl, sendTrackingEnrichment } from "@/lib/kiwifyUrl";
 import produtoMockup from "@/assets/produto-mockup.jpg";
+import GuaranteeBadge from "./GuaranteeBadge";
 
 const CTA_LINK = "https://pay.kiwify.com.br/uXb5s35";
 
-const TIMER_KEY = "pricing_timer_start";
-const TWENTY_FOUR_HOURS = 24 * 60 * 60 * 1000;
-
-const getTimeLeft = () => {
-  let start = localStorage.getItem(TIMER_KEY);
-  if (!start) {
-    start = String(Date.now());
-    localStorage.setItem(TIMER_KEY, start);
-  }
-  const elapsed = Date.now() - Number(start);
-  const remaining = Math.max(0, TWENTY_FOUR_HOURS - elapsed);
-  return remaining;
-};
-
-const formatTime = (ms: number) => {
-  const totalSec = Math.floor(ms / 1000);
-  const h = String(Math.floor(totalSec / 3600)).padStart(2, "0");
-  const m = String(Math.floor((totalSec % 3600) / 60)).padStart(2, "0");
-  const s = String(totalSec % 60).padStart(2, "0");
-  return `${h}:${m}:${s}`;
-};
-
 const PricingBlock = ({ className = "", showUrgency = true }: { className?: string; showUrgency?: boolean }) => {
-  const [timeLeft, setTimeLeft] = useState(getTimeLeft);
-
-  useEffect(() => {
-    if (!showUrgency) return;
-    const id = setInterval(() => setTimeLeft(getTimeLeft()), 1000);
-    return () => clearInterval(id);
-  }, [showUrgency]);
-
   return (
     <div className={`text-center max-w-[520px] mx-auto ${className}`}>
       <div className="bg-background text-marrom-dark rounded-2xl p-8 md:p-10 shadow-xl">
         {showUrgency && (
-          <span className="inline-block bg-vermelho text-background text-[0.85rem] font-bold px-6 py-2.5 rounded-lg mb-5">
-            ⏰ Oferta expira em: {formatTime(timeLeft)}
+          <span className="inline-block bg-coral text-white text-[0.8rem] md:text-[0.9rem] font-bold px-5 py-2.5 rounded-lg mb-5">
+            🔥 Oferta de lançamento válida até 31/05/2026
           </span>
         )}
 
@@ -63,6 +33,10 @@ const PricingBlock = ({ className = "", showUrgency = true }: { className?: stri
           </span>
         </p>
 
+        <p className="inline-block bg-verde/10 text-verde font-extrabold text-[0.95rem] px-4 py-1.5 rounded-md mt-2">
+          VOCÊ ECONOMIZA R$ 430 — paga apenas R$ 67
+        </p>
+
         <p className="text-[1.1rem] mb-1 mt-3">
           12x de <strong className="text-[2.8rem] md:text-[3.2rem] font-black text-marrom-dark leading-none">R$ 6,93</strong>
         </p>
@@ -73,9 +47,10 @@ const PricingBlock = ({ className = "", showUrgency = true }: { className?: stri
 
         <div className="mt-5">
           <Button
-            variant="cta"
+            variant="ctaCoral"
             size="lg"
-            className="text-[0.9rem] md:text-[1rem] px-8 py-6 md:py-7 w-full leading-tight whitespace-normal h-auto text-background font-extrabold"
+            data-cta="primary"
+            className="text-[0.9rem] md:text-[1rem] px-8 py-6 md:py-7 w-full leading-tight whitespace-normal h-auto font-extrabold"
             onClick={async () => {
               await sendTrackingEnrichment({ value: 67, contentName: 'Guia Meu Filho Vai Falar' });
               fbEvents.initiateCheckout();
@@ -84,11 +59,15 @@ const PricingBlock = ({ className = "", showUrgency = true }: { className?: stri
               window.location.href = url;
             }}
           >
-            QUERO DESTRAVAR A FALA DO MEU FILHO EM 30 DIAS
+            QUERO DESTRAVAR A FALA DO MEU FILHO →
           </Button>
         </div>
 
-        <p className="text-[0.85rem] text-primary/60 mt-4 font-semibold">
+        <div className="mt-4 flex justify-center">
+          <GuaranteeBadge />
+        </div>
+
+        <p className="text-[0.85rem] text-primary/60 mt-3 font-semibold">
           📲 RECEBA ACESSO IMEDIATO NO EMAIL
         </p>
       </div>
