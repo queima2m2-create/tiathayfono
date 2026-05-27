@@ -30,13 +30,17 @@ const VturbPlayer = () => {
 
   return (
     <section className="bg-background py-8 md:py-12 px-4">
-      <div className="max-w-[800px] mx-auto">
-        <div className="rounded-2xl overflow-hidden" style={{ aspectRatio: "16/9", background: "#000" }}>
+      <div className="max-w-[400px] mx-auto">
+        <div
+          className="rounded-2xl overflow-hidden relative w-full"
+          style={{ aspectRatio: "9/16", background: "#000" }}
+        >
           {/* @ts-ignore – custom Vturb web component */}
           <vturb-smartplayer
             id="vid-6a173562c4c8455581ac0313"
             data-autoplay="true"
-            style={{ display: "block", margin: "0 auto", width: "100%", maxWidth: "400px" }}
+            className="absolute top-0 left-0 w-full h-full"
+            style={{ display: "block" }}
           />
         </div>
       </div>
