@@ -70,8 +70,8 @@ const STEPS: Step[] = [
   {
     type: "interstitial",
     vslKey: "vsl_parte_1_embed",
-    intro: "Antes da próxima pergunta, ouça isso da Dra. Thaynara (40 segundos):",
-    unlockSec: 20,
+    intro: "Antes da próxima pergunta, ouça isso da Dra. Thaynara (37 segundos):",
+    unlockSec: 18,
     label: "Mensagem da Dra. Thaynara — Parte 1",
   },
   {
