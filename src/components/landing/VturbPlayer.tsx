@@ -39,8 +39,14 @@ const VturbPlayer = () => {
           <vturb-smartplayer
             id="vid-6a173562c4c8455581ac0313"
             data-autoplay="true"
-            className="absolute top-0 left-0 w-full h-full"
-            style={{ display: "block" }}
+            style={{
+              display: "block",
+              position: "absolute",
+              top: 0,
+              left: 0,
+              width: "100%",
+              height: "100%",
+            }}
           />
         </div>
       </div>
