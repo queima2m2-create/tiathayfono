@@ -140,7 +140,17 @@ const QuizResultado = () => {
           />
           {showButton ? (
             <div className="w-full max-w-[480px] flex flex-col items-center gap-2 animate-in fade-in duration-500">
-              <QuizCheckoutButton>QUERO DESTRAVAR A FALA DO MEU FILHO →</QuizCheckoutButton>
+              <button
+                onClick={() => {
+                  document.getElementById('solucao-estagio')?.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start',
+                  });
+                }}
+                className="bg-[#FF6B35] hover:bg-[#FF6B35]/90 text-white font-extrabold uppercase tracking-wide rounded-xl shadow-lg shadow-[#FF6B35]/30 px-6 py-5 md:py-6 text-[0.9rem] md:text-[1.05rem] w-full leading-tight whitespace-normal h-auto inline-flex items-center justify-center gap-2"
+              >
+                QUERO DESTRAVAR A FALA DO MEU FILHO →
+              </button>
               <p className="text-[0.78rem] text-marrom-dark/70 font-medium">
                 🛡️ Garantia incondicional 30 dias · Risco zero
               </p>
