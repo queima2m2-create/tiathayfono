@@ -1,8 +1,14 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 
+/**
+ * Embed for a VTurb player snippet. Injects the provided HTML, re-executes
+ * its <script> tags, and aggressively forces play-with-sound. Because the
+ * user already interacted with the page (clicked "Começar", answered
+ * questions, etc.) before reaching any video, browsers allow unmuted
+ * autoplay here.
+ */
 const VslEmbed = ({ html, label }: { html: string; label: string }) => {
   const ref = useRef<HTMLDivElement>(null);
-  const [muted, setMuted] = useState(true);
 
   useEffect(() => {
     if (!html || !ref.current) return;
@@ -16,76 +22,77 @@ const VslEmbed = ({ html, label }: { html: string; label: string }) => {
       oldScript.parentNode?.replaceChild(s, oldScript);
     });
 
-    // Autoplay nudger: try with sound first, fallback to muted autoplay
     let cancelled = false;
-    const tryPlay = (attempt = 0) => {
+
+    const forcePlay = () => {
       if (cancelled || !ref.current) return;
-      const videos = ref.current.querySelectorAll("video");
-      let foundPlaying = false;
-      videos.forEach((v) => {
-        // Try with sound
-        v.muted = false;
-        const p = v.play();
-        if (p && typeof p.catch === "function") {
-          p.then(() => {
-            foundPlaying = true;
-            setMuted(false);
-          }).catch(() => {
-            // Browser blocked sound autoplay → fallback to muted
-            v.muted = true;
-            v.play().catch(() => {});
-            setMuted(true);
-          });
-        }
+
+      // 1. VTurb custom element API
+      ref.current.querySelectorAll("vturb-smartplayer").forEach((p: any) => {
+        try {
+          if ("muted" in p) p.muted = false;
+          if ("volume" in p) p.volume = 1;
+          const r = p.play?.();
+          if (r && typeof r.catch === "function") {
+            r.catch(() => {
+              // Last-resort: muted autoplay so video at least starts
+              try {
+                p.muted = true;
+                p.play?.();
+              } catch {}
+            });
+          }
+        } catch {}
       });
-      // Try VTurb global API if available
+
+      // 2. VTurb global JS API
       try {
         const w = window as any;
         if (w.smartplayer?.instances) {
           w.smartplayer.instances.forEach((inst: any) => {
             try {
+              inst?.unmute?.();
+              inst?.setVolume?.(1);
               inst?.play?.();
             } catch {}
           });
         }
       } catch {}
-      if (videos.length === 0 && attempt < 20) {
-        setTimeout(() => tryPlay(attempt + 1), 300);
-      }
-      void foundPlaying;
+
+      // 3. Underlying <video> / <audio> elements
+      ref.current.querySelectorAll("video").forEach((v) => {
+        try {
+          v.muted = false;
+          v.volume = 1;
+          const r = v.play();
+          if (r && typeof r.catch === "function") {
+            r.catch(() => {
+              v.muted = true;
+              v.play().catch(() => {});
+            });
+          }
+        } catch {}
+      });
+      ref.current.querySelectorAll("audio").forEach((a) => {
+        try {
+          a.muted = false;
+          a.volume = 1;
+          a.play().catch(() => {});
+        } catch {}
+      });
     };
-    const t = setTimeout(() => tryPlay(0), 400);
+
+    // The VTurb loader script + custom element bootstrap takes a moment.
+    // Retry several times so we hit the player as soon as it's ready.
+    const timers = [200, 600, 1200, 2000, 3000, 4500].map((ms) =>
+      setTimeout(forcePlay, ms),
+    );
 
     return () => {
       cancelled = true;
-      clearTimeout(t);
+      timers.forEach(clearTimeout);
     };
   }, [html]);
-
-  const handleUnmute = () => {
-    if (!ref.current) return;
-    ref.current.querySelectorAll("video").forEach((v) => {
-      v.muted = false;
-      v.volume = 1;
-      v.play().catch(() => {});
-    });
-    ref.current.querySelectorAll("audio").forEach((a) => {
-      a.muted = false;
-      a.play().catch(() => {});
-    });
-    try {
-      const w = window as any;
-      if (w.smartplayer?.instances) {
-        w.smartplayer.instances.forEach((inst: any) => {
-          try {
-            inst?.unmute?.();
-            inst?.setVolume?.(1);
-          } catch {}
-        });
-      }
-    } catch {}
-    setMuted(false);
-  };
 
   if (!html) {
     return (
@@ -98,21 +105,7 @@ const VslEmbed = ({ html, label }: { html: string; label: string }) => {
     );
   }
 
-  return (
-    <div className="relative w-full max-w-[420px] mx-auto">
-      <div ref={ref} className="w-full" />
-      {muted && (
-        <button
-          type="button"
-          onClick={handleUnmute}
-          className="absolute left-1/2 -translate-x-1/2 bottom-4 z-20 bg-[#FF6B35] hover:bg-[#FF6B35]/90 text-white font-bold text-[0.9rem] px-5 py-3 rounded-full shadow-xl shadow-black/30 flex items-center gap-2 animate-pulse"
-          aria-label="Ativar som do vídeo"
-        >
-          🔊 Toque para ativar o som
-        </button>
-      )}
-    </div>
-  );
+  return <div ref={ref} className="w-full max-w-[420px] mx-auto" />;
 };
 
 export default VslEmbed;
