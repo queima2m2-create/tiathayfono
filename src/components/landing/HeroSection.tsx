@@ -1,7 +1,7 @@
 import { getSocialProofCount } from "@/lib/socialProofCount";
 
 const HeroSection = () => (
-  <section className="bg-gradient-to-b from-rosa-light to-background pt-6 pb-4 md:pt-16 md:pb-12 px-6">
+  <section className="bg-gradient-to-b from-rosa-light to-background pt-6 pb-2 md:pt-16 md:pb-6 px-6">
     <div className="max-w-[1000px] mx-auto text-center">
       <h1 className="text-[1.45rem] md:text-[2.6rem] font-black leading-[1.15] text-marrom-dark mb-3 md:mb-4 tracking-tight">
         <span className="text-dourado underline underline-offset-4 decoration-dourado">Destrave a fala</span> do seu filho em 30 dias
