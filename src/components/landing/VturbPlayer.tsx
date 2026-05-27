@@ -30,26 +30,17 @@ const VturbPlayer = () => {
 
   return (
     <section className="bg-background py-8 md:py-12 px-4">
-      <div className="max-w-[539px] mx-auto">
-        <div
-          className="rounded-2xl overflow-hidden relative w-full"
-          style={{ aspectRatio: "1078/1534", background: "#000" }}
-        >
-          {/* @ts-ignore – custom Vturb web component */}
-          <vturb-smartplayer
-            id="vid-6a173562c4c8455581ac0313"
-            data-autoplay="true"
-            style={{
-              display: "block",
-              position: "absolute",
-              top: 0,
-              left: 0,
-              width: "100%",
-              height: "100%",
-            }}
-          />
-        </div>
-      </div>
+      {/* @ts-ignore – custom Vturb web component */}
+      <vturb-smartplayer
+        id="vid-6a173562c4c8455581ac0313"
+        data-autoplay="true"
+        style={{
+          display: "block",
+          margin: "0 auto",
+          width: "100%",
+          maxWidth: "400px",
+        }}
+      />
     </section>
   );
 };
