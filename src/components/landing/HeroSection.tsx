@@ -1,3 +1,5 @@
+import { getSocialProofCount } from "@/lib/socialProofCount";
+
 const HeroSection = () => (
   <section className="bg-gradient-to-b from-rosa-light to-background pt-6 pb-4 md:pt-16 md:pb-12 px-6">
     <div className="max-w-[1000px] mx-auto text-center">
@@ -6,7 +8,7 @@ const HeroSection = () => (
       </h1>
 
       <p className="text-[0.95rem] md:text-[1.05rem] text-primary/80 leading-[1.55] md:leading-[1.8] max-w-[620px] mx-auto">
-        Com 15 minutos por dia da rotina que você já tem. Método criado pela fonoaudióloga <strong className="text-marrom-dark">Thaynara Andrade (CRFa 4-13693)</strong>. Mais de 2.092 mães já aplicaram em casa.
+        Com 15 minutos por dia da rotina que você já tem. Método criado pela fonoaudióloga <strong className="text-marrom-dark">Thaynara Andrade (CRFa 4-13693)</strong>. Mais de {getSocialProofCount()} mães já aplicaram em casa.
       </p>
     </div>
   </section>
