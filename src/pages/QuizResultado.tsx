@@ -226,13 +226,10 @@ const QuizResultado = () => {
                 Hoje, com promoção exclusiva pra quem fez o diagnóstico:
               </p>
               <p className="text-[2.2rem] md:text-[2.6rem] font-extrabold text-[#FF6B35] leading-none mt-2">
-                R$ 67
+                12x R$ 6,93
               </p>
               <p className="text-[0.85rem] text-marrom-dark/70 font-medium">
-                à vista no PIX
-              </p>
-              <p className="text-[0.82rem] text-marrom-dark/70 mt-1">
-                ou 12x de R$ 6,93 no cartão
+                ou R$ 67 à vista no PIX
               </p>
               <span className="inline-block mt-3 bg-verde/15 text-verde border border-verde/30 rounded-full px-4 py-1.5 text-[0.78rem] font-bold">
                 VOCÊ ECONOMIZA R$ 430
@@ -279,7 +276,7 @@ const QuizResultado = () => {
             O cérebro do seu filho está numa fase de maior plasticidade entre 2 e 5 anos. Cada semana sem estímulo correto é uma semana de capacidade que NÃO volta. Não dá pra esperar mais.
           </p>
           <div className="mt-5">
-            <QuizCheckoutButton>COMEÇAR AGORA POR R$ 67 →</QuizCheckoutButton>
+            <QuizCheckoutButton>COMEÇAR POR 12x R$ 6,93 →</QuizCheckoutButton>
           </div>
         </div>
       </section>
@@ -320,7 +317,7 @@ const QuizResultado = () => {
             <span className="bg-rosa-light/60 rounded-full px-3 py-1">Garantia 30 dias</span>
           </div>
           <div className="mt-5">
-            <QuizCheckoutButton>QUERO COMEÇAR AGORA POR R$ 67 →</QuizCheckoutButton>
+            <QuizCheckoutButton>QUERO COMEÇAR POR 12x R$ 6,93 →</QuizCheckoutButton>
           </div>
         </div>
       </section>
