@@ -30,6 +30,26 @@ const faqs = [
     a: "La Guía está indicada para niños de 1 a 5 años, que es la fase donde el cerebro está más receptivo para aprender a hablar. Cuanto antes empieces, más fuerte es el resultado — pero dentro de ese rango, nunca es tarde para actuar.",
   },
   {
+    q: "¿Y si mi hijo tiene autismo (o sospecha de TEA)?",
+    a: "El método se enfoca en estímulos universales del lenguaje que ayudan a cualquier niño — incluyendo niños en el espectro autista. Si hay diagnóstico de TEA, recomiendo combinarlo con acompañamiento profesional. Ya tuve varias mamás de niños autistas reportando avances significativos.",
+  },
+  {
+    q: "¿Por qué tan barato ($14,99)? ¿Tiene trampa?",
+    a: "No hay trampa. Vendí mucho más caro antes y me di cuenta de que la mamá que MÁS NECESITA el método es justamente la que no tiene mucho dinero sobrando. Decidí cobrar $14,99 para llegar al máximo de familias posible. La calidad del contenido es exactamente la misma.",
+  },
+  {
+    q: "¿Cuánto tiempo duran las clases?",
+    a: "Clases cortas, de 5 a 15 minutos cada una. En total son varias horas de contenido en video + audios + tarjetas. Lo ves en el celular, en el ómnibus, en la pausa del café.",
+  },
+  {
+    q: "¿Voy a tener contacto directo contigo?",
+    a: "Sí. El soporte directo por WhatsApp conmigo está incluido. Soy yo de verdad respondiendo.",
+  },
+  {
+    q: "¿Y si en 30 días no veo ningún resultado?",
+    a: "Me mandas un mensaje y te devuelvo cada centavo. Sin preguntas, sin formularios, sin juicios.",
+  },
+  {
     q: "¿La plataforma de pagos es segura?",
     a: "Sí, utilizamos tecnologías avanzadas de seguridad, garantizando un proceso de pago 100% confiable y protegido.",
   },
