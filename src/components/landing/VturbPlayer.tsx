@@ -29,7 +29,7 @@ const VturbPlayer = () => {
   }, []);
 
   return (
-    <section className="bg-background py-8 md:py-12 px-4">
+    <section className="bg-background pt-2 pb-8 md:pt-4 md:pb-12 px-4">
       {/* @ts-ignore – custom Vturb web component */}
       <vturb-smartplayer
         id="vid-6a173b5092e602d534b94dd1"
