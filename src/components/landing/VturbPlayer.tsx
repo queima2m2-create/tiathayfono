@@ -32,7 +32,7 @@ const VturbPlayer = () => {
     <section className="bg-background py-8 md:py-12 px-4">
       {/* @ts-ignore – custom Vturb web component */}
       <vturb-smartplayer
-        id="vid-6a173562c4c8455581ac0313"
+        id="vid-6a173b5092e602d534b94dd1"
         data-autoplay="true"
         style={{
           display: "block",
