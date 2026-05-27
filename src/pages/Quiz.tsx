@@ -70,8 +70,8 @@ const STEPS: Step[] = [
   {
     type: "interstitial",
     vslKey: "vsl_parte_1_embed",
-    intro: "Antes da próxima pergunta, ouça isso da Dra. Thaynara (40 segundos):",
-    unlockSec: 20,
+    intro: "Antes da próxima pergunta, ouça isso da Dra. Thaynara (37 segundos):",
+    unlockSec: 18,
     label: "Mensagem da Dra. Thaynara — Parte 1",
   },
   {
@@ -103,8 +103,8 @@ const STEPS: Step[] = [
   {
     type: "interstitial",
     vslKey: "vsl_parte_2_embed",
-    intro: "Você precisa ouvir isso antes de continuar (1 minuto e 10 segundos):",
-    unlockSec: 35,
+    intro: "Você precisa ouvir isso antes de continuar (1 min 36 seg):",
+    unlockSec: 45,
     label: "Mensagem da Dra. Thaynara — Parte 2",
   },
   {
@@ -403,7 +403,7 @@ const Quiz = () => {
                 onClick={handleContinue}
                 className="mt-2 bg-[#FF6B35] hover:bg-[#FF6B35]/90 text-white font-extrabold uppercase tracking-wide rounded-xl shadow-lg shadow-[#FF6B35]/30 px-8 py-5 text-[0.95rem] w-full max-w-[420px] h-auto animate-in fade-in duration-300"
               >
-                Continuar →
+                Continuar diagnóstico →
               </Button>
             )}
           </div>
