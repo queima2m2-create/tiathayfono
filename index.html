@@ -205,5 +205,46 @@
 
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
+
+    <!-- InitiateCheckout tracking — main landing only (/) -->
+    <script>
+      (function() {
+        var path = location.pathname.replace(/\/$/, '') || '/';
+        if (path !== '/') return;
+
+        document.addEventListener('DOMContentLoaded', function() {
+          var checkoutLinks = document.querySelectorAll('a[href*="kiwify"], a[href*="pay.kiwify"]');
+
+          checkoutLinks.forEach(function(link) {
+            link.addEventListener('click', function(e) {
+              if (typeof fbq !== 'undefined') {
+                fbq('track', 'InitiateCheckout', {
+                  content_name: 'Meu Filho Vai Falar',
+                  content_category: 'Infoproduto',
+                  content_type: 'product',
+                  currency: 'BRL',
+                  value: 67.00
+                });
+                console.log('InitiateCheckout disparado - redirecionando...');
+              }
+
+              e.preventDefault();
+              var href = this.href;
+              var target = this.target;
+
+              setTimeout(function() {
+                if (target === '_blank') {
+                  window.open(href, '_blank');
+                } else {
+                  window.location.href = href;
+                }
+              }, 300);
+            });
+          });
+
+          console.log('IC tracking ativado em ' + checkoutLinks.length + ' botões');
+        });
+      })();
+    </script>
   </body>
 </html>
