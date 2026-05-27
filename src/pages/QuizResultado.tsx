@@ -175,7 +175,7 @@ const QuizResultado = () => {
       )}
 
       {/* ===== BLOCO 4 — OFERTA ===== */}
-      <section className="px-4 pb-10">
+      <section id="solucao-estagio" className="px-4 pb-10">
         <div className="max-w-[640px] mx-auto">
           <h2 className="text-[1.3rem] md:text-[1.55rem] font-extrabold text-marrom-dark mb-5 text-center">
             ✅ A solução pro Estágio <span className="text-[#FF6B35]">{estagio}</span> do seu filho:
