@@ -55,7 +55,7 @@ const SobreSection = () => {
               Fonoaudióloga · CRFa 4-13693
             </p>
             <p className="text-[0.85rem] md:text-[0.9rem] text-marrom-dark/70 mt-0.5">
-              8+ anos de experiência · 2.092 famílias atendidas
+              8+ anos de experiência · {getSocialProofCount()} famílias atendidas
             </p>
           </div>
 
