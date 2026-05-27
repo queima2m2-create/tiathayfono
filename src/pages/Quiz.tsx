@@ -403,7 +403,7 @@ const Quiz = () => {
                 onClick={handleContinue}
                 className="mt-2 bg-[#FF6B35] hover:bg-[#FF6B35]/90 text-white font-extrabold uppercase tracking-wide rounded-xl shadow-lg shadow-[#FF6B35]/30 px-8 py-5 text-[0.95rem] w-full max-w-[420px] h-auto animate-in fade-in duration-300"
               >
-                Continuar →
+                Continuar diagnóstico →
               </Button>
             )}
           </div>
