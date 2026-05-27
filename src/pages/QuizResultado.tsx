@@ -88,9 +88,9 @@ const QuizResultado = () => {
     return () => document.removeEventListener("click", onAnyKiwifyClick);
   }, []);
 
-  // Reveal purchase button after 60s
+  // Reveal purchase button after 87s (1min 27s)
   useEffect(() => {
-    const t = setTimeout(() => setShowButton(true), 60_000);
+    const t = setTimeout(() => setShowButton(true), 87_000);
     return () => clearTimeout(t);
   }, []);
 
