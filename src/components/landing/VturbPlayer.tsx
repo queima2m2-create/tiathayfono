@@ -30,10 +30,10 @@ const VturbPlayer = () => {
 
   return (
     <section className="bg-background py-8 md:py-12 px-4">
-      <div className="max-w-[400px] mx-auto">
+      <div className="max-w-[539px] mx-auto">
         <div
           className="rounded-2xl overflow-hidden relative w-full"
-          style={{ aspectRatio: "9/16", background: "#000" }}
+          style={{ aspectRatio: "1078/1534", background: "#000" }}
         >
           {/* @ts-ignore – custom Vturb web component */}
           <vturb-smartplayer
