@@ -16,7 +16,7 @@ const VturbPlayer = () => {
     const load = () => {
       const s = document.createElement("script");
       s.src =
-        "https://scripts.converteai.net/8cb68814-a0fc-45e0-ace9-4a6b005a0cc8/players/6a173562c4c8455581ac0313/v4/player.js";
+        "https://scripts.converteai.net/8cb68814-a0fc-45e0-ace9-4a6b005a0cc8/players/6a173b5092e602d534b94dd1/v4/player.js";
       s.async = true;
       document.head.appendChild(s);
     };
