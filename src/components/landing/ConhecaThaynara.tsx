@@ -1,4 +1,5 @@
 import thaynaraFoto from "@/assets/thaynara-foto.jpg";
+import { getSocialProofCount } from "@/lib/socialProofCount";
 
 const ConhecaThaynara = () => (
   <section className="bg-background py-12 md:py-16 px-6 text-center">
