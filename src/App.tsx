@@ -48,6 +48,8 @@ const App = () => {
         <Route path="/v7" element={<Suspense fallback={null}><V7 /></Suspense>} />
         <Route path="/es-espana" element={<Suspense fallback={null}><V5Espana /></Suspense>} />
         <Route path="/downsell-es" element={<Suspense fallback={null}><DownsellEs /></Suspense>} />
+        <Route path="/quiz" element={<Suspense fallback={null}><Quiz /></Suspense>} />
+        <Route path="/quiz/resultado" element={<Suspense fallback={null}><QuizResultado /></Suspense>} />
         {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
         <Route path="*" element={<Suspense fallback={null}><NotFound /></Suspense>} />
       </Routes>
