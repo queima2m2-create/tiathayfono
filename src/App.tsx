@@ -12,6 +12,8 @@ const V6Es = lazy(() => import("./pages/V6Es.tsx"));
 const V7 = lazy(() => import("./pages/V7.tsx"));
 const V5Espana = lazy(() => import("./pages/V5Espana.tsx"));
 const DownsellEs = lazy(() => import("./pages/DownsellEs.tsx"));
+const Quiz = lazy(() => import("./pages/Quiz.tsx"));
+const QuizResultado = lazy(() => import("./pages/QuizResultado.tsx"));
 const NotFound = lazy(() => import("./pages/NotFound.tsx"));
 
 const PageViewTracker = () => {
@@ -46,6 +48,8 @@ const App = () => {
         <Route path="/v7" element={<Suspense fallback={null}><V7 /></Suspense>} />
         <Route path="/es-espana" element={<Suspense fallback={null}><V5Espana /></Suspense>} />
         <Route path="/downsell-es" element={<Suspense fallback={null}><DownsellEs /></Suspense>} />
+        <Route path="/quiz" element={<Suspense fallback={null}><Quiz /></Suspense>} />
+        <Route path="/quiz/resultado" element={<Suspense fallback={null}><QuizResultado /></Suspense>} />
         {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
         <Route path="*" element={<Suspense fallback={null}><NotFound /></Suspense>} />
       </Routes>
