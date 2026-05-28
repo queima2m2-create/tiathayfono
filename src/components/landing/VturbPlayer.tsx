@@ -16,7 +16,7 @@ const VturbPlayer = () => {
     const load = () => {
       const s = document.createElement("script");
       s.src =
-        "https://scripts.converteai.net/8cb68814-a0fc-45e0-ace9-4a6b005a0cc8/players/6a173b5092e602d534b94dd1/v4/player.js";
+        "https://scripts.converteai.net/8cb68814-a0fc-45e0-ace9-4a6b005a0cc8/players/6a17a5ef76b1a83e8acc0596/v4/player.js";
       s.async = true;
       document.head.appendChild(s);
     };
@@ -32,13 +32,12 @@ const VturbPlayer = () => {
     <section className="bg-background pt-2 pb-8 md:pt-4 md:pb-12 px-4">
       {/* @ts-ignore – custom Vturb web component */}
       <vturb-smartplayer
-        id="vid-6a173b5092e602d534b94dd1"
+        id="vid-6a17a5ef76b1a83e8acc0596"
         data-autoplay="true"
         style={{
           display: "block",
           margin: "0 auto",
           width: "100%",
-          maxWidth: "400px",
         }}
       />
     </section>
