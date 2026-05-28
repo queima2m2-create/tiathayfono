@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { LEAD_WEBHOOK } from "@/lib/quizConfig";
-import { loadQuizAnswers } from "@/lib/quizState";
+import { calcularEstagio, loadQuizAnswers } from "@/lib/quizState";
 
 const CLOSED_KEY = "tiathay_quiz_modal_closed";
 const SENT_KEY = "tiathay_quiz_lead_sent";
