@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { LEAD_WEBHOOK } from "@/lib/quizConfig";
 import { calcularEstagio, loadQuizAnswers } from "@/lib/quizState";
+import { getTrackingForPayload } from "@/lib/tracking";
 
 const CLOSED_KEY = "tiathay_quiz_modal_closed";
 const SENT_KEY = "tiathay_quiz_lead_sent";
@@ -44,6 +45,7 @@ const ExitIntentModal = ({ open, onClose }: { open: boolean; onClose: () => void
           estagio_calculado: calcularEstagio(a.filho_idade, a.filho_estagio),
           timestamp: new Date().toISOString(),
           source: "quiz_br",
+          tracking: getTrackingForPayload(),
         }),
         keepalive: true,
       });

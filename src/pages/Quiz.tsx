@@ -266,8 +266,9 @@ const Quiz = () => {
     }
   }, [stepIdx, started]);
 
-  // Fire QuizStart once
+  // Fire QuizStart once + capture tracking params
   useEffect(() => {
+    import("@/lib/tracking").then((m) => m.captureTracking());
     fbqTrack("QuizStart", {
       content_name: "Quiz Meu Filho Vai Falar BR",
       source: "landing_quiz",

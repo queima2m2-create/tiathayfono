@@ -1,5 +1,7 @@
+import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { buildKiwifyCheckoutUrl } from "@/lib/kiwifyUrl";
+import { applyTrackingToUrl } from "@/lib/tracking";
 import { KIWIFY_URL_LATAM } from "@/lib/quizConfigLatam";
 
 const QuizCheckoutButtonLatam = ({
@@ -9,9 +11,15 @@ const QuizCheckoutButtonLatam = ({
   children?: React.ReactNode;
   className?: string;
 }) => {
+  const [href, setHref] = useState<string>(KIWIFY_URL_LATAM);
+
+  useEffect(() => {
+    setHref(applyTrackingToUrl(buildKiwifyCheckoutUrl(KIWIFY_URL_LATAM)));
+  }, []);
+
   const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
-    const href = buildKiwifyCheckoutUrl(KIWIFY_URL_LATAM);
+    const finalHref = applyTrackingToUrl(buildKiwifyCheckoutUrl(KIWIFY_URL_LATAM));
     const w = window as any;
     if (typeof w.fbq === "function") {
       w.fbq("track", "InitiateCheckout", {
@@ -21,7 +29,7 @@ const QuizCheckoutButtonLatam = ({
       });
     }
     setTimeout(() => {
-      window.location.href = href;
+      window.location.href = finalHref;
     }, 300);
   };
 
@@ -33,7 +41,7 @@ const QuizCheckoutButtonLatam = ({
         className
       }
     >
-      <a href={KIWIFY_URL_LATAM} onClick={handleClick}>
+      <a href={href} onClick={handleClick}>
         {children}
       </a>
     </Button>
