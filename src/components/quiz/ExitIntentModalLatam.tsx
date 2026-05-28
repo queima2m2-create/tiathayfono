@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { LEAD_WEBHOOK_LATAM } from "@/lib/quizConfigLatam";
 import { calcularEtapaLatam, loadQuizLatamAnswers } from "@/lib/quizStateLatam";
+import { getTrackingForPayload } from "@/lib/tracking";
 
 const CLOSED_KEY = "tiathay_quiz_latam_modal_closed";
 const SENT_KEY = "tiathay_quiz_latam_lead_sent";
@@ -43,6 +44,7 @@ const ExitIntentModalLatam = ({ open, onClose }: { open: boolean; onClose: () =>
           etapa_calculada: calcularEtapaLatam(a.hijo_edad, a.hijo_etapa),
           timestamp: new Date().toISOString(),
           source: "quiz_latam",
+          tracking: getTrackingForPayload(),
         }),
         keepalive: true,
       });

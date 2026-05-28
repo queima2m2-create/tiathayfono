@@ -252,6 +252,7 @@ const QuizLatam = () => {
   }, [stepIdx, started]);
 
   useEffect(() => {
+    import("@/lib/tracking").then((m) => m.captureTracking());
     fbqTrack(
       "QuizStart_LATAM",
       { content_name: "Quiz Mi Hijo Va a Hablar LATAM", source: "landing_quiz_latam" },
