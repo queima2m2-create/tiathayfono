@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { loadQuizAnswers } from "@/lib/quizState";
 
 const StickyLeadBar = ({ onClick }: { onClick: () => void }) => {
   const [show, setShow] = useState(false);
