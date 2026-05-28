@@ -10,7 +10,7 @@ const VturbPlayerV5 = () => {
     const load = () => {
       const s = document.createElement("script");
       s.src =
-        "https://scripts.converteai.net/8cb68814-a0fc-45e0-ace9-4a6b005a0cc8/players/6a0fc032cf993d984e835458/v4/player.js";
+        "https://scripts.converteai.net/8cb68814-a0fc-45e0-ace9-4a6b005a0cc8/players/6a18426bcf97cce83b06bf05/v4/player.js";
       s.async = true;
       document.head.appendChild(s);
     };
@@ -28,7 +28,7 @@ const VturbPlayerV5 = () => {
         <div className="rounded-2xl overflow-hidden" style={{ aspectRatio: "16/9", background: "#000" }}>
           {/* @ts-ignore */}
           <vturb-smartplayer
-            id="vid-6a0fc032cf993d984e835458"
+            id="vid-6a18426bcf97cce83b06bf05"
             data-autoplay="true"
             style={{ display: "block", margin: "0 auto", width: "100%" }}
           />
