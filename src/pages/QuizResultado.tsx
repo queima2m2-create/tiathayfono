@@ -28,7 +28,7 @@ const fbqTrack = (event: string, data?: Record<string, unknown>) => {
 
 const faltouMap = (nome: string): Record<string, string> => ({
   pediatra: `🩺 Você ouviu do pediatra pra esperar — mas dos 2 aos 4 anos é a janela crítica do cérebro do(a) ${nome}. Esperar é o que MAIS atrasa.`,
-  fono: `💸 Você tentou fono particular pro(a) ${nome} — mas 30 min/semana não é suficiente. O estímulo precisa ser DIÁRIO, em casa, com você.`,
+  fono: `👩‍⚕️ Você buscou ajuda profissional com fonoaudióloga, parabéns por isso. Mas o estímulo do(a) ${nome} precisa ser DIÁRIO, em casa, com você. Os 30 minutos por semana com a fono não bastam. O programa potencializa o que a fono já tá fazendo (ou fez).`,
   youtube: `📱 Vídeos no YouTube ensinam coisas isoladas — mas sem método e sem ORDEM, eles podem até atrapalhar o(a) ${nome}.`,
   chupeta: `🍼 Tirar chupeta do(a) ${nome} ajuda, mas não basta. Tem que ter estímulo ATIVO substituindo.`,
   escolinha: `🏫 A escola estimula contato social do(a) ${nome}, mas não trabalha a fala de forma estruturada como precisa.`,
