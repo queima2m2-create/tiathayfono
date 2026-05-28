@@ -41,6 +41,7 @@ const ExitIntentModal = ({ open, onClose }: { open: boolean; onClose: () => void
         body: JSON.stringify({
           whatsapp: "+55" + digits,
           ...a,
+          estagio_calculado: calcularEstagio(a.filho_idade, a.filho_estagio),
           timestamp: new Date().toISOString(),
           source: "quiz_br",
         }),
