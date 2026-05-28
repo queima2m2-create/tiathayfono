@@ -329,8 +329,11 @@ const QuizLatamResultado = () => {
               El cerebro de {nombre} está en su fase de mayor plasticidad. Cada semana sin estímulo correcto es tiempo que NO vuelve.
             </p>
           )}
-          <div className="mt-5">
+          <div className="mt-5 flex flex-col items-center gap-1">
             <QuizCheckoutButtonLatam>EMPEZAR AHORA POR $14.99 USD →</QuizCheckoutButtonLatam>
+            <p className="text-[0.85rem] text-[#666666] text-center leading-snug">
+              💱 El precio se convierte automáticamente a la moneda de tu país (MXN, COP, CLP, PEN, etc.) al momento del pago
+            </p>
           </div>
         </div>
       </section>
