@@ -1,12 +1,18 @@
 export type QuizAnswers = {
   filho_idade?: string;
+  filho_nome?: string;
   filho_estagio?: string;
+  filho_frustracao?: string;
   mae_emocao?: string;
-  filho_comunicacao?: string;
+  mae_medo?: string;
+  filho_tela?: string;
   mae_tentativas?: string[];
+  filho_avaliacao?: string;
   mae_tempo?: string;
   mae_aspiracao?: string;
   mae_commitment?: string;
+  // legacy field kept for backwards compat
+  filho_comunicacao?: string;
   completed_at?: string;
 };
 
