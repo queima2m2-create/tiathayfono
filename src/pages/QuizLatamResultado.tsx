@@ -372,8 +372,11 @@ const QuizLatamResultado = () => {
             <span className="bg-rosa-light/60 rounded-full px-3 py-1">Pago Seguro Kiwify</span>
             <span className="bg-rosa-light/60 rounded-full px-3 py-1">Garantía 30 días</span>
           </div>
-          <div className="mt-5">
+          <div className="mt-5 flex flex-col items-center gap-1">
             <QuizCheckoutButtonLatam>QUIERO EMPEZAR AHORA POR $14.99 USD →</QuizCheckoutButtonLatam>
+            <p className="text-[0.85rem] text-[#666666] text-center leading-snug">
+              💱 El precio se convierte automáticamente a la moneda de tu país (MXN, COP, CLP, PEN, etc.) al momento del pago
+            </p>
           </div>
         </div>
       </section>
