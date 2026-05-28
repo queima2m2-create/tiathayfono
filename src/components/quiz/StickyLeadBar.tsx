@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { loadQuizAnswers } from "@/lib/quizState";
 
 const StickyLeadBar = ({ onClick }: { onClick: () => void }) => {
   const [show, setShow] = useState(false);
@@ -20,7 +21,7 @@ const StickyLeadBar = ({ onClick }: { onClick: () => void }) => {
   return (
     <div className="fixed bottom-0 inset-x-0 z-50 bg-[#FF6B35] text-white px-3 py-3 flex items-center gap-2 shadow-2xl">
       <button onClick={onClick} className="flex-1 text-left font-bold text-[0.9rem]">
-        💬 Quer o diagnóstico no WhatsApp? Toque aqui
+        💬 Quer o diagnóstico do(a) {(loadQuizAnswers().filho_nome || "seu filho").trim()} no WhatsApp? Toque aqui
       </button>
       <button
         onClick={() => {

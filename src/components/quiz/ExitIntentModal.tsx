@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { LEAD_WEBHOOK } from "@/lib/quizConfig";
-import { loadQuizAnswers } from "@/lib/quizState";
+import { calcularEstagio, loadQuizAnswers } from "@/lib/quizState";
 
 const CLOSED_KEY = "tiathay_quiz_modal_closed";
 const SENT_KEY = "tiathay_quiz_lead_sent";
@@ -41,6 +41,7 @@ const ExitIntentModal = ({ open, onClose }: { open: boolean; onClose: () => void
         body: JSON.stringify({
           whatsapp: "+55" + digits,
           ...a,
+          estagio_calculado: calcularEstagio(a.filho_idade, a.filho_estagio),
           timestamp: new Date().toISOString(),
           source: "quiz_br",
         }),
@@ -91,7 +92,7 @@ const ExitIntentModal = ({ open, onClose }: { open: boolean; onClose: () => void
               ⏸️ Espera, mãe!
             </h3>
             <p className="text-[0.95rem] md:text-[1rem] text-marrom-dark/80 text-center mt-3 leading-snug">
-              Quer receber esse diagnóstico personalizado + 1 dica em vídeo da Dra. Thaynara direto no seu WhatsApp?
+              Quer receber esse diagnóstico do(a) {(loadQuizAnswers().filho_nome || "seu filho").trim()} + 1 dica em vídeo da Dra. Thaynara direto no seu WhatsApp?
             </p>
             <form onSubmit={handleSubmit} className="mt-5 flex flex-col gap-3">
               <input
