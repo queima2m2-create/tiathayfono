@@ -26,43 +26,46 @@ const fbqTrack = (event: string, data?: Record<string, unknown>) => {
   }
 };
 
-const FALTOU_MAP: Record<string, string> = {
-  pediatra:
-    "🩺 Você ouviu do pediatra pra esperar — mas dos 2 aos 4 anos é a janela crítica do cérebro. Esperar é o que MAIS atrasa.",
-  fono:
-    "💸 Você tentou fono particular — mas 30 min/semana não é suficiente. O estímulo precisa ser DIÁRIO, em casa, com você.",
-  youtube:
-    "📱 Vídeos no YouTube ensinam coisas isoladas — mas sem método e sem ORDEM, eles podem até atrapalhar.",
-  chupeta:
-    "🍼 Tirar chupeta ajuda, mas não basta. Tem que ter estímulo ATIVO substituindo.",
-  escolinha:
-    "🏫 Escola estimula contato social, mas não trabalha a fala de forma estruturada como precisa.",
-  nada:
-    "⏰ Você não tentou ainda. Boa notícia: ainda dá tempo. Mas tem que começar HOJE.",
-};
+const faltouMap = (nome: string): Record<string, string> => ({
+  pediatra: `🩺 Você ouviu do pediatra pra esperar — mas dos 2 aos 4 anos é a janela crítica do cérebro do(a) ${nome}. Esperar é o que MAIS atrasa.`,
+  fono: `💸 Você tentou fono particular pro(a) ${nome} — mas 30 min/semana não é suficiente. O estímulo precisa ser DIÁRIO, em casa, com você.`,
+  youtube: `📱 Vídeos no YouTube ensinam coisas isoladas — mas sem método e sem ORDEM, eles podem até atrapalhar o(a) ${nome}.`,
+  chupeta: `🍼 Tirar chupeta do(a) ${nome} ajuda, mas não basta. Tem que ter estímulo ATIVO substituindo.`,
+  escolinha: `🏫 A escola estimula contato social do(a) ${nome}, mas não trabalha a fala de forma estruturada como precisa.`,
+  nada: `⏰ Você ainda não tentou nada com o(a) ${nome}. Boa notícia: ainda dá tempo. Mas tem que começar HOJE.`,
+});
 
-const FAQS = [
-  {
-    q: "E se meu filho tiver autismo (ou suspeita de TEA)?",
-    a: "O método foca em estímulos universais de linguagem que ajudam qualquer criança — incluindo crianças no espectro autista. Se há diagnóstico de TEA, recomendo combinar com acompanhamento profissional. Já tive várias mães de crianças autistas relatando avanço significativo.",
+const telaMap = (nome: string): Record<string, string> => ({
+  nao_ve: `📵 ${nome} não vê tela. Parabéns por essa decisão. Mas pode ser que falte estímulo direto de fala. Veja o que o programa vai te ensinar.`,
+  menos_1h: `📱 ${nome} já tem tempo controlado de tela. Vamos potencializar com estímulos diretos.`,
+  "1_2h": `📺 Esse tempo de tela do(a) ${nome} pode ser usado de forma estratégica. O módulo de Telas do programa te ensina como.`,
+  "2_4h": `🎮 Esse tempo de tela pode estar atrasando a fala do(a) ${nome}. O programa tem um módulo específico pra você reverter isso.`,
+  mais_4h: `⏰ Um dos principais bloqueios de fala que vejo. Boa notícia: tem solução. O programa te mostra como reduzir SEM crise.`,
+});
+
+const medoMap = (nome: string): Record<string, { titulo: string; texto: string }> => ({
+  autismo: {
+    titulo: "⏰ Mãe, seu medo é compreensível",
+    texto:
+      "Sobre o autismo: o programa não substitui diagnóstico, mas a estimulação correta beneficia qualquer criança — incluindo crianças no espectro. Quanto antes começar, melhor.",
   },
-  {
-    q: "Por que tão barato (R$67)? Tem pegadinha?",
-    a: "Não tem pegadinha. Vendi a R$200 antes e percebi que a mãe que mais PRECISA do método é justamente a que não tem R$200 sobrando. Decidi cobrar R$67 para atingir o máximo de famílias possível. A qualidade do conteúdo é exatamente a mesma.",
+  escola: {
+    titulo: "⏰ Mãe, seu medo é compreensível",
+    texto: `Crianças que entram na escola sem fala desenvolvida sofrem mais. Mas se ${nome} começar HOJE, em 30 dias você vê mudança real antes mesmo do próximo ano letivo.`,
   },
-  {
-    q: "Quanto tempo de aula são?",
-    a: "Aulas curtas de 5 a 15 minutos cada. No total, ~3 horas de conteúdo em vídeo + áudios + cards. Você assiste no celular, no ônibus, na pausa do café.",
+  bullying: {
+    titulo: "⏰ Mãe, seu medo é compreensível",
+    texto: `Crianças que se comunicam bem são mais aceitas socialmente. O programa ajuda o(a) ${nome} a desenvolver não só a fala, mas a confiança de se expressar.`,
   },
-  {
-    q: "Vou ter contato direto com a Dra. Thaynara?",
-    a: "Sim. O suporte direto pelo WhatsApp comigo está incluído. Sou eu de verdade respondendo.",
+  comunicacao: {
+    titulo: "⏰ Mãe, seu medo é compreensível",
+    texto: `A comunicação mãe-filho é a base de tudo. Imagina ouvir ${nome} te contando o dia dele(a), fazendo perguntas, dizendo 'te amo'. Em 30 dias isso pode mudar.`,
   },
-  {
-    q: "E se em 30 dias eu não ver resultado nenhum?",
-    a: "Manda mensagem e devolvo cada centavo. Sem perguntas, sem formulário, sem julgamento.",
+  tudo: {
+    titulo: "⏰ Mãe, seu medo é compreensível",
+    texto: "Esses medos são reais e muito comuns. Mas tem um caminho. Não deixa o tempo passar.",
   },
-];
+});
 
 const QuizResultado = () => {
   const [answers, setAnswers] = useState<QuizAnswers | null>(null);
@@ -78,7 +81,6 @@ const QuizResultado = () => {
       value: 67,
       currency: "BRL",
     });
-    // Mark purchase click intent on any CTA click
     const onAnyKiwifyClick = (e: Event) => {
       const target = e.target as HTMLElement;
       const a = target.closest('a[href*="kiwify"]');
@@ -88,7 +90,6 @@ const QuizResultado = () => {
     return () => document.removeEventListener("click", onAnyKiwifyClick);
   }, []);
 
-  // Reveal purchase button after 87s (1min 27s)
   useEffect(() => {
     const t = setTimeout(() => setShowButton(true), 87_000);
     return () => clearTimeout(t);
@@ -99,7 +100,36 @@ const QuizResultado = () => {
 
   const estagio = calcularEstagio(answers.filho_idade, answers.filho_estagio);
   const idade = answers.filho_idade || "seu filho";
+  const nome = (answers.filho_nome || "seu filho").trim();
   const tentativas = answers.mae_tentativas || [];
+  const faltou = faltouMap(nome);
+  const telaBullet = answers.filho_tela ? telaMap(nome)[answers.filho_tela] : null;
+  const medo = answers.mae_medo ? medoMap(nome)[answers.mae_medo] : null;
+
+  const ctaDestravar = `QUERO DESTRAVAR A FALA DO(A) ${nome.toUpperCase()} →`;
+
+  const FAQS = [
+    {
+      q: `E se ${nome} tiver autismo (ou suspeita de TEA)?`,
+      a: "O método foca em estímulos universais de linguagem que ajudam qualquer criança — incluindo crianças no espectro autista. Se há diagnóstico de TEA, recomendo combinar com acompanhamento profissional. Já tive várias mães de crianças autistas relatando avanço significativo.",
+    },
+    {
+      q: "Por que tão barato (R$67)? Tem pegadinha?",
+      a: "Não tem pegadinha. Vendi a R$200 antes e percebi que a mãe que mais PRECISA do método é justamente a que não tem R$200 sobrando. Decidi cobrar R$67 para atingir o máximo de famílias possível. A qualidade do conteúdo é exatamente a mesma.",
+    },
+    {
+      q: "Quanto tempo de aula são?",
+      a: "Aulas curtas de 5 a 15 minutos cada. No total, ~3 horas de conteúdo em vídeo + áudios + cards. Você assiste no celular, no ônibus, na pausa do café.",
+    },
+    {
+      q: "Vou ter contato direto com a Dra. Thaynara?",
+      a: "Sim. O suporte direto pelo WhatsApp comigo está incluído. Sou eu de verdade respondendo.",
+    },
+    {
+      q: "E se em 30 dias eu não ver resultado nenhum?",
+      a: "Manda mensagem e devolvo cada centavo. Sem perguntas, sem formulário, sem julgamento.",
+    },
+  ];
 
   return (
     <main className="min-h-screen bg-background pb-32">
@@ -110,11 +140,11 @@ const QuizResultado = () => {
             ✅ Diagnóstico Concluído
           </span>
           <h1 className="text-[1.5rem] md:text-[1.95rem] font-extrabold text-marrom-dark leading-[1.2]">
-            Mãe do(a) filho de {idade}: seu pequeno está no Estágio{" "}
+            Mãe do(a) {nome}: o(a) {nome} está no Estágio{" "}
             <span className="text-[#FF6B35]">{estagio}</span> de desenvolvimento da fala.
           </h1>
           <p className="text-[1rem] text-marrom-dark/80 leading-[1.6] max-w-[560px]">
-            Baseado nas suas 8 respostas e cruzando com o protocolo clínico de fonoaudiologia infantil, identifiquei que seu filho precisa de estímulos específicos pra essa fase. Veja o que descobri:
+            Baseado nas suas 12 respostas, identifiquei que o(a) {nome} precisa de estímulos específicos pra essa fase.
           </p>
           <div className="flex items-center gap-3 bg-rosa-light/60 rounded-xl px-4 py-3 mt-2">
             <img
@@ -149,7 +179,7 @@ const QuizResultado = () => {
                 }}
                 className="bg-[#FF6B35] hover:bg-[#FF6B35]/90 text-white font-extrabold uppercase tracking-wide rounded-xl shadow-lg shadow-[#FF6B35]/30 px-6 py-5 md:py-6 text-[0.9rem] md:text-[1.05rem] w-full leading-tight whitespace-normal h-auto inline-flex items-center justify-center gap-2"
               >
-                QUERO DESTRAVAR A FALA DO MEU FILHO →
+                {ctaDestravar}
               </button>
               <p className="text-[0.78rem] text-marrom-dark/70 font-medium">
                 🛡️ Garantia incondicional 30 dias · Risco zero
@@ -164,11 +194,11 @@ const QuizResultado = () => {
       </section>
 
       {/* ===== BLOCO 3 — O QUE FALTOU ===== */}
-      {tentativas.length > 0 && (
+      {(tentativas.length > 0 || telaBullet) && (
         <section className="px-4 pb-10">
           <div className="max-w-[640px] mx-auto">
             <h2 className="text-[1.25rem] md:text-[1.45rem] font-extrabold text-marrom-dark mb-5">
-              ❌ O que faltou no seu caso até agora:
+              ❌ Mãe, o que faltou no caso do(a) {nome} até agora:
             </h2>
             <ul className="flex flex-col gap-3">
               {tentativas.map((t) => (
@@ -176,9 +206,14 @@ const QuizResultado = () => {
                   key={t}
                   className="bg-white border-l-4 border-[#FF6B35] rounded-r-xl px-4 py-3 text-[0.95rem] text-marrom-dark leading-snug shadow-sm"
                 >
-                  {FALTOU_MAP[t]}
+                  {faltou[t]}
                 </li>
               ))}
+              {telaBullet && (
+                <li className="bg-white border-l-4 border-[#FF6B35] rounded-r-xl px-4 py-3 text-[0.95rem] text-marrom-dark leading-snug shadow-sm">
+                  {telaBullet}
+                </li>
+              )}
             </ul>
           </div>
         </section>
@@ -188,14 +223,14 @@ const QuizResultado = () => {
       <section id="solucao-estagio" className="px-4 pb-10">
         <div className="max-w-[640px] mx-auto">
           <h2 className="text-[1.3rem] md:text-[1.55rem] font-extrabold text-marrom-dark mb-5 text-center">
-            ✅ A solução pro Estágio <span className="text-[#FF6B35]">{estagio}</span> do seu filho:
+            ✅ A solução pro Estágio <span className="text-[#FF6B35]">{estagio}</span> do(a) {nome}:
           </h2>
           <div className="bg-rosa-light/40 border-2 border-[#FF6B35]/30 rounded-2xl p-5 md:p-7">
             <h3 className="text-[1.2rem] md:text-[1.4rem] font-extrabold text-marrom-dark text-center">
               PROGRAMA MEU FILHO VAI FALAR
             </h3>
             <p className="text-[0.9rem] text-marrom-dark/75 text-center mt-1 mb-5">
-              Plano de 30 dias · 15 min por dia · Adaptado pra filho de {idade}
+              Plano de 30 dias · 15 min por dia · Adaptado pra {idade}
             </p>
 
             <ul className="flex flex-col gap-2.5 text-[0.92rem] text-marrom-dark leading-snug">
@@ -237,7 +272,7 @@ const QuizResultado = () => {
             </div>
 
             <div className="mt-6 flex flex-col items-center gap-2">
-              <QuizCheckoutButton>QUERO DESTRAVAR A FALA DO MEU FILHO →</QuizCheckoutButton>
+              <QuizCheckoutButton>{ctaDestravar}</QuizCheckoutButton>
               <p className="text-[0.78rem] text-marrom-dark/70 font-medium">
                 🛡️ Garantia incondicional de 30 dias · Risco zero
               </p>
@@ -266,17 +301,23 @@ const QuizResultado = () => {
         </div>
       </section>
 
-      {/* ===== BLOCO 6 — URGÊNCIA ÉTICA ===== */}
+      {/* ===== BLOCO 6 — URGÊNCIA + MEDO PERSONALIZADO ===== */}
       <section className="px-4 pb-10">
         <div className="max-w-[640px] mx-auto bg-rosa/30 border-2 border-rosa rounded-2xl p-6 text-center">
           <h2 className="text-[1.25rem] md:text-[1.45rem] font-extrabold text-marrom-dark">
-            ⏰ A janela crítica não espera
+            {medo?.titulo || "⏰ A janela crítica não espera"}
           </h2>
           <p className="text-[0.95rem] text-marrom-dark/85 leading-[1.6] mt-3">
-            O cérebro do seu filho está numa fase de maior plasticidade entre 2 e 5 anos. Cada semana sem estímulo correto é uma semana de capacidade que NÃO volta. Não dá pra esperar mais.
+            {medo?.texto ||
+              `O cérebro do(a) ${nome} está numa fase de maior plasticidade entre 2 e 5 anos. Cada semana sem estímulo correto é tempo que NÃO volta.`}
           </p>
+          {medo && (
+            <p className="text-[0.9rem] text-marrom-dark/75 leading-[1.6] mt-4">
+              O cérebro do(a) {nome} está numa fase de maior plasticidade. Cada semana sem estímulo correto é tempo que NÃO volta.
+            </p>
+          )}
           <div className="mt-5">
-            <QuizCheckoutButton>COMEÇAR POR 12x R$ 6,93 →</QuizCheckoutButton>
+            <QuizCheckoutButton>COMEÇAR AGORA POR 12x R$ 6,93 →</QuizCheckoutButton>
           </div>
         </div>
       </section>
@@ -309,7 +350,7 @@ const QuizResultado = () => {
             🛡️ GARANTIA INCONDICIONAL DE 30 DIAS
           </h2>
           <p className="text-[0.95rem] text-marrom-dark/85 leading-[1.6] mt-3">
-            Se em 30 dias seu filho não falar UMA palavra nova, eu devolvo cada centavo. Sem perguntas. Sem julgamento. Você fica com o material.
+            Se em 30 dias o(a) {nome} não falar UMA palavra nova, eu devolvo cada centavo. Sem perguntas. Sem julgamento. Você fica com o material.
           </p>
           <div className="flex flex-wrap gap-2 justify-center mt-4 text-[0.75rem] text-marrom-dark/70 font-medium">
             <span className="bg-rosa-light/60 rounded-full px-3 py-1">CRFa 4-13693</span>
