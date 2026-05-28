@@ -160,13 +160,12 @@ const STEPS: Step[] = [
   {
     type: "single",
     key: "filho_avaliacao",
-    title: "[filho_nome] já passou por uma avaliação fonoaudiológica?",
+    title: "Qual é a situação do(a) [filho_nome] hoje com fonoaudióloga?",
     options: [
-      { value: "diagnostico", label: "Sim, já tem diagnóstico", icon: "✅" },
-      { value: "fila_mais_6m", label: "Tô numa fila de espera há mais de 6 meses", icon: "⏰" },
-      { value: "fila_menos_6m", label: "Tô na fila há menos de 6 meses", icon: "⏳" },
-      { value: "particular", label: "Pago fono particular mas não dá conta", icon: "💰" },
-      { value: "nunca", label: "Nunca passou por avaliação", icon: "❌" },
+      { value: "acompanhamento", label: "Faz acompanhamento atualmente", icon: "👩‍⚕️" },
+      { value: "avaliacao", label: "Já passou por avaliação (mas não faz mais)", icon: "📋" },
+      { value: "fila", label: "Tô em fila de espera (SUS ou plano de saúde)", icon: "⏰" },
+      { value: "nunca", label: "Nunca passou por uma fonoaudióloga", icon: "❌" },
     ],
   },
   // Q10 - Tempo disponível
