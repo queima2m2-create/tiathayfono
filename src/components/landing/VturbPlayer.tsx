@@ -30,7 +30,7 @@ const VturbPlayer = () => {
 
   return (
     <section className="bg-background pt-2 pb-8 md:pt-4 md:pb-12 px-4">
-      <div className="max-w-[400px] mx-auto rounded-2xl overflow-hidden">
+      <div className="mx-auto rounded-2xl overflow-hidden">
         {/* @ts-ignore – custom Vturb web component */}
         <vturb-smartplayer
           id="vid-6a17a5ef76b1a83e8acc0596"
