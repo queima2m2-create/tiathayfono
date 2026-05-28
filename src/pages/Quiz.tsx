@@ -141,7 +141,7 @@ const STEPS: Step[] = [
     subtitle: "Pode marcar mais de uma opção",
     options: [
       { value: "pediatra", label: "Levei no pediatra (disseram que era cedo / pra esperar)" },
-      { value: "fono", label: "Levei em fonoaudióloga (mas não consigo continuar/é caro)" },
+      { value: "fono", label: "Faço ou já fiz acompanhamento com fonoaudióloga" },
       { value: "youtube", label: "Tentei vídeos no YouTube" },
       { value: "chupeta", label: "Cortei a chupeta / a mamadeira" },
       { value: "escolinha", label: "Coloquei na escolinha pra 'estimular'" },
