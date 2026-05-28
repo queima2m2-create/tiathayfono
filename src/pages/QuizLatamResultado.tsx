@@ -279,6 +279,9 @@ const QuizLatamResultado = () => {
               <span className="inline-block mt-3 bg-verde/15 text-verde border border-verde/30 rounded-full px-4 py-1.5 text-[0.78rem] font-bold">
                 AHORRAS más del 80%
               </span>
+              <p className="text-[0.85rem] text-[#666666] text-center mt-2 leading-snug">
+                💱 El precio se convierte automáticamente a la moneda de tu país (MXN, COP, CLP, PEN, etc.) al momento del pago
+              </p>
             </div>
 
             <div className="mt-6 flex flex-col items-center gap-2">
