@@ -91,7 +91,7 @@ const ExitIntentModal = ({ open, onClose }: { open: boolean; onClose: () => void
               ⏸️ Espera, mãe!
             </h3>
             <p className="text-[0.95rem] md:text-[1rem] text-marrom-dark/80 text-center mt-3 leading-snug">
-              Quer receber esse diagnóstico personalizado + 1 dica em vídeo da Dra. Thaynara direto no seu WhatsApp?
+              Quer receber esse diagnóstico do(a) {(loadQuizAnswers().filho_nome || "seu filho").trim()} + 1 dica em vídeo da Dra. Thaynara direto no seu WhatsApp?
             </p>
             <form onSubmit={handleSubmit} className="mt-5 flex flex-col gap-3">
               <input
