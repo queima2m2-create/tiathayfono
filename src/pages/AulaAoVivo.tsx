@@ -33,6 +33,24 @@ const getCookie = (name: string) => {
   return m ? decodeURIComponent(m[2]) : "";
 };
 
+const createUUID = () => {
+  const cryptoObj = typeof window !== "undefined" ? window.crypto : undefined;
+  if (cryptoObj?.randomUUID) return cryptoObj.randomUUID();
+
+  return "10000000-1000-4000-8000-100000000000".replace(/[018]/g, (c) =>
+    (
+      Number(c) ^
+      ((cryptoObj?.getRandomValues(new Uint8Array(1))[0] ?? Math.random() * 256) &
+        (15 >> (Number(c) / 4)))
+    ).toString(16),
+  );
+};
+
+const calculateLeadScore = (formData: AulaFormData) =>
+  (formData.ja_fez_avaliacao === "Ainda não" ? 30 : 10) +
+  (["Mais de 1 ano", "Sempre desconfiei desde bebê"].includes(formData.tempo_percebe) ? 25 : 10) +
+  (formData.habilidades_atuais.length <= 2 ? 20 : 5);
+
 const maskPhone = (v: string) => {
   const d = v.replace(/\D/g, "").slice(0, 11);
   if (d.length <= 2) return d;
@@ -284,28 +302,28 @@ export default function AulaAoVivo() {
     setError("");
     try {
       const urlParams = new URLSearchParams(window.location.search);
+      const submissionId = createUUID();
+      const leadScore = calculateLeadScore(data);
       const payload = {
+        id: submissionId,
         ...data,
         fbp: getCookie("_fbp"),
         fbc: getCookie("_fbc"),
         utm_source: urlParams.get("utm_source") || "",
         utm_medium: urlParams.get("utm_medium") || "",
         utm_campaign: urlParams.get("utm_campaign") || "",
-        session_id:
-          (window.crypto as any)?.randomUUID?.() || String(Date.now()),
+        session_id: submissionId,
         user_agent: navigator.userAgent,
       };
 
-      const { data: inserted, error: insErr } = await supabase
+      const { error: insErr } = await supabase
         .from("form_comunidade_aula")
-        .insert(payload as any)
-        .select("id, lead_score")
-        .single();
+        .insert(payload as any);
 
       if (insErr) throw insErr;
 
       fbq("track", "Lead", {
-        value: (inserted as any)?.lead_score || 0,
+        value: leadScore,
         currency: "BRL",
       });
 
@@ -314,7 +332,7 @@ export default function AulaAoVivo() {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           keepalive: true,
-          body: JSON.stringify({ id: (inserted as any)?.id, ...payload }),
+          body: JSON.stringify({ ...payload, lead_score: leadScore }),
         });
       } catch {}
 
