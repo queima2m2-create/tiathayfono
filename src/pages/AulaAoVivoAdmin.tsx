@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import type { Session } from "@supabase/supabase-js";
 import { supabase } from "@/integrations/supabase/client";
 import Papa from "papaparse";
@@ -331,9 +331,8 @@ const Respostas = ({ rows }: { rows: Row[] }) => {
           </thead>
           <tbody>
             {filtered.map((r) => (
-              <>
+              <React.Fragment key={r.id}>
                 <tr
-                  key={r.id}
                   onClick={() => setExpanded(expanded === r.id ? null : r.id)}
                   className="border-t border-[#FFE5EC] cursor-pointer hover:bg-[#FFE5EC]/30"
                 >
@@ -365,7 +364,7 @@ const Respostas = ({ rows }: { rows: Row[] }) => {
                     </td>
                   </tr>
                 )}
-              </>
+              </React.Fragment>
             ))}
             {!filtered.length && (
               <tr><td colSpan={6} className="p-8 text-center text-[#3A3540]/60">Nenhuma resposta encontrada.</td></tr>
