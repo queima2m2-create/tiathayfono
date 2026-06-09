@@ -14,7 +14,102 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      form_comunidade_aula: {
+        Row: {
+          created_at: string
+          desejo_principal: string
+          dias_disponiveis: string[]
+          email: string | null
+          exposicao_telas: string
+          fbc: string | null
+          fbp: string | null
+          gancho_priorizacao: string | null
+          genero_filho: string
+          habilidades_atuais: string[]
+          horario_pref: string
+          id: string
+          idade_filho: string
+          ja_fez_avaliacao: string
+          ja_tentou: string | null
+          lead_score: number | null
+          maior_angustia: string
+          nome_filho: string
+          nome_mae: string
+          palavra_momento: string | null
+          plataforma_pref: string
+          reacao_interacao: string | null
+          session_id: string | null
+          tempo_percebe: string
+          user_agent: string | null
+          utm_campaign: string | null
+          utm_medium: string | null
+          utm_source: string | null
+          whatsapp: string
+        }
+        Insert: {
+          created_at?: string
+          desejo_principal: string
+          dias_disponiveis: string[]
+          email?: string | null
+          exposicao_telas: string
+          fbc?: string | null
+          fbp?: string | null
+          gancho_priorizacao?: string | null
+          genero_filho: string
+          habilidades_atuais: string[]
+          horario_pref: string
+          id?: string
+          idade_filho: string
+          ja_fez_avaliacao: string
+          ja_tentou?: string | null
+          lead_score?: number | null
+          maior_angustia: string
+          nome_filho: string
+          nome_mae: string
+          palavra_momento?: string | null
+          plataforma_pref: string
+          reacao_interacao?: string | null
+          session_id?: string | null
+          tempo_percebe: string
+          user_agent?: string | null
+          utm_campaign?: string | null
+          utm_medium?: string | null
+          utm_source?: string | null
+          whatsapp: string
+        }
+        Update: {
+          created_at?: string
+          desejo_principal?: string
+          dias_disponiveis?: string[]
+          email?: string | null
+          exposicao_telas?: string
+          fbc?: string | null
+          fbp?: string | null
+          gancho_priorizacao?: string | null
+          genero_filho?: string
+          habilidades_atuais?: string[]
+          horario_pref?: string
+          id?: string
+          idade_filho?: string
+          ja_fez_avaliacao?: string
+          ja_tentou?: string | null
+          lead_score?: number | null
+          maior_angustia?: string
+          nome_filho?: string
+          nome_mae?: string
+          palavra_momento?: string | null
+          plataforma_pref?: string
+          reacao_interacao?: string | null
+          session_id?: string | null
+          tempo_percebe?: string
+          user_agent?: string | null
+          utm_campaign?: string | null
+          utm_medium?: string | null
+          utm_source?: string | null
+          whatsapp?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never

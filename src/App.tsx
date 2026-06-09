@@ -16,6 +16,9 @@ const Quiz = lazy(() => import("./pages/Quiz.tsx"));
 const QuizResultado = lazy(() => import("./pages/QuizResultado.tsx"));
 const QuizLatam = lazy(() => import("./pages/QuizLatam.tsx"));
 const QuizLatamResultado = lazy(() => import("./pages/QuizLatamResultado.tsx"));
+const AulaAoVivo = lazy(() => import("./pages/AulaAoVivo.tsx"));
+const AulaAoVivoSucesso = lazy(() => import("./pages/AulaAoVivoSucesso.tsx"));
+const AulaAoVivoAdmin = lazy(() => import("./pages/AulaAoVivoAdmin.tsx"));
 const NotFound = lazy(() => import("./pages/NotFound.tsx"));
 
 const PageViewTracker = () => {
@@ -54,6 +57,11 @@ const App = () => {
         <Route path="/quiz/resultado" element={<Suspense fallback={null}><QuizResultado /></Suspense>} />
         <Route path="/quiz-latam" element={<Suspense fallback={null}><QuizLatam /></Suspense>} />
         <Route path="/quiz-latam/resultado" element={<Suspense fallback={null}><QuizLatamResultado /></Suspense>} />
+        <Route path="/aula-ao-vivo" element={<Suspense fallback={null}><AulaAoVivo /></Suspense>} />
+        <Route path="/aula-ao-vivo/sucesso" element={<Suspense fallback={null}><AulaAoVivoSucesso /></Suspense>} />
+        <Route path="/aula-ao-vivo/admin" element={<Suspense fallback={null}><AulaAoVivoAdmin /></Suspense>} />
+        <Route path="/aula-ao-vivo/admin/respostas" element={<Suspense fallback={null}><AulaAoVivoAdmin /></Suspense>} />
+        <Route path="/aula-ao-vivo/admin/insights" element={<Suspense fallback={null}><AulaAoVivoAdmin /></Suspense>} />
         {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
         <Route path="*" element={<Suspense fallback={null}><NotFound /></Suspense>} />
       </Routes>
