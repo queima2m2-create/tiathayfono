@@ -38,7 +38,7 @@ export default function AulaAoVivoSucesso() {
           Sua vaga tá garantida. Em instantes você recebe a confirmação no WhatsApp 💛
         </p>
         <p className="mt-6 text-sm text-[#3A3540]/70">
-          Se não chegar em 5 minutos, manda "oi" pra (79) 9XXXX-XXXX
+          Se não chegar em 5 minutos, manda "oi" pra (31) 93618-5541
         </p>
         <a
           href="https://instagram.com/tiathaynara"
