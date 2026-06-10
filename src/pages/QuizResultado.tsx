@@ -78,7 +78,7 @@ const QuizResultado = () => {
     fbqTrack("ViewContent", {
       content_name: "Quiz Resultado",
       content_category: "Infoproduto",
-      value: 67,
+      value: 47,
       currency: "BRL",
     });
     const onAnyKiwifyClick = (e: Event) => {
@@ -261,13 +261,13 @@ const QuizResultado = () => {
                 Hoje, com promoção exclusiva pra quem fez o diagnóstico:
               </p>
               <p className="text-[2.2rem] md:text-[2.6rem] font-extrabold text-[#FF6B35] leading-none mt-2">
-                12x R$ 6,93
+                11x R$ 5,22
               </p>
               <p className="text-[0.85rem] text-marrom-dark/70 font-medium">
-                ou R$ 67 à vista no PIX
+                ou R$ 47 à vista no PIX
               </p>
               <span className="inline-block mt-3 bg-verde/15 text-verde border border-verde/30 rounded-full px-4 py-1.5 text-[0.78rem] font-bold">
-                VOCÊ ECONOMIZA R$ 430
+                VOCÊ ECONOMIZA R$ 450
               </span>
             </div>
 
@@ -317,7 +317,7 @@ const QuizResultado = () => {
             </p>
           )}
           <div className="mt-5">
-            <QuizCheckoutButton>COMEÇAR AGORA POR 12x R$ 6,93 →</QuizCheckoutButton>
+            <QuizCheckoutButton>COMEÇAR AGORA POR 11x R$ 5,22 →</QuizCheckoutButton>
           </div>
         </div>
       </section>
@@ -358,7 +358,7 @@ const QuizResultado = () => {
             <span className="bg-rosa-light/60 rounded-full px-3 py-1">Garantia 30 dias</span>
           </div>
           <div className="mt-5">
-            <QuizCheckoutButton>QUERO COMEÇAR POR 12x R$ 6,93 →</QuizCheckoutButton>
+            <QuizCheckoutButton>QUERO COMEÇAR POR 11x R$ 5,22 →</QuizCheckoutButton>
           </div>
         </div>
       </section>
