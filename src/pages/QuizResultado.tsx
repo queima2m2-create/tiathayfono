@@ -114,8 +114,8 @@ const QuizResultado = () => {
       a: "O método foca em estímulos universais de linguagem que ajudam qualquer criança — incluindo crianças no espectro autista. Se há diagnóstico de TEA, recomendo combinar com acompanhamento profissional. Já tive várias mães de crianças autistas relatando avanço significativo.",
     },
     {
-      q: "Por que tão barato (R$67)? Tem pegadinha?",
-      a: "Não tem pegadinha. Vendi a R$200 antes e percebi que a mãe que mais PRECISA do método é justamente a que não tem R$200 sobrando. Decidi cobrar R$67 para atingir o máximo de famílias possível. A qualidade do conteúdo é exatamente a mesma.",
+      q: "Por que tão barato (R$47)? Tem pegadinha?",
+      a: "Não tem pegadinha. Vendi a R$200 antes e percebi que a mãe que mais PRECISA do método é justamente a que não tem R$200 sobrando. Decidi cobrar R$47 para atingir o máximo de famílias possível. A qualidade do conteúdo é exatamente a mesma.",
     },
     {
       q: "Quanto tempo de aula são?",
