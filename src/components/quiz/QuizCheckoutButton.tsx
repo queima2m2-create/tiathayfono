@@ -25,7 +25,7 @@ const QuizCheckoutButton = ({
       w.fbq("track", "InitiateCheckout", {
         content_name: "Meu Filho Vai Falar",
         currency: "BRL",
-        value: 47,
+        value: 57,
       });
     }
     setTimeout(() => {
