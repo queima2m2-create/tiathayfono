@@ -53,7 +53,7 @@ const ExitIntentModal = ({ open, onClose }: { open: boolean; onClose: () => void
       if (typeof w.fbq === "function") {
         w.fbq("track", "Lead", {
           content_name: "Lead Quiz BR",
-          value: 47,
+          value: 57,
           currency: "BRL",
         });
       }

@@ -78,7 +78,7 @@ const QuizResultado = () => {
     fbqTrack("ViewContent", {
       content_name: "Quiz Resultado",
       content_category: "Infoproduto",
-      value: 47,
+      value: 57,
       currency: "BRL",
     });
     const onAnyKiwifyClick = (e: Event) => {
@@ -114,8 +114,8 @@ const QuizResultado = () => {
       a: "O método foca em estímulos universais de linguagem que ajudam qualquer criança — incluindo crianças no espectro autista. Se há diagnóstico de TEA, recomendo combinar com acompanhamento profissional. Já tive várias mães de crianças autistas relatando avanço significativo.",
     },
     {
-      q: "Por que tão barato (R$47)? Tem pegadinha?",
-      a: "Não tem pegadinha. Vendi a R$200 antes e percebi que a mãe que mais PRECISA do método é justamente a que não tem R$200 sobrando. Decidi cobrar R$47 para atingir o máximo de famílias possível. A qualidade do conteúdo é exatamente a mesma.",
+      q: "Por que tão barato (R$57)? Tem pegadinha?",
+      a: "Não tem pegadinha. Vendi a R$200 antes e percebi que a mãe que mais PRECISA do método é justamente a que não tem R$200 sobrando. Decidi cobrar R$57 para atingir o máximo de famílias possível. A qualidade do conteúdo é exatamente a mesma.",
     },
     {
       q: "Quanto tempo de aula são?",
@@ -261,13 +261,13 @@ const QuizResultado = () => {
                 Hoje, com promoção exclusiva pra quem fez o diagnóstico:
               </p>
               <p className="text-[2.2rem] md:text-[2.6rem] font-extrabold text-[#FF6B35] leading-none mt-2">
-                11x R$ 5,22
+                12x R$ 5,90
               </p>
               <p className="text-[0.85rem] text-marrom-dark/70 font-medium">
-                ou R$ 47 à vista no PIX
+                ou R$ 57,00 à vista no PIX
               </p>
               <span className="inline-block mt-3 bg-verde/15 text-verde border border-verde/30 rounded-full px-4 py-1.5 text-[0.78rem] font-bold">
-                VOCÊ ECONOMIZA R$ 450
+                VOCÊ ECONOMIZA R$ 440
               </span>
             </div>
 
@@ -317,7 +317,7 @@ const QuizResultado = () => {
             </p>
           )}
           <div className="mt-5">
-            <QuizCheckoutButton>COMEÇAR AGORA POR 11x R$ 5,22 →</QuizCheckoutButton>
+            <QuizCheckoutButton>COMEÇAR AGORA POR 12x R$ 5,90 →</QuizCheckoutButton>
           </div>
         </div>
       </section>
@@ -358,7 +358,7 @@ const QuizResultado = () => {
             <span className="bg-rosa-light/60 rounded-full px-3 py-1">Garantia 30 dias</span>
           </div>
           <div className="mt-5">
-            <QuizCheckoutButton>QUERO COMEÇAR POR 11x R$ 5,22 →</QuizCheckoutButton>
+            <QuizCheckoutButton>QUERO COMEÇAR POR 12x R$ 5,90 →</QuizCheckoutButton>
           </div>
         </div>
       </section>

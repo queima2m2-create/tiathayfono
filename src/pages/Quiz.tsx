@@ -354,7 +354,7 @@ const Quiz = () => {
       saveQuizAnswers(finalAnswers);
       fbqTrack("QuizComplete", {
         content_name: "Quiz Meu Filho Vai Falar BR",
-        value: 47,
+        value: 57,
         currency: "BRL",
       });
       setProcessing(true);
