@@ -45,7 +45,7 @@ const V4Reveal = () => {
       <section className="px-4 pb-10 md:pb-16" style={{ background: CINZA_CLARO }}>
         <div className="max-w-[800px] mx-auto text-center">
           <h1
-            className="text-3xl md:text-5xl font-extrabold leading-[1.15]"
+            className="text-xl md:text-5xl font-extrabold leading-[1.15]"
             style={{ color: ROXO }}
           >
             Você tem o conhecimento. Agora precisa do roteiro.
