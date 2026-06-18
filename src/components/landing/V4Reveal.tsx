@@ -45,13 +45,13 @@ const V4Reveal = () => {
       <section className="px-4 pb-10 md:pb-16" style={{ background: CINZA_CLARO }}>
         <div className="max-w-[800px] mx-auto text-center">
           <h1
-            className="text-xl md:text-5xl font-extrabold leading-[1.15]"
+            className="text-base md:text-5xl font-extrabold leading-[1.15]"
             style={{ color: ROXO }}
           >
             Você tem o conhecimento. Agora precisa do roteiro.
           </h1>
 
-          <div className="mt-4 md:mt-10">
+          <div className="mt-2 md:mt-10">
             <div className="flex justify-center">
               <div
                 style={{ textAlign: "center" }}
@@ -74,13 +74,13 @@ const V4Reveal = () => {
                   }}
                   style={{
                     background: "linear-gradient(180deg, #2ED66F 0%, #27AF60 50%, #1F8F4E 100%)",
-                    padding: "20px 32px",
+                    padding: "14px 24px",
                     cursor: "pointer",
                     color: "#FFFFFF",
                     fontWeight: 800,
                     borderRadius: "16px",
                     border: "none",
-                    fontSize: "20px",
+                    fontSize: "16px",
                     lineHeight: 1.2,
                     width: "100%",
                     maxWidth: "520px",
@@ -103,13 +103,13 @@ const V4Reveal = () => {
 
                 {/* Texto destacado para quem comprou no Pix */}
                 <div
-                  className="mx-auto w-full text-center font-bold text-base md:text-lg px-6 py-4 rounded-xl"
+                  className="mx-auto w-full text-center font-bold text-sm md:text-lg px-4 py-2.5 rounded-xl"
                   style={{
                     background: "#FFF4D6",
                     border: "2px solid #FFB347",
                     color: "#3D2A1F",
-                    marginTop: "32px",
-                    marginBottom: "16px",
+                    marginTop: "16px",
+                    marginBottom: "12px",
                     maxWidth: "520px",
                   }}
                 >
@@ -123,12 +123,12 @@ const V4Reveal = () => {
                   style={{
                     background: "#FF6B35",
                     color: "#FFFFFF",
-                    fontSize: "18px",
-                    padding: "20px 32px",
+                    fontSize: "16px",
+                    padding: "14px 24px",
                     borderRadius: "16px",
                     textDecoration: "none",
-                    marginTop: "16px",
-                    marginBottom: "32px",
+                    marginTop: "12px",
+                    marginBottom: "16px",
                     maxWidth: "520px",
                     boxShadow: "0 6px 16px -6px rgba(255,107,53,0.45), 0 2px 0 0 #E55A2B",
                     transition: "transform 120ms ease, filter 120ms ease",
@@ -155,14 +155,14 @@ const V4Reveal = () => {
                     (e.currentTarget as HTMLDivElement).style.backgroundColor = "#6C757D";
                   }}
                   style={{
-                    marginTop: "12px",
+                    marginTop: "8px",
                     cursor: "pointer",
                     backgroundColor: "#6C757D",
                     color: "#FFFFFF",
                     fontWeight: 700,
-                    fontSize: "18px",
+                    fontSize: "16px",
                     textTransform: "uppercase",
-                    padding: "20px 32px",
+                    padding: "14px 24px",
                     border: "none",
                     borderRadius: "16px",
                     width: "100%",
