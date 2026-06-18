@@ -100,6 +100,52 @@ const V4Reveal = () => {
                   <span aria-hidden="true">🛒</span>
                   Sim, QUERO O PLANO DA TIA THAY
                 </button>
+
+                {/* Texto destacado para quem comprou no Pix */}
+                <div
+                  className="mx-auto w-full text-center font-bold text-base md:text-lg px-6 py-4 rounded-xl"
+                  style={{
+                    background: "#FFF4D6",
+                    border: "2px solid #FFB347",
+                    color: "#3D2A1F",
+                    marginTop: "32px",
+                    marginBottom: "16px",
+                    maxWidth: "520px",
+                  }}
+                >
+                  Comprou o Guia Meu Filho Vai Falar no Pix e quer levar o Plano 30 Dias com a Tia Thay pagando no cartão? Então é só clicar no botão abaixo 👇
+                </div>
+
+                {/* Segundo botão — pagamento no cartão */}
+                <a
+                  href="https://pay.kiwify.com.br/sc9IBLE"
+                  className="mx-auto w-full block text-center font-bold uppercase tracking-wide"
+                  style={{
+                    background: "#FF6B35",
+                    color: "#FFFFFF",
+                    fontSize: "18px",
+                    padding: "20px 32px",
+                    borderRadius: "16px",
+                    textDecoration: "none",
+                    marginTop: "16px",
+                    marginBottom: "32px",
+                    maxWidth: "520px",
+                    boxShadow: "0 6px 16px -6px rgba(255,107,53,0.45), 0 2px 0 0 #E55A2B",
+                    transition: "transform 120ms ease, filter 120ms ease",
+                    letterSpacing: "0.3px",
+                    fontFamily: "'DM Sans', system-ui, sans-serif",
+                    lineHeight: 1.2,
+                  }}
+                  onMouseEnter={(e) => {
+                    (e.currentTarget as HTMLAnchorElement).style.filter = "brightness(0.92)";
+                  }}
+                  onMouseLeave={(e) => {
+                    (e.currentTarget as HTMLAnchorElement).style.filter = "brightness(1)";
+                  }}
+                >
+                  Quero adquirir pagando no cartão
+                </a>
+
                 <div
                   id="kiwify-upsell-cancel-trigger-cXCgv1m"
                   onMouseEnter={(e) => {
