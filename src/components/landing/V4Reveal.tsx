@@ -155,14 +155,14 @@ const V4Reveal = () => {
                     (e.currentTarget as HTMLDivElement).style.backgroundColor = "#6C757D";
                   }}
                   style={{
-                    marginTop: "12px",
+                    marginTop: "8px",
                     cursor: "pointer",
                     backgroundColor: "#6C757D",
                     color: "#FFFFFF",
                     fontWeight: 700,
-                    fontSize: "18px",
+                    fontSize: "16px",
                     textTransform: "uppercase",
-                    padding: "20px 32px",
+                    padding: "14px 24px",
                     border: "none",
                     borderRadius: "16px",
                     width: "100%",
