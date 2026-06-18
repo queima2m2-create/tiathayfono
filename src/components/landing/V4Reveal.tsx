@@ -51,7 +51,7 @@ const V4Reveal = () => {
             Você tem o conhecimento. Agora precisa do roteiro.
           </h1>
 
-          <div className="mt-10">
+          <div className="mt-4 md:mt-10">
             <div className="flex justify-center">
               <div
                 style={{ textAlign: "center" }}
