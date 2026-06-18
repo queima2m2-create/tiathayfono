@@ -74,13 +74,13 @@ const V4Reveal = () => {
                   }}
                   style={{
                     background: "linear-gradient(180deg, #2ED66F 0%, #27AF60 50%, #1F8F4E 100%)",
-                    padding: "20px 32px",
+                    padding: "14px 24px",
                     cursor: "pointer",
                     color: "#FFFFFF",
                     fontWeight: 800,
                     borderRadius: "16px",
                     border: "none",
-                    fontSize: "20px",
+                    fontSize: "16px",
                     lineHeight: 1.2,
                     width: "100%",
                     maxWidth: "520px",
