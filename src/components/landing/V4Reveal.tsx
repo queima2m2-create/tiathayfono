@@ -103,13 +103,13 @@ const V4Reveal = () => {
 
                 {/* Texto destacado para quem comprou no Pix */}
                 <div
-                  className="mx-auto w-full text-center font-bold text-base md:text-lg px-6 py-4 rounded-xl"
+                  className="mx-auto w-full text-center font-bold text-sm md:text-lg px-4 py-2.5 rounded-xl"
                   style={{
                     background: "#FFF4D6",
                     border: "2px solid #FFB347",
                     color: "#3D2A1F",
-                    marginTop: "32px",
-                    marginBottom: "16px",
+                    marginTop: "16px",
+                    marginBottom: "12px",
                     maxWidth: "520px",
                   }}
                 >
