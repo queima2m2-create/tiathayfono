@@ -161,6 +161,42 @@ const V6 = () => {
           </button>
         </section>
 
+        {/* TEXTO DESTACADO */}
+        <section className="px-4">
+          <div
+            className="max-w-[420px] mx-auto w-full text-center font-bold text-sm md:text-lg px-6 py-4 rounded-xl"
+            style={{
+              background: "#FFF4D6",
+              border: "2px solid #FFB347",
+              color: "#3D2A1F",
+              marginTop: "32px",
+              marginBottom: "16px",
+            }}
+          >
+            Comprou o Guia Meu Filho Vai Falar no Pix e quer levar o Plano 30 Dias com a Tia Thay pagando no cartão? Então é só clicar no botão abaixo 👇
+          </div>
+        </section>
+
+        {/* SEGUNDO BOTÃO — pagamento no cartão */}
+        <section className="px-4" style={{ marginBottom: "32px" }}>
+          <a
+            href="https://pay.kiwify.com.br/2YqnsXX"
+            className="block w-[92%] max-w-[420px] mx-auto rounded-full uppercase font-extrabold text-white text-center py-3.5 px-4 text-[0.92rem] tracking-wide transition-all border-0 cursor-pointer no-underline"
+            style={{
+              background: "#FF6B35",
+              boxShadow: "0 8px 22px -8px rgba(255,107,53,0.6)",
+            }}
+            onMouseEnter={(e) => {
+              (e.currentTarget as HTMLAnchorElement).style.backgroundColor = "#E55A2B";
+            }}
+            onMouseLeave={(e) => {
+              (e.currentTarget as HTMLAnchorElement).style.backgroundColor = "#FF6B35";
+            }}
+          >
+            Quero adquirir pagando no cartão
+          </a>
+        </section>
+
         {/* 7) MICROCOPY */}
         <section className="px-4 pb-1.5 pt-1 text-center">
           <p className="text-[0.72rem] leading-snug" style={{ color: CINZA_MEDIO }}>
